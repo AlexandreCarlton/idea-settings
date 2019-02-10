@@ -1,0 +1,16 @@
+# vim:ft=bzl:
+package(default_visibility = ["//visibility:public"])
+
+# These are set in the classpath when launching the jar with the official idea.sh.
+java_import(name = "bootstrap", jars = ["lib/bootstrap.jar"])
+java_import(name = "extensions", jars = ["lib/extensions.jar"])
+java_import(name = "util", jars = ["lib/util.jar"])
+java_import(name = "jdom", jars = ["lib/jdom.jar"])
+java_import(name = "log4j", jars = ["lib/log4j.jar"])
+java_import(name = "trove4j", jars = ["lib/trove4j.jar"])
+java_import(name = "jna", jars = ["lib/jna.jar"])
+java_import(name = "tools", jars = ["jre64/lib/tools.jar"])
+
+# Libraries needed to compile our generator.
+java_import(name = "platform-api", jars = ["lib/platform-api.jar"])
+java_import(name = "platform-impl", jars = ["lib/platform-impl.jar"])
