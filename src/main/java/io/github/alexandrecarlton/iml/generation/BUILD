@@ -4,6 +4,15 @@ java_binary(
     visibility = ["//visibility:public"],
     runtime_deps = [
         ":generation",
+
+        # In idea.sh, these are added to the classpath.
+        "@idea-IC//:lib/bootstrap",
+        "@idea-IC//:lib/extensions",
+        "@idea-IC//:lib/util",
+        "@idea-IC//:lib/log4j",
+        "@idea-IC//:lib/trove4j",
+        "@idea-IC//:lib/jna",
+        "@idea-IC//:jre64/lib/tools",
     ],
 )
 
@@ -14,13 +23,8 @@ java_library(
     deps = [
         "@idea-IC//:lib/bootstrap",
         "@idea-IC//:lib/extensions",
-        "@idea-IC//:lib/util",
-        "@idea-IC//:lib/log4j",
-        "@idea-IC//:lib/trove4j",
-        "@idea-IC//:lib/jna",
-        "@idea-IC//:jre64/lib/tools",
-
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
+        "@idea-IC//:lib/util",
     ],
 )
