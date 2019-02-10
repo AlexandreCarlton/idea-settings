@@ -7,7 +7,7 @@ IDEA_IC_SOURCES_SHA256 = "276e548135d2c9d5a4a0880dead9a0f48aecdfd1e78074a3c0d48c
 
 http_archive(
     name = "idea-IC",
-    build_file = "BUILD.idea-IC",
+    build_file = "idea-IC.BUILD",
     sha256 = IDEA_IC_SHA256,
     # We don't pull from the same place we get the sources jar because it does not contain a bundled JRE (which is necessary to work properly).
     url = "https://download.jetbrains.com/idea/ideaIC-{0}.tar.gz".format(IDEA_IC_VERSION),

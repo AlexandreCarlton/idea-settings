@@ -1,4 +1,3 @@
-# vim:ft=bzl:
 package(default_visibility = ["//visibility:public"])
 
 # These are set in the classpath when launching the jar with the official idea.sh.
