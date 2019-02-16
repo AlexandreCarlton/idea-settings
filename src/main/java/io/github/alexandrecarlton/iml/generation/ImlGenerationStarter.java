@@ -1,10 +1,13 @@
 package io.github.alexandrecarlton.iml.generation;
 
-import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.application.ApplicationStarter;
 import com.intellij.openapi.application.ex.ApplicationEx;
 import com.intellij.openapi.application.ex.ApplicationManagerEx;
-import com.intellij.openapi.project.Project;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class ImlGenerationStarter implements ApplicationStarter {
 
@@ -21,9 +24,16 @@ public class ImlGenerationStarter implements ApplicationStarter {
   public void main(String... args) {
     ApplicationEx application = ApplicationManagerEx.getApplicationEx();
     application.setSaveAllowed(true);
+    if (args.length < 1) {
+      throw new IllegalArgumentException("Please supply the path to the project.");
+    }
+    Path path = Paths.get(args[0]);
+    if (!Files.exists(path)) {
+      throw new IllegalArgumentException("Please supply a valid path to the project.");
+    }
     application.runWriteAction(() -> {
-      Project project = ProjectUtil.openOrImport(args[0], null, false);
-      project.save();
+      ImlGenerator generator = new ImlGenerator();
+      generator.generate(path);
     });
   }
 }
