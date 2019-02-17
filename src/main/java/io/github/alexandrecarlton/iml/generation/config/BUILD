@@ -20,8 +20,6 @@ java_plugin(
     processor_class = "org.immutables.processor.ProxyProcessor",
     visibility = ["//visibility:public"],
     deps = [
-        "@com_fasterxml_jackson_core_jackson_annotations//jar",
-        "@com_fasterxml_jackson_core_jackson_databind//jar",
         "@org_immutables_value//jar",
     ],
 )
