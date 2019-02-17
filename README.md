@@ -21,3 +21,16 @@ bazel run //:iml-generator <project-directory>
 ## Future goals
 
 Add ability to configure options like excluded folders via a `.yml` file.
+
+## Development
+
+### Updating dependencies
+
+This projects uses [bazel-deps](https://github.com/johnynek/bazel-deps).
+To update a maven dependency, modify [`third_party/dependencies.yaml`].
+Then, checkout the aforementioned repo and run:
+
+```sh
+bazel run //:parse -- generate --repo-root <iml-generator-checkout> --sha-file
+third_party/package-lock.bzl --deps third_party/dependencies.yaml
+```

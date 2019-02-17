@@ -1,0 +1,35 @@
+options:
+  licenses:
+    - permissive
+  thirdPartyDirectory: third_party/maven
+dependencies:
+  com.fasterxml.jackson.core:
+    jackson:
+      lang: java
+      modules:
+        - annotations
+        - core
+        - databind
+      version: 2.9.8
+  com.fasterxml.jackson.dataformat:
+    jackson-dataformat-yaml:
+      lang: java
+      version: 2.9.8
+  com.fasterxml.jackson.datatype:
+    jackson-datatype:
+      lang: java
+      modules:
+        - guava
+        - jdk8
+      version: 2.9.8
+  com.google.guava:
+    guava:
+      lang: java
+      version: 27.0.1-jre
+  org.immutables:
+    value:
+      lang: java
+      version: 2.7.4
+      generatesApi: true
+      processorClasses:
+        - org.immutables.processor.ProxyProcessor

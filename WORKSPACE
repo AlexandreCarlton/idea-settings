@@ -22,42 +22,15 @@ http_jar(
     url = "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaIC/{0}/ideaIC-{0}-sources.jar".format(IDEA_IC_VERSION),
 )
 
-maven_jar(
-    name = "org_immutables_value",
-    artifact = "org.immutables:value:2.7.4",
+http_archive(
+    name = "bazel-deps",
+    sha256 = BAZEL_DEPS_SHA256,
+    strip_prefix = "bazel-deps-{0}".format(BAZEL_DEPS_COMMIT),
+    url = "https://github.com/johnynek/bazel-deps/archive/{0}.zip".format(BAZEL_DEPS_COMMIT),
 )
 
-maven_jar(
-    name = "com_google_guava_guava",
-    artifact = "com.google.guava:guava:27.0.1-jre",
-)
+# bazel-deps will soon produce a jar that can be used to run @bazel-deps//:parse from within
+# this project.
+load("//third_party:package-lock.bzl", "maven_dependencies")
 
-maven_jar(
-    name = "com_fasterxml_jackson_dataformat_jackson_dataformat_yaml",
-    artifact = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8",
-)
-
-maven_jar(
-    name = "com_fasterxml_jackson_datatype_jackson_datatype_guava",
-    artifact = "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.9.8",
-)
-
-maven_jar(
-    name = "com_fasterxml_jackson_datatype_jackson_datatype_jdk8",
-    artifact = "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8",
-)
-
-maven_jar(
-    name = "com_fasterxml_jackson_core_jackson_core",
-    artifact = "com.fasterxml.jackson.core:jackson-core:2.9.8",
-)
-
-maven_jar(
-    name = "com_fasterxml_jackson_core_jackson_databind",
-    artifact = "com.fasterxml.jackson.core:jackson-databind:2.9.8",
-)
-
-maven_jar(
-    name = "com_fasterxml_jackson_core_jackson_annotations",
-    artifact = "com.fasterxml.jackson.core:jackson-annotations:2.9.8",
-)
+maven_dependencies()
