@@ -1,4 +1,4 @@
-package io.github.alexandrecarlton.iml.generation;
+package com.github.alexandrecarlton.idea.settings;
 
 import com.intellij.openapi.application.ApplicationStarter;
 import com.intellij.openapi.application.ex.ApplicationEx;
@@ -7,7 +7,6 @@ import com.intellij.openapi.application.ex.ApplicationManagerEx;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class ImlGenerationStarter implements ApplicationStarter {
 

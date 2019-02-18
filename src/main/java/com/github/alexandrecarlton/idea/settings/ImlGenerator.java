@@ -1,7 +1,6 @@
-package io.github.alexandrecarlton.iml.generation;
+package com.github.alexandrecarlton.idea.settings;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -12,10 +11,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ContentEntry;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.roots.ModuleRootManager;
-import com.intellij.psi.codeStyle.CodeStyleSettings;
-import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
-import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
-import com.sun.org.apache.bcel.internal.classfile.Code;
+import com.github.alexandrecarlton.idea.settings.applier.CodeStyleConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.editor.EditorConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.IdeaConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.ImportsConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.JavaConfigurer;
+import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,13 +24,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
-
-import io.github.alexandrecarlton.iml.generation.config.CodeStyle;
-import io.github.alexandrecarlton.iml.generation.config.Editor;
-import io.github.alexandrecarlton.iml.generation.config.IdeaConfig;
-import io.github.alexandrecarlton.iml.generation.config.Imports;
-import io.github.alexandrecarlton.iml.generation.config.Java;
-
 
 public class ImlGenerator {
   private final ObjectMapper mapper = new YAMLMapper()
@@ -44,12 +38,18 @@ public class ImlGenerator {
    */
   public void generate(Path path) {
 
-    IdeaConfig config = loadConfig(path);
+    IdeaSettings config = loadConfig(path);
 
     Project project = ProjectUtil.openOrImport(path.toString(), null, false);
     project.save();
 
-    config.configure(project);
+    // Yeah, it's probably time to add DI wiring.
+    IdeaConfigurer configurer = new IdeaConfigurer(
+        new EditorConfigurer(
+            new CodeStyleConfigurer(
+                new JavaConfigurer(
+                    new ImportsConfigurer()))));
+    configurer.configure(project, config);
 
     ModuleManager moduleManager = ModuleManager.getInstance(project);
     List<Module> modules = Arrays.asList(moduleManager.getModules());
@@ -66,14 +66,14 @@ public class ImlGenerator {
     project.save();
   }
 
-  private IdeaConfig loadConfig(Path project) {
+  private IdeaSettings loadConfig(Path project) {
     Path configFile = project.resolve(".IDEA-config.yml");
     if (!Files.exists(configFile)) {
       System.out.println(configFile + " does not exist. Exiting.");
       System.exit(1);
     }
     try (InputStream inputStream = Files.newInputStream(configFile)) {
-      return mapper.readValue(inputStream, IdeaConfig.class);
+      return mapper.readValue(inputStream, IdeaSettings.class);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

@@ -1,9 +1,16 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
 
+BAZEL_DEPS_COMMIT = "e3f77e22d9f5b070915067a766607cfc96835c98"
+
+BAZEL_DEPS_SHA256 = "5dac398f0dc57f76566642cf21f10960eed83f4bb56c5860170c0582f5581194"
+
 # To consult further release: https://www.jetbrains.com/intellij-repository/releases/
 IDEA_IC_VERSION = "2018.3.3"
+
 IDEA_IC_PREFIX = "idea-IC-183.5153.38"
+
 IDEA_IC_SHA256 = "15f9676c7807e9f3e462500c5fefd4de543ed5804c588bbb3719dbd94e1d3db1"
+
 IDEA_IC_SOURCES_SHA256 = "276e548135d2c9d5a4a0880dead9a0f48aecdfd1e78074a3c0d48cb2575ad6a0"
 
 http_archive(

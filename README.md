@@ -1,6 +1,7 @@
-# IML Generator
+# IDEA Settings
 
-Can be used to generate `*.iml` files for use by IntelliJ IDEA.
+An application that can be used to generate both `.idea` and `*.iml` files for
+use by IntelliJ IDEA from a YAML settings file.
 
 ## Motivation
 

@@ -1,4 +1,4 @@
 alias(
     name = "iml-generator",
-    actual = "//src/main/java/io/github/alexandrecarlton/iml/generation:iml-generator"
+    actual = "//src/main/java/com/github/alexandrecarlton/idea/settings:iml-generator",
 )

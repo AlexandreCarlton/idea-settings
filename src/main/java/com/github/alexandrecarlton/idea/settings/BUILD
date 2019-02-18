@@ -1,6 +1,6 @@
 java_binary(
     name = "iml-generator",
-    main_class = "io.github.alexandrecarlton.iml.generation.Main",
+    main_class = "com.github.alexandrecarlton.idea.settings.Main",
     visibility = ["//visibility:public"],
     runtime_deps = [
         ":generation",
@@ -21,13 +21,17 @@ java_library(
     srcs = glob(["*.java"]),
     visibility = ["//visibility:public"],
     deps = [
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/editor",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/editor/codestyle",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/editor/codestyle/java",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout",
         "//third_party/maven/com/fasterxml/jackson/core:jackson_core",
         "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
         "//third_party/maven/com/fasterxml/jackson/dataformat:jackson_dataformat_yaml",
         "//third_party/maven/com/fasterxml/jackson/datatype:jackson_datatype_guava",
         "//third_party/maven/com/fasterxml/jackson/datatype:jackson_datatype_jdk8",
         "//third_party/maven/com/google/guava",
-        "//src/main/java/io/github/alexandrecarlton/iml/generation/config",
         "@idea-IC//:lib/bootstrap",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/java-impl",

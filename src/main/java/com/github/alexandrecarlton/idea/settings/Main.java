@@ -1,4 +1,4 @@
-package io.github.alexandrecarlton.iml.generation;
+package com.github.alexandrecarlton.idea.settings;
 
 import com.intellij.ide.Bootstrap;
 
