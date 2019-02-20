@@ -11,11 +11,11 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ContentEntry;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.roots.ModuleRootManager;
-import com.github.alexandrecarlton.idea.settings.applier.CodeStyleConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.CodeStyleConfigurer;
 import com.github.alexandrecarlton.idea.settings.applier.editor.EditorConfigurer;
 import com.github.alexandrecarlton.idea.settings.applier.IdeaConfigurer;
-import com.github.alexandrecarlton.idea.settings.applier.ImportsConfigurer;
-import com.github.alexandrecarlton.idea.settings.applier.JavaConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaImportsConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaCodeStyleConfigurer;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 
 import java.io.IOException;
@@ -47,8 +47,8 @@ public class ImlGenerator {
     IdeaConfigurer configurer = new IdeaConfigurer(
         new EditorConfigurer(
             new CodeStyleConfigurer(
-                new JavaConfigurer(
-                    new ImportsConfigurer()))));
+                new JavaCodeStyleConfigurer(
+                    new JavaImportsConfigurer()))));
     configurer.configure(project, config);
 
     ModuleManager moduleManager = ModuleManager.getInstance(project);

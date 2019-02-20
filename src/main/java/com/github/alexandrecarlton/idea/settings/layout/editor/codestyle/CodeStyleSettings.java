@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.layout.editor.codestyle;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaCodeStyleSettings;
 import org.immutables.value.Value;
 
 import java.util.Optional;
@@ -10,6 +10,6 @@ import java.util.Optional;
 @JsonDeserialize(as = ImmutableCodeStyleSettings.class)
 public interface CodeStyleSettings {
 
-  Optional<JavaSettings> java();
+  Optional<JavaCodeStyleSettings> java();
 
 }

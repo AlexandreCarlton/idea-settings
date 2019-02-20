@@ -6,10 +6,9 @@ import org.immutables.value.Value;
 import java.util.Optional;
 
 @Value.Immutable
-@JsonDeserialize(as = ImmutableImportsSettings.class)
-public interface ImportsSettings {
+@JsonDeserialize(as = ImmutableJavaCodeStyleSettings.class)
+public interface JavaCodeStyleSettings {
 
-  Optional<Integer> classCountToUseImportWithWildcard();
+  Optional<JavaImportsSettings> imports();
 
-  Optional<Integer> namesCountToUseStaticImportWithWildcard();
 }
