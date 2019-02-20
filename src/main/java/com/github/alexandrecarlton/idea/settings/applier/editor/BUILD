@@ -3,8 +3,9 @@ java_library(
     srcs = glob(["*.java"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/editor/codestyle",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier_api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle",
         "@idea-IC//:lib/platform-api",
     ],
 )

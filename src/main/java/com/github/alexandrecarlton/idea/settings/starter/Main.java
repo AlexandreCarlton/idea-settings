@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings;
+package com.github.alexandrecarlton.idea.settings.starter;
 
 import com.intellij.ide.Bootstrap;
 

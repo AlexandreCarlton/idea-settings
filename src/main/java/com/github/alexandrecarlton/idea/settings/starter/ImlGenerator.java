@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings;
+package com.github.alexandrecarlton.idea.settings.starter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
@@ -11,11 +11,11 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ContentEntry;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.roots.ModuleRootManager;
-import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.CodeStyleConfigurer;
-import com.github.alexandrecarlton.idea.settings.applier.editor.EditorConfigurer;
-import com.github.alexandrecarlton.idea.settings.applier.IdeaConfigurer;
-import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaImportsConfigurer;
-import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaCodeStyleConfigurer;
+import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.CodeStyleSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.editor.EditorSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.IdeaSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaCodeStyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 
 import java.io.IOException;
@@ -38,18 +38,18 @@ public class ImlGenerator {
    */
   public void generate(Path path) {
 
-    IdeaSettings config = loadConfig(path);
+    IdeaSettings settings = loadSettings(path);
 
     Project project = ProjectUtil.openOrImport(path.toString(), null, false);
     project.save();
 
     // Yeah, it's probably time to add DI wiring.
-    IdeaConfigurer configurer = new IdeaConfigurer(
-        new EditorConfigurer(
-            new CodeStyleConfigurer(
-                new JavaCodeStyleConfigurer(
-                    new JavaImportsConfigurer()))));
-    configurer.configure(project, config);
+    IdeaSettingsApplier settingsApplier = new IdeaSettingsApplier(
+        new EditorSettingsApplier(
+            new CodeStyleSettingsApplier(
+                new JavaCodeStyleSettingsApplier(
+                    new JavaImportsSettingsApplier()))));
+    settingsApplier.apply(project, settings);
 
     ModuleManager moduleManager = ModuleManager.getInstance(project);
     List<Module> modules = Arrays.asList(moduleManager.getModules());
@@ -66,7 +66,7 @@ public class ImlGenerator {
     project.save();
   }
 
-  private IdeaSettings loadConfig(Path project) {
+  private IdeaSettings loadSettings(Path project) {
     Path configFile = project.resolve(".IDEA-config.yml");
     if (!Files.exists(configFile)) {
       System.out.println(configFile + " does not exist. Exiting.");

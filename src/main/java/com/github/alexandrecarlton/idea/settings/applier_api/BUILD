@@ -1,10 +1,9 @@
 java_library(
-    name = "java",
+    name = "applier_api",
     srcs = glob(["*.java"]),
     visibility = ["//visibility:public"],
+    # TODO: We can get rid of this completely if we dependency-inject Project.
     deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier_api",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/java-impl",
         "@idea-IC//:lib/platform-api",
