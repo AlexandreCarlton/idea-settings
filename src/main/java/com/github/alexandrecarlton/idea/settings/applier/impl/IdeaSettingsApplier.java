@@ -1,6 +1,6 @@
-package com.github.alexandrecarlton.idea.settings.applier;
+package com.github.alexandrecarlton.idea.settings.applier.impl;
 
-import com.github.alexandrecarlton.idea.settings.applier_api.SettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.intellij.openapi.project.Project;

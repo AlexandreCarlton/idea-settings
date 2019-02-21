@@ -11,11 +11,11 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.ContentEntry;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.roots.ModuleRootManager;
-import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.CodeStyleSettingsApplier;
-import com.github.alexandrecarlton.idea.settings.applier.editor.EditorSettingsApplier;
-import com.github.alexandrecarlton.idea.settings.applier.IdeaSettingsApplier;
-import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaImportsSettingsApplier;
-import com.github.alexandrecarlton.idea.settings.applier.editor.codestyle.java.JavaCodeStyleSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.CodeStyleSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.EditorSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaCodeStyleSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.IdeaSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 
 import java.io.IOException;

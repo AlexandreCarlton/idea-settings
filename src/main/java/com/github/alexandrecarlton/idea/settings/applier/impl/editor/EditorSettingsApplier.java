@@ -1,6 +1,6 @@
-package com.github.alexandrecarlton.idea.settings.applier.editor;
+package com.github.alexandrecarlton.idea.settings.applier.impl.editor;
 
-import com.github.alexandrecarlton.idea.settings.applier_api.SettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings;
 import com.intellij.openapi.project.Project;

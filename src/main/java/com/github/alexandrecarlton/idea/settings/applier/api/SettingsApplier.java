@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.applier_api;
+package com.github.alexandrecarlton.idea.settings.applier.api;
 
 import com.intellij.openapi.project.Project;
 
