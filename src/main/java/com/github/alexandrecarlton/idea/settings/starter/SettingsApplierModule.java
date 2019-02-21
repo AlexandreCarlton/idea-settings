@@ -15,21 +15,21 @@ import dagger.Binds;
 import dagger.Module;
 
 @Module
-public abstract class SettingsApplierModule {
+public interface SettingsApplierModule {
 
   @Binds
-  public abstract SettingsApplier<IdeaSettings> bindIdeaSettingsApplier(IdeaSettingsApplier applier);
+  SettingsApplier<IdeaSettings> bindIdeaSettingsApplier(IdeaSettingsApplier applier);
 
   @Binds
-  public abstract SettingsApplier<EditorSettings> bindEditorSettingsApplier(EditorSettingsApplier applier);
+  SettingsApplier<EditorSettings> bindEditorSettingsApplier(EditorSettingsApplier applier);
 
   @Binds
-  public abstract SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);
+  SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);
 
   @Binds
-  public abstract SettingsApplier<JavaCodeStyleSettings> bindJavaCodeStyleSettingsApplier(JavaCodeStyleSettingsApplier applier);
+  SettingsApplier<JavaCodeStyleSettings> bindJavaCodeStyleSettingsApplier(JavaCodeStyleSettingsApplier applier);
 
   @Binds
-  public abstract SettingsApplier<JavaImportsSettings> bindJavaImportsSettingsApplier(JavaImportsSettingsApplier applier);
+  SettingsApplier<JavaImportsSettings> bindJavaImportsSettingsApplier(JavaImportsSettingsApplier applier);
 
 }
