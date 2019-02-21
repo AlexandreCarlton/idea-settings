@@ -7,7 +7,13 @@ import com.intellij.openapi.project.Project;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
 
+import javax.inject.Inject;
+
 public class JavaImportsSettingsApplier implements SettingsApplier<JavaImportsSettings> {
+
+  @Inject
+  public JavaImportsSettingsApplier() {
+  }
 
   public void apply(Project project, JavaImportsSettings imports) {
     final CodeStyleSettings codeStyleSettings = CodeStyle.getSettings(project);

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.module.Module;
 import com.intellij.openapi.module.ModuleManager;
@@ -43,13 +44,8 @@ public class ImlGenerator {
     Project project = ProjectUtil.openOrImport(path.toString(), null, false);
     project.save();
 
-    // Yeah, it's probably time to add DI wiring.
-    IdeaSettingsApplier settingsApplier = new IdeaSettingsApplier(
-        new EditorSettingsApplier(
-            new CodeStyleSettingsApplier(
-                new JavaCodeStyleSettingsApplier(
-                    new JavaImportsSettingsApplier()))));
-    settingsApplier.apply(project, settings);
+    IdeaSettingsComponent component = DaggerIdeaSettingsComponent.create();
+    component.applier().apply(project, settings);
 
     ModuleManager moduleManager = ModuleManager.getInstance(project);
     List<Module> modules = Arrays.asList(moduleManager.getModules());

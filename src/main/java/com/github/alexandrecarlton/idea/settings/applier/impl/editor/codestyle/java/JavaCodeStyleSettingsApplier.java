@@ -5,10 +5,13 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.Ja
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
 import com.intellij.openapi.project.Project;
 
+import javax.inject.Inject;
+
 public class JavaCodeStyleSettingsApplier implements SettingsApplier<JavaCodeStyleSettings> {
 
   private final SettingsApplier<JavaImportsSettings> javaImportsSettingsApplier;
 
+  @Inject
   public JavaCodeStyleSettingsApplier(SettingsApplier<JavaImportsSettings> javaImportsSettingsApplier) {
     this.javaImportsSettingsApplier = javaImportsSettingsApplier;
   }

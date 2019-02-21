@@ -12,3 +12,18 @@ java_library(
 )
 
 
+
+java_library(
+    name = "javac_shaded",
+    exports = [
+        "//external:jar/com/google/errorprone/javac_shaded"
+    ],
+    licenses = [
+        "permissive"
+    ],
+    visibility = [
+        "//third_party/maven:__subpackages__"
+    ]
+)
+
+

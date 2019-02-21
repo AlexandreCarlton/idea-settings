@@ -22,10 +22,27 @@ dependencies:
         - guava
         - jdk8
       version: 2.9.8
+  com.google.dagger:
+    dagger:
+      lang: java
+      version: "2.21"
+    dagger-compiler:
+      lang: java
+      version: "2.21"
+      generatesApi: True
+      processorClasses:
+        - dagger.internal.codegen.ComponentProcessor
   com.google.guava:
     guava:
       lang: java
       version: 27.0.1-jre
+    # guava-beta-checker:
+    #   lang: java
+    #   version: "1.0"
+  javax.inject:
+    javax.inject:
+      lang: java
+      version: "1"
   org.immutables:
     value:
       lang: java
