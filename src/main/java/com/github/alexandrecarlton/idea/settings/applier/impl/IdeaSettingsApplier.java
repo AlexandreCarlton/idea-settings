@@ -9,15 +9,18 @@ import javax.inject.Inject;
 
 public class IdeaSettingsApplier implements SettingsApplier<IdeaSettings> {
 
+  private final Project project;
   private final SettingsApplier<EditorSettings> editorSettingsApplier;
 
   @Inject
-  public IdeaSettingsApplier(SettingsApplier<EditorSettings> editorSettingsApplier) {
+  public IdeaSettingsApplier(Project project, SettingsApplier<EditorSettings> editorSettingsApplier) {
+    this.project = project;
     this.editorSettingsApplier = editorSettingsApplier;
   }
 
-  public void apply(Project project, IdeaSettings configuration) {
-    configuration.editor().ifPresent(editor -> editorSettingsApplier.apply(project, editor));
+  public void apply(IdeaSettings configuration) {
+    configuration.editor().ifPresent(editorSettingsApplier::apply);
+    project.save();
   }
 
 }

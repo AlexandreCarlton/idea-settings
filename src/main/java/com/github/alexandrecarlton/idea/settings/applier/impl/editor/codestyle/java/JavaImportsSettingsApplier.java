@@ -11,11 +11,14 @@ import javax.inject.Inject;
 
 public class JavaImportsSettingsApplier implements SettingsApplier<JavaImportsSettings> {
 
+  private final Project project;
+
   @Inject
-  public JavaImportsSettingsApplier() {
+  public JavaImportsSettingsApplier(Project project) {
+    this.project = project;
   }
 
-  public void apply(Project project, JavaImportsSettings imports) {
+  public void apply(JavaImportsSettings imports) {
     final CodeStyleSettings codeStyleSettings = CodeStyle.getSettings(project);
     final JavaCodeStyleSettings javaCodeStyleSettings = codeStyleSettings.getCustomSettings(JavaCodeStyleSettings.class);
     imports.classCountToUseImportWithWildcard().ifPresent(javaCodeStyleSettings::setClassCountToUseImportOnDemand);

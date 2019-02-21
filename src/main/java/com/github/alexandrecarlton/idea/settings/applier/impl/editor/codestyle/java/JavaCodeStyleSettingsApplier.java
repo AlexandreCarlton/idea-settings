@@ -3,7 +3,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaCodeStyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
-import com.intellij.openapi.project.Project;
 
 import javax.inject.Inject;
 
@@ -16,7 +15,7 @@ public class JavaCodeStyleSettingsApplier implements SettingsApplier<JavaCodeSty
     this.javaImportsSettingsApplier = javaImportsSettingsApplier;
   }
 
-  public void apply(Project project, JavaCodeStyleSettings java) {
-    java.imports().ifPresent(imports -> javaImportsSettingsApplier.apply(project, imports));
+  public void apply(JavaCodeStyleSettings java) {
+    java.imports().ifPresent(javaImportsSettingsApplier::apply);
   }
 }

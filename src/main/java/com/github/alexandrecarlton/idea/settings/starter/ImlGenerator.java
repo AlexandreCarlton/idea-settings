@@ -38,28 +38,12 @@ public class ImlGenerator {
    * @param path the location of the project.
    */
   public void generate(Path path) {
-
     IdeaSettings settings = loadSettings(path);
-
-    Project project = ProjectUtil.openOrImport(path.toString(), null, false);
-    project.save();
-
-    IdeaSettingsComponent component = DaggerIdeaSettingsComponent.create();
-    component.applier().apply(project, settings);
-
-    ModuleManager moduleManager = ModuleManager.getInstance(project);
-    List<Module> modules = Arrays.asList(moduleManager.getModules());
-
-    ModuleRootManager moduleRootManager = ModuleRootManager.getInstance(modules.get(0));
-    ModifiableRootModel modifiableRootModel = moduleRootManager.getModifiableModel();
-    List<ContentEntry> contentEntries = Arrays.asList(modifiableRootModel.getContentEntries());
-    // We can add an excluded folder to a content entry via "file://" + full path to url
-
-    System.out.println("Committing...");
-    modifiableRootModel.commit();
-
-    System.out.println("Saving...");
-    project.save();
+    IdeaSettingsComponent component = DaggerIdeaSettingsComponent
+        .builder()
+        .project(path.toString())
+        .build();
+    component.applier().apply(settings);
   }
 
   private IdeaSettings loadSettings(Path project) {
