@@ -6,11 +6,17 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.EditorSetti
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.CodeStyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaCodeStyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.GeneralSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.AutoImportSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaCodeStyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.AutoImportSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import dagger.Binds;
 import dagger.Module;
 
@@ -18,13 +24,22 @@ import dagger.Module;
 public interface SettingsApplierModule {
 
   @Binds
-  SettingsApplier<IdeaSettings> bindIdeaSettingsApplier(IdeaSettingsApplier applier);
+  SettingsApplier<AutoImportSettings> bindAutoImportSettingsApplier(AutoImportSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);
 
   @Binds
   SettingsApplier<EditorSettings> bindEditorSettingsApplier(EditorSettingsApplier applier);
 
   @Binds
-  SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);
+  SettingsApplier<GeneralSettings> bindGeneralSettingsApplier(GeneralSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<IdeaSettings> bindIdeaSettingsApplier(IdeaSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<JavaAutoImportSettings> bindJavaAutoImportSettingsApplier(JavaAutoImportSettingsApplier applier);
 
   @Binds
   SettingsApplier<JavaCodeStyleSettings> bindJavaCodeStyleSettingsApplier(JavaCodeStyleSettingsApplier applier);
