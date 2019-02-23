@@ -1,6 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
 import com.intellij.compiler.CompilerConfiguration;
+import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
@@ -23,6 +24,12 @@ public class ProjectModule {
   @Singleton
   static CompilerConfiguration provideCompilerConfiguration(Project project) {
     return CompilerConfiguration.getInstance(project);
+  }
+
+  @Provides
+  @Singleton
+  static ExternalDependenciesManager provideExternalDependenciesManager(Project project) {
+    return ExternalDependenciesManager.getInstance(project);
   }
 
   @Provides
