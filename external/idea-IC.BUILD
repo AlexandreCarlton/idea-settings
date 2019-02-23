@@ -9,6 +9,7 @@ java_import(name = "lib/java-impl",     jars = ["lib/java-impl.jar"],     srcjar
 java_import(name = "lib/jdom",          jars = ["lib/jdom.jar"],          srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/jna",           jars = ["lib/jna.jar"],           srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/log4j",         jars = ["lib/log4j.jar"],         srcjar = "@idea-IC-sources//jar")
+java_import(name = "lib/openapi",       jars = ["lib/openapi.jar"],       srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/platform-api",  jars = ["lib/platform-api.jar"],  srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/platform-impl", jars = ["lib/platform-impl.jar"], srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/trove4j",       jars = ["lib/trove4j.jar"],       srcjar = "@idea-IC-sources//jar")

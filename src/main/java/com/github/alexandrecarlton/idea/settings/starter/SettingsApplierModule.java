@@ -2,6 +2,9 @@ package com.github.alexandrecarlton.idea.settings.starter;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.IdeaSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.BuildExecutionDeploymentSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.AnnotationProcessorsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.EditorSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.CodeStyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaCodeStyleSettingsApplier;
@@ -10,6 +13,9 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.Gen
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.AutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings;
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.AnnotationProcessorsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaCodeStyleSettings;
@@ -27,7 +33,16 @@ public interface SettingsApplierModule {
   SettingsApplier<AutoImportSettings> bindAutoImportSettingsApplier(AutoImportSettingsApplier applier);
 
   @Binds
+  SettingsApplier<AnnotationProcessorsSettings> bindAnnotationProcessorsSettingsApplier(AnnotationProcessorsSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<BuildExecutionDeploymentSettings> bindBuildExecutionDeploymentSettingsApplier(BuildExecutionDeploymentSettingsApplier applier);
+
+  @Binds
   SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<CompilerSettings> bindCompilerSettingsApplier(CompilerSettingsApplier applier);
 
   @Binds
   SettingsApplier<EditorSettings> bindEditorSettingsApplier(EditorSettingsApplier applier);

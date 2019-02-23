@@ -1,9 +1,9 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
+import com.intellij.compiler.CompilerConfiguration;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.roots.ModuleRootManager;
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,6 +17,12 @@ public class ProjectModule {
   @Singleton
   static Project provideProject(@Named("project") String path) {
     return ProjectUtil.openOrImport(path, null, false);
+  }
+
+  @Provides
+  @Singleton
+  static CompilerConfiguration provideCompilerConfiguration(Project project) {
+    return CompilerConfiguration.getInstance(project);
   }
 
   @Provides
