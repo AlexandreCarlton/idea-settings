@@ -8,5 +8,6 @@ java_library(
         "//third_party/maven/javax/inject:javax_inject",
         "@idea-IC//:lib/java-impl",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:lib/platform-impl",
     ],
 )

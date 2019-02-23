@@ -18,6 +18,12 @@ public class JavaAutoImportSettingsApplier implements SettingsApplier<JavaAutoIm
 
   @Override
   public void apply(JavaAutoImportSettings settings) {
+    // This saves to the workspace file, which we don't know how to persist (yet).
+    // CodeInsightWorkspaceSettings workspaceSettings = CodeInsightWorkspaceSettings.getInstance(project);
+    // settings.optimizeImportsOnTheFly().ifPresent(optimize -> {
+    //   workspaceSettings.optimizeImportsOnTheFly = optimize;
+    // });
+
     final JavaProjectCodeInsightSettings codeInsightSettings = JavaProjectCodeInsightSettings.getSettings(project);
     codeInsightSettings.excludedNames.addAll(settings.excludeFromImportAndCompletion());
   }

@@ -8,6 +8,8 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/general",
         "//third_party/maven/javax/inject:javax_inject",
+        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:lib/util",
     ],
 )
