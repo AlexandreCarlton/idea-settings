@@ -4,6 +4,10 @@ BAZEL_DEPS_COMMIT = "e3f77e22d9f5b070915067a766607cfc96835c98"
 
 BAZEL_DEPS_SHA256 = "5dac398f0dc57f76566642cf21f10960eed83f4bb56c5860170c0582f5581194"
 
+CHECKSTYLE_IDEA_VERSION = "5.24.2"
+
+CHECKSTYLE_IDEA_SHA256 = "1622761d25d318a8281732f0a16e805b44157161c6ffb3e88e6c3f79d9ca97fa"
+
 # To consult further release: https://www.jetbrains.com/intellij-repository/releases/
 IDEA_IC_VERSION = "2018.3.3"
 
@@ -34,6 +38,14 @@ http_archive(
     sha256 = BAZEL_DEPS_SHA256,
     strip_prefix = "bazel-deps-{0}".format(BAZEL_DEPS_COMMIT),
     url = "https://github.com/johnynek/bazel-deps/archive/{0}.zip".format(BAZEL_DEPS_COMMIT),
+)
+
+http_archive(
+    name = "CheckStyle-IDEA",
+    build_file = "CheckStyle-IDEA.BUILD",
+    sha256 = CHECKSTYLE_IDEA_SHA256,
+    strip_prefix = "CheckStyle-IDEA",
+    url = "https://plugins.jetbrains.com/files/1065/54249/checkstyle-idea-{0}.zip".format(CHECKSTYLE_IDEA_VERSION),
 )
 
 # bazel-deps will soon produce a jar that can be used to run @bazel-deps//:parse from within

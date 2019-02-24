@@ -7,6 +7,7 @@ import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
 import dagger.Module;
 import dagger.Provides;
+import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -21,19 +22,21 @@ public class ProjectModule {
   }
 
   @Provides
-  @Singleton
   static CompilerConfiguration provideCompilerConfiguration(Project project) {
     return CompilerConfiguration.getInstance(project);
   }
 
   @Provides
-  @Singleton
   static ExternalDependenciesManager provideExternalDependenciesManager(Project project) {
     return ExternalDependenciesManager.getInstance(project);
   }
 
   @Provides
-  @Singleton
+  static PluginConfigurationManager providePluginConfigurationManager(Project project) {
+    return PluginConfigurationManager.getInstance(project);
+  }
+
+  @Provides
   static ModuleManager provideModuleManager(Project project) {
     return ModuleManager.getInstance(project);
   }

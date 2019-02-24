@@ -12,6 +12,8 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.j
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.GeneralSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.AutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.OtherSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.AnnotationProcessorsSettings;
@@ -23,6 +25,8 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.Ja
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.AutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import dagger.Binds;
 import dagger.Module;
 
@@ -37,6 +41,9 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<BuildExecutionDeploymentSettings> bindBuildExecutionDeploymentSettingsApplier(BuildExecutionDeploymentSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<CheckstyleSettings> bindCheckstyleSettingsApplier(CheckstyleSettingsApplier applier);
 
   @Binds
   SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);
@@ -61,5 +68,8 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<JavaImportsSettings> bindJavaImportsSettingsApplier(JavaImportsSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<OtherSettings> bindOtherSettingsApplier(OtherSettingsApplier applier);
 
 }

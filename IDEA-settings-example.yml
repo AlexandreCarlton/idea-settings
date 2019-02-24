@@ -1,0 +1,34 @@
+editor:
+  codeStyle:
+    java:
+      imports:
+        classCountToUseImportWithWildcard: 999
+        namesCountToUseStaticImportWithWildcard: 999
+  general:
+    autoImport:
+      java:
+        optimizeImportsOnTheFly: true
+        excludeFromImportAndCompletion:
+          - com.google.inject.Inject
+          - com.sun.istack.internal.Nullable
+          - edu.umd.cs.findbugs.annotations.Nullable
+
+otherSettings:
+  checkstyle:
+    checkstyleVersion: "8.16"
+    # Manages the files that Checkstyle verifies. Can be one of:
+    # - Only Java sources (but not tests)
+    # - Only Java sources (including tests)
+    # - All sources (but not tests)
+    # - All sources (including tests)
+    # - All files in project
+    scanScope: Only Java sources (including tests)
+    treatCheckstyleErrorsAsWarnings: false
+    configurationFiles:
+      - active: true
+        description: Project Checkstyle Configuration
+        # Can be one of:
+        # - a local file
+        # - an HTTP URL
+        # - 'bundled' (with description matching the bundled description, e.g. "Google Checks")
+        file: checkstyle.xml
