@@ -26,7 +26,11 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
+// TODO: Inline into ImlGgenerationStarter
 public class ImlGenerator {
+
+  private static final String IDEA_SETTINGS_FILENAME = ".IDEA-settings.yml";
+
   private final ObjectMapper mapper = new YAMLMapper()
       // Snake case didn't work for some reason.
 //      .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
@@ -47,7 +51,7 @@ public class ImlGenerator {
   }
 
   private IdeaSettings loadSettings(Path project) {
-    Path configFile = project.resolve(".IDEA-config.yml");
+    Path configFile = project.resolve(IDEA_SETTINGS_FILENAME);
     if (!Files.exists(configFile)) {
       System.out.println(configFile + " does not exist. Exiting.");
       System.exit(1);

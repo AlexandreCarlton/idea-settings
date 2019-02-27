@@ -32,13 +32,13 @@ public class ProjectModule {
   }
 
   @Provides
-  static PluginConfigurationManager providePluginConfigurationManager(Project project) {
-    return PluginConfigurationManager.getInstance(project);
+  static ModuleManager provideModuleManager(Project project) {
+    return ModuleManager.getInstance(project);
   }
 
   @Provides
-  static ModuleManager provideModuleManager(Project project) {
-    return ModuleManager.getInstance(project);
+  static PluginConfigurationManager providePluginConfigurationManager(Project project) {
+    return PluginConfigurationManager.getInstance(project);
   }
 
 }

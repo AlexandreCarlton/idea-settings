@@ -1,5 +1,5 @@
 java_binary(
-    name = "iml-generator",
+    name = "idea-settings",
     main_class = "com.github.alexandrecarlton.idea.settings.starter.Main",
     visibility = ["//visibility:public"],
     runtime_deps = [
