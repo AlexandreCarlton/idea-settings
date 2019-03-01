@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  # We set these via the Travis CI website.
+  - echo "$DOCKER_PASSWORD" | docker login --username="$DOCKER_USERNAME" --password-stdin
+  - docker build -t alexandrecarlton/idea-settings:$(git rev-parse HEAD) .
+  - docker push alexandrecarlton/idea-settings:$(git rev-parse HEAD)
