@@ -5,4 +5,4 @@ COPY . /idea-settings
 WORKDIR /idea-settings
 RUN bazel build //:idea-settings
 
-ENTRYPOINT ["bazel", "run" "//:idea-settings"]
+ENTRYPOINT ["bazel", "run", "//:idea-settings"]
