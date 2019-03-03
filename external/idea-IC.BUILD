@@ -1,7 +1,5 @@
 package(default_visibility = ["//visibility:public"])
 
-# These are set in the classpath when launching the jar with the official idea.sh.
-java_import(name = "jre64/lib/tools",         jars = ["jre64/lib/tools.jar"])
 java_import(name = "lib/bootstrap",           jars = ["lib/bootstrap.jar"],           srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/extensions",          jars = ["lib/extensions.jar"],          srcjar = "@idea-IC-sources//jar")
 java_import(name = "lib/java-api",            jars = ["lib/java-api.jar"],            srcjar = "@idea-IC-sources//jar")

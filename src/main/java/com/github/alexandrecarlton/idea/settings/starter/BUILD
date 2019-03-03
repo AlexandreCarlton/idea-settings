@@ -12,7 +12,9 @@ java_binary(
         "@idea-IC//:lib/log4j",
         "@idea-IC//:lib/trove4j",
         "@idea-IC//:lib/jna",
-        "@idea-IC//:jre64/lib/tools",
+        # In idea.sh, IDEA's own provided tools.jar is used,
+        # but forces us to download officially released builds.
+        ":lib/tools",
     ],
 )
 
@@ -63,4 +65,9 @@ java_library(
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",
     ],
+)
+
+java_import(
+    name = "lib/tools",
+    jars = ["@local_jdk//:lib/tools.jar"],
 )
