@@ -8,12 +8,10 @@ CHECKSTYLE_IDEA_VERSION = "5.24.2"
 
 CHECKSTYLE_IDEA_SHA256 = "1622761d25d318a8281732f0a16e805b44157161c6ffb3e88e6c3f79d9ca97fa"
 
-# To consult further release: https://www.jetbrains.com/intellij-repository/releases/
+# To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
 IDEA_IC_VERSION = "2018.3.3"
 
-IDEA_IC_PREFIX = "idea-IC-183.5153.38"
-
-IDEA_IC_SHA256 = "15f9676c7807e9f3e462500c5fefd4de543ed5804c588bbb3719dbd94e1d3db1"
+IDEA_IC_SHA256 = "0f08f1e97878e01479c1b934b716a609c3ec375df740a6487f1c0f0d4eeb374d"
 
 IDEA_IC_SOURCES_SHA256 = "276e548135d2c9d5a4a0880dead9a0f48aecdfd1e78074a3c0d48cb2575ad6a0"
 
@@ -21,10 +19,7 @@ http_archive(
     name = "idea-IC",
     build_file = "idea-IC.BUILD",
     sha256 = IDEA_IC_SHA256,
-    strip_prefix = IDEA_IC_PREFIX,
-    # We don't pull from the same place we get the sources jar because it does not contain a bundled JRE (which is necessary to work properly).
-    # If we can find another tools.jar to use, we can use the same url as sources.
-    url = "https://download.jetbrains.com/idea/ideaIC-{0}.tar.gz".format(IDEA_IC_VERSION),
+    url = "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaIC/{0}/ideaIC-{0}.zip".format(IDEA_IC_VERSION),
 )
 
 http_jar(
