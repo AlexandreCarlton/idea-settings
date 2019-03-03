@@ -8,4 +8,13 @@ jobs:
       TERM: dumb
     steps:
       - checkout
+
+      - restore_cache:
+          key: circle-ci-idea-settings
+
       - run: bazel build //:idea-settings
+
+      - save_cache:
+          paths:
+            - ~/.cache/bazel
+          key: circle-ci-idea-settings

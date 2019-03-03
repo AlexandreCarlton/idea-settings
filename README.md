@@ -1,5 +1,7 @@
 # IDEA Settings
 
+[![CircleCI](https://circleci.com/gh/AlexandreCarlton/idea-settings.svg?style=svg)](https://circleci.com/gh/AlexandreCarlton/idea-settings)
+
 An application that can be used to generate both `.idea` and `*.iml` files for
 use by IntelliJ IDEA from a `.IDEA-settings` file in a given project.
 
@@ -27,7 +29,8 @@ bazel run //:idea-settings <project-directory>
 
 ## Future goals
 
-Add ability to configure options like excluded folders via a `.yml` file.
+ - Maven configuration.
+ - Tests for each individual feature.
 
 ## Development
 
@@ -38,6 +41,5 @@ To update a maven dependency, modify [`third_party/dependencies.yaml`].
 Then, checkout the aforementioned repository and run:
 
 ```sh
-bazel run //:parse -- generate --repo-root <iml-generator-checkout> --sha-file
-third_party/package-lock.bzl --deps third_party/dependencies.yaml
+bazel run //:parse -- generate --repo-root <iml-generator-checkout> --sha-file third_party/package-lock.bzl --deps third_party/dependencies.yaml
 ```
