@@ -30,9 +30,7 @@ public class ImlGenerationStarter implements ApplicationStarter {
     if (!Files.exists(path)) {
       throw new IllegalArgumentException("Please supply a valid path to the project.");
     }
-    application.runWriteAction(() -> {
-      ImlGenerator generator = new ImlGenerator();
-      generator.generate(path);
-    });
+    ImlGenerator generator = new ImlGenerator();
+    generator.generate(path);
   }
 }

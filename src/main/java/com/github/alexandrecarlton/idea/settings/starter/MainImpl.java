@@ -16,8 +16,6 @@ public class MainImpl {
     SwingUtilities.invokeLater(() -> {
       PluginManager.installExceptionHandler();
       app.run();
-      // IntelliJ hangs here so we force a clean exit.
-      System.exit(0);
     });
   }
 }
