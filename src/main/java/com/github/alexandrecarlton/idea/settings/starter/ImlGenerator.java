@@ -36,6 +36,7 @@ public class ImlGenerator {
         .build();
     Optional<IdeaSettings> settings = loadSettings(path);
     try {
+      component.applicationEx().setSaveAllowed(true);
       WriteAction.runAndWait(() -> {
         settings.ifPresent(component.applier()::apply);
         component.project().save();

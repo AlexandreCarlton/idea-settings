@@ -1,8 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
 import com.intellij.openapi.application.ApplicationStarter;
-import com.intellij.openapi.application.ex.ApplicationEx;
-import com.intellij.openapi.application.ex.ApplicationManagerEx;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,8 +19,6 @@ public class ImlGenerationStarter implements ApplicationStarter {
 
   @Override
   public void main(String... args) {
-    ApplicationEx application = ApplicationManagerEx.getApplicationEx();
-    application.setSaveAllowed(true);
     if (args.length < 1) {
       throw new IllegalArgumentException("Please supply the path to the project.");
     }
