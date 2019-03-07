@@ -1,6 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -18,11 +18,12 @@ public class ImlGenerator {
 
   private static final String IDEA_SETTINGS_FILENAME = ".IDEA-settings.yml";
 
-  private final ObjectMapper mapper = new YAMLMapper()
+  private static final ObjectReader READER = new YAMLMapper()
       // Snake case didn't work for some reason.
 //      .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
       .registerModule(new Jdk8Module())
-      .registerModule(new GuavaModule());
+      .registerModule(new GuavaModule())
+      .readerFor(IdeaSettings.class);
 
   /**
    * Generates *.iml files for the given path.
@@ -52,8 +53,9 @@ public class ImlGenerator {
       return Optional.empty();
     }
     try (InputStream inputStream = Files.newInputStream(configFile)) {
-      return Optional.of(mapper.readValue(inputStream, IdeaSettings.class));
+      return Optional.of(READER.readValue(inputStream));
     } catch (IOException e) {
+      System.out.println(e.getMessage());
       return Optional.empty();
     }
   }
