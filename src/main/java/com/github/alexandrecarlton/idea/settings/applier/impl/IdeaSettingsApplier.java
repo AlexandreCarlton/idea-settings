@@ -11,17 +11,14 @@ import javax.inject.Inject;
 
 public class IdeaSettingsApplier implements SettingsApplier<IdeaSettings> {
 
-  private final Project project;
   private final SettingsApplier<BuildExecutionDeploymentSettings> buildExecutionDeploymentSettingsApplier;
   private final SettingsApplier<EditorSettings> editorSettingsApplier;
   private final SettingsApplier<OtherSettings> otherSettingsApplier;
 
   @Inject
-  public IdeaSettingsApplier(Project project,
-                             SettingsApplier<BuildExecutionDeploymentSettings> buildExecutionDeploymentSettingsApplier,
+  public IdeaSettingsApplier(SettingsApplier<BuildExecutionDeploymentSettings> buildExecutionDeploymentSettingsApplier,
                              SettingsApplier<EditorSettings> editorSettingsApplier,
                              SettingsApplier<OtherSettings> otherSettingsApplier) {
-    this.project = project;
     this.buildExecutionDeploymentSettingsApplier = buildExecutionDeploymentSettingsApplier;
     this.editorSettingsApplier = editorSettingsApplier;
     this.otherSettingsApplier = otherSettingsApplier;
@@ -31,7 +28,6 @@ public class IdeaSettingsApplier implements SettingsApplier<IdeaSettings> {
     configuration.buildExecutionDeployment().ifPresent(buildExecutionDeploymentSettingsApplier::apply);
     configuration.editor().ifPresent(editorSettingsApplier::apply);
     configuration.otherSettings().ifPresent(otherSettingsApplier::apply);
-    project.save();
   }
 
 }

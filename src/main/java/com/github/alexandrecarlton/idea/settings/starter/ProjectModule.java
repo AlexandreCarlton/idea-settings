@@ -12,6 +12,9 @@ import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+/**
+ * Provides components that depend on the imported {@link Project}.
+ */
 @Module
 public class ProjectModule {
 

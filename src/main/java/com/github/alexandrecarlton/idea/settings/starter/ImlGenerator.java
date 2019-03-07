@@ -35,13 +35,16 @@ public class ImlGenerator {
         .builder()
         .project(path.toString())
         .build();
-    // TODO: We should DI the Project and ApplicationEx, and pull them from the component.
-    WriteAction.runAndWait(() -> {
-      component.applier().apply(settings);
-      // TODO: project.save(); so SettingsApplier<IdeaSettings> doesn't have to save it.
-    });
-    ApplicationEx appEx = ApplicationManagerEx.getApplicationEx();
-    appEx.exit(false, true);
+    try {
+      WriteAction.runAndWait(() -> {
+        component.applier().apply(settings);
+        component.project().save();
+      });
+    } catch (Throwable t) {
+      System.out.println(t.getMessage());
+    } finally {
+      component.applicationEx().exit(false, true);
+    }
   }
 
   private IdeaSettings loadSettings(Path project) {
