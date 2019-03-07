@@ -6,13 +6,12 @@ import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.intellij.openapi.application.WriteAction;
-import com.intellij.openapi.application.ex.ApplicationEx;
-import com.intellij.openapi.application.ex.ApplicationManagerEx;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 // TODO: Inline into ImlGgenerationStarter
 public class ImlGenerator {
@@ -30,14 +29,14 @@ public class ImlGenerator {
    * @param path the location of the project.
    */
   public void generate(Path path) {
-    IdeaSettings settings = loadSettings(path);
     IdeaSettingsComponent component = DaggerIdeaSettingsComponent
         .builder()
         .project(path.toString())
         .build();
+    Optional<IdeaSettings> settings = loadSettings(path);
     try {
       WriteAction.runAndWait(() -> {
-        component.applier().apply(settings);
+        settings.ifPresent(component.applier()::apply);
         component.project().save();
       });
     } catch (Throwable t) {
@@ -47,16 +46,15 @@ public class ImlGenerator {
     }
   }
 
-  private IdeaSettings loadSettings(Path project) {
+  private Optional<IdeaSettings> loadSettings(Path project) {
     Path configFile = project.resolve(IDEA_SETTINGS_FILENAME);
     if (!Files.exists(configFile)) {
-      System.out.println(configFile + " does not exist. Exiting.");
-      System.exit(1);
+      return Optional.empty();
     }
     try (InputStream inputStream = Files.newInputStream(configFile)) {
-      return mapper.readValue(inputStream, IdeaSettings.class);
+      return Optional.of(mapper.readValue(inputStream, IdeaSettings.class));
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      return Optional.empty();
     }
   }
 }
