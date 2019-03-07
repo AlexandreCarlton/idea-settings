@@ -5,31 +5,44 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
+import com.intellij.openapi.application.ApplicationStarter;
 import com.intellij.openapi.application.WriteAction;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 
-// TODO: Inline into ImlGgenerationStarter
-public class ImlGenerator {
+public class IdeaSettingsApplicationStarter implements ApplicationStarter {
 
   private static final String IDEA_SETTINGS_FILENAME = ".IDEA-settings.yml";
 
   private static final ObjectReader READER = new YAMLMapper()
-      // Snake case didn't work for some reason.
-//      .setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
       .registerModule(new Jdk8Module())
       .registerModule(new GuavaModule())
       .readerFor(IdeaSettings.class);
 
-  /**
-   * Generates *.iml files for the given path.
-   * @param path the location of the project.
-   */
-  public void generate(Path path) {
+  @Override
+  public String getCommandName() {
+    return "idea-settings";
+  }
+
+  @Override
+  public void premain(String... args) {
+    if (args.length < 1) {
+      throw new IllegalArgumentException("Please supply the path to the project.");
+    }
+    Path path = Paths.get(args[0]);
+    if (!Files.exists(path)) {
+      throw new IllegalArgumentException("Please supply a valid path to the project.");
+    }
+  }
+
+  @Override
+  public void main(String... args) {
+    Path path = Paths.get(args[0]);
     IdeaSettingsComponent component = DaggerIdeaSettingsComponent
         .builder()
         .project(path.toString())

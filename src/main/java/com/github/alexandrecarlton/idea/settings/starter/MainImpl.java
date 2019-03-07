@@ -12,7 +12,7 @@ public class MainImpl {
    * Called from PluginManager via reflection.
    */
   protected static void start(final String... args) {
-    IdeaApplication app = new ImlGenerationIdeaApplication(args);
+    IdeaApplication app = new IdeaSettingsIdeaApplication(args);
     SwingUtilities.invokeLater(() -> {
       PluginManager.installExceptionHandler();
       app.run();
