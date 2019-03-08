@@ -48,3 +48,12 @@ http_archive(
 load("//third_party:package-lock.bzl", "maven_dependencies")
 
 maven_dependencies()
+
+# Test dependencies
+http_archive(
+    name = "javapoet",
+    build_file = "javapoet.BUILD",
+    sha256 = "6b3fc0ae4e321286d09ce633037152a3194f7ebbd6d8b06a9f195fc7c9255d65",
+    strip_prefix = "javapoet-javapoet-1.11.1",
+    url = "https://github.com/square/javapoet/archive/javapoet-1.11.1.zip",
+)

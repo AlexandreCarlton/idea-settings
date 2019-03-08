@@ -3,6 +3,8 @@ package com.github.alexandrecarlton.idea.settings.starter;
 import com.intellij.compiler.CompilerConfiguration;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
+import com.intellij.ide.plugins.PluginManager;
+import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
 import dagger.Module;
@@ -21,7 +23,9 @@ public class ProjectModule {
   @Provides
   @Singleton
   static Project provideProject(@Named("project") String path) {
-    return ProjectUtil.openOrImport(path, null, false);
+//    PluginManager.invalidatePlugins();
+    Project project = ProjectUtil.openOrImport(path, null, false);
+    return project;
   }
 
   @Provides

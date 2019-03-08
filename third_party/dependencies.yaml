@@ -1,3 +1,4 @@
+---
 options:
   licenses:
     - permissive
@@ -43,6 +44,10 @@ dependencies:
     javax.inject:
       lang: java
       version: "1"
+  junit:
+    junit:
+      lang: java
+      version: "4.12"
   org.immutables:
     value:
       lang: java
@@ -50,3 +55,7 @@ dependencies:
       generatesApi: true
       processorClasses:
         - org.immutables.processor.ProxyProcessor
+  org.xmlunit:
+    xmlunit-assertj:
+      lang: java
+      version: 2.6.2

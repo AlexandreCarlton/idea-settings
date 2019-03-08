@@ -70,4 +70,5 @@ java_library(
 java_import(
     name = "lib/tools",
     jars = ["@local_jdk//:lib/tools.jar"],
+    visibility = ["//visibility:public"],
 )
