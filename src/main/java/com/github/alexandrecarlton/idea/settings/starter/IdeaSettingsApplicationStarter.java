@@ -48,17 +48,11 @@ public class IdeaSettingsApplicationStarter implements ApplicationStarter {
         .project(path.toString())
         .build();
     Optional<IdeaSettings> settings = loadSettings(path);
-    try {
-      component.applicationEx().setSaveAllowed(true);
-      WriteAction.runAndWait(() -> {
-        settings.ifPresent(component.applier()::apply);
-        component.project().save();
-      });
-    } catch (Throwable t) {
-      System.out.println(t.getMessage());
-    } finally {
-      component.applicationEx().exit(false, true);
-    }
+    component.applicationEx().setSaveAllowed(true);
+    WriteAction.runAndWait(() -> {
+      settings.ifPresent(component.applier()::apply);
+      component.project().save();
+    });
   }
 
   private Optional<IdeaSettings> loadSettings(Path project) {
