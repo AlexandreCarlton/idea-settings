@@ -4,17 +4,7 @@ java_binary(
     visibility = ["//visibility:public"],
     runtime_deps = [
         ":starter",
-
-        # In idea.sh, these are added to the classpath.
-        "@idea-IC//:lib/bootstrap",
-        "@idea-IC//:lib/extensions",
-        "@idea-IC//:lib/util",
-        "@idea-IC//:lib/log4j",
-        "@idea-IC//:lib/trove4j",
-        "@idea-IC//:lib/jna",
-        # In idea.sh, IDEA's own provided tools.jar is used,
-        # but forces us to download officially released builds.
-        ":lib/tools",
+        "@idea-IC//:runtime_deps",
     ],
 )
 
