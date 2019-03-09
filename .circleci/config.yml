@@ -12,12 +12,18 @@ jobs:
       - restore_cache:
           key: circle-ci-idea-settings
 
-      - run: bazel build //:idea-settings
+      - run:
+          name: Build idea-settings
+          command: bazel build //:idea-settings
 
-      - run: bazel test //src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java:TestJavaImportSettingsApplier
+      - run:
+          name: Test idea-settings
+          command: |
+            bazel test //src/test/java/com/github/alexandrecarlton/idea/settings/starter:tests
+            cp -r -L bazel-testlogs bazel-test-results
 
       - store_test_results:
-          path: bazel-testlogs
+          path: bazel-test-results
 
       - save_cache:
           paths:
