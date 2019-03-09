@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Test idea-settings
           command: |
-            bazel test //src/test/java/com/github/alexandrecarlton/idea/settings/tests
+            bazel test //:tests
             cp -r -L bazel-testlogs bazel-test-results
 
       - store_test_results:

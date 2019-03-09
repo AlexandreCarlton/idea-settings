@@ -1,7 +1,16 @@
-java_test(
+load("//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures:javapoet.bzl", "java_test_javapoet")
+
+test_suite(
     name = "java",
-    srcs = glob(["*.java"]),
-    visibility = ["//visibility:public"],
+    tests = [
+        ":java_import_settings_applier_test",
+    ],
+)
+
+java_test_javapoet(
+    name = "java_import_settings_applier_test",
+    srcs = ["JavaImportSettingsApplierTest.java"],
+    test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportSettingsApplierTest",
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/starter",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",

@@ -48,6 +48,10 @@ dependencies:
     junit:
       lang: java
       version: "4.12"
+  org.assertj:
+    assertj-core:
+      lang: java
+      version: 3.11.1
   org.immutables:
     value:
       lang: java
