@@ -12,7 +12,6 @@ java_test_javapoet(
     srcs = ["JavaImportSettingsApplierTest.java"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportSettingsApplierTest",
     deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/starter",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",
