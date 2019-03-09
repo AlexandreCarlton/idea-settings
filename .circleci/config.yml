@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Copy out bazel test results
           command: cp -r -L bazel-testlogs bazel-test-results
+          when: always
 
       - store_test_results:
           path: bazel-test-results
