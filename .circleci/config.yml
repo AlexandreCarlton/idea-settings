@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Test idea-settings
-          command: bazel test //:tests
+          command: bazel test --jobs=1 //:tests
 
       - run:
           name: Copy out bazel test results
