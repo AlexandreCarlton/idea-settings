@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: alexandrecarlton/bazel:0.23.0
     environment:
-      JVM_OPTS: -Xmx3600m
+      JVM_OPTS: -Xmx3200m
     steps:
       - checkout
 
