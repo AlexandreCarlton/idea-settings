@@ -53,7 +53,10 @@ public abstract class JavapoetTestFixture {
 
   protected XmlAssert assertThatXml(String file) throws IOException {
     final Path path = javapoet.resolve(file);
+    assertThat(path).exists();
     final String pathContent = String.join("\n", Files.readAllLines(path));
+    System.out.println("Content of " + path + " is:");
+    System.out.println(pathContent);
     return XmlAssert.assertThat(pathContent);
   }
 }
