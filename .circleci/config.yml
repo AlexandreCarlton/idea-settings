@@ -18,9 +18,11 @@ jobs:
 
       - run:
           name: Test idea-settings
-          command: |
-            bazel test //:tests
-            cp -r -L bazel-testlogs bazel-test-results
+          command: bazel test //:tests
+
+      - run:
+          name: Copy out bazel test results
+          command: cp -r -L bazel-testlogs bazel-test-results
 
       - store_test_results:
           path: bazel-test-results
