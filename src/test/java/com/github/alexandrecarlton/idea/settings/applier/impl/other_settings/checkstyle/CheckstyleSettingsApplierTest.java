@@ -16,7 +16,7 @@ public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
         "  checkstyle:",
         "    checkstyleVersion: '8.16'");
     runIdeaSettings();
-    assertThatXml(".idea/checkstyle.xml")
+    assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='checkstyle-version']/@value")
         .isEqualTo("8.16");
   }
@@ -27,7 +27,7 @@ public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
         "  checkstyle:",
         "    scanScope: Only Java sources (including tests)");
     runIdeaSettings();
-    assertThatXml(".idea/checkstyle.xml")
+    assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='scanscope']/@value")
         .isEqualTo("JavaOnlyWithTests");
   }
@@ -39,7 +39,7 @@ public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
         "  checkstyle:",
         "    treatCheckstyleErrorsAsWarnings: true");
     runIdeaSettings();
-    assertThatXml(".idea/checkstyle.xml")
+    assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='suppress-errors']/@value")
         .asBoolean()
         .isEqualTo(true);
@@ -55,7 +55,7 @@ public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
         "        description: Javapoet Checkstyle",
         "        file: checkstyle.xml");
     runIdeaSettings();
-    assertThatXml(".idea/checkstyle.xml")
+    assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='active-configuration']/@value")
         .isEqualTo("PROJECT_RELATIVE:$PROJECT_DIR$/checkstyle.xml:Javapoet Checkstyle");
   }
@@ -70,7 +70,7 @@ public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
         "        description: Google Checks",
         "        file: bundled");
     runIdeaSettings();
-    assertThatXml(".idea/checkstyle.xml")
+    assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='active-configuration']/@value")
         .isEqualTo("BUNDLED:(bundled):Google Checks");
   }
