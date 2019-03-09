@@ -41,6 +41,11 @@ public abstract class JavapoetTestFixture {
             throw new UncheckedIOException(e);
           }
         });
+
+    // Corresponds to ~/.IdeaIC20XX.X/{config,system}, respectively.
+    // We set these to empty folders to avoid contamination between tests.
+    System.setProperty("idea.config.path", String.valueOf(temporaryFolder.newFolder("idea-config")));
+    System.setProperty("idea.system.path", String.valueOf(temporaryFolder.newFolder("idea-system")));
   }
 
   protected void writeIdeaSettingsFile(String... lines) throws IOException {
