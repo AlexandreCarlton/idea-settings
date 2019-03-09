@@ -13,7 +13,11 @@ jobs:
 
       - run:
           name: Build idea-settings
-          command: bazel build //:idea-settings
+          command: bazel build --jobs=1 //:idea-settings
+
+      - run:
+          name: Build idea-settings tests
+          command: bazel build --jobs=1 //:tests
 
       - run:
           name: Test idea-settings
