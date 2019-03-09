@@ -14,6 +14,10 @@ public class JavaImportSettingsApplierTest extends JavapoetTestFixture {
         "      imports:",
         "        classCountToUseImportWithWildcard: 999");
     runIdeaSettings();
+    assertThatXml(".idea/codeStyles/codeStyleConfig.xml")
+        .valueByXPath("//component[@name='ProjectCodeStyleConfiguration']/option[@name='USE_PER_PROJECT_SETTINGS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
     assertThatXml(".idea/codeStyles/Project.xml")
         .valueByXPath("//JavaCodeStyleSettings/option[@name='CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND']/@value")
         .asInt()
@@ -29,6 +33,10 @@ public class JavaImportSettingsApplierTest extends JavapoetTestFixture {
         "      imports:",
         "        namesCountToUseStaticImportWithWildcard: 999");
     runIdeaSettings();
+    assertThatXml(".idea/codeStyles/codeStyleConfig.xml")
+        .valueByXPath("//component[@name='ProjectCodeStyleConfiguration']/option[@name='USE_PER_PROJECT_SETTINGS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
     assertThatXml(".idea/codeStyles/Project.xml")
         .valueByXPath("//JavaCodeStyleSettings/option[@name='NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND']/@value")
         .asInt()
