@@ -3,8 +3,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_d
 import com.github.alexandrecarlton.idea.settings.fixtures.JavapoetTestFixture;
 import org.junit.Test;
 
-import java.nio.file.Files;
-
 public class BuildExecutionDeploymentSettingsApplierTest extends JavapoetTestFixture {
 
   @Test
