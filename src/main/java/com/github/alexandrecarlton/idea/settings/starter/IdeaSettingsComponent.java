@@ -4,14 +4,11 @@ import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.intellij.openapi.application.ex.ApplicationEx;
 import com.intellij.openapi.project.Project;
-
 import dagger.BindsInstance;
 import dagger.Component;
 
 import javax.inject.Named;
-import javax.inject.Singleton;
 
-@Singleton
 @Component(modules = {
     IdeaModule.class,
     SettingsApplierModule.class,

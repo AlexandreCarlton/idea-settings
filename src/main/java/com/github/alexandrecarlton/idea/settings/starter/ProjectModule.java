@@ -10,7 +10,6 @@ import dagger.Provides;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 
 import javax.inject.Named;
-import javax.inject.Singleton;
 
 /**
  * Provides components that depend on the imported {@link Project}.
@@ -19,11 +18,9 @@ import javax.inject.Singleton;
 public class ProjectModule {
 
   @Provides
-  @Singleton
   static Project provideProject(@Named("project") String path) {
 //    PluginManager.invalidatePlugins();
-    Project project = ProjectUtil.openOrImport(path, null, false);
-    return project;
+    return ProjectUtil.openOrImport(path, null, false);
   }
 
   @Provides
