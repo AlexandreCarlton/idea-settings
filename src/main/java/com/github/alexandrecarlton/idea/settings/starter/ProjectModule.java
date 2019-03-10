@@ -7,6 +7,7 @@ import com.intellij.ide.plugins.PluginManager;
 import com.intellij.ide.plugins.PluginManagerCore;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.util.indexing.FileBasedIndex;
 import dagger.Module;
 import dagger.Provides;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
@@ -24,6 +25,9 @@ public class ProjectModule {
   @Singleton
   static Project provideProject(@Named("project") String path) {
 //    PluginManager.invalidatePlugins();
+    // Hopefully this should resolve the following from not existing:
+    // ${idea.system.path}/idea-system/index/stubs/properties.index/properties.index.storage.keystream
+    FileBasedIndex.getInstance().invalidateCaches();
     Project project = ProjectUtil.openOrImport(path, null, false);
     return project;
   }
