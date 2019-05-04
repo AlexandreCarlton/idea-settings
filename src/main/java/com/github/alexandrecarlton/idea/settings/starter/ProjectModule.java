@@ -1,5 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
+import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
+import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
 import com.intellij.compiler.CompilerConfiguration;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
@@ -32,6 +34,11 @@ public class ProjectModule {
   }
 
   @Provides
+  static CodeInsightWorkspaceSettings provideCodeInsightWorkspaceSettings(Project project) {
+    return CodeInsightWorkspaceSettings.getInstance(project);
+  }
+
+  @Provides
   static CompilerConfiguration provideCompilerConfiguration(Project project) {
     return CompilerConfiguration.getInstance(project);
   }
@@ -39,6 +46,11 @@ public class ProjectModule {
   @Provides
   static ExternalDependenciesManager provideExternalDependenciesManager(Project project) {
     return ExternalDependenciesManager.getInstance(project);
+  }
+
+  @Provides
+  static JavaProjectCodeInsightSettings provideJavaProjectCodeInsightSettings(Project project) {
+    return JavaProjectCodeInsightSettings.getSettings(project);
   }
 
   @Provides
