@@ -16,6 +16,8 @@ public class CompilerSettingsApplier implements SettingsApplier<CompilerSettings
 
   @Override
   public void apply(CompilerSettings settings) {
+    settings.addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters()
+        .ifPresent(compilerConfiguration::setAddNotNullAssertions);
     settings.buildProcessHeapSizeMbytes().ifPresent(compilerConfiguration::setBuildProcessHeapSize);
   }
 }

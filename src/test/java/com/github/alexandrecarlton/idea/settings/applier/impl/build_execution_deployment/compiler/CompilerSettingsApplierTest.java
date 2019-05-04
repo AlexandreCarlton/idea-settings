@@ -6,6 +6,19 @@ import org.junit.Test;
 public class CompilerSettingsApplierTest extends JavapoetTestFixture {
 
   @Test
+  public void testAddRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters() throws Exception {
+    writeIdeaSettingsFile(
+        "buildExecutionDeployment:",
+        "  compiler:",
+        "    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false");
+    runIdeaSettings();
+    assertThatXml(".idea/compiler.xml")
+        .valueByXPath("//component[@name='CompilerConfiguration']/addNotNullAssertions/@enabled")
+        .asBoolean()
+        .isEqualTo(false);
+  }
+
+  @Test
   public void testBuildProcessHeapSize() throws Exception {
     writeIdeaSettingsFile(
         "buildExecutionDeployment:",

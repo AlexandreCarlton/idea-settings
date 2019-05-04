@@ -8,5 +8,6 @@ import java.util.Optional;
 @Value.Immutable
 @JsonDeserialize(as = ImmutableCompilerSettings.class)
 public interface CompilerSettings {
+  Optional<Boolean> addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters();
   Optional<Integer> buildProcessHeapSizeMbytes();
 }
