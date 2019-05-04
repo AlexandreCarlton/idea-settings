@@ -8,6 +8,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ex.ProjectEx;
 import com.intellij.openapi.roots.LanguageLevelProjectExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.spellchecker.settings.SpellCheckerSettings;
 import dagger.Module;
 import dagger.Provides;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
@@ -58,6 +59,11 @@ public class ProjectModule {
   @Provides
   static ProjectRootManager provideProjectRootManager(Project project) {
     return ProjectRootManager.getInstance(project);
+  }
+
+  @Provides
+  static SpellCheckerSettings provideSpellCheckerSettings(Project project) {
+    return SpellCheckerSettings.getInstance(project);
   }
 
 }
