@@ -1,5 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
+import com.intellij.application.options.CodeStyle;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
 import com.intellij.compiler.CompilerConfiguration;
@@ -10,6 +11,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ex.ProjectEx;
 import com.intellij.openapi.roots.LanguageLevelProjectExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
 import dagger.Module;
 import dagger.Provides;
@@ -36,6 +38,11 @@ public class ProjectModule {
   @Provides
   static CodeInsightWorkspaceSettings provideCodeInsightWorkspaceSettings(Project project) {
     return CodeInsightWorkspaceSettings.getInstance(project);
+  }
+
+  @Provides
+  static CodeStyleSettings provideCodeStyleSettings(Project project) {
+    return CodeStyle.getSettings(project);
   }
 
   @Provides
