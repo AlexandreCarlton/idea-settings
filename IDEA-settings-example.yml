@@ -2,6 +2,13 @@
 # An example configuration file detailing all options that can be set.
 # The layout is strongly intended to mimic the graphical menus that expose these settings.
 
+# This can be found not in 'Settings...' but under 'Project Structure...'
+projectSettings:
+  project:
+    projectName: project-name-in-intellij
+    projectSdk: ProjectSDK
+    projectLanguageLevel: '8'
+
 editor:
   codeStyle:
     java:
