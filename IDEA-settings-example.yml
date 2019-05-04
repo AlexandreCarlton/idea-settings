@@ -1,3 +1,7 @@
+---
+# An example configuration file detailing all options that can be set.
+# The layout is strongly intended to mimic the graphical menus that expose these settings.
+
 editor:
   codeStyle:
     java:
@@ -12,6 +16,10 @@ editor:
           - com.google.inject.Inject
           - com.sun.istack.internal.Nullable
           - edu.umd.cs.findbugs.annotations.Nullable
+
+buildExecutionDeployment:
+  compiler:
+    buildProcessHeapSizeMbytes: 1024
 
 otherSettings:
   checkstyle:
