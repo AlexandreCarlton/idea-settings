@@ -21,6 +21,10 @@ buildExecutionDeployment:
   compiler:
     addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false
     buildProcessHeapSizeMbytes: 1024
+  requiredPlugins:
+    - plugin: CheckStyle-IDEA
+      minimumVersion: 5.23.0
+      maximumVersion: 5.24.1
 
 otherSettings:
   checkstyle:
