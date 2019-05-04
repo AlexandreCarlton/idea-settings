@@ -20,6 +20,7 @@ public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
         .valueByXPath("//entry[@key='checkstyle-version']/@value")
         .isEqualTo("8.16");
   }
+
   @Test
   public void testScanScope() throws Exception {
     writeIdeaSettingsFile(

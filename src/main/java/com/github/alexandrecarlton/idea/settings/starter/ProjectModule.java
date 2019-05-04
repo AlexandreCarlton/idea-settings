@@ -5,6 +5,9 @@ import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ex.ProjectEx;
+import com.intellij.openapi.roots.LanguageLevelProjectExtension;
+import com.intellij.openapi.roots.ProjectRootManager;
 import dagger.Module;
 import dagger.Provides;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
@@ -19,8 +22,12 @@ public class ProjectModule {
 
   @Provides
   static Project provideProject(@Named("project") String path) {
-//    PluginManager.invalidatePlugins();
     return ProjectUtil.openOrImport(path, null, false);
+  }
+
+  @Provides
+  static ProjectEx provideProjectEx(Project project) {
+    return (ProjectEx) project;
   }
 
   @Provides
@@ -34,6 +41,11 @@ public class ProjectModule {
   }
 
   @Provides
+  static LanguageLevelProjectExtension provideLanguageLevelProjectExtension(Project project) {
+    return LanguageLevelProjectExtension.getInstance(project);
+  }
+
+  @Provides
   static ModuleManager provideModuleManager(Project project) {
     return ModuleManager.getInstance(project);
   }
@@ -41,6 +53,11 @@ public class ProjectModule {
   @Provides
   static PluginConfigurationManager providePluginConfigurationManager(Project project) {
     return PluginConfigurationManager.getInstance(project);
+  }
+
+  @Provides
+  static ProjectRootManager provideProjectRootManager(Project project) {
+    return ProjectRootManager.getInstance(project);
   }
 
 }

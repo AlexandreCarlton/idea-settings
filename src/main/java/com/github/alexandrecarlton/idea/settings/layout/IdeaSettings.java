@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
+import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings;
 import org.immutables.value.Value;
 
 import java.util.Optional;
@@ -18,5 +19,6 @@ public interface IdeaSettings {
 
   Optional<OtherSettings> otherSettings();
 
+  Optional<ProjectSettingsSettings> projectSettings();
 }
 
