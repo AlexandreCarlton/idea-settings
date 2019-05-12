@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
+import com.intellij.configurationStore.StoreUtil;
 import com.intellij.openapi.application.ApplicationStarter;
 import com.intellij.openapi.application.WriteAction;
 
@@ -51,7 +52,7 @@ public class IdeaSettingsApplicationStarter implements ApplicationStarter {
     component.applicationEx().setSaveAllowed(true);
     WriteAction.runAndWait(() -> {
       settings.ifPresent(component.applier()::apply);
-      component.project().save();
+      StoreUtil.saveDocumentsAndProjectsAndApp(true);
     });
   }
 
