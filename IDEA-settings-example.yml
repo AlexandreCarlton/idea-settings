@@ -23,6 +23,11 @@ editor:
           - com.google.inject.Inject
           - com.sun.istack.internal.Nullable
           - edu.umd.cs.findbugs.annotations.Nullable
+  spelling:
+    dictionaries:
+      # files containing a word on each line to be used as custom spelling dictionaries.
+      - relative_to_project.dic
+      - /tmp/absolute.dic
 
 buildExecutionDeployment:
   compiler:

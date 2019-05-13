@@ -10,6 +10,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
         # Disabled as we are getting the following error ONLY in CI:
         #   ERROR: java.io.FileNotFoundException:
