@@ -9,6 +9,20 @@ import static org.junit.Assert.*;
 public class JavaAutoImportSettingsApplierTest extends JavapoetTestFixture {
 
   @Test
+  public void testOptimizeImportsOnTheFly() throws Exception {
+    writeIdeaSettingsFile(
+        "editor:",
+        "  general:",
+        "    autoImport:",
+        "      java:",
+        "        optimizeImportsOnTheFly: true");
+    runIdeaSettings();
+    assertThatXml(".idea/workspace.xml")
+        .valueByXPath("//component[@name='CodeInsightWorkspaceSettings']/option[@name='optimizeImportsOnTheFly']/@value")
+        .asBoolean()
+        .isTrue();
+  }
+  @Test
   public void testExcludeFromImportAndCompletion() throws Exception {
     writeIdeaSettingsFile(
         "editor:",
