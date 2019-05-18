@@ -9,11 +9,11 @@ CHECKSTYLE_IDEA_VERSION = "5.24.2"
 CHECKSTYLE_IDEA_SHA256 = "1622761d25d318a8281732f0a16e805b44157161c6ffb3e88e6c3f79d9ca97fa"
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_IC_VERSION = "2019.1"
+IDEA_IC_VERSION = "191.5849.21" # 2019.1 EAP - versions up to 2019.1.2 have a bug in git4idea.
 
-IDEA_IC_SHA256 = "8bd7ff641f482c68cfa30564bd5bb42cf75b521f5298d3a8189dcc147188c66a"
+IDEA_IC_SHA256 = "c1e26dd6a32649274a4ae0e8ce3fa311abb89a238afc479cdf2491a94834959f"
 
-IDEA_IC_SOURCES_SHA256 = "2af2a5dbaa9fb99cf06df652b88286127e5ab15aeec9cb742e338a8bdf2025b4"
+IDEA_IC_SOURCES_SHA256 = "dba2ef5a65d0cb5b310fe89a12a9ee2a35f514e2ae7abf51c8f8a21153622b96"
 
 http_archive(
     name = "idea-IC",
