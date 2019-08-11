@@ -1,6 +1,38 @@
-alias(
+load(
+    "@intellij_with_bazel//build_defs:build_defs.bzl",
+    "intellij_plugin",
+    "intellij_plugin_library",
+)
+
+intellij_plugin_library(
+    name = "plugin_library",
+    plugin_xmls = ["src/main/resources/META-INF/plugin.xml"],
+    deps = [
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/starter",
+    ],
+)
+
+filegroup(
+    name = "plugin_xml",
+    srcs = ["plugin.xml"],
+    visibility = ["//visibility:public"],
+)
+
+intellij_plugin(
     name = "idea-settings",
-    actual = "//src/main/java/com/github/alexandrecarlton/idea/settings/starter:idea-settings",
+    plugin_xml = ":plugin_xml",
+    deps = [":plugin_library"],
+)
+
+sh_binary(
+    name = "apply-idea-settings",
+    srcs = ["apply-idea-settings.sh"],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
+    data = [
+        ":idea-settings",
+        "@idea-IC//:bin/idea",
+        "@CheckStyle-IDEA//:lib/checkstyle-idea_jar",
+    ],
 )
 
 test_suite(
@@ -11,11 +43,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
-        # Disabled as we are getting the following error ONLY in CI:
-        #   ERROR: java.io.FileNotFoundException:
-        #   /root/.cache/bazel/_bazel_root/f85b6fb5740e6e8c7efea142eec4b6e8/sandbox/processwrapper-sandbox/8/execroot/__main__/_tmp/af2f2738550a6e09f3618e4dac32efbd
-        #   /junit3062036461441905122/idea-system/index/stubs/properties.index/properties.index.storage.keystream (No such file or directory)
-        # "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
     ],
 )

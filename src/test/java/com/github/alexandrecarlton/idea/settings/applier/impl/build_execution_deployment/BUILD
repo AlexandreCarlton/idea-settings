@@ -1,5 +1,3 @@
-load("//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures:javapoet.bzl", "java_test_javapoet")
-
 test_suite(
     name = "build_execution_deployment",
     tests = [
@@ -7,14 +5,25 @@ test_suite(
     ],
 )
 
-java_test_javapoet(
+java_test(
     name = "build_execution_deployment_settings_applier_test",
     srcs = ["BuildExecutionDeploymentSettingsApplierTest.java"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.BuildExecutionDeploymentSettingsApplierTest",
+    runtime_deps = [
+        "@idea-IC//:runtime_deps",
+        "@idea-IC//:test_deps",
+    ],
     deps = [
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/compiler",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",
+        "//third_party/maven/org/mockito:mockito_core",
         "//third_party/maven/org/xmlunit:xmlunit_assertj",
+        "@idea-IC//:lib/platform-impl",
     ],
 )

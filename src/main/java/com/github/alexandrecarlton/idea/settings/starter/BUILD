@@ -1,13 +1,3 @@
-java_binary(
-    name = "idea-settings",
-    main_class = "com.github.alexandrecarlton.idea.settings.starter.Main",
-    visibility = ["//visibility:public"],
-    runtime_deps = [
-        ":starter",
-        "@idea-IC//:runtime_deps",
-    ],
-)
-
 java_library(
     name = "starter",
     srcs = glob(["*.java"]),
@@ -60,12 +50,7 @@ java_library(
         "@idea-IC//:lib/openapi",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
+        "@idea-IC//:lib/spellchecker",
         "@idea-IC//:lib/util",
     ],
-)
-
-java_import(
-    name = "lib/tools",
-    jars = ["@local_jdk//:lib/tools.jar"],
-    visibility = ["//visibility:public"],
 )

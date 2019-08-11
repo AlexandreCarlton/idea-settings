@@ -59,6 +59,10 @@ dependencies:
       generatesApi: true
       processorClasses:
         - org.immutables.processor.ProxyProcessor
+  org.mockito:
+    mockito-core:
+      lang: java
+      version: 2.28.2
   org.xmlunit:
     xmlunit-assertj:
       lang: java

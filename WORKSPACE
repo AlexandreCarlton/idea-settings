@@ -1,3 +1,4 @@
+workspace(name = "idea_settings")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
 
 BAZEL_DEPS_COMMIT = "e3f77e22d9f5b070915067a766607cfc96835c98"
@@ -8,12 +9,16 @@ CHECKSTYLE_IDEA_VERSION = "5.24.2"
 
 CHECKSTYLE_IDEA_SHA256 = "1622761d25d318a8281732f0a16e805b44157161c6ffb3e88e6c3f79d9ca97fa"
 
+BAZEL_INTELLIJ_COMMIT = "485a11132a7fd1b563357fa4263dd6ca3e3dd275"
+
+BAZEL_INTELLIJ_SHA256 = "bc3187cc94852f2d846cc427b9c1c420aa3f8726886dfe223f98872a0f490e9b"
+
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_IC_VERSION = "191.5849.21" # 2019.1 EAP - versions up to 2019.1.2 have a bug in git4idea.
+IDEA_IC_VERSION = "2019.2"
 
-IDEA_IC_SHA256 = "c1e26dd6a32649274a4ae0e8ce3fa311abb89a238afc479cdf2491a94834959f"
+IDEA_IC_SHA256 = "9567f2a88c9d4c4a0495208914f07bd2dace78dad0fee31fb9f8a4adab3cc437"
 
-IDEA_IC_SOURCES_SHA256 = "dba2ef5a65d0cb5b310fe89a12a9ee2a35f514e2ae7abf51c8f8a21153622b96"
+IDEA_IC_SOURCES_SHA256 = "0218f68cdc58d668ed2687f443719ba14c38fbf4a46ca2b7fda992b2a647acf8"
 
 http_archive(
     name = "idea-IC",
@@ -41,6 +46,13 @@ http_archive(
     sha256 = CHECKSTYLE_IDEA_SHA256,
     strip_prefix = "CheckStyle-IDEA",
     url = "https://plugins.jetbrains.com/files/1065/54249/checkstyle-idea-{0}.zip".format(CHECKSTYLE_IDEA_VERSION),
+)
+
+http_archive(
+    name = "intellij_with_bazel",
+    sha256 = BAZEL_INTELLIJ_SHA256,
+    strip_prefix = "intellij-{0}".format(BAZEL_INTELLIJ_COMMIT),
+    url = "https://github.com/bazelbuild/intellij/archive/{0}.zip".format(BAZEL_INTELLIJ_COMMIT)
 )
 
 # bazel-deps will soon produce a jar that can be used to run @bazel-deps//:parse from within

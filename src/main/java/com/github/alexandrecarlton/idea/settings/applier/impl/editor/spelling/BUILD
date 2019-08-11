@@ -9,6 +9,7 @@ java_library(
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
+        "@idea-IC//:lib/spellchecker",
         "@idea-IC//:lib/util",
     ],
 )

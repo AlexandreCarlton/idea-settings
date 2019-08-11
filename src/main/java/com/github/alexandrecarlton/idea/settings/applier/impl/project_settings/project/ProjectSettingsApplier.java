@@ -4,8 +4,8 @@ import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings;
 import com.intellij.openapi.project.ex.ProjectEx;
-import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.roots.LanguageLevelProjectExtension;
+import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.pom.java.LanguageLevel;
 
 import javax.inject.Inject;

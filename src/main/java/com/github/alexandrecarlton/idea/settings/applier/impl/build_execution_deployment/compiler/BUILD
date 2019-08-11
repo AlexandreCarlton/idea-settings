@@ -9,6 +9,7 @@ java_library(
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/openapi",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:lib/java-api",
         "@idea-IC//:lib/util",
     ],
 )

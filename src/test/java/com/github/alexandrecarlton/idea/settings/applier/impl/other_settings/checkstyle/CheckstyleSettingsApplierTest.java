@@ -1,79 +1,87 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle;
 
-import com.github.alexandrecarlton.idea.settings.fixtures.JavapoetTestFixture;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
+import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope;
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.ImmutableCheckstyleConfigurationFile;
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.ImmutableCheckstyleSettings;
+
+import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
+import org.infernus.idea.checkstyle.model.ConfigurationLocation;
+import org.infernus.idea.checkstyle.model.ConfigurationType;
+import org.infernus.idea.checkstyle.model.ScanScope;
 import org.junit.Test;
 
-import java.io.IOException;
+public class CheckstyleSettingsApplierTest extends IdeaSettingsTestFixture {
 
-import static org.junit.Assert.*;
+  private SettingsApplier<CheckstyleSettings> settingsApplier;
+  private PluginConfigurationManager pluginConfigurationManager;
 
-public class CheckstyleSettingsApplierTest extends JavapoetTestFixture {
-
-  @Test
-  public void testCheckstyleVersion() throws Exception {
-    writeIdeaSettingsFile(
-        "otherSettings:",
-        "  checkstyle:",
-        "    checkstyleVersion: '8.16'");
-    runIdeaSettings();
-    assertThatXml(".idea/checkstyle-idea.xml")
-        .valueByXPath("//entry[@key='checkstyle-version']/@value")
-        .isEqualTo("8.16");
+  @Override
+  public void setUp() throws Exception {
+    super.setUp();
+    pluginConfigurationManager = PluginConfigurationManager.getInstance(project);
+    settingsApplier = new CheckstyleSettingsApplier(project, pluginConfigurationManager);
   }
 
   @Test
-  public void testScanScope() throws Exception {
-    writeIdeaSettingsFile(
-        "otherSettings:",
-        "  checkstyle:",
-        "    scanScope: Only Java sources (including tests)");
-    runIdeaSettings();
-    assertThatXml(".idea/checkstyle-idea.xml")
-        .valueByXPath("//entry[@key='scanscope']/@value")
-        .isEqualTo("JavaOnlyWithTests");
+  public void checkstyleVersionApplied() {
+    settingsApplier.apply(ImmutableCheckstyleSettings.builder()
+        .checkstyleVersion("8.16")
+        .build());
+    assertThat(pluginConfigurationManager.getCurrent().getCheckstyleVersion()).isEqualTo("8.16");
   }
 
   @Test
-  public void testTreatCheckstyleErrorsAsWarnings() throws Exception {
-    writeIdeaSettingsFile(
-        "otherSettings:",
-        "  checkstyle:",
-        "    treatCheckstyleErrorsAsWarnings: true");
-    runIdeaSettings();
-    assertThatXml(".idea/checkstyle-idea.xml")
-        .valueByXPath("//entry[@key='suppress-errors']/@value")
-        .asBoolean()
+  public void scanScopeApplied() {
+    settingsApplier.apply(ImmutableCheckstyleSettings.builder()
+        .scanScope(CheckstyleScanScope.ONLY_JAVA_SOURCES_INCLUDING_TESTS)
+        .build());
+    assertThat(pluginConfigurationManager.getCurrent().getScanScope())
+        .isEqualTo(ScanScope.JavaOnlyWithTests);
+  }
+
+  @Test
+  public void treatCheckstyleErrorsAsWarningsApplied() {
+    settingsApplier.apply(ImmutableCheckstyleSettings.builder()
+        .treatCheckstyleErrorsAsWarnings(true)
+        .build());
+    assertThat(pluginConfigurationManager.getCurrent().isSuppressErrors())
         .isEqualTo(true);
   }
 
   @Test
-  public void testLocalConfigurationFile() throws Exception {
-    writeIdeaSettingsFile(
-        "otherSettings:",
-        "  checkstyle:",
-        "    configurationFiles:",
-        "      - active: true",
-        "        description: Javapoet Checkstyle",
-        "        file: checkstyle.xml");
-    runIdeaSettings();
-    assertThatXml(".idea/checkstyle-idea.xml")
-        .valueByXPath("//entry[@key='active-configuration']/@value")
-        .isEqualTo("PROJECT_RELATIVE:$PROJECT_DIR$/checkstyle.xml:Javapoet Checkstyle");
+  public void localConfigurationFileApplied() {
+    settingsApplier.apply(ImmutableCheckstyleSettings.builder()
+        .addConfigurationFiles(ImmutableCheckstyleConfigurationFile.builder()
+            .active(true)
+            .description("My CheckStyle")
+            .file("checkstyle.xml")
+            .build())
+        .build());
+
+    final ConfigurationLocation activeLocation = pluginConfigurationManager.getCurrent().getActiveLocation();
+    assertThat(activeLocation.getType()).isEqualTo(ConfigurationType.PROJECT_RELATIVE);
+    assertThat(activeLocation.getLocation()).isEqualTo(project.getBasePath() + "/checkstyle.xml");
+    assertThat(activeLocation.getDescription()).isEqualTo("My CheckStyle");
   }
 
   @Test
-  public void testBundledConfigurationFile() throws Exception {
-    writeIdeaSettingsFile(
-        "otherSettings:",
-        "  checkstyle:",
-        "    configurationFiles:",
-        "      - active: true",
-        "        description: Google Checks",
-        "        file: bundled");
-    runIdeaSettings();
-    assertThatXml(".idea/checkstyle-idea.xml")
-        .valueByXPath("//entry[@key='active-configuration']/@value")
-        .isEqualTo("BUNDLED:(bundled):Google Checks");
+  public void bundledConfigurationFileApplied() {
+    settingsApplier.apply(ImmutableCheckstyleSettings.builder()
+        .addConfigurationFiles(ImmutableCheckstyleConfigurationFile.builder()
+            .active(true)
+            .description("Google Checks")
+            .file("bundled")
+            .build())
+        .build());
+
+    final ConfigurationLocation activeLocation = pluginConfigurationManager.getCurrent().getActiveLocation();
+    assertThat(activeLocation.getType()).isEqualTo(ConfigurationType.BUNDLED);
+    assertThat(activeLocation.getDescription()).isEqualTo("Google Checks");
   }
 
 }

@@ -1,39 +1,48 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling;
 
-import com.github.alexandrecarlton.idea.settings.fixtures.JavapoetTestFixture;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
+import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
+import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.ImmutableSpellingSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings;
+import com.intellij.spellchecker.settings.SpellCheckerSettings;
+
 import org.junit.Test;
 
-import java.io.IOException;
+import java.nio.file.Paths;
 
-import static org.junit.Assert.*;
+public class SpellingSettingsApplierTest extends IdeaSettingsTestFixture {
 
-public class SpellingSettingsApplierTest extends JavapoetTestFixture {
+  private SettingsApplier<SpellingSettings> settingsApplier;
+  private SpellCheckerSettings spellCheckerSettings;
 
-  @Test
-  public void testDictionaryRelativeToProject() throws Exception {
-    writeIdeaSettingsFile(
-        "editor:",
-        "  spelling:",
-        "    dictionaries:",
-        "      - dict.dic");
-    runIdeaSettings();
-    assertThatXml(".idea/workspace.xml")
-        .valueByXPath("//component[@name='SpellCheckerSettings']/@CustomDictionary0")
-        .asString()
-        .isEqualTo("$PROJECT_DIR$/dict.dic");
+  @Override
+  public void setUp() throws Exception {
+    super.setUp();
+    spellCheckerSettings = SpellCheckerSettings.getInstance(project);
+    settingsApplier = new SpellingSettingsApplier(project, spellCheckerSettings);
+  }
+
+  @Override
+  public void tearDown() throws Exception {
+    super.tearDown();
+    spellCheckerSettings.getCustomDictionariesPaths().clear();
   }
 
   @Test
-  public void testAbsoluteDictionary() throws Exception {
-    writeIdeaSettingsFile(
-        "editor:",
-        "  spelling:",
-        "    dictionaries:",
-        "      - /tmp/dict.dic");
-    runIdeaSettings();
-    assertThatXml(".idea/workspace.xml")
-        .valueByXPath("//component[@name='SpellCheckerSettings']/@CustomDictionary0")
-        .asString()
-        .isEqualTo("/tmp/dict.dic");
+  public void dictionaryRelativeToProjectApplied() {
+    settingsApplier.apply(ImmutableSpellingSettings.builder()
+        .addDictionaries(Paths.get("dict.dic"))
+        .build());
+    assertThat(spellCheckerSettings.getCustomDictionariesPaths()).containsOnly(Paths.get(project.getBasePath()).resolve("dict.dic").toString());
+  }
+
+  @Test
+  public void absoluteDictionaryApplied() {
+    settingsApplier.apply(ImmutableSpellingSettings.builder()
+        .addDictionaries(Paths.get("/tmp/dict.dic"))
+        .build());
+    assertThat(spellCheckerSettings.getCustomDictionariesPaths()).containsOnly("/tmp/dict.dic");
   }
 }

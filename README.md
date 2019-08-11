@@ -40,7 +40,7 @@ To generate IDEA files for a given project, run the following from this
 checkout:
 
 ```sh
-bazel run //:idea-settings <project-directory>
+bazel run //:apply-idea-settings <project-directory>
 ```
 
 ## Future goals
@@ -51,8 +51,8 @@ bazel run //:idea-settings <project-directory>
 
 ### Updating dependencies
 
-This projects uses [bazel-deps](https://github.com/johnynek/bazel-deps).
-To update a maven dependency, modify [`third_party/dependencies.yaml`].
+This projects uses [`bazel-deps`](https://github.com/johnynek/bazel-deps).
+To update a Maven dependency, modify [`third_party/dependencies.yaml`](third_party/dependencies.yaml).
 Then, checkout the aforementioned repository and run:
 
 ```sh
