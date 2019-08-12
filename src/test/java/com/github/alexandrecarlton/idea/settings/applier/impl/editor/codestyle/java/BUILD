@@ -17,6 +17,7 @@ java_test(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
+        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/idea",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:plugins/java/lib/java-impl",

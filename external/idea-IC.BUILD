@@ -150,7 +150,7 @@ java_import(
 java_import(
     name = "test_runtime_deps",
     jars = [
-        ":runtime_deps",
+        "@local_jdk//:lib/tools.jar",
     ] + glob([
         "lib/*.jar",
         "plugins/java/**/*.jar",

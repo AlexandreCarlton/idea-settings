@@ -13,6 +13,5 @@ java_library(
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",
         "@idea-IC//:plugins/java/lib/java-api",
-        "@org_immutables_value//jar",
     ],
 )
