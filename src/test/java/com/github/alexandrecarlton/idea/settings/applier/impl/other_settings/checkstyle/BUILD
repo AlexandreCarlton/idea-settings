@@ -11,8 +11,7 @@ java_test(
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplierTest",
     runtime_deps = [
         "@CheckStyle-IDEA//:test_runtime_deps",
-        "@idea-IC//:runtime_deps",
-        "@idea-IC//:test_deps",
+        "@idea-IC//:test_runtime_deps",
     ],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",

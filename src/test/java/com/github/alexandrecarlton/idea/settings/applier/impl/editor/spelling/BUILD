@@ -9,10 +9,7 @@ java_test(
     name = "spelling_settings_applier_test",
     srcs = ["SpellingSettingsApplierTest.java"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplierTest",
-    runtime_deps = [
-        "@idea-IC//:runtime_deps",
-        "@idea-IC//:test_deps",
-    ],
+    runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",

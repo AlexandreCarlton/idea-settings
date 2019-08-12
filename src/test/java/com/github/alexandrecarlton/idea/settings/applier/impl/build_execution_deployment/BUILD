@@ -9,10 +9,7 @@ java_test(
     name = "build_execution_deployment_settings_applier_test",
     srcs = ["BuildExecutionDeploymentSettingsApplierTest.java"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.BuildExecutionDeploymentSettingsApplierTest",
-    runtime_deps = [
-        "@idea-IC//:runtime_deps",
-        "@idea-IC//:test_deps",
-    ],
+    runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment",

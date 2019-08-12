@@ -4,12 +4,12 @@ package(default_visibility = ["//visibility:public"])
 java_import(
     name = "lib/checkstyle-idea",
     jars = glob(["lib/checkstyle-idea-*.jar"]),
-    neverlink = True
+    neverlink = True,
 )
 
 java_import(
     name = "test_runtime_deps",
-    jars = glob(["lib/*.jar"])
+    jars = glob(["lib/*.jar"]),
 )
 
 filegroup(

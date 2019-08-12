@@ -9,10 +9,7 @@ java_test(
     name = "java_import_settings_applier_test",
     srcs = ["JavaImportSettingsApplierTest.java"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportSettingsApplierTest",
-    runtime_deps = [
-        "@idea-IC//:runtime_deps",
-        "@idea-IC//:test_deps",
-    ],
+    runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java",
@@ -21,7 +18,7 @@ java_test(
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
         "@idea-IC//:lib/idea",
-        "@idea-IC//:lib/java-impl",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:plugins/java/lib/java-impl",
     ],
 )

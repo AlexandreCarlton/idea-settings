@@ -12,7 +12,7 @@ java_library(
         "//third_party/maven/org/xmlunit:xmlunit_assertj",
         "@idea-IC//:lib/bootstrap",
         "@idea-IC//:lib/idea",
-        "@idea-IC//:lib/java-impl",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:plugins/java/lib/java-impl",
     ],
 )

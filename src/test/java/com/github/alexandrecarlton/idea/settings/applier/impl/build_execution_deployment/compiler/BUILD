@@ -9,10 +9,7 @@ java_test(
     name = "compiler_settings_applier_test",
     srcs = ["CompilerSettingsApplierTest.java"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplierTest",
-    runtime_deps = [
-        "@idea-IC//:runtime_deps",
-        "@idea-IC//:test_deps",
-    ],
+    runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
@@ -21,6 +18,6 @@ java_test(
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
-        "@idea-IC//:lib/java-api",
+        "@idea-IC//:plugins/java/lib/java-api",
     ],
 )

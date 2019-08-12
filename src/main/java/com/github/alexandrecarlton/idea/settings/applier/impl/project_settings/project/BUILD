@@ -9,10 +9,10 @@ java_library(
         "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
         "//third_party/maven/javax/inject:javax_inject",
         "@idea-IC//:lib/extensions",
-        "@idea-IC//:lib/java-api",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",
+        "@idea-IC//:plugins/java/lib/java-api",
         "@org_immutables_value//jar",
     ],
 )

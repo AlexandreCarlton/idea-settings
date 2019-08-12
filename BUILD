@@ -27,12 +27,12 @@ intellij_plugin(
 sh_binary(
     name = "apply-idea-settings",
     srcs = ["apply-idea-settings.sh"],
-    deps = ["@bazel_tools//tools/bash/runfiles"],
     data = [
         ":idea-settings",
-        "@idea-IC//:bin/idea",
         "@CheckStyle-IDEA//:lib/checkstyle-idea_jar",
+        "@idea-IC//:bin/idea",
     ],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
 )
 
 test_suite(

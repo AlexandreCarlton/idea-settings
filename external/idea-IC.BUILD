@@ -2,10 +2,11 @@ package(default_visibility = ["//visibility:public"])
 # vim:ft=bzl
 
 sh_binary(
-  name = "bin/idea",
-  srcs = ["bin/idea.sh"],
+    name = "bin/idea",
+    srcs = ["bin/idea.sh"],
 )
 
+# We must neverlink all the libraries here; IntelliJ will manage this for us when we invoke idea.sh with idea-settings as a plugin.
 java_import(
     name = "lib/annotations",
     jars = ["lib/annotations.jar"],
@@ -23,6 +24,13 @@ java_import(
 java_import(
     name = "lib/extensions",
     jars = ["lib/extensions.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
+    name = "lib/idea",
+    jars = ["lib/idea.jar"],
     neverlink = True,
     srcjar = "@idea-IC-sources//jar",
 )
@@ -118,16 +126,15 @@ java_import(
     srcjar = "@idea-IC-sources//jar",
 )
 
-# Plugins MUST have neverlink = True so that they are not added to the classpath; IntelliJ will manage this for us (and fail if we omit this).
 java_import(
-    name = "lib/java-api",
+    name = "plugins/java/lib/java-api",
     jars = ["plugins/java/lib/java-api.jar"],
     neverlink = True,
     srcjar = "@idea-IC-sources//jar",
 )
 
 java_import(
-    name = "lib/java-impl",
+    name = "plugins/java/lib/java-impl",
     jars = ["plugins/java/lib/java-impl.jar"],
     neverlink = True,
     srcjar = "@idea-IC-sources//jar",
@@ -140,10 +147,11 @@ java_import(
     srcjar = "@idea-IC-sources//jar",
 )
 
-# Test dependencies.
 java_import(
-    name = "test_deps",  # TODO - rename to test_runtime_deps, include the regular runtime_deps.
-    jars = glob([
+    name = "test_runtime_deps",
+    jars = [
+        ":runtime_deps",
+    ] + glob([
         "lib/*.jar",
         "plugins/java/**/*.jar",
     ]),
@@ -151,20 +159,7 @@ java_import(
 )
 
 java_import(
-    name = "lib/idea",
-    jars = ["lib/idea.jar"],
-    srcjar = "@idea-IC-sources//jar",
-)
-
-java_import(
-    name = "lib/idea_rt",
-    jars = ["lib/idea_rt.jar"],
-    srcjar = "@idea-IC-sources//jar",
-)
-
-java_import(
     name = "runtime_deps",
-    # Gradle plugin has idea.jar, and idea_rt.jar too. (???)
     jars = [
         # In idea.sh, these are added to the classpath.
         "lib/bootstrap.jar",
