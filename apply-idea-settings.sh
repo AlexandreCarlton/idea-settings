@@ -31,7 +31,7 @@ fi
 
 idea_settings_jar=$(rlocation 'idea_settings/idea-settings.jar')
 checkstyle_jar=$(rlocation 'CheckStyle-IDEA/lib/checkstyle-idea-.*.jar')
-idea_sh=$(rlocation 'idea-IC/bin/idea')
+idea_sh=$(rlocation 'idea-IC/bin/idea.sh')
 
 idea_config_path=$(mktemp -d)
 idea_system_path=$(mktemp -d)
