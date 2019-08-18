@@ -1,3 +1,5 @@
+package(default_visibility = ["//visibility:public"])
+
 load(
     "@intellij_with_bazel//build_defs:build_defs.bzl",
     "intellij_plugin",
@@ -35,6 +37,11 @@ sh_binary(
     deps = ["@bazel_tools//tools/bash/runfiles"],
 )
 
+filegroup(
+    name = "apply-idea-settings-sh",
+    srcs = ["apply-idea-settings.sh"],
+)
+
 test_suite(
     name = "tests",
     tests = [
@@ -45,5 +52,12 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
+    ],
+)
+
+test_suite(
+    name = "integration-tests",
+    tests = [
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/integration",
     ],
 )

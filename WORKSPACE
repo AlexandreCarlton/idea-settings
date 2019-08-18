@@ -1,4 +1,5 @@
 workspace(name = "idea_settings")
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
 
 BAZEL_DEPS_COMMIT = "e3f77e22d9f5b070915067a766607cfc96835c98"
@@ -52,7 +53,7 @@ http_archive(
     name = "intellij_with_bazel",
     sha256 = BAZEL_INTELLIJ_SHA256,
     strip_prefix = "intellij-{0}".format(BAZEL_INTELLIJ_COMMIT),
-    url = "https://github.com/bazelbuild/intellij/archive/{0}.zip".format(BAZEL_INTELLIJ_COMMIT)
+    url = "https://github.com/bazelbuild/intellij/archive/{0}.zip".format(BAZEL_INTELLIJ_COMMIT),
 )
 
 # bazel-deps will soon produce a jar that can be used to run @bazel-deps//:parse from within
@@ -69,3 +70,14 @@ http_archive(
     strip_prefix = "javapoet-javapoet-1.11.1",
     url = "https://github.com/square/javapoet/archive/javapoet-1.11.1.zip",
 )
+
+http_archive(
+    name = "build_bazel_integration_testing",
+    sha256 = "490554b98da4ce6e3e1e074e01b81e8440b760d4f086fccf50085a25528bf5cd",
+    strip_prefix = "bazel-integration-testing-922d2b04bfb9721ab14ff6d26d4a8a6ab847aa07",
+    url = "https://github.com/bazelbuild/bazel-integration-testing/archive/922d2b04bfb9721ab14ff6d26d4a8a6ab847aa07.zip",
+)
+
+load("@build_bazel_integration_testing//tools:bazel_java_integration_test.bzl", "bazel_java_integration_test_deps")
+
+bazel_java_integration_test_deps()

@@ -6,6 +6,10 @@
 
 set -euo pipefail
 
+# RUNFILES_LIB_DEBUG=1
+
+export DISPLAY=:0 # We don't use this, but we IDEA errors out if not set.
+
 # --- begin runfiles.bash initialization --- {{{
 if [[ ! -d "${RUNFILES_DIR:-/dev/null}" && ! -f "${RUNFILES_MANIFEST_FILE:-/dev/null}" ]]; then
     if [[ -f "$0.runfiles_manifest" ]]; then
@@ -30,7 +34,7 @@ fi
 # --- end runfiles.bash initialization --- }}}
 
 idea_settings_jar=$(rlocation 'idea_settings/idea-settings.jar')
-checkstyle_jar=$(rlocation 'CheckStyle-IDEA/lib/checkstyle-idea-.*.jar')
+checkstyle_jar=$(rlocation 'CheckStyle-IDEA/lib/checkstyle-idea-5.24.2.jar')
 idea_sh=$(rlocation 'idea-IC/bin/idea.sh')
 
 idea_config_path=$(mktemp -d)

@@ -24,6 +24,10 @@ jobs:
           command: bazel test --jobs=1 //:tests
 
       - run:
+          name: Integration test idea-settings
+          command: bazel test --jobs=1 //:integration-tests
+
+      - run:
           name: Copy out bazel test results
           command: cp -r -L bazel-testlogs bazel-test-results
           when: always
