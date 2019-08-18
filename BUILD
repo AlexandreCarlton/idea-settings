@@ -32,7 +32,8 @@ sh_binary(
     data = [
         ":idea-settings",
         "@CheckStyle-IDEA//:lib/checkstyle-idea_jar",
-        "@idea-IC//:bin/idea",
+        "@idea-IC//:bin/idea.sh",
+        "@idea-IC//:bin/linux/idea64.vmoptions",
     ],
     deps = ["@bazel_tools//tools/bash/runfiles"],
 )

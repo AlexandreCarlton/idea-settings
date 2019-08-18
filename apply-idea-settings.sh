@@ -8,8 +8,6 @@ set -euo pipefail
 
 # RUNFILES_LIB_DEBUG=1
 
-export DISPLAY=:0 # We don't use this, but we IDEA errors out if not set.
-
 # --- begin runfiles.bash initialization --- {{{
 if [[ ! -d "${RUNFILES_DIR:-/dev/null}" && ! -f "${RUNFILES_MANIFEST_FILE:-/dev/null}" ]]; then
     if [[ -f "$0.runfiles_manifest" ]]; then
@@ -36,20 +34,29 @@ fi
 idea_settings_jar=$(rlocation 'idea_settings/idea-settings.jar')
 checkstyle_jar=$(rlocation 'CheckStyle-IDEA/lib/checkstyle-idea-5.24.2.jar')
 idea_sh=$(rlocation 'idea-IC/bin/idea.sh')
+idea64_vmoptions=$(rlocation 'idea-IC/bin/linux/idea64.vmoptions')
 
 idea_config_path=$(mktemp -d)
 idea_system_path=$(mktemp -d)
 idea_plugins_path=$(mktemp -d)
 idea_properties_file=$(mktemp)
-trap 'rm -rf ${idea_config_path} ${idea_system_path} ${idea_plugins_path} ${idea_properties_file}' INT TERM EXIT
+idea_vmoptions_file=$(mktemp)
+trap 'rm -rf ${idea_config_path}' INT TERM EXIT
+trap 'rm -rf ${idea_system_path}' INT TERM EXIT
+trap 'rm -rf ${idea_plugins_path}' INT TERM EXIT
+trap 'rm -f ${idea_properties_file}' INT TERM EXIT
+trap 'rm -f ${idea_vmoptions_file}' INT TERM EXIT
 
 {
   echo "idea.config.path=${idea_config_path}"
   echo "idea.system.path=${idea_system_path}"
   echo "idea.plugins.path=${idea_plugins_path}"
-  echo "java.awt.headless=true"
 } > "${idea_properties_file}"
-export IDEA_PROPERTIES=$idea_properties_file
+export IDEA_PROPERTIES="${idea_properties_file}"
+
+cat "${idea64_vmoptions}" > "${idea_vmoptions_file}"
+echo '-Djava.awt.headless=true' >> "${idea_vmoptions_file}"
+export IDEA_VM_OPTIONS="${idea_vmoptions_file}"
 
 cp --force --target-directory "${idea_plugins_path}" \
   "${idea_settings_jar}" \

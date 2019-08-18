@@ -1,10 +1,10 @@
 package(default_visibility = ["//visibility:public"])
 # vim:ft=bzl
 
-sh_binary(
-    name = "bin/idea",
-    srcs = ["bin/idea.sh"],
-)
+exports_files([
+  "bin/idea.sh",
+  "bin/linux/idea64.vmoptions",
+])
 
 # We must neverlink all the libraries here; IntelliJ will manage this for us when we invoke idea.sh with idea-settings as a plugin.
 java_import(
