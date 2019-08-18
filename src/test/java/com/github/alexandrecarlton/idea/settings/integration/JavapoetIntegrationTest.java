@@ -29,9 +29,9 @@ public class JavapoetIntegrationTest {
     driver.setUp();
 
     driver.copyFromRunfiles("idea_settings/apply-idea-settings.sh", "apply-idea-settings.sh");
-    driver.copyFromRunfiles("idea_settings/idea-settings.jar", "idea-settings.jar");
+    driver.copyFromRunfiles("idea_settings/plugins.tar", "plugins.tar");
     driver.copyFromRunfiles("idea-IC/bin/idea.sh", "idea-IC/bin/idea.sh");
-    driver.copyFromRunfiles("CheckStyle-IDEA/lib/checkstyle-idea-5.24.2.jar", "CheckStyle-IDEA/lib/checkstyle-idea-5.24.2.jar");
+    driver.copyFromRunfiles("idea-IC/bin/linux/idea64.vmoptions", "idea-IC/bin/linux/idea64.vmoptions");
     driver.copyDirectoryFromRunfiles("javapoet", "");
 
     driver.scratchFile("BUILD",
@@ -39,9 +39,9 @@ public class JavapoetIntegrationTest {
         "    name = \"apply-idea-settings\",",
         "    srcs = [\"apply-idea-settings.sh\"],",
         "    data = [",
-        "        \"idea-settings.jar\",",
-        "        \"CheckStyle-IDEA/lib/checkstyle-idea-5.24.2.jar\",",
+        "        \"plugins.tar\",",
         "        \"idea-IC/bin/idea.sh\",",
+        "        \"idea-IC/bin/linux/idea64.vmoptions\",",
         "    ],",
         "    deps = [\"@bazel_tools//tools/bash/runfiles\"],",
         ")");

@@ -13,6 +13,6 @@ java_import(
 )
 
 filegroup(
-    name = "lib/checkstyle-idea_jar",
+    name = "lib/checkstyle-idea.jar",
     srcs = glob(["lib/checkstyle-idea-*.jar"]),
 )

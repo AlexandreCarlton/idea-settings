@@ -5,6 +5,7 @@ load(
     "intellij_plugin",
     "intellij_plugin_library",
 )
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 intellij_plugin_library(
     name = "plugin_library",
@@ -26,21 +27,31 @@ intellij_plugin(
     deps = [":plugin_library"],
 )
 
+pkg_tar(
+    name = "plugins",
+    srcs = [
+        ":idea-settings",
+        "@CheckStyle-IDEA//:lib/checkstyle-idea.jar",
+    ],
+)
+
+# For some reason referencing :plugins in sh_binary doesn't work;
+# however, creating a filegroup and referencing that does.
+# See https://github.com/bazelbuild/bazel/pull/6352
+filegroup(
+    name = "plugins_tar",
+    srcs = [":plugins"],
+)
+
 sh_binary(
     name = "apply-idea-settings",
     srcs = ["apply-idea-settings.sh"],
     data = [
-        ":idea-settings",
-        "@CheckStyle-IDEA//:lib/checkstyle-idea_jar",
+        ":plugins_tar",
         "@idea-IC//:bin/idea.sh",
         "@idea-IC//:bin/linux/idea64.vmoptions",
     ],
     deps = ["@bazel_tools//tools/bash/runfiles"],
-)
-
-filegroup(
-    name = "apply-idea-settings-sh",
-    srcs = ["apply-idea-settings.sh"],
 )
 
 test_suite(

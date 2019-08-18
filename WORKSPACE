@@ -56,6 +56,16 @@ http_archive(
     url = "https://github.com/bazelbuild/intellij/archive/{0}.zip".format(BAZEL_INTELLIJ_COMMIT),
 )
 
+http_archive(
+    name = "rules_pkg",
+    sha256 = "02de387c5ef874379e784ac968bf6efffe5285a168cab5a3169e08cfc634fd22",
+    url = "https://github.com/bazelbuild/rules_pkg/releases/download/0.2.2/rules_pkg-0.2.2.tar.gz",
+)
+
+load("@rules_pkg//:deps.bzl", "rules_pkg_dependencies")
+
+rules_pkg_dependencies()
+
 # bazel-deps will soon produce a jar that can be used to run @bazel-deps//:parse from within
 # this project.
 load("//third_party:package-lock.bzl", "maven_dependencies")

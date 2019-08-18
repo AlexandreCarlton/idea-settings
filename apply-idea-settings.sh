@@ -31,8 +31,7 @@ else
 fi
 # --- end runfiles.bash initialization --- }}}
 
-idea_settings_jar=$(rlocation 'idea_settings/idea-settings.jar')
-checkstyle_jar=$(rlocation 'CheckStyle-IDEA/lib/checkstyle-idea-5.24.2.jar')
+plugins_tar=$(rlocation 'idea_settings/plugins.tar')
 idea_sh=$(rlocation 'idea-IC/bin/idea.sh')
 idea64_vmoptions=$(rlocation 'idea-IC/bin/linux/idea64.vmoptions')
 
@@ -41,11 +40,7 @@ idea_system_path=$(mktemp -d)
 idea_plugins_path=$(mktemp -d)
 idea_properties_file=$(mktemp)
 idea_vmoptions_file=$(mktemp)
-trap 'rm -rf ${idea_config_path}' INT TERM EXIT
-trap 'rm -rf ${idea_system_path}' INT TERM EXIT
-trap 'rm -rf ${idea_plugins_path}' INT TERM EXIT
-trap 'rm -f ${idea_properties_file}' INT TERM EXIT
-trap 'rm -f ${idea_vmoptions_file}' INT TERM EXIT
+trap 'rm -rf ${idea_config_path} ${idea_system_path} ${idea_plugins_path} ${idea_properties_file} ${idea_vmoptions_file}' INT TERM EXIT
 
 {
   echo "idea.config.path=${idea_config_path}"
@@ -58,8 +53,6 @@ cat "${idea64_vmoptions}" > "${idea_vmoptions_file}"
 echo '-Djava.awt.headless=true' >> "${idea_vmoptions_file}"
 export IDEA_VM_OPTIONS="${idea_vmoptions_file}"
 
-cp --force --target-directory "${idea_plugins_path}" \
-  "${idea_settings_jar}" \
-  "${checkstyle_jar}"
+tar -xf "${plugins_tar}" -C "${idea_plugins_path}"
 
 "${idea_sh}" applyIdeaSettings "$@"
