@@ -2,8 +2,8 @@ package(default_visibility = ["//visibility:public"])
 # vim:ft=bzl
 
 exports_files([
-  "bin/idea.sh",
-  "bin/linux/idea64.vmoptions",
+    "bin/idea.sh",
+    "bin/linux/idea64.vmoptions",
 ])
 
 # We must neverlink all the libraries here; IntelliJ will manage this for us when we invoke idea.sh with idea-settings as a plugin.
@@ -154,6 +154,8 @@ java_import(
     ] + glob([
         "lib/*.jar",
         "plugins/java/**/*.jar",
+        "plugins/maven/**/*.jar",
+        "plugins/properties/**/*.jar",
     ]),
     srcjar = "@idea-IC-sources//jar",
 )

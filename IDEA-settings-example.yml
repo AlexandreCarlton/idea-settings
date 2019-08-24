@@ -30,6 +30,11 @@ editor:
       - /tmp/absolute.dic
 
 buildExecutionDeployment:
+  buildTools:
+    maven:
+      importing:
+        vmOptionsForImporter: -Xmx1g
+      mavenHomeDirectory: /usr
   compiler:
     addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false
     buildProcessHeapSizeMbytes: 1024

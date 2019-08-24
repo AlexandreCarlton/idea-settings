@@ -3,10 +3,15 @@ package com.github.alexandrecarlton.idea.settings.layout.build_execution_deploym
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.immutables.value.Value;
 
+import java.nio.file.Path;
 import java.util.Optional;
 
 @Value.Immutable
 @JsonDeserialize(as = ImmutableMavenSettings.class)
 public interface MavenSettings {
+
   Optional<MavenImportingSettings> importing();
+
+  Optional<Path> mavenHomeDirectory();
+
 }

@@ -7,12 +7,19 @@ import javax.inject.Inject;
 
 public class MavenImportingSettingsApplier implements SettingsApplier<MavenImportingSettings> {
 
+  private final org.jetbrains.idea.maven.project.MavenImportingSettings mavenImportingSettings;
+
   @Inject
-  public MavenImportingSettingsApplier() {
+  public MavenImportingSettingsApplier(org.jetbrains.idea.maven.project.MavenImportingSettings mavenImportingSettings) {
+    this.mavenImportingSettings = mavenImportingSettings;
   }
 
   @Override
   public void apply(MavenImportingSettings settings) {
-    // A no-op for now until we sort out IDEA's plugin loading.
+    // Setting this to true causes IntelliJ IDEA to hang.
+    // The method itself fires off listeners, but even if we set this reflectively, it still
+    // prevents us from shutting down.
+    // settings.importMavenProjectsAutomatically().ifPresent(mavenImportingSettings::setImportAutomatically);
+    settings.vmOptionsForImporter().ifPresent(mavenImportingSettings::setVmOptionsForImporter);
   }
 }

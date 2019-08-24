@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.integration;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xmlunit.assertj.XmlAssert;
@@ -55,6 +54,11 @@ public class JavapoetIntegrationTest {
         "    projectLanguageLevel: '6'",
         "",
         "buildExecutionDeployment:",
+        "  buildTools:",
+        "    maven:",
+        "      importing:",
+        "        vmOptionsForImporter: -Xmx1g",
+        "      mavenHomeDirectory: ~/.mvnvm/apache-maven-3.6.1",
         "  compiler:",
         "    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false",
         "    buildProcessHeapSizeMbytes: 1234",
@@ -91,10 +95,6 @@ public class JavapoetIntegrationTest {
     driver.bazel("run", "//:apply-idea-settings", javapoet.toString()).mustRunSuccessfully();
   }
 
-  @Before
-  public void setUp() throws IOException, InterruptedException {
-  }
-
   @Test
   public void projectName() {
     Assertions.assertThat(javapoet.resolve(".idea/.name"))
@@ -121,6 +121,20 @@ public class JavapoetIntegrationTest {
         .valueByXPath("//component[@name='CompilerConfiguration']/option[@name='BUILD_PROCESS_HEAP_SIZE']/@value")
         .asInt()
         .isEqualTo(1234);
+  }
+
+  @Test
+  public void vmOptionsForImporter() throws IOException {
+    assertThatXml(".idea/workspace.xml")
+        .valueByXPath("//MavenImportingSettings/option[@name='vmOptionsForImporter']/@value")
+        .isEqualTo("-Xmx1g");
+  }
+
+  @Test
+  public void mavenHome() throws IOException {
+    assertThatXml(".idea/workspace.xml")
+        .valueByXPath("//MavenGeneralSettings/option[@name='mavenHome']/@value")
+        .isEqualTo("$USER_HOME$/.mvnvm/apache-maven-3.6.1");
   }
 
   @Test

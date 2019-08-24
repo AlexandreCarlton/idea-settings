@@ -16,6 +16,9 @@ import com.intellij.spellchecker.settings.SpellCheckerSettings;
 import dagger.Module;
 import dagger.Provides;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
+import org.jetbrains.idea.maven.project.MavenGeneralSettings;
+import org.jetbrains.idea.maven.project.MavenImportingSettings;
+import org.jetbrains.idea.maven.project.MavenProjectsManager;
 
 import javax.inject.Named;
 
@@ -63,6 +66,21 @@ public class ProjectModule {
   @Provides
   static LanguageLevelProjectExtension provideLanguageLevelProjectExtension(Project project) {
     return LanguageLevelProjectExtension.getInstance(project);
+  }
+
+  @Provides
+  static MavenGeneralSettings provideMavenGeneralSettings(MavenProjectsManager mavenProjectsManager) {
+    return mavenProjectsManager.getGeneralSettings();
+  }
+
+  @Provides
+  static MavenImportingSettings provideMavenImportingSettings(MavenProjectsManager mavenProjectsManager) {
+    return mavenProjectsManager.getImportingSettings();
+  }
+
+  @Provides
+  static MavenProjectsManager provideMavenProjectsManager(Project project) {
+    return MavenProjectsManager.getInstance(project);
   }
 
   @Provides

@@ -1,6 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.starter;
 
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
@@ -23,6 +24,8 @@ public class IdeaSettingsApplicationStarter implements ApplicationStarter {
   private static final ObjectReader READER = new YAMLMapper()
       .registerModule(new Jdk8Module())
       .registerModule(new GuavaModule())
+      .registerModule(new SimpleModule()
+          .addDeserializer(Path.class, new HomeExpandingPathDeserializer()))
       .readerFor(IdeaSettings.class);
 
   @Override

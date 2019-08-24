@@ -48,5 +48,6 @@ java_library(
         "@idea-IC//:lib/spellchecker",
         "@idea-IC//:plugins/java/lib/java-api",
         "@idea-IC//:plugins/java/lib/java-impl",
+        "@idea-IC//:plugins/maven/lib/maven",
     ],
 )
