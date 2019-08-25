@@ -4,6 +4,7 @@ import com.intellij.application.options.CodeStyle;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
 import com.intellij.compiler.CompilerConfiguration;
+import com.intellij.execution.RunManager;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.openapi.module.ModuleManager;
@@ -13,8 +14,10 @@ import com.intellij.openapi.roots.LanguageLevelProjectExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
+
 import dagger.Module;
 import dagger.Provides;
+
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import org.jetbrains.idea.maven.project.MavenGeneralSettings;
 import org.jetbrains.idea.maven.project.MavenImportingSettings;
@@ -96,6 +99,11 @@ public class ProjectModule {
   @Provides
   static ProjectRootManager provideProjectRootManager(Project project) {
     return ProjectRootManager.getInstance(project);
+  }
+
+  @Provides
+  static RunManager provideRunManager(Project project) {
+    return RunManager.getInstance(project);
   }
 
   @Provides

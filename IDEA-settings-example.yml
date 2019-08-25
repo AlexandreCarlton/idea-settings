@@ -62,3 +62,11 @@ otherSettings:
         # - an HTTP URL
         # - 'bundled' (with description matching the bundled description, e.g. "Google Checks")
         file: checkstyle.xml
+
+# Run / Debug configurations
+configurations:
+  remote:
+    - name: Debug Javapoet
+      configuration:
+        host: localhost
+        port: 5004

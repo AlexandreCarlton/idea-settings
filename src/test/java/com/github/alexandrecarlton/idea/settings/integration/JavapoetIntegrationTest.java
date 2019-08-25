@@ -90,7 +90,14 @@ public class JavapoetIntegrationTest {
         "    configurationFiles:",
         "      - active: true",
         "        description: Javapoet Checkstyle",
-        "        file: checkstyle.xml");
+        "        file: checkstyle.xml",
+        "",
+        "configurations:",
+        "  remote:",
+        "    - name: Remote Configuration",
+        "      configuration:",
+        "        host: 8.8.8.8",
+        "        port: 5000");
 
     driver.bazel("run", "//:apply-idea-settings", javapoet.toString()).mustRunSuccessfully();
   }
@@ -243,6 +250,20 @@ public class JavapoetIntegrationTest {
     assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='active-configuration']/@value")
         .isEqualTo("PROJECT_RELATIVE:$PROJECT_DIR$/checkstyle.xml:Javapoet Checkstyle");
+  }
+
+  @Test
+  public void checkRemoteConfigurationHost() throws IOException {
+    assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
+        .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='HOST']/@value")
+        .isEqualTo("8.8.8.8");
+  }
+
+  @Test
+  public void checkRemoteConfigurationPort() throws IOException {
+    assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
+        .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='PORT']/@value")
+        .isEqualTo("5000");
   }
 
   private XmlAssert assertThatXml(String file) throws IOException {

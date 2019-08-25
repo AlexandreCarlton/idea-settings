@@ -8,6 +8,8 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_de
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.AnnotationProcessorsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.ConfigurationsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.remote.RemoteSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.EditorSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.CodeStyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaCodeStyleSettingsApplier;
@@ -27,6 +29,8 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.AnnotationProcessorsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaCodeStyleSettings;
@@ -39,6 +43,7 @@ import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSett
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings;
+
 import dagger.Binds;
 import dagger.Module;
 
@@ -65,6 +70,9 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<CompilerSettings> bindCompilerSettingsApplier(CompilerSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<ConfigurationsSettings> bindConfigurationsSettingsApplier(ConfigurationsSettingsApplier applier);
 
   @Binds
   SettingsApplier<EditorSettings> bindEditorSettingsApplier(EditorSettingsApplier applier);
@@ -98,6 +106,9 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<ProjectSettingsSettings> bindProjectSettingsSettingsApplier(ProjectSettingsSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<RemoteSettings> bindRemoteSettingsApplier(RemoteSettingsApplier applier);
 
   @Binds
   SettingsApplier<SpellingSettings> bindSpellingSettingsApplier(SpellingSettingsApplier applier);
