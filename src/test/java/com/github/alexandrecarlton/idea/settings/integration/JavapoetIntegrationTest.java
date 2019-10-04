@@ -3,13 +3,9 @@ package com.github.alexandrecarlton.idea.settings.integration;
 import org.assertj.core.api.Assertions;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.xmlunit.assertj.XmlAssert;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-
-import build.bazel.tests.integration.WorkspaceDriver;
 
 /**
  * An integration test that loads up an entire project first, and then verifies the output in
@@ -17,36 +13,13 @@ import build.bazel.tests.integration.WorkspaceDriver;
  * These tests share (read-only) state as importing a real project for every test is both memory-
  * and time-intensive.
  */
-public class JavapoetIntegrationTest {
+public class JavapoetIntegrationTest extends AbstractIntegrationTest {
 
-  private static final WorkspaceDriver driver = new WorkspaceDriver();
   private static Path javapoet;
 
   @BeforeClass
   public static void setUpClass() throws IOException, InterruptedException {
-    WorkspaceDriver.setUpClass();
-    driver.setUp();
-
-    driver.copyFromRunfiles("idea_settings/apply-idea-settings.sh", "apply-idea-settings.sh");
-    driver.copyFromRunfiles("idea_settings/plugins.tar", "plugins.tar");
-    driver.copyFromRunfiles("idea-IC/bin/idea.sh", "idea-IC/bin/idea.sh");
-    driver.copyFromRunfiles("idea-IC/bin/linux/idea64.vmoptions", "idea-IC/bin/linux/idea64.vmoptions");
-    driver.copyDirectoryFromRunfiles("javapoet", "");
-
-    driver.scratchFile("BUILD",
-        "sh_binary(",
-        "    name = \"apply-idea-settings\",",
-        "    srcs = [\"apply-idea-settings.sh\"],",
-        "    data = [",
-        "        \"plugins.tar\",",
-        "        \"idea-IC/bin/idea.sh\",",
-        "        \"idea-IC/bin/linux/idea64.vmoptions\",",
-        "    ],",
-        "    deps = [\"@bazel_tools//tools/bash/runfiles\"],",
-        ")");
-    javapoet = driver.currentWorkspace().resolve("javapoet");
-
-    driver.scratchFile("javapoet/.IDEA-settings.yml",
+    AbstractIntegrationTest.setUpClass("javapoet",
         "projectSettings:",
         "  project:",
         "    projectName: my-project-name",
@@ -98,8 +71,7 @@ public class JavapoetIntegrationTest {
         "      configuration:",
         "        host: 8.8.8.8",
         "        port: 5000");
-
-    driver.bazel("run", "//:apply-idea-settings", javapoet.toString()).mustRunSuccessfully();
+    javapoet = path;
   }
 
   @Test
@@ -264,15 +236,6 @@ public class JavapoetIntegrationTest {
     assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
         .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='PORT']/@value")
         .isEqualTo("5000");
-  }
-
-  private XmlAssert assertThatXml(String file) throws IOException {
-    final Path path = javapoet.resolve(file);
-    Assertions.assertThat(path).exists();
-    final String pathContent = String.join("\n", Files.readAllLines(path));
-    System.out.println("Content of " + path + " is:");
-    System.out.println(pathContent);
-    return XmlAssert.assertThat(pathContent);
   }
 
 }

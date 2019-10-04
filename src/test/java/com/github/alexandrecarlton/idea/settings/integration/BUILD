@@ -4,13 +4,40 @@ load("@build_bazel_integration_testing//tools:common.bzl", "GET_LATEST_BAZEL_VER
 test_suite(
     name = "integration",
     tests = [
+        ":AutoIntegrationTest",
         ":JavapoetIntegrationTest",
     ],
 )
 
 bazel_java_integration_test(
+    name = "AutoIntegrationTest",
+    srcs = [
+        "AbstractIntegrationTest.java",
+        "AutoIntegrationTest.java",
+    ],
+    data = [
+        "//:apply-idea-settings.sh",
+        "//:plugins_tar",
+        "@auto",
+        "@idea-IC//:bin/idea.sh",
+        "@idea-IC//:bin/linux/idea64.vmoptions",
+    ],
+    external_deps = [
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+    versions = GET_LATEST_BAZEL_VERSIONS(count = 1),
+    deps = [
+        "//third_party/maven/org/assertj:assertj_core",
+        "//third_party/maven/org/xmlunit:xmlunit_assertj",
+    ],
+)
+
+bazel_java_integration_test(
     name = "JavapoetIntegrationTest",
-    srcs = ["JavapoetIntegrationTest.java"],
+    srcs = [
+        "AbstractIntegrationTest.java",
+        "JavapoetIntegrationTest.java",
+    ],
     data = [
         "//:apply-idea-settings.sh",
         "//:plugins_tar",

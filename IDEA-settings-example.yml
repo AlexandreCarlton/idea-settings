@@ -8,6 +8,22 @@ projectSettings:
     projectName: project-name-in-intellij
     projectSdk: ProjectSDK
     projectLanguageLevel: '8'
+  modules:
+    - name: my-module
+      sources:
+        - contentRoot: path/to/module
+          # Note that folders listed here are merely appended to the existing list;
+          # we do NOT clear out all folders first.
+          sources:
+            - src/main/kotlin
+          tests:
+            - src/it/java
+          resources:
+            - src/main/other_resources
+          testResources:
+            - src/test/other_resources
+          excluded:
+            - src/main/resources/too_large_to_index
 
 editor:
   codeStyle:
@@ -66,7 +82,7 @@ otherSettings:
 # Run / Debug configurations
 configurations:
   remote:
-    - name: Debug Javapoet
+    - name: Debug
       configuration:
         host: localhost
-        port: 5004
+        port: 5005

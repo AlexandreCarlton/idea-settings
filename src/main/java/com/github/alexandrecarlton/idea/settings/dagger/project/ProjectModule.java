@@ -1,5 +1,6 @@
-package com.github.alexandrecarlton.idea.settings.starter;
+package com.github.alexandrecarlton.idea.settings.dagger.project;
 
+import com.github.alexandrecarlton.idea.settings.dagger.module.ModuleSubcomponent;
 import com.intellij.application.options.CodeStyle;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
@@ -28,7 +29,7 @@ import javax.inject.Named;
 /**
  * Provides components that depend on the imported {@link Project}.
  */
-@Module
+@Module(subcomponents = ModuleSubcomponent.class)
 public class ProjectModule {
 
   @Provides
@@ -91,6 +92,7 @@ public class ProjectModule {
     return ModuleManager.getInstance(project);
   }
 
+  // We could use @BindsOptionalOf (or perhaps, in the CHeckstyleSettingsApplier) so that if we can't load the class we give an empty instead.
   @Provides
   static PluginConfigurationManager providePluginConfigurationManager(Project project) {
     return PluginConfigurationManager.getInstance(project);

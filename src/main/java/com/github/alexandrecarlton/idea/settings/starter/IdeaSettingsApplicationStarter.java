@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.github.alexandrecarlton.idea.settings.dagger.project.IdeaSettingsComponent;
+import com.github.alexandrecarlton.idea.settings.dagger.project.DaggerIdeaSettingsComponent;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.intellij.openapi.application.ApplicationStarter;
 import com.intellij.openapi.application.WriteAction;
@@ -62,13 +64,12 @@ public class IdeaSettingsApplicationStarter implements ApplicationStarter {
         .project(path.toString())
         .build();
     Optional<IdeaSettings> settings = loadSettings(path);
-    component.applicationEx().setSaveAllowed(true);
+    ApplicationManagerEx.getApplicationEx().setSaveAllowed(true);
     WriteAction.runAndWait(() -> {
       settings.ifPresent(component.applier()::apply);
       component.project().save();
     });
   }
-
 
   private Optional<IdeaSettings> loadSettings(Path project) {
     Path configFile = project.resolve(IDEA_SETTINGS_FILENAME);

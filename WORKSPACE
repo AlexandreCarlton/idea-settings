@@ -82,6 +82,19 @@ http_archive(
 )
 
 http_archive(
+    name = "auto",
+    build_file_content = """
+package(default_visibility = ["//visibility:public"])
+filegroup(
+    name = "auto",
+    srcs = glob(["**/*"]),
+)""",
+    sha256 = "c926daf62d24bb6ad6289e997d67dcacbb1054e6cc2d9ba4c406f509e7c20875",
+    strip_prefix = "auto-auto-value-1.6.6",
+    url = "https://github.com/google/auto/archive/auto-value-1.6.6.zip",
+)
+
+http_archive(
     name = "build_bazel_integration_testing",
     sha256 = "490554b98da4ce6e3e1e074e01b81e8440b760d4f086fccf50085a25528bf5cd",
     strip_prefix = "bazel-integration-testing-922d2b04bfb9721ab14ff6d26d4a8a6ab847aa07",

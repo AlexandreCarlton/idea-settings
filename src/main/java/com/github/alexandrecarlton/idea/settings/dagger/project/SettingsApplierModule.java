@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.starter;
+package com.github.alexandrecarlton.idea.settings.dagger.project;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.IdeaSettingsApplier;
