@@ -44,6 +44,7 @@ bazel_java_integration_test(
         "@idea-IC//:bin/idea.sh",
         "@idea-IC//:bin/linux/idea64.vmoptions",
         "@javapoet",
+        "@maven-bin",
     ],
     external_deps = [
         "@bazel_tools//tools/bash/runfiles",

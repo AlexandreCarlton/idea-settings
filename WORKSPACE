@@ -87,11 +87,24 @@ http_archive(
 package(default_visibility = ["//visibility:public"])
 filegroup(
     name = "auto",
-    srcs = glob(["**/*"]),
+    srcs = glob(["**"]),
 )""",
     sha256 = "c926daf62d24bb6ad6289e997d67dcacbb1054e6cc2d9ba4c406f509e7c20875",
     strip_prefix = "auto-auto-value-1.6.6",
     url = "https://github.com/google/auto/archive/auto-value-1.6.6.zip",
+)
+
+http_archive(
+    name = "maven-bin",
+    build_file_content = """
+package(default_visibility = ["//visibility:public"])
+filegroup(
+    name = "maven-bin",
+    srcs = glob(["**"]),
+)""",
+    sha256 = "7e6cfe98dc9c16ae6aa267db277860594695144d719c99d1fc519e89346a8edf",
+    strip_prefix = "apache-maven-3.6.1",
+    url = "http://apache.mirror.amaze.com.au/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.zip",
 )
 
 http_archive(

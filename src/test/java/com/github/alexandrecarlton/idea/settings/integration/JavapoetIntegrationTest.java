@@ -5,6 +5,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
@@ -31,7 +32,7 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "    maven:",
         "      importing:",
         "        vmOptionsForImporter: -Xmx1g",
-        "      mavenHomeDirectory: ~/.mvnvm/apache-maven-3.6.1",
+        "      mavenHomeDirectory: maven-bin",
         "  compiler:",
         "    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false",
         "    buildProcessHeapSizeMbytes: 1234",
@@ -71,6 +72,15 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "      configuration:",
         "        host: 8.8.8.8",
         "        port: 5000");
+
+    driver.copyDirectoryFromRunfiles("maven-bin", "");
+    Files.move(
+        driver.currentWorkspace().resolve("maven-bin"),
+        driver.currentWorkspace().resolve("javapoet/maven-bin"));
+
+    driver.scratchFile("javapoet/dict.dic");
+
+    runIdeaSettings();
     javapoet = path;
   }
 
@@ -113,7 +123,7 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
   public void mavenHome() throws IOException {
     assertThatXml(".idea/workspace.xml")
         .valueByXPath("//MavenGeneralSettings/option[@name='mavenHome']/@value")
-        .isEqualTo("$USER_HOME$/.mvnvm/apache-maven-3.6.1");
+        .isEqualTo("$PROJECT_DIR$/maven-bin");
   }
 
   @Test

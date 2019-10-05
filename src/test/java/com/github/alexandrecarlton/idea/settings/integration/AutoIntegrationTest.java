@@ -30,6 +30,7 @@ public class AutoIntegrationTest extends AbstractIntegrationTest {
         "            - src/main/java",
         "          tests:",
         "            - src/test/java");
+    runIdeaSettings();
     auto = path;
   }
 

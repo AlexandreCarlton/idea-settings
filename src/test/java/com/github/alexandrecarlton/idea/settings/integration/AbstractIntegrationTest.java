@@ -39,6 +39,9 @@ public class AbstractIntegrationTest {
 
     driver.scratchFile(project + "/.IDEA-settings.yml", ideaSettings);
     path = driver.currentWorkspace().resolve(project);
+  }
+
+  public static void runIdeaSettings() throws IOException, InterruptedException {
     driver.bazel("run", "//:apply-idea-settings", path.toString()).mustRunSuccessfully();
   }
 
