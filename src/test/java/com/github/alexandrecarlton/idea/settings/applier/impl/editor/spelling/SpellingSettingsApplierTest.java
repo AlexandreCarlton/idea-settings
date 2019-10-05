@@ -10,6 +10,7 @@ import com.intellij.spellchecker.settings.SpellCheckerSettings;
 
 import org.junit.Test;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class SpellingSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -21,7 +22,7 @@ public class SpellingSettingsApplierTest extends IdeaSettingsTestFixture {
   public void setUp() throws Exception {
     super.setUp();
     spellCheckerSettings = SpellCheckerSettings.getInstance(project);
-    settingsApplier = new SpellingSettingsApplier(project, spellCheckerSettings);
+    settingsApplier = new SpellingSettingsApplier(spellCheckerSettings);
   }
 
   @Override
@@ -32,10 +33,11 @@ public class SpellingSettingsApplierTest extends IdeaSettingsTestFixture {
 
   @Test
   public void dictionaryRelativeToProjectApplied() {
+    Path dict = Paths.get(project.getBasePath()).resolve("dict.dic");
     settingsApplier.apply(ImmutableSpellingSettings.builder()
-        .addDictionaries(Paths.get("dict.dic"))
+        .addDictionaries(dict)
         .build());
-    assertThat(spellCheckerSettings.getCustomDictionariesPaths()).containsOnly(Paths.get(project.getBasePath()).resolve("dict.dic").toString());
+    assertThat(spellCheckerSettings.getCustomDictionariesPaths()).containsOnly(dict.toString());
   }
 
   @Test
