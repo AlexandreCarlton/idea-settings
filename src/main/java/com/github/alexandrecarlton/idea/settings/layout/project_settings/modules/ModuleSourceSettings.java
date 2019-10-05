@@ -4,14 +4,14 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import org.immutables.value.Value;
 
+import java.nio.file.Path;
 import java.util.List;
 
 @Value.Immutable
 @JsonDeserialize(as = ImmutableModuleSourceSettings.class)
 public interface ModuleSourceSettings {
 
-  // TODO: This should be made a Path, relative to the project.
-  String contentRoot();
+  Path contentRoot();
 
   List<String> sources();
 

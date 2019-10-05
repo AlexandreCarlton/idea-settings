@@ -12,6 +12,9 @@ import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.module.ModuleTypeId;
 import com.intellij.openapi.project.Project;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.inject.Inject;
 
 public class ProjectSettingsSettingsApplier implements SettingsApplier<ProjectSettingsSettings> {
@@ -37,14 +40,13 @@ public class ProjectSettingsSettingsApplier implements SettingsApplier<ProjectSe
     for (ModuleSettings moduleSettings : settings.modules()) {
       Module module = moduleManager.findModuleByName(moduleSettings.name());
       if (module == null) {
-        String dir = moduleSettings.sources()
+        Path moduleFile = moduleSettings.sources()
             .stream()
             .findFirst()
             .map(ModuleSourceSettings::contentRoot)
-            .map((project.getBasePath() + "/")::concat)
-            .map(d -> d + "/")
-            .orElse("");
-        module = moduleManager.newModule( dir + moduleSettings.name() + ".iml", ModuleTypeId.JAVA_MODULE);
+            .orElse(Paths.get(project.getBasePath()))
+            .resolve(moduleSettings.name() + ".iml");
+        module = moduleManager.newModule(moduleFile.toString(), ModuleTypeId.JAVA_MODULE);
       }
       ModuleSubcomponent moduleSubcomponent = moduleSubcomponentBuilder.module(module).build();
       moduleSubcomponent.settingsApplier().apply(moduleSettings);

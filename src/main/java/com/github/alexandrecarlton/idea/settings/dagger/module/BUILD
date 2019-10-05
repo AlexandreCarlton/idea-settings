@@ -1,7 +1,3 @@
-# TODO: Rename this to:
-# dagger/project (contains component/module for project)
-# dagger/module (contains component/module for module)
-
 java_library(
     name = "module",
     srcs = glob(["*.java"]),

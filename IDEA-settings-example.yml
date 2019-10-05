@@ -11,6 +11,7 @@ projectSettings:
   modules:
     - name: my-module
       sources:
+        # If relative, this will be evaluated with respect to the project.
         - contentRoot: path/to/module
           # Note that folders listed here are merely appended to the existing list;
           # we do NOT clear out all folders first.

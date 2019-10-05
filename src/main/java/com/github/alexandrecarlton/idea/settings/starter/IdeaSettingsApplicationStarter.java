@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.guava.GuavaModule;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.github.alexandrecarlton.idea.settings.dagger.project.IdeaSettingsComponent;
 import com.github.alexandrecarlton.idea.settings.dagger.project.DaggerIdeaSettingsComponent;
+import com.github.alexandrecarlton.idea.settings.dagger.project.IdeaSettingsComponent;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.intellij.openapi.application.ApplicationStarter;
 import com.intellij.openapi.application.WriteAction;
@@ -22,13 +22,6 @@ import java.util.Optional;
 public class IdeaSettingsApplicationStarter implements ApplicationStarter {
 
   private static final String IDEA_SETTINGS_FILENAME = ".IDEA-settings.yml";
-
-  private static final ObjectReader READER = new YAMLMapper()
-      .registerModule(new Jdk8Module())
-      .registerModule(new GuavaModule())
-      .registerModule(new SimpleModule()
-          .addDeserializer(Path.class, new HomeExpandingPathDeserializer()))
-      .readerFor(IdeaSettings.class);
 
   @Override
   public String getCommandName() {
@@ -72,12 +65,18 @@ public class IdeaSettingsApplicationStarter implements ApplicationStarter {
   }
 
   private Optional<IdeaSettings> loadSettings(Path project) {
+    ObjectReader ideaSettingsReader = new YAMLMapper()
+        .registerModule(new Jdk8Module())
+        .registerModule(new GuavaModule())
+        .registerModule(new SimpleModule()
+            .addDeserializer(Path.class, new HomeExpandingPathDeserializer(project)))
+        .readerFor(IdeaSettings.class);
     Path configFile = project.resolve(IDEA_SETTINGS_FILENAME);
     if (!Files.exists(configFile)) {
       return Optional.empty();
     }
     try (InputStream inputStream = Files.newInputStream(configFile)) {
-      return Optional.of(READER.readValue(inputStream));
+      return Optional.of(ideaSettingsReader.readValue(inputStream));
     } catch (IOException e) {
       System.out.println(e.getMessage());
       return Optional.empty();

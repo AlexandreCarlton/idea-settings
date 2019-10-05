@@ -6,24 +6,30 @@ import com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
- * A custom {@link Path} deserialiser that expands {@code ~} to the user's home directory.
+ * A custom {@link Path} deserialiser that:
+ *  - resolves the path relative to the project checkout.
+ *  - expands {@code ~} to the user's home directory.
+ * Note that this requires that the path exist on the user's filesystem.
  */
 public class HomeExpandingPathDeserializer extends StdScalarDeserializer<Path> {
 
-  public HomeExpandingPathDeserializer() {
-    this(null);
+  private final Path basePath;
+
+  public HomeExpandingPathDeserializer(Path basePath) {
+    this(basePath, null);
   }
 
-  private HomeExpandingPathDeserializer(Class<?> vc) {
+  private HomeExpandingPathDeserializer(Path basePath, Class<?> vc) {
     super(vc);
+    this.basePath = basePath;
   }
 
   @Override
   public Path deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
-    return Paths.get(jp.getValueAsString()
-        .replace("~", System.getProperty("user.home")));
+    return basePath.resolve(jp.getValueAsString()
+        .replace("~", System.getProperty("user.home")))
+        .toRealPath();
   }
 }
