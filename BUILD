@@ -47,19 +47,45 @@ sh_binary(
     name = "apply-idea-settings",
     srcs = ["apply-idea-settings.sh"],
     data = [
+        ":idea.sh",
+        ":idea64.vmoptions",
         ":plugins_tar",
-        "@idea-IC//:bin/idea.sh",
-        "@idea-IC//:bin/linux/idea64.vmoptions",
     ],
     deps = ["@bazel_tools//tools/bash/runfiles"],
+)
+
+alias(
+    name = "idea.sh",
+    actual = select({
+        "community": "@idea-IC//:bin/idea.sh",
+        "ultimate": "@idea-IU//:bin/idea.sh",
+    }),
+)
+
+alias(
+    name = "idea64.vmoptions",
+    actual = select({
+        "community": "@idea-IC//:bin/linux/idea64.vmoptions",
+        "ultimate": "@idea-IU//:bin/linux/idea64.vmoptions",
+    }),
+)
+
+config_setting(
+    name = "community",
+    values = {"define": "product=community"},
+)
+
+config_setting(
+    name = "ultimate",
+    values = {"define": "product=ultimate"},
 )
 
 test_suite(
     name = "tests",
     tests = [
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/build_tools/maven",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",

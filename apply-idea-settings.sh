@@ -7,6 +7,7 @@
 set -euo pipefail
 
 # RUNFILES_LIB_DEBUG=1
+# set -x
 
 # --- begin runfiles.bash initialization --- {{{
 if [[ ! -d "${RUNFILES_DIR:-/dev/null}" && ! -f "${RUNFILES_MANIFEST_FILE:-/dev/null}" ]]; then
@@ -33,7 +34,9 @@ fi
 
 plugins_tar=$(rlocation 'idea_settings/plugins.tar')
 idea_sh=$(rlocation 'idea-IC/bin/idea.sh')
+idea_sh=${idea_sh:-$(rlocation 'idea-IU/bin/idea.sh')}
 idea64_vmoptions=$(rlocation 'idea-IC/bin/linux/idea64.vmoptions')
+idea64_vmoptions=${idea64_vmoptions:-$(rlocation 'idea-IU/bin/linux/idea64.vmoptions')}
 
 idea_config_path=${IDEA_CONFIG_PATH:-$(mktemp -d)}
 idea_system_path=${IDEA_SYSTEM_PATH:-$(mktemp -d)}

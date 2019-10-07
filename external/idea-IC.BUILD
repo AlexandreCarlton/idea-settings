@@ -159,19 +159,3 @@ java_import(
     ]),
     srcjar = "@idea-IC-sources//jar",
 )
-
-java_import(
-    name = "runtime_deps",
-    jars = [
-        # In idea.sh, these are added to the classpath.
-        "lib/bootstrap.jar",
-        "lib/extensions.jar",
-        "lib/util.jar",
-        "lib/log4j.jar",
-        "lib/trove4j.jar",
-        "lib/jna.jar",
-        # In idea.sh, IDEA's own bundled tools.jar is provided,
-        # but forces us to download officially released builds.
-        "@local_jdk//:lib/tools.jar",
-    ],
-)
