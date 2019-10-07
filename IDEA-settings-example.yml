@@ -63,6 +63,10 @@ buildExecutionDeployment:
       minimumVersion: 5.23.0
       maximumVersion: 5.24.1
 
+languagesFrameworks:
+  javascript:
+    javascriptLanguageVersion: React JSX
+
 otherSettings:
   checkstyle:
     checkstyleVersion: "8.16"

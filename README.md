@@ -18,12 +18,6 @@ Furthermore, taking the time to set up a project can be costly and error prone.
 Instead, we can store the configuration in a single file that all developers
 can use to generate their settings, ensuring a standardised environment.
 
-## Why not the IntelliJ Configuration Script?
-
-This is a plugin bundled with the default IntellIJ installation. It allows the
-user to add run configurations via a YAML file in the repository. This project
-has a similar goal, but with a much wider set of configuration in mind.
-
 ## What can be configured?
 
 See the [example .IDEA-settings.yml](IDEA-settings-exampl.yml) which provides
@@ -43,11 +37,50 @@ checkout:
 bazel run //:apply-idea-settings <project-directory>
 ```
 
-## Future goals
+By default, this will run with the Community edition of IDEA.
+To run the application with IDEA Ultimate:
 
- - Maven configuration.
+```sh
+bazel run --define product=ultimate //:apply-idea-settings <project-directory>
+```
 
 ## Development
+
+### Exposing configuration
+
+The `.IDEA-settings.yml` configuration file is designed to mimic the
+[Settings / Preferences Dialog](https://www.jetbrains.com/help/idea/settings-preferences-dialog.html).
+The link provided will allow developers using the Community Edition of IDEA to
+expose configuration that is exclusive to the Ultimate edition.
+
+### Configuring IDEA configuration/system paths
+
+By default, `//:apply-idea-settings` will create random temporary directories
+for its configuration and system paths, which are cleaned up on exit.
+To force it to use a fixed directory (to drop in useful configuration prior to
+importing the project), one can set the following variables:
+
+ - `IDEA_CONFIG_PATH`
+ - `IDEA_SYSTEM_PATH`
+
+If set, the corresponding directories will not be cleaned up for inspection.
+
+### Inspecting logs
+
+While warning logs are displayed when running `//:apply-idea-settings`, this is
+not enough to diagnose issues.
+IDEA will log all useful information to `log/idea.log` in its system path.
+If `IDEA_SYSTEM_PATH` is set, one can use:
+
+```sh
+tail -f ${IDEA_SYSTEM_PATH}/log/idea.log
+```
+
+Otherwise, the following may be handy:
+
+```sh
+tail -f /tmp/*/log/idea.log
+```
 
 ### Updating dependencies
 

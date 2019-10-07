@@ -9,6 +9,7 @@ import com.intellij.compiler.CompilerWorkspaceConfiguration;
 import com.intellij.execution.RunManager;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
+import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ex.ProjectEx;
@@ -71,6 +72,11 @@ public class ProjectModule {
   @Provides
   static JavaProjectCodeInsightSettings provideJavaProjectCodeInsightSettings(Project project) {
     return JavaProjectCodeInsightSettings.getSettings(project);
+  }
+
+  @Provides
+  static JSRootConfiguration provideJSRootConfiguration(Project project) {
+    return JSRootConfiguration.getInstance(project);
   }
 
   @Provides

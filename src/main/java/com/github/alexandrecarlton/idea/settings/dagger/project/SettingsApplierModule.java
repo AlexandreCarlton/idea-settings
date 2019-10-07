@@ -18,6 +18,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.Gen
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.AutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.LanguagesFrameworksSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.OtherSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.ProjectSettingsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.project.ProjectSettingsApplier;
@@ -38,6 +39,7 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSe
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.AutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings;
+import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.LanguagesFrameworksSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings;
@@ -86,6 +88,9 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<JavaImportsSettings> bindJavaImportsSettingsApplier(JavaImportsSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<LanguagesFrameworksSettings> bindLanguagesFrameworksSettingsApplier(LanguagesFrameworksSettingsApplier applier);
 
   @Binds
   SettingsApplier<MavenImportingSettings> bindMavenImportingSettingsApplier(MavenImportingSettingsApplier applier);
