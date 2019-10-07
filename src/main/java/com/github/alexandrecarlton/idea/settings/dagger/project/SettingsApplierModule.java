@@ -19,7 +19,6 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.aut
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.OtherSettingsApplier;
-import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.ProjectSettingsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.project.ProjectSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
@@ -40,7 +39,6 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_impo
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings;
 
@@ -61,9 +59,6 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<BuildToolsSettings> bindBuildToolsSettingsApplier(BuildToolsSettingsApplier applier);
-
-  @Binds
-  SettingsApplier<CheckstyleSettings> bindCheckstyleSettingsApplier(CheckstyleSettingsApplier applier);
 
   @Binds
   SettingsApplier<CodeStyleSettings> bindCodeStyleSettingsApplier(CodeStyleSettingsApplier applier);

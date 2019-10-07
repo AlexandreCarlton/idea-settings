@@ -1,10 +1,13 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle;
 
+import static java.util.stream.Collectors.toCollection;
+
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleConfigurationFile;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import com.intellij.openapi.project.Project;
+
 import org.infernus.idea.checkstyle.config.PluginConfigurationBuilder;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import org.infernus.idea.checkstyle.model.ConfigurationLocation;
@@ -12,17 +15,15 @@ import org.infernus.idea.checkstyle.model.ConfigurationLocationFactory;
 import org.infernus.idea.checkstyle.model.ConfigurationType;
 import org.infernus.idea.checkstyle.model.ScanScope;
 
-import javax.inject.Inject;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.TreeSet;
 
-import static java.util.stream.Collectors.toCollection;
+import javax.inject.Inject;
 
 public class CheckstyleSettingsApplier implements SettingsApplier<CheckstyleSettings> {
 
-  private static final ConfigurationLocationFactory FACTORY = new ConfigurationLocationFactory();
   private static final String BUNDLED_LOCATION = "bundled";
 
   private final Project project;
@@ -65,7 +66,7 @@ public class CheckstyleSettingsApplier implements SettingsApplier<CheckstyleSett
   }
 
   private ConfigurationLocation toConfigurationLocation(CheckstyleConfigurationFile configurationFile) {
-    return FACTORY.create(
+    return new ConfigurationLocationFactory().create(
         project,
         toConfigurationType(configurationFile.file()),
         toLocation(configurationFile.file()),

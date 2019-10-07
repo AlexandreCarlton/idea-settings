@@ -1,9 +1,7 @@
-<idea-plugin version="2">
+<idea-plugin>
   <depends>org.jetbrains.idea.maven</depends>
   <depends>com.intellij.java</depends>
-  <!-- How will IntelliJ know where to find this? :/
-  We could create a shell script that copies the relevant jars to a location, and sets the relevant sysprop.  -->
-  <depends>CheckStyle-IDEA</depends>
+  <depends optional="true">CheckStyle-IDEA</depends>
   <extensions defaultExtensionNs="com.intellij">
     <appStarter implementation="com.github.alexandrecarlton.idea.settings.starter.IdeaSettingsApplicationStarter"/>
   </extensions>

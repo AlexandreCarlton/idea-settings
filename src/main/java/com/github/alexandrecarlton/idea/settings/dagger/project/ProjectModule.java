@@ -98,7 +98,6 @@ public class ProjectModule {
     return ModuleManager.getInstance(project);
   }
 
-  // We could use @BindsOptionalOf (or perhaps, in the CHeckstyleSettingsApplier) so that if we can't load the class we give an empty instead.
   @Provides
   static PluginConfigurationManager providePluginConfigurationManager(Project project) {
     return PluginConfigurationManager.getInstance(project);
