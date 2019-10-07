@@ -1,7 +1,13 @@
-<idea-plugin>
+<idea-plugin url="https://github.com/AlexandreCarlton/idea-settings">
+  <id>com.github.alexandrecarlton.idea.settings</id>
+  <name>IDEA Settings</name>
+  <vendor>Alexandre Carlton</vendor>
+  <version>9999</version>
+
   <depends>org.jetbrains.idea.maven</depends>
   <depends>com.intellij.java</depends>
-  <depends optional="true">CheckStyle-IDEA</depends>
+  <depends optional="true" config-file="">CheckStyle-IDEA</depends>
+
   <extensions defaultExtensionNs="com.intellij">
     <appStarter implementation="com.github.alexandrecarlton.idea.settings.starter.IdeaSettingsApplicationStarter"/>
   </extensions>

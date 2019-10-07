@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<idea-plugin version="2">
-  <!-- Ideally this would be produced by the stamped_plugin_xml rule, but that doesn't seem to be currently working. -->
-  <version>9999</version>
-  <!-- <idea-version since-build="191.7141" /> -->
-  <id>com.github.alexandrecarlton.idea.settings</id>
-  <name>IDEA Settings</name>
-</idea-plugin>

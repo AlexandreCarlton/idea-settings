@@ -7,24 +7,15 @@ load(
 )
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
-intellij_plugin_library(
-    name = "plugin_library",
-    plugin_xmls = ["src/main/resources/META-INF/plugin.xml"],
-    deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/starter",
-    ],
-)
-
-filegroup(
-    name = "plugin_xml",
-    srcs = ["plugin.xml"],
-    visibility = ["//visibility:public"],
-)
-
 intellij_plugin(
     name = "idea-settings",
-    plugin_xml = ":plugin_xml",
+    plugin_xml = "src/main/resources/META-INF/plugin.xml",
     deps = [":plugin_library"],
+)
+
+intellij_plugin_library(
+    name = "plugin_library",
+    deps = ["//src/main/java/com/github/alexandrecarlton/idea/settings/starter"],
 )
 
 pkg_tar(
