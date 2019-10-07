@@ -49,4 +49,12 @@ public class CompilerSettingsApplierTest extends IdeaSettingsTestFixture {
         .build());
     assertThat(compilerWorkspaceConfiguration.PARALLEL_COMPILATION).isTrue();
   }
+
+  @Test
+  public void rebuildModuleOnDependencyChange() {
+    settingsApplier.apply(ImmutableCompilerSettings.builder()
+        .rebuildModuleOnDependencyChange(false)
+        .build());
+    assertThat(compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE).isFalse();
+  }
 }

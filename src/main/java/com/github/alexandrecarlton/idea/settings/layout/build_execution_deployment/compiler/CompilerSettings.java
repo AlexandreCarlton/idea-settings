@@ -11,4 +11,5 @@ public interface CompilerSettings {
   Optional<Boolean> addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters();
   Optional<Integer> buildProcessHeapSizeMbytes();
   Optional<Boolean> compileIndependentModulesInParallel();
+  Optional<Boolean> rebuildModuleOnDependencyChange();
 }

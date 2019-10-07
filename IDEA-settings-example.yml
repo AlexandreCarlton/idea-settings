@@ -56,6 +56,7 @@ buildExecutionDeployment:
     addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false
     buildProcessHeapSizeMbytes: 1024
     compileIndependentModulesInParallel: true
+    rebuildModuleOnDependencyChange: false
   requiredPlugins:
     - plugin: CheckStyle-IDEA
       minimumVersion: 5.23.0

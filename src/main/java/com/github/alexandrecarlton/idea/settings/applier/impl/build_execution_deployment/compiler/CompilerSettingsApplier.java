@@ -26,5 +26,7 @@ public class CompilerSettingsApplier implements SettingsApplier<CompilerSettings
     settings.buildProcessHeapSizeMbytes().ifPresent(compilerConfiguration::setBuildProcessHeapSize);
     settings.compileIndependentModulesInParallel()
         .ifPresent(parallel -> compilerWorkspaceConfiguration.PARALLEL_COMPILATION = parallel);
+    settings.rebuildModuleOnDependencyChange()
+        .ifPresent(rebuild -> compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE = rebuild);
   }
 }

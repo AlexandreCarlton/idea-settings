@@ -37,6 +37,7 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false",
         "    buildProcessHeapSizeMbytes: 1234",
         "    compileIndependentModulesInParallel: true",
+        "    rebuildModuleOnDependencyChange: false",
         "  requiredPlugins:",
         "    - plugin: CheckStyle-IDEA",
         "      minimumVersion: 5.23.0",
@@ -119,6 +120,14 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         .valueByXPath("//component[@name='CompilerWorkspaceConfiguration']/option[@name='PARALLEL_COMPILATION']/@value")
         .asBoolean()
         .isTrue();
+  }
+
+  @Test
+  public void rebuildModuleOnDependencyChange() throws IOException {
+    assertThatXml(".idea/workspace.xml")
+        .valueByXPath("//component[@name='CompilerWorkspaceConfiguration']/option[@name='REBUILD_ON_DEPENDENCY_CHANGE']/@value")
+        .asBoolean()
+        .isFalse();
   }
 
   @Test
