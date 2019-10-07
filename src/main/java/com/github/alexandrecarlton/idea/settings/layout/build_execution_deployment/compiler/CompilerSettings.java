@@ -12,4 +12,5 @@ public interface CompilerSettings {
   Optional<Integer> buildProcessHeapSizeMbytes();
   Optional<Boolean> compileIndependentModulesInParallel();
   Optional<Boolean> rebuildModuleOnDependencyChange();
+  Optional<String> sharedBuildProcessVmOptions();
 }

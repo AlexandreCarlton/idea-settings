@@ -57,6 +57,7 @@ buildExecutionDeployment:
     buildProcessHeapSizeMbytes: 1024
     compileIndependentModulesInParallel: true
     rebuildModuleOnDependencyChange: false
+    sharedBuildProcessVmOptions: -Xms123m
   requiredPlugins:
     - plugin: CheckStyle-IDEA
       minimumVersion: 5.23.0

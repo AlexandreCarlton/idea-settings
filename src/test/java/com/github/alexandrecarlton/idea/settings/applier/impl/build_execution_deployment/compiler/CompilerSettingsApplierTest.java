@@ -57,4 +57,12 @@ public class CompilerSettingsApplierTest extends IdeaSettingsTestFixture {
         .build());
     assertThat(compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE).isFalse();
   }
+
+  @Test
+  public void sharedBuildProcessVmOptions() {
+    settingsApplier.apply(ImmutableCompilerSettings.builder()
+        .sharedBuildProcessVmOptions("-Xms1g")
+        .build());
+    assertThat(compilerConfiguration.getBuildProcessVMOptions()).isEqualTo("-Xms1g");
+  }
 }

@@ -28,5 +28,6 @@ public class CompilerSettingsApplier implements SettingsApplier<CompilerSettings
         .ifPresent(parallel -> compilerWorkspaceConfiguration.PARALLEL_COMPILATION = parallel);
     settings.rebuildModuleOnDependencyChange()
         .ifPresent(rebuild -> compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE = rebuild);
+    settings.sharedBuildProcessVmOptions().ifPresent(compilerConfiguration::setBuildProcessVMOptions);
   }
 }

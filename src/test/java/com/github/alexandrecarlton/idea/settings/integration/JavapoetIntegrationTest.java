@@ -38,6 +38,7 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "    buildProcessHeapSizeMbytes: 1234",
         "    compileIndependentModulesInParallel: true",
         "    rebuildModuleOnDependencyChange: false",
+        "    sharedBuildProcessVmOptions: -Xms123m",
         "  requiredPlugins:",
         "    - plugin: CheckStyle-IDEA",
         "      minimumVersion: 5.23.0",
@@ -128,6 +129,13 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         .valueByXPath("//component[@name='CompilerWorkspaceConfiguration']/option[@name='REBUILD_ON_DEPENDENCY_CHANGE']/@value")
         .asBoolean()
         .isFalse();
+  }
+
+  @Test
+  public void sharedBuildProcessVmOptions() throws IOException {
+    assertThatXml(".idea/compiler.xml")
+        .valueByXPath("//component[@name='CompilerConfiguration']/option[@name='BUILD_PROCESS_ADDITIONAL_VM_OPTIONS']/@value")
+        .isEqualTo("-Xms123m");
   }
 
   @Test
