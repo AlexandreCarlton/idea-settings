@@ -6,6 +6,6 @@ java_library(
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/other_settings/checkstyle",
         "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
-        "@org_immutables_value//jar",
+        "//third_party/maven/org/immutables:value",
     ],
 )

@@ -7,6 +7,6 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/compiler",
         "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
-        "@org_immutables_value//jar",
+        "//third_party/maven/org/immutables:value",
     ],
 )

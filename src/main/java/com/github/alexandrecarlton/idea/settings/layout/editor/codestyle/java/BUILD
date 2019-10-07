@@ -5,6 +5,6 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
-        "@org_immutables_value//jar",
+        "//third_party/maven/org/immutables:value",
     ],
 )

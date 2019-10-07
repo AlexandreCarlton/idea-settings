@@ -8,6 +8,6 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/general",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
         "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
-        "@org_immutables_value//jar",
+        "//third_party/maven/org/immutables:value",
     ],
 )
