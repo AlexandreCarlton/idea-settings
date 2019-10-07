@@ -36,6 +36,7 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "  compiler:",
         "    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false",
         "    buildProcessHeapSizeMbytes: 1234",
+        "    compileIndependentModulesInParallel: true",
         "  requiredPlugins:",
         "    - plugin: CheckStyle-IDEA",
         "      minimumVersion: 5.23.0",
@@ -110,6 +111,14 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         .valueByXPath("//component[@name='CompilerConfiguration']/option[@name='BUILD_PROCESS_HEAP_SIZE']/@value")
         .asInt()
         .isEqualTo(1234);
+  }
+
+  @Test
+  public void compileIndependentModulesInParallel() throws IOException {
+    assertThatXml(".idea/workspace.xml")
+        .valueByXPath("//component[@name='CompilerWorkspaceConfiguration']/option[@name='PARALLEL_COMPILATION']/@value")
+        .asBoolean()
+        .isTrue();
   }
 
   @Test

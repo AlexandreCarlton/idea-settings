@@ -7,6 +7,7 @@ import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixtur
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.ImmutableCompilerSettings;
 import com.intellij.compiler.CompilerConfiguration;
+import com.intellij.compiler.CompilerWorkspaceConfiguration;
 
 import org.junit.Test;
 
@@ -14,12 +15,14 @@ public class CompilerSettingsApplierTest extends IdeaSettingsTestFixture {
 
   private SettingsApplier<CompilerSettings> settingsApplier;
   private CompilerConfiguration compilerConfiguration;
+  private CompilerWorkspaceConfiguration compilerWorkspaceConfiguration;
 
   @Override
   public void setUp() throws Exception {
     super.setUp();
     compilerConfiguration = CompilerConfiguration.getInstance(project);
-    settingsApplier = new CompilerSettingsApplier(compilerConfiguration);
+    compilerWorkspaceConfiguration = CompilerWorkspaceConfiguration.getInstance(project);
+    settingsApplier = new CompilerSettingsApplier(compilerConfiguration, compilerWorkspaceConfiguration);
   }
 
 
@@ -37,5 +40,13 @@ public class CompilerSettingsApplierTest extends IdeaSettingsTestFixture {
         .buildProcessHeapSizeMbytes(1234)
         .build());
     assertThat(compilerConfiguration.getBuildProcessHeapSize(0)).isEqualTo(1234);
+  }
+
+  @Test
+  public void compileIndependentModulesInParallel() {
+    settingsApplier.apply(ImmutableCompilerSettings.builder()
+        .compileIndependentModulesInParallel(true)
+        .build());
+    assertThat(compilerWorkspaceConfiguration.PARALLEL_COMPILATION).isTrue();
   }
 }

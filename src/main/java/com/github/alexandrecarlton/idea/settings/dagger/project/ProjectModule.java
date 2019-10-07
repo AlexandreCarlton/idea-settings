@@ -5,6 +5,7 @@ import com.intellij.application.options.CodeStyle;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
 import com.intellij.compiler.CompilerConfiguration;
+import com.intellij.compiler.CompilerWorkspaceConfiguration;
 import com.intellij.execution.RunManager;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
@@ -55,6 +56,11 @@ public class ProjectModule {
   @Provides
   static CompilerConfiguration provideCompilerConfiguration(Project project) {
     return CompilerConfiguration.getInstance(project);
+  }
+
+  @Provides
+  static CompilerWorkspaceConfiguration provideCompilerWorkspaceConfiguration(Project project) {
+    return CompilerWorkspaceConfiguration.getInstance(project);
   }
 
   @Provides
