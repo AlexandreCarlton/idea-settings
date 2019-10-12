@@ -1,10 +1,13 @@
 package com.github.alexandrecarlton.idea.settings.dagger.project;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
+import com.intellij.execution.RunManager;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import com.intellij.openapi.diagnostic.Logger;
@@ -39,6 +42,11 @@ public class OptionalSettingsApplierModule {
   @Provides
   SettingsApplier<JavascriptSettings> provideJavascriptSettingsApplier(Lazy<JSRootConfiguration> jsRootConfiguration) {
     return provideIfLoaded("JavaScript", () -> new JavascriptSettingsApplier(jsRootConfiguration.get()));
+  }
+
+  @Provides
+  SettingsApplier<SpringBootSettings> provideSpringBootSettingsApplier(Project project, RunManager runManager) {
+    return provideIfLoaded("com.intellij.spring.boot", () -> new SpringBootSettingsApplier(project, runManager));
   }
 
   private static <T> SettingsApplier<T> provideIfLoaded(String pluginId, Supplier<SettingsApplier<T>> settingsApplierSupplier) {

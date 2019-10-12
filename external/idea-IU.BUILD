@@ -13,15 +13,30 @@ java_import(
 )
 
 java_import(
+    name = "plugins/SpringBoot/lib/spring-boot-run",
+    jars = ["plugins/SpringBoot/lib/spring-boot-run.jar"],
+    neverlink = True,
+)
+
+java_import(
+    name = "plugins/SpringBoot/lib/spring-boot",
+    jars = ["plugins/SpringBoot/lib/spring-boot.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "test_runtime_deps",
     jars = [
         "@local_jdk//:lib/tools.jar",
     ] + glob([
         "lib/*.jar",
         "plugins/java/**/*.jar",
+        "plugins/java-i18n/**/*.jar",
         "plugins/maven/**/*.jar",
         "plugins/properties/**/*.jar",
         "plugins/JavaScriptLanguage/**/*.jar",
         "plugins/CSS/**/*.jar",
+        "plugins/SpringBoot/**/*.jar",
+        "plugins/Spring/**/*.jar",
     ]),
 )

@@ -94,3 +94,15 @@ configurations:
       configuration:
         host: localhost
         port: 5005
+  springBoot:
+    - name: Spring Boot Application
+      configuration:
+        mainClass: com.application.MyApplication
+        environment:
+          vmOptions: -Xmx123m
+          includeDependenciesWithProvidedScope: false
+          useClassPathOfModule: my-module
+        springBoot:
+          overrideParameters:
+            - key: system.property
+              value: value

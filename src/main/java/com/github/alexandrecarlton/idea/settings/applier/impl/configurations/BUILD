@@ -6,6 +6,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/remote",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/spring_boot",
         "//third_party/maven/javax/inject:javax_inject",
     ],
 )
