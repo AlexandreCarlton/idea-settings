@@ -4,6 +4,7 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/spring_boot",
         "//third_party/maven/javax/inject:javax_inject",
         "@idea-IC//:lib/platform-api",
@@ -11,6 +12,7 @@ java_library(
         "@idea-IC//:lib/util",
         "@idea-IC//:plugins/java/lib/java-api",
         "@idea-IC//:plugins/java/lib/java-impl",
+        "@idea-IC//:plugins/maven/lib/maven",
         "@idea-IU//:plugins/SpringBoot/lib/spring-boot",
         "@idea-IU//:plugins/SpringBoot/lib/spring-boot-run",
     ],

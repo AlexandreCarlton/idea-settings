@@ -106,3 +106,8 @@ configurations:
           overrideParameters:
             - key: system.property
               value: value
+        beforeLaunch:
+          - build: {}
+            runMavenGoal:
+              workingDirectory: .
+              commandLine: checkstyle:check

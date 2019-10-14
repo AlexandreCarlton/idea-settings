@@ -6,6 +6,6 @@ import org.immutables.value.Value;
 @Value.Immutable
 @JsonDeserialize(as = ImmutableOverrideParameter.class)
 public interface OverrideParameter {
-  String key();
+  String name();
   String value();
 }
