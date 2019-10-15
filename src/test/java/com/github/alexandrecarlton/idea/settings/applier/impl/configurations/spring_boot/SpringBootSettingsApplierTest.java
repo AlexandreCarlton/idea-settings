@@ -87,7 +87,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
         .mainClass("com.Application")
         .springBoot(ImmutableSpringBootConfigurationSpringBootSettings.builder()
           .addOverrideParameters(ImmutableOverrideParameter.builder()
-            .key("Key")
+            .name("Key")
             .value("Value")
             .build())
           .build())
