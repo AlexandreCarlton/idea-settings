@@ -66,6 +66,8 @@ buildExecutionDeployment:
 languagesFrameworks:
   javascript:
     javascriptLanguageVersion: React JSX
+  sqlDialects:
+    projectSqlDialect: PostgreSQL
 
 otherSettings:
   checkstyle:

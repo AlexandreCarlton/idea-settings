@@ -7,6 +7,18 @@ exports_files([
 ])
 
 java_import(
+    name = "plugins/DatabaseTools/lib/database-impl",
+    jars = ["plugins/DatabaseTools/lib/database-impl.jar"],
+    neverlink = True,
+)
+
+java_import(
+    name = "plugins/DatabaseTools/lib/database-openapi",
+    jars = ["plugins/DatabaseTools/lib/database-openapi.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
     jars = ["plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar"],
     neverlink = True,
@@ -36,6 +48,7 @@ java_import(
         "plugins/properties/**/*.jar",
         "plugins/JavaScriptLanguage/**/*.jar",
         "plugins/CSS/**/*.jar",
+        "plugins/DatabaseTools/**/*.jar",
         "plugins/SpringBoot/**/*.jar",
         "plugins/Spring/**/*.jar",
     ]),

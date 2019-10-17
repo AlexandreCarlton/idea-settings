@@ -53,6 +53,16 @@ The `.IDEA-settings.yml` configuration file is designed to mimic the
 The link provided will allow developers using the Community Edition of IDEA to
 expose configuration that is exclusive to the Ultimate edition.
 
+### Discovering configuration
+
+Locating the classes that control IDEA configuration can be tricky, especially
+in the Ultimate edition of IntelliJ IDEA (as the source is not available).
+A process to locate the relevant classes is as follows:
+
+ 1. Configure the setting to be exposed in a sample project.
+ 1. Discover the file modified as a result of this (perhaps by grepping `.idea`).
+ 1. `zipgrep` the component/filename in the relevant plugin jar.
+
 ### Configuring IDEA configuration/system paths
 
 By default, `//:apply-idea-settings` will create random temporary directories
@@ -81,6 +91,12 @@ Otherwise, the following may be handy:
 ```sh
 tail -f /tmp/*/log/idea.log
 ```
+
+### Troubleshooting
+
+    error: cannot access AreaInstance
+
+Add the `idea-IC//:lib/extensions` dependency.
 
 ### Updating dependencies
 

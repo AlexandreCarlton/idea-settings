@@ -18,6 +18,7 @@ import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
 
+import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Module;
 import dagger.Provides;
 
@@ -112,6 +113,11 @@ public class ProjectModule {
   @Provides
   static ProjectRootManager provideProjectRootManager(Project project) {
     return ProjectRootManager.getInstance(project);
+  }
+
+  @Provides
+  static SqlDialectMappings provideSqlDialectMappings(Project project) {
+    return SqlDialectMappings.getInstance(project);
   }
 
   @Provides

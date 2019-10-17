@@ -83,6 +83,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/sql_dialects",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
     ],

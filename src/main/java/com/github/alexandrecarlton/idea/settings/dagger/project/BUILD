@@ -21,6 +21,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/sql_dialects",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings",
@@ -43,6 +44,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/sql_dialects",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/other_settings",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/other_settings/checkstyle",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/project_settings",
@@ -64,6 +66,7 @@ java_library(
         "@idea-IC//:plugins/java/lib/java-api",
         "@idea-IC//:plugins/java/lib/java-impl",
         "@idea-IC//:plugins/maven/lib/maven",
+        "@idea-IU//:plugins/DatabaseTools/lib/database-impl",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
     ],
 )

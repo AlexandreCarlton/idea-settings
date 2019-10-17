@@ -8,6 +8,7 @@
   <depends>com.intellij.java</depends>
   <depends optional="true" config-file="">CheckStyle-IDEA</depends>
   <depends optional="true" config-file="">JavaScript</depends>
+  <depends optional="true" config-file="">com.intellij.database</depends>
   <depends optional="true" config-file="">com.intellij.spring.boot</depends>
 
   <extensions defaultExtensionNs="com.intellij">
