@@ -94,9 +94,15 @@ tail -f /tmp/*/log/idea.log
 
 ### Troubleshooting
 
-    error: cannot access AreaInstance
+#### `error: cannot access <class>`
 
-Add the `idea-IC//:lib/extensions` dependency.
+Occasionally a compile error will reveal itself of the above form - add the
+following library to ensure it continues compiling:
+
+| Class | Dependency |
+| ----- | ---------- |
+| `AreaInstance` | `idea-IC//:lib/extensions` |
+| `PersistentStateComponent` | `idea-IC//:lib/platform-api` |
 
 ### Updating dependencies
 
