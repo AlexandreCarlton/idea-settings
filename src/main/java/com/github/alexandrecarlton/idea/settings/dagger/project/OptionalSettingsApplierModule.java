@@ -5,16 +5,19 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spr
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watchers.FileWatcherSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
+import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings;
 import com.intellij.execution.RunManager;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.project.Project;
+import com.intellij.plugins.watcher.model.ProjectTasksOptions;
 import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Lazy;
 import dagger.Module;
@@ -40,6 +43,11 @@ public class OptionalSettingsApplierModule {
       Project project,
       Lazy<PluginConfigurationManager> pluginConfigurationManager) {
     return provideIfLoaded("CheckStyle-IDEA", () -> new CheckstyleSettingsApplier(project, pluginConfigurationManager.get()));
+  }
+
+  @Provides
+  SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<ProjectTasksOptions> projectTasksOptions) {
+    return provideIfLoaded("com.intellij.plugins.watcher", () -> new FileWatcherSettingsApplier(projectTasksOptions.get()));
   }
 
   @Provides

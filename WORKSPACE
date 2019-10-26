@@ -11,6 +11,8 @@ IDEA_IU_SHA256 = "c1a980c6eeb528ee731ed52a5821981466b9205713926748051ff08a4ce8cf
 
 IDEA_IC_SOURCES_SHA256 = "0218f68cdc58d668ed2687f443719ba14c38fbf4a46ca2b7fda992b2a647acf8"
 
+WEBSTORM_SHA256 = "6a51dd26a5f219ae576d3893e60ad3e15abb6b08b2fad8c94cd651aafbdaf86f"
+
 http_archive(
     name = "idea-IC",
     build_file = "idea-IC.BUILD",
@@ -29,6 +31,14 @@ http_archive(
     build_file = "idea-IU.BUILD",
     sha256 = IDEA_IU_SHA256,
     url = "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaIU/{0}/ideaIU-{0}.zip".format(IDEA_VERSION),
+)
+
+http_archive(
+    name = "WebStorm",
+    build_file = "WebStorm.BUILD",
+    sha256 = WEBSTORM_SHA256,
+    strip_prefix = "WebStorm-192.5728.87",
+    url = "https://download.jetbrains.com/webstorm/WebStorm-{0}.tar.gz".format(IDEA_VERSION),
 )
 
 http_archive(

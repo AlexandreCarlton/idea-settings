@@ -7,6 +7,7 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.LanguagesFrameworksSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.tools.ToolsSettings;
 import org.immutables.value.Value;
 
 import java.util.Optional;
@@ -20,6 +21,8 @@ public interface IdeaSettings {
   Optional<BuildExecutionDeploymentSettings> buildExecutionDeployment();
 
   Optional<LanguagesFrameworksSettings> languagesFrameworks();
+
+  Optional<ToolsSettings> tools();
 
   Optional<OtherSettings> otherSettings();
 

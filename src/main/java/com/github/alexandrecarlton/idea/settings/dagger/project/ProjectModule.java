@@ -15,13 +15,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ex.ProjectEx;
 import com.intellij.openapi.roots.LanguageLevelProjectExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
+import com.intellij.plugins.watcher.model.ProjectTasksOptions;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
-
 import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Module;
 import dagger.Provides;
-
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import org.jetbrains.idea.maven.project.MavenGeneralSettings;
 import org.jetbrains.idea.maven.project.MavenImportingSettings;
@@ -113,6 +112,11 @@ public class ProjectModule {
   @Provides
   static ProjectRootManager provideProjectRootManager(Project project) {
     return ProjectRootManager.getInstance(project);
+  }
+
+  @Provides
+  static ProjectTasksOptions provideProjectTasksOptions(Project project) {
+    return ProjectTasksOptions.getInstance(project);
   }
 
   @Provides

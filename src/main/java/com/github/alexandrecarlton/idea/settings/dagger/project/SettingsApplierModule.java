@@ -22,6 +22,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.languages_framewor
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.OtherSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.ProjectSettingsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.project.ProjectSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.tools.ToolsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.BuildToolsSettings;
@@ -43,7 +44,7 @@ import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.Lan
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings;
-
+import com.github.alexandrecarlton.idea.settings.layout.tools.ToolsSettings;
 import dagger.Binds;
 import dagger.Module;
 
@@ -112,4 +113,7 @@ public interface SettingsApplierModule {
 
   @Binds
   SettingsApplier<SpellingSettings> bindSpellingSettingsApplier(SpellingSettingsApplier applier);
+
+  @Binds
+  SettingsApplier<ToolsSettings> bindToolsSettingsApplier(ToolsSettingsApplier applier);
 }

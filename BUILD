@@ -23,6 +23,7 @@ pkg_tar(
     srcs = [
         ":idea-settings",
         "@CheckStyle-IDEA//:lib/checkstyle-idea.jar",
+        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher.jar",
     ],
 )
 
@@ -86,6 +87,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/sql_dialects",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/tools/file_watchers",
     ],
 )
 
