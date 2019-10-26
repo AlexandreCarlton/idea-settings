@@ -13,7 +13,7 @@ java_test(
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/spring_boot",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/spring_boot",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",

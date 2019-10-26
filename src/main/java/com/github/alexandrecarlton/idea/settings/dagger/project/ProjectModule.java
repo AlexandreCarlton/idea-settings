@@ -1,5 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dagger.project;
 
+import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent;
 import com.github.alexandrecarlton.idea.settings.dagger.module.ModuleSubcomponent;
 import com.intellij.application.options.CodeStyle;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
@@ -31,7 +32,9 @@ import javax.inject.Named;
 /**
  * Provides components that depend on the imported {@link Project}.
  */
-@Module(subcomponents = ModuleSubcomponent.class)
+@Module(subcomponents = {
+  ModuleSubcomponent.class,
+  ConfigurationSubcomponent.class})
 public class ProjectModule {
 
   @Provides

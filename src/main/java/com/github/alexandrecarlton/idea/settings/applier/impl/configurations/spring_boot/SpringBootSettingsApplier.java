@@ -1,19 +1,15 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BuildConfigurationSettings;
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunMavenGoalSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationEnvironmentSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
-import com.intellij.compiler.options.CompileStepBeforeRun;
 import com.intellij.execution.RunManager;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.openapi.project.Project;
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter;
 import com.intellij.spring.boot.run.SpringBootApplicationConfigurationType;
 import com.intellij.spring.boot.run.SpringBootApplicationRunConfiguration;
-import org.jetbrains.idea.maven.tasks.MavenBeforeRunTask;
 
 import static java.util.stream.Collectors.toList;
 
@@ -37,25 +33,8 @@ public class SpringBootSettingsApplier implements SettingsApplier<SpringBootSett
     settings.configuration().environment().ifPresent(env -> setSpringBootEnvironment(configuration, env));
     settings.configuration().springBoot().ifPresent(config -> setSpringBootConfiguration(configuration, config));
     RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.createConfiguration(configuration, new SpringBootApplicationConfigurationType().getDefaultConfigurationFactory());
-    configuration.setBeforeRunTasks(settings
-      .configuration()
-      .beforeLaunch()
-      .stream()
-      .map(beforeLaunch -> {
-        if (beforeLaunch instanceof BuildConfigurationSettings) {
-          return new CompileStepBeforeRun.MakeBeforeRunTask();
-        } else if (beforeLaunch instanceof RunMavenGoalSettings) {
-          RunMavenGoalSettings runMavenGoalSettings = (RunMavenGoalSettings) beforeLaunch;
-          MavenBeforeRunTask mavenBeforeRunTask = new MavenBeforeRunTask();
-          mavenBeforeRunTask.setGoal(runMavenGoalSettings.commandLine());
-          mavenBeforeRunTask.setProjectPath(runMavenGoalSettings.workingDirectory().resolve("pom.xml").toString());
-          return mavenBeforeRunTask;
-        } else {
-          throw new RuntimeException("Unhandled beforeLaunch task: " + beforeLaunch);
-        }
-      })
-      .collect(toList()));
-    runManager.addConfiguration(runnerAndConfigurationSettings, true);
+    settings.shareThroughVcs().ifPresent(runnerAndConfigurationSettings::setShared);
+    runManager.addConfiguration(runnerAndConfigurationSettings);
   }
 
   private void setSpringBootEnvironment(SpringBootApplicationRunConfiguration configuration,

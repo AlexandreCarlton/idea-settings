@@ -70,8 +70,9 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "        file: checkstyle.xml",
         "",
         "configurations:",
-        "  remote:",
-        "    - name: Remote Configuration",
+        "  - remote:",
+        "      name: Remote Configuration",
+        "      shareThroughVcs: true",
         "      configuration:",
         "        host: 8.8.8.8",
         "        port: 5000");

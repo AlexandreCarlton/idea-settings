@@ -30,7 +30,7 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.AnnotationProcessorsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings;
@@ -70,7 +70,7 @@ public interface SettingsApplierModule {
   SettingsApplier<CompilerSettings> bindCompilerSettingsApplier(CompilerSettingsApplier applier);
 
   @Binds
-  SettingsApplier<ConfigurationsSettings> bindConfigurationsSettingsApplier(ConfigurationsSettingsApplier applier);
+  SettingsApplier<ConfigurationSettings> bindConfigurationsSettingsApplier(ConfigurationsSettingsApplier applier);
 
   @Binds
   SettingsApplier<EditorSettings> bindEditorSettingsApplier(EditorSettingsApplier applier);

@@ -27,13 +27,14 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
   @Test
   public void basicSpringConfiguration() {
     settingsApplier.apply(ImmutableSpringBootSettings.builder()
-      .name("Spring Boot")
+      .name("Spring Boot Basic")
+      .shareThroughVcs(true)
       .configuration(ImmutableSpringBootConfigurationSettings.builder()
         .mainClass("com.Application")
         .build())
       .build());
 
-    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot");
+    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot Basic");
     assertThat(runnerAndConfigurationSettings).isNotNull();
     assertThat(runnerAndConfigurationSettings.isShared()).isTrue();
 
@@ -44,7 +45,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
   @Test
   public void dependenciesWithProvidedScopeApplied() {
     settingsApplier.apply(ImmutableSpringBootSettings.builder()
-      .name("Spring Boot")
+      .name("Spring Boot With Provided")
       .configuration(ImmutableSpringBootConfigurationSettings.builder()
         .mainClass("com.Application")
         .environment(ImmutableSpringBootConfigurationEnvironmentSettings.builder()
@@ -53,7 +54,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
         .build())
       .build());
 
-    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot");
+    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With Provided");
     SpringBootApplicationRunConfiguration configuration = (SpringBootApplicationRunConfiguration) runnerAndConfigurationSettings.getConfiguration();
     assertThat(configuration).isNotNull();
     assertThat(configuration.isIncludeProvidedScope()).isFalse();
@@ -64,7 +65,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
   @Test
   public void vmOptionsApplied() {
     settingsApplier.apply(ImmutableSpringBootSettings.builder()
-      .name("Spring Boot")
+      .name("Spring Boot With VM Options")
       .configuration(ImmutableSpringBootConfigurationSettings.builder()
         .mainClass("com.Application")
         .environment(ImmutableSpringBootConfigurationEnvironmentSettings.builder()
@@ -73,7 +74,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
         .build())
       .build());
 
-    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot");
+    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With VM Options");
     SpringBootApplicationRunConfiguration configuration = (SpringBootApplicationRunConfiguration) runnerAndConfigurationSettings.getConfiguration();
     assertThat(configuration).isNotNull();
     assertThat(configuration.getVMParameters()).isEqualTo("-Xmx123m");
@@ -82,7 +83,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
   @Test
   public void overrideParametersApplied() {
     settingsApplier.apply(ImmutableSpringBootSettings.builder()
-      .name("Spring Boot")
+      .name("Spring Boot With Override")
       .configuration(ImmutableSpringBootConfigurationSettings.builder()
         .mainClass("com.Application")
         .springBoot(ImmutableSpringBootConfigurationSpringBootSettings.builder()
@@ -94,7 +95,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
         .build())
       .build());
 
-    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot");
+    RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With Override");
     SpringBootApplicationRunConfiguration configuration = (SpringBootApplicationRunConfiguration) runnerAndConfigurationSettings.getConfiguration();
     assertThat(configuration).isNotNull();
     assertThat(configuration.getAdditionalParameters()).containsExactly(new SpringBootAdditionalParameter(true, "Key", "Value"));

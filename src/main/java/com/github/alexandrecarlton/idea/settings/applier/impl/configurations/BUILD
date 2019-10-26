@@ -4,9 +4,10 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/dagger/configuration",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/remote",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/spring_boot",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
         "//third_party/maven/javax/inject:javax_inject",
+        "@idea-IC//:lib/platform-api",
     ],
 )

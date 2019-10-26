@@ -2,7 +2,7 @@ package com.github.alexandrecarlton.idea.settings.layout;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings;
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.LanguagesFrameworksSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings;
@@ -10,6 +10,7 @@ import com.github.alexandrecarlton.idea.settings.layout.project_settings.Project
 import com.github.alexandrecarlton.idea.settings.layout.tools.ToolsSettings;
 import org.immutables.value.Value;
 
+import java.util.List;
 import java.util.Optional;
 
 @Value.Immutable
@@ -28,6 +29,6 @@ public interface IdeaSettings {
 
   Optional<ProjectSettingsSettings> projectSettings();
 
-  Optional<ConfigurationsSettings> configurations();
+  List<ConfigurationSettings> configurations();
 }
 

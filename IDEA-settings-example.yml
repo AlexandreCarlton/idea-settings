@@ -106,13 +106,14 @@ otherSettings:
 
 # Run / Debug configurations
 configurations:
-  remote:
-    - name: Debug
+  - remote:
+      name: Debug
+      shareThroughVcs: true
       configuration:
         host: localhost
         port: 5005
-  springBoot:
-    - name: Spring Boot Application
+  - springBoot:
+      name: Spring Boot Application
       configuration:
         mainClass: com.application.MyApplication
         environment:

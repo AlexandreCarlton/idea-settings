@@ -22,9 +22,12 @@ pkg_tar(
     name = "plugins",
     srcs = [
         ":idea-settings",
-        "@CheckStyle-IDEA//:lib/checkstyle-idea.jar",
-        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher.jar",
     ],
+    files = {
+        "@CheckStyle-IDEA//:lib/checkstyle-idea.jar": "CheckStyle-IDEA/lib/checkstyle-idea.jar",
+        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher.jar": "fileWatcher/lib/fileWatcher.jar",
+        "@WebStorm//:plugins/fileWatcher/lib/resources_en.jar": "fileWatcher/lib/resources_en.jar",
+    },
 )
 
 # For some reason referencing :plugins in sh_binary doesn't work;

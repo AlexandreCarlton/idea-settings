@@ -7,7 +7,6 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/modules",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/project_settings/modules",
-        "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
         "//third_party/maven/com/google/dagger",
         "@idea-IC//:lib/platform-api",
     ],

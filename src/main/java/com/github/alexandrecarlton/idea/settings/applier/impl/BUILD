@@ -11,6 +11,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/other_settings",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/project_settings",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/tools",
         "//third_party/maven/javax/inject:javax_inject",
     ],
 )
