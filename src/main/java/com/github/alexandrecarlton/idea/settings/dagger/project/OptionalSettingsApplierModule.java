@@ -6,6 +6,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.languages_framewor
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watchers.FileWatcherSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings;
@@ -42,33 +43,33 @@ public class OptionalSettingsApplierModule {
   SettingsApplier<CheckstyleSettings> provideCheckstyleSettingsApplier(
       Project project,
       Lazy<PluginConfigurationManager> pluginConfigurationManager) {
-    return provideIfLoaded("CheckStyle-IDEA", () -> new CheckstyleSettingsApplier(project, pluginConfigurationManager.get()));
+    return provideIfLoaded(Plugin.CHECKSTYLE_IDEA, () -> new CheckstyleSettingsApplier(project, pluginConfigurationManager.get()));
   }
 
   @Provides
   SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<ProjectTasksOptions> projectTasksOptions) {
-    return provideIfLoaded("com.intellij.plugins.watcher", () -> new FileWatcherSettingsApplier(projectTasksOptions.get()));
+    return provideIfLoaded(Plugin.FILE_WATCHERS, () -> new FileWatcherSettingsApplier(projectTasksOptions.get()));
   }
 
   @Provides
   SettingsApplier<JavascriptSettings> provideJavascriptSettingsApplier(Lazy<JSRootConfiguration> jsRootConfiguration) {
-    return provideIfLoaded("JavaScript", () -> new JavascriptSettingsApplier(jsRootConfiguration.get()));
+    return provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, () -> new JavascriptSettingsApplier(jsRootConfiguration.get()));
   }
 
   @Provides
   SettingsApplier<SpringBootSettings> provideSpringBootSettingsApplier(Project project, RunManager runManager) {
-    return provideIfLoaded("com.intellij.spring.boot", () -> new SpringBootSettingsApplier(project, runManager));
+    return provideIfLoaded(Plugin.SPRING_BOOT, () -> new SpringBootSettingsApplier(project, runManager));
   }
 
   @Provides
   SettingsApplier<SqlDialectsSettings> provideSqlDialectsSettingsApplier(Project project, Lazy<SqlDialectMappings> sqlDialectMappings) {
-    return provideIfLoaded("com.intellij.database", () -> new SqlDialectsSettingsApplier(project, sqlDialectMappings.get()));
+    return provideIfLoaded(Plugin.DATABASE_TOOLS_AND_SQL, () -> new SqlDialectsSettingsApplier(project, sqlDialectMappings.get()));
   }
 
-  private static <T> SettingsApplier<T> provideIfLoaded(String pluginId, Supplier<SettingsApplier<T>> settingsApplierSupplier) {
-    return PluginManager.isPluginInstalled(PluginId.findId(pluginId))
+  private static <T> SettingsApplier<T> provideIfLoaded(Plugin plugin, Supplier<SettingsApplier<T>> settingsApplierSupplier) {
+    return PluginManager.isPluginInstalled(PluginId.findId(plugin.getId()))
         ? settingsApplierSupplier.get()
-        : settings -> LOG.warn("Unable to apply certain settings as plugin '" + pluginId + "' is not installed.");
+        : settings -> LOG.warn("Unable to apply certain settings as plugin '" + plugin.getName() + "' is not installed.");
   }
 
 }

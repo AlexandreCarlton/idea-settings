@@ -29,6 +29,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/tools",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/tools/file_watchers",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/dagger/common",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/dagger/configuration",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/dagger/module",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout",

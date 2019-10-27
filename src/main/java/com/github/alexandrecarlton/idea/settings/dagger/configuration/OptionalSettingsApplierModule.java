@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.dagger.configuration;
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.common.before_launch.BuildConfigurationSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.common.before_launch.RunMavenGoalSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BuildConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunMavenGoalSettings;
 import com.intellij.execution.configurations.RunConfiguration;
@@ -21,17 +22,17 @@ public class OptionalSettingsApplierModule {
 
   @Provides
   static SettingsApplier<RunMavenGoalSettings> provideRunMavenGoalSettingsApplier(RunConfiguration runConfiguration) {
-    return provideIfLoaded("org.jetbrains.idea.maven", () -> new RunMavenGoalSettingsApplier(runConfiguration));
+    return provideIfLoaded(Plugin.MAVEN, () -> new RunMavenGoalSettingsApplier(runConfiguration));
   }
 
   @Provides
   static SettingsApplier<BuildConfigurationSettings> provideBuildConfigurationSettings(RunConfiguration runConfiguration) {
-    return provideIfLoaded("com.intellij.java", () -> new BuildConfigurationSettingsApplier(runConfiguration));
+    return provideIfLoaded(Plugin.JAVA, () -> new BuildConfigurationSettingsApplier(runConfiguration));
   }
 
-  private static <T> SettingsApplier<T> provideIfLoaded(String pluginId, Supplier<SettingsApplier<T>> settingsApplierSupplier) {
-    return PluginManager.isPluginInstalled(PluginId.findId(pluginId))
+  private static <T> SettingsApplier<T> provideIfLoaded(Plugin plugin, Supplier<SettingsApplier<T>> settingsApplierSupplier) {
+    return PluginManager.isPluginInstalled(PluginId.findId(plugin.getId()))
       ? settingsApplierSupplier.get()
-      : settings -> LOG.warn("Unable to apply certain settings as plugin '" + pluginId + "' is not installed.");
+      : settings -> LOG.warn("Unable to apply certain settings as plugin '" + plugin.getName() + "' is not installed.");
   }
 }

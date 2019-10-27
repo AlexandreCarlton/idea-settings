@@ -6,6 +6,7 @@ java_library(
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/common/before_launch",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/dagger/common",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
         "//third_party/maven/com/google/dagger",
         "@idea-IC//:lib/extensions",
