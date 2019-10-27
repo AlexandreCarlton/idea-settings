@@ -53,6 +53,9 @@ buildExecutionDeployment:
         vmOptionsForImporter: -Xmx1g
       mavenHomeDirectory: /usr
   compiler:
+    resourcePatterns:
+      - '!?*.java'
+      - '!resource.properties'
     addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false
     buildProcessHeapSizeMbytes: 1024
     compileIndependentModulesInParallel: true
