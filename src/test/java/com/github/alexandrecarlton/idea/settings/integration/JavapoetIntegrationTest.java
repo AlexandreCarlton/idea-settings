@@ -34,6 +34,9 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "        vmOptionsForImporter: -Xmx1g",
         "      mavenHomeDirectory: maven-bin",
         "  compiler:",
+        "    resourcePatterns:",
+        "      - '!?*.java'",
+        "      - '!resource.properties'",
         "    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false",
         "    buildProcessHeapSizeMbytes: 1234",
         "    compileIndependentModulesInParallel: true",
@@ -151,6 +154,14 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
     assertThatXml(".idea/workspace.xml")
         .valueByXPath("//MavenGeneralSettings/option[@name='mavenHome']/@value")
         .isEqualTo("$PROJECT_DIR$/maven-bin");
+  }
+
+  @Test
+  public void resourcePatterns() throws IOException {
+    assertThatXml(".idea/compiler.xml")
+      .hasXPath("//wildcardResourcePatterns/entry[@name='!?*.java']");
+    assertThatXml(".idea/compiler.xml")
+      .hasXPath("//wildcardResourcePatterns/entry[@name='!resource.properties']");
   }
 
   @Test

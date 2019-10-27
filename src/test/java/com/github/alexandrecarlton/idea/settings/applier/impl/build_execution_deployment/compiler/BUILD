@@ -19,5 +19,6 @@ java_test(
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
         "@idea-IC//:plugins/java/lib/java-api",
+        "@idea-IC//:plugins/java/lib/java-impl",
     ],
 )

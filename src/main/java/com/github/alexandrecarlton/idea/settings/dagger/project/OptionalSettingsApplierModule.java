@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.dagger.project;
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenImportingSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
@@ -13,6 +14,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watcher
 import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
@@ -22,6 +24,8 @@ import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyl
 import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
+import com.intellij.compiler.CompilerConfiguration;
+import com.intellij.compiler.CompilerWorkspaceConfiguration;
 import com.intellij.execution.RunManager;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
@@ -59,18 +63,24 @@ public class OptionalSettingsApplierModule {
   }
 
   @Provides
+  static SettingsApplier<CompilerSettings> provideCompilerSettingsApplier(Lazy<CompilerConfiguration> compilerConfiguration,
+                                                                          Lazy<CompilerWorkspaceConfiguration> compilerWorkspaceConfiguration) {
+    return provideIfLoaded(Plugin.JAVA, () -> new CompilerSettingsApplier(compilerConfiguration.get(), compilerWorkspaceConfiguration.get()));
+  }
+
+  @Provides
   static SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<ProjectTasksOptions> projectTasksOptions) {
     return provideIfLoaded(Plugin.FILE_WATCHERS, () -> new FileWatcherSettingsApplier(projectTasksOptions.get()));
   }
 
   @Provides
-  static SettingsApplier<JavaAutoImportSettings> bindJavaAutoImportSettingsApplier(CodeInsightWorkspaceSettings codeInsightWorkspaceSettings,
-                                                                                   Lazy<JavaProjectCodeInsightSettings> javaProjectCodeInsightSettings) {
+  static SettingsApplier<JavaAutoImportSettings> provideJavaAutoImportSettingsApplier(CodeInsightWorkspaceSettings codeInsightWorkspaceSettings,
+                                                                                      Lazy<JavaProjectCodeInsightSettings> javaProjectCodeInsightSettings) {
     return provideIfLoaded(Plugin.JAVA, () -> new JavaAutoImportSettingsApplier(codeInsightWorkspaceSettings, javaProjectCodeInsightSettings.get()));
   }
 
   @Provides
-  static SettingsApplier<JavaImportsSettings> bindJavaImportsSettingsApplier(CodeStyleSettings codeStyleSettings, Project project) {
+  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(CodeStyleSettings codeStyleSettings, Project project) {
     return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(codeStyleSettings, project));
   }
 
@@ -80,12 +90,12 @@ public class OptionalSettingsApplierModule {
   }
 
   @Provides
-  static SettingsApplier<MavenImportingSettings> bindMavenImportingSettingsApplier(Lazy<org.jetbrains.idea.maven.project.MavenImportingSettings> mavenImportingSettings) {
+  static SettingsApplier<MavenImportingSettings> provideMavenImportingSettingsApplier(Lazy<org.jetbrains.idea.maven.project.MavenImportingSettings> mavenImportingSettings) {
     return provideIfLoaded(Plugin.MAVEN, () -> new MavenImportingSettingsApplier(mavenImportingSettings.get()));
   }
 
   @Provides
-  static SettingsApplier<MavenSettings> bindMavenSettingsApplier(Lazy<MavenGeneralSettings> mavenGeneralSettings, SettingsApplier<MavenImportingSettings> mavenImportingSettingsApplier) {
+  static SettingsApplier<MavenSettings> provideMavenSettingsApplier(Lazy<MavenGeneralSettings> mavenGeneralSettings, SettingsApplier<MavenImportingSettings> mavenImportingSettingsApplier) {
     return provideIfLoaded(Plugin.MAVEN, () -> new MavenSettingsApplier(mavenGeneralSettings.get(), mavenImportingSettingsApplier));
   }
 

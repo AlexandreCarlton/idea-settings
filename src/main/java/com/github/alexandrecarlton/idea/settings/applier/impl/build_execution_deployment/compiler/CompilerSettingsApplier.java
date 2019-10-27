@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_d
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
 import com.intellij.compiler.CompilerConfiguration;
+import com.intellij.compiler.CompilerConfigurationImpl;
 import com.intellij.compiler.CompilerWorkspaceConfiguration;
 
 import javax.inject.Inject;
@@ -29,5 +30,14 @@ public class CompilerSettingsApplier implements SettingsApplier<CompilerSettings
     settings.rebuildModuleOnDependencyChange()
         .ifPresent(rebuild -> compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE = rebuild);
     settings.sharedBuildProcessVmOptions().ifPresent(compilerConfiguration::setBuildProcessVMOptions);
+
+    if (compilerConfiguration instanceof CompilerConfigurationImpl) {
+      CompilerConfigurationImpl compilerConfigurationImpl = (CompilerConfigurationImpl) compilerConfiguration;
+      settings.resourcePatterns().ifPresent(patterns -> {
+        compilerConfigurationImpl.removeResourceFilePatterns();
+        patterns.forEach(compilerConfigurationImpl::addResourceFilePattern);
+      });
+    }
   }
+
 }
