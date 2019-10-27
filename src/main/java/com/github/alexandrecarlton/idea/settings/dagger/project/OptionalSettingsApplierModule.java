@@ -1,17 +1,27 @@
 package com.github.alexandrecarlton.idea.settings.dagger.project;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenImportingSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watchers.FileWatcherSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin;
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings;
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings;
+import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
+import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
 import com.intellij.execution.RunManager;
 import com.intellij.ide.plugins.PluginManager;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
@@ -19,11 +29,13 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.project.Project;
 import com.intellij.plugins.watcher.model.ProjectTasksOptions;
+import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
+import org.jetbrains.idea.maven.project.MavenGeneralSettings;
 
 import java.util.function.Supplier;
 
@@ -40,29 +52,50 @@ public class OptionalSettingsApplierModule {
   private static final Logger LOG = Logger.getInstance(OptionalSettingsApplierModule.class);
 
   @Provides
-  SettingsApplier<CheckstyleSettings> provideCheckstyleSettingsApplier(
+  static SettingsApplier<CheckstyleSettings> provideCheckstyleSettingsApplier(
       Project project,
       Lazy<PluginConfigurationManager> pluginConfigurationManager) {
     return provideIfLoaded(Plugin.CHECKSTYLE_IDEA, () -> new CheckstyleSettingsApplier(project, pluginConfigurationManager.get()));
   }
 
   @Provides
-  SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<ProjectTasksOptions> projectTasksOptions) {
+  static SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<ProjectTasksOptions> projectTasksOptions) {
     return provideIfLoaded(Plugin.FILE_WATCHERS, () -> new FileWatcherSettingsApplier(projectTasksOptions.get()));
   }
 
   @Provides
-  SettingsApplier<JavascriptSettings> provideJavascriptSettingsApplier(Lazy<JSRootConfiguration> jsRootConfiguration) {
+  static SettingsApplier<JavaAutoImportSettings> bindJavaAutoImportSettingsApplier(CodeInsightWorkspaceSettings codeInsightWorkspaceSettings,
+                                                                                   Lazy<JavaProjectCodeInsightSettings> javaProjectCodeInsightSettings) {
+    return provideIfLoaded(Plugin.JAVA, () -> new JavaAutoImportSettingsApplier(codeInsightWorkspaceSettings, javaProjectCodeInsightSettings.get()));
+  }
+
+  @Provides
+  static SettingsApplier<JavaImportsSettings> bindJavaImportsSettingsApplier(CodeStyleSettings codeStyleSettings, Project project) {
+    return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(codeStyleSettings, project));
+  }
+
+  @Provides
+  static SettingsApplier<JavascriptSettings> provideJavascriptSettingsApplier(Lazy<JSRootConfiguration> jsRootConfiguration) {
     return provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, () -> new JavascriptSettingsApplier(jsRootConfiguration.get()));
   }
 
   @Provides
-  SettingsApplier<SpringBootSettings> provideSpringBootSettingsApplier(Project project, RunManager runManager) {
+  static SettingsApplier<MavenImportingSettings> bindMavenImportingSettingsApplier(Lazy<org.jetbrains.idea.maven.project.MavenImportingSettings> mavenImportingSettings) {
+    return provideIfLoaded(Plugin.MAVEN, () -> new MavenImportingSettingsApplier(mavenImportingSettings.get()));
+  }
+
+  @Provides
+  static SettingsApplier<MavenSettings> bindMavenSettingsApplier(Lazy<MavenGeneralSettings> mavenGeneralSettings, SettingsApplier<MavenImportingSettings> mavenImportingSettingsApplier) {
+    return provideIfLoaded(Plugin.MAVEN, () -> new MavenSettingsApplier(mavenGeneralSettings.get(), mavenImportingSettingsApplier));
+  }
+
+  @Provides
+  static SettingsApplier<SpringBootSettings> provideSpringBootSettingsApplier(Project project, RunManager runManager) {
     return provideIfLoaded(Plugin.SPRING_BOOT, () -> new SpringBootSettingsApplier(project, runManager));
   }
 
   @Provides
-  SettingsApplier<SqlDialectsSettings> provideSqlDialectsSettingsApplier(Project project, Lazy<SqlDialectMappings> sqlDialectMappings) {
+  static SettingsApplier<SqlDialectsSettings> provideSqlDialectsSettingsApplier(Project project, Lazy<SqlDialectMappings> sqlDialectMappings) {
     return provideIfLoaded(Plugin.DATABASE_TOOLS_AND_SQL, () -> new SqlDialectsSettingsApplier(project, sqlDialectMappings.get()));
   }
 
