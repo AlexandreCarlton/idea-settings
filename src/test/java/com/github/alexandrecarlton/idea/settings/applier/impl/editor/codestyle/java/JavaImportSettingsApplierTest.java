@@ -14,14 +14,14 @@ import org.junit.Test;
 
 public class JavaImportSettingsApplierTest extends IdeaSettingsTestFixture {
 
-  private CodeStyleSettings codeStyleSettings;
+  private JavaCodeStyleSettings javaCodeStyleSettings;
   private SettingsApplier<JavaImportsSettings> applier;
 
   @Override
   public void setUp() throws Exception {
     super.setUp();
-    codeStyleSettings = CodeStyle.getSettings(project);
-    applier = new JavaImportsSettingsApplier(codeStyleSettings, project);
+    javaCodeStyleSettings = CodeStyle.getSettings(project).getCustomSettings(JavaCodeStyleSettings.class);
+    applier = new JavaImportsSettingsApplier(javaCodeStyleSettings);
   }
 
   @Override
@@ -37,7 +37,6 @@ public class JavaImportSettingsApplierTest extends IdeaSettingsTestFixture {
     applier.apply(ImmutableJavaImportsSettings.builder()
         .classCountToUseImportWithWildcard(555)
         .build());
-    final JavaCodeStyleSettings javaCodeStyleSettings = codeStyleSettings.getCustomSettings(JavaCodeStyleSettings.class);
     assertThat(javaCodeStyleSettings.CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND).isEqualTo(555);
   }
 
@@ -46,7 +45,6 @@ public class JavaImportSettingsApplierTest extends IdeaSettingsTestFixture {
     applier.apply(ImmutableJavaImportsSettings.builder()
         .namesCountToUseStaticImportWithWildcard(777)
         .build());
-    final JavaCodeStyleSettings javaCodeStyleSettings = codeStyleSettings.getCustomSettings(JavaCodeStyleSettings.class);
     assertThat(javaCodeStyleSettings.NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND).isEqualTo(777);
   }
 

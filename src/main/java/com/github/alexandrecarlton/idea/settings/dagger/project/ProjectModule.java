@@ -10,6 +10,7 @@ import com.intellij.compiler.CompilerWorkspaceConfiguration;
 import com.intellij.execution.RunManager;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
+import com.intellij.lang.java.JavaLanguage;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
@@ -19,6 +20,8 @@ import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.plugins.watcher.model.ProjectTasksOptions;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
+import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
+import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
 import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Module;
@@ -66,6 +69,12 @@ public class ProjectModule {
   }
 
   @Provides
+  @Named("java")
+  static CommonCodeStyleSettings provideCommonCodeStyleSettings(CodeStyleSettings codeStyleSettings) {
+    return codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE);
+  }
+
+  @Provides
   static CompilerConfiguration provideCompilerConfiguration(Project project) {
     return CompilerConfiguration.getInstance(project);
   }
@@ -78,6 +87,11 @@ public class ProjectModule {
   @Provides
   static ExternalDependenciesManager provideExternalDependenciesManager(Project project) {
     return ExternalDependenciesManager.getInstance(project);
+  }
+
+  @Provides
+  static JavaCodeStyleSettings provideJavaCodeStyleSettings(CodeStyleSettings codeStyleSettings) {
+    return codeStyleSettings.getCustomSettings(JavaCodeStyleSettings.class);
   }
 
   @Provides

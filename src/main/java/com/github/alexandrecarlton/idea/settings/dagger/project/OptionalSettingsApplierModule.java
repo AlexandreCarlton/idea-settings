@@ -35,15 +35,16 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.project.Project;
 import com.intellij.plugins.watcher.model.ProjectTasksOptions;
-import com.intellij.psi.codeStyle.CodeStyleSettings;
+import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
+import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
 import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
+import java.util.function.Supplier;
+import javax.inject.Named;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import org.jetbrains.idea.maven.project.MavenGeneralSettings;
-
-import java.util.function.Supplier;
 
 /**
  * Provides {@link SettingsApplier}s if the necessary plugins are loaded.
@@ -76,8 +77,8 @@ public class OptionalSettingsApplierModule {
   }
 
   @Provides
-  static SettingsApplier<JavaArrangementSettings> provideJavaArrangementSettingsApplier(CodeStyleSettings codeStyleSettings) {
-    return provideIfLoaded(Plugin.JAVA, () -> new JavaArrangementSettingsApplier(codeStyleSettings));
+  static SettingsApplier<JavaArrangementSettings> provideJavaArrangementSettingsApplier(@Named("java") Lazy<CommonCodeStyleSettings> commonCodeStyleSettings) {
+    return provideIfLoaded(Plugin.JAVA, () -> new JavaArrangementSettingsApplier(commonCodeStyleSettings.get()));
   }
 
   @Provides
@@ -87,8 +88,8 @@ public class OptionalSettingsApplierModule {
   }
 
   @Provides
-  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(CodeStyleSettings codeStyleSettings) {
-    return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(codeStyleSettings));
+  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(JavaCodeStyleSettings javaCodeStyleSettings) {
+    return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(javaCodeStyleSettings));
   }
 
   @Provides

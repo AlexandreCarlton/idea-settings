@@ -9,9 +9,7 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.Ma
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleOrder;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleType;
 import com.google.common.collect.ImmutableList;
-import com.intellij.lang.java.JavaLanguage;
 import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
 import com.intellij.psi.codeStyle.arrangement.match.ArrangementMatchRule;
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementEntryMatcher;
@@ -23,15 +21,15 @@ import com.intellij.psi.codeStyle.arrangement.std.ArrangementSettingsToken;
 import com.intellij.psi.codeStyle.arrangement.std.StdArrangementSettings;
 import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens;
 import javax.inject.Inject;
+import javax.inject.Named;
 
-// TODO: Add tests (Unit AND Integration)
 public class JavaArrangementSettingsApplier implements SettingsApplier<JavaArrangementSettings> {
 
-  private final CodeStyleSettings codeStyleSettings;
+  private final CommonCodeStyleSettings commonCodeStyleSettings;
 
   @Inject
-  public JavaArrangementSettingsApplier(CodeStyleSettings codeStyleSettings) {
-    this.codeStyleSettings = codeStyleSettings;
+  public JavaArrangementSettingsApplier(@Named("java") CommonCodeStyleSettings commonCodeStyleSettings) {
+    this.commonCodeStyleSettings = commonCodeStyleSettings;
   }
 
   @Override
@@ -53,7 +51,6 @@ public class JavaArrangementSettingsApplier implements SettingsApplier<JavaArran
     });
 
     if (!stdArrangementSettings.equals(new StdArrangementSettings())) {
-      CommonCodeStyleSettings commonCodeStyleSettings = codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE);
       commonCodeStyleSettings.setArrangementSettings(stdArrangementSettings);
     }
   }
