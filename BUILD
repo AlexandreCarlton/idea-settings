@@ -84,6 +84,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/remote",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/spring_boot",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/javascript",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript",

@@ -103,6 +103,7 @@ following library to ensure it continues compiling:
 | ----- | ---------- |
 | `AreaInstance` | `idea-IC//:lib/extensions` |
 | `PersistentStateComponent` | `idea-IC//:lib/platform-api` |
+| `UserDataHolder` | `@idea-IC//:lib/util` |
 
 ### Updating dependencies
 

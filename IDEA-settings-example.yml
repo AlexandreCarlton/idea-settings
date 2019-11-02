@@ -47,7 +47,9 @@ editor:
               - not static
             name: my rule
             order: by name
-
+    javascript:
+      imports:
+        usePathsRelativeToTheProjectResourceOrSourcesRoots: true
   general:
     autoImport:
       java:

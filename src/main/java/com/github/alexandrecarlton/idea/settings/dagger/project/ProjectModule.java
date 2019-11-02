@@ -11,6 +11,7 @@ import com.intellij.execution.RunManager;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.lang.java.JavaLanguage;
+import com.intellij.lang.javascript.formatter.JSCodeStyleSettings;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import com.intellij.openapi.module.ModuleManager;
 import com.intellij.openapi.project.Project;
@@ -102,6 +103,11 @@ public class ProjectModule {
   @Provides
   static JSRootConfiguration provideJSRootConfiguration(Project project) {
     return JSRootConfiguration.getInstance(project);
+  }
+
+  @Provides
+  static JSCodeStyleSettings provideJSCodeStyleSettings(CodeStyleSettings codeStyleSettings) {
+    return codeStyleSettings.getCustomSettings(JSCodeStyleSettings.class);
   }
 
   @Provides

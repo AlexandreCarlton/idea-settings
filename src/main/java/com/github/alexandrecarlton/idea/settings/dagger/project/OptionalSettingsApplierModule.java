@@ -7,6 +7,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_de
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaArrangementSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier;
@@ -19,6 +20,7 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaArrangementSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings;
@@ -71,6 +73,11 @@ public class OptionalSettingsApplierModule {
   @Provides
   static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(Lazy<JavaImportsSettingsApplier> javaImportsSettingsApplier) {
     return provideIfLoaded(Plugin.JAVA, javaImportsSettingsApplier);
+  }
+
+  @Provides
+  static SettingsApplier<JavascriptImportsSettings> provideJavascriptImportsSettingsApplier(Lazy<JavascriptImportsSettingsApplier> javascriptImportsSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptImportsSettingsApplier);
   }
 
   @Provides
