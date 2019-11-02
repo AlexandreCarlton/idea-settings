@@ -34,7 +34,7 @@ public class JavaArrangementSettingsApplierTest extends IdeaSettingsTestFixture 
     super.setUp();
     CodeStyleSettings codeStyleSettings = CodeStyle.getSettings(project);
     commonCodeStyleSettings = codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE);
-    settingsApplier = new JavaArrangementSettingsApplier(codeStyleSettings);
+    settingsApplier = new JavaArrangementSettingsApplier(commonCodeStyleSettings);
   }
 
   @Test
