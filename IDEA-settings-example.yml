@@ -32,6 +32,22 @@ editor:
       imports:
         classCountToUseImportWithWildcard: 999
         namesCountToUseStaticImportWithWildcard: 999
+      arrangement:
+        matchingRules:
+          - type: field
+            modifier:
+              - public
+              - static
+              - final
+            name: matchingRule
+            order: keep order
+          - type: field
+            modifier:
+              - private
+              - not static
+            name: my rule
+            order: by name
+
   general:
     autoImport:
       java:

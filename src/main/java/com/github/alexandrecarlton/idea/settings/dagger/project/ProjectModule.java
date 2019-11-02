@@ -18,16 +18,16 @@ import com.intellij.openapi.roots.LanguageLevelProjectExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.plugins.watcher.model.ProjectTasksOptions;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
+import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
 import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Named;
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import org.jetbrains.idea.maven.project.MavenGeneralSettings;
 import org.jetbrains.idea.maven.project.MavenImportingSettings;
 import org.jetbrains.idea.maven.project.MavenProjectsManager;
-
-import javax.inject.Named;
 
 /**
  * Provides components that depend on the imported {@link Project}.
@@ -53,8 +53,16 @@ public class ProjectModule {
   }
 
   @Provides
-  static CodeStyleSettings provideCodeStyleSettings(Project project) {
+  static CodeStyleSettings provideCodeStyleSettings(CodeStyleSettingsManager codeStyleSettingsManager, Project project) {
+    // Ensure we only distribute one codeStyleSettings that is mutated in our appliers.
+    codeStyleSettingsManager.USE_PER_PROJECT_SETTINGS = true;
+    codeStyleSettingsManager.setMainProjectCodeStyle(CodeStyle.getDefaultSettings());
     return CodeStyle.getSettings(project);
+  }
+
+  @Provides
+  static CodeStyleSettingsManager provideCodeStyleSettingsManager(Project project) {
+    return CodeStyleSettingsManager.getInstance(project);
   }
 
   @Provides

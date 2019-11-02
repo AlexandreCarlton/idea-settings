@@ -49,6 +49,17 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "editor:",
         "  codeStyle:",
         "    java:",
+        "      arrangement:",
+        "        matchingRules:",
+        "          - type: field",
+        "            modifier:",
+        "              - public",
+        "              - static",
+        "          - type: class",
+        "            modifier:",
+        "              - not protected",
+        "            name: unprotected class",
+        "            order: order by name",
         "      imports:",
         "        classCountToUseImportWithWildcard: 123",
         "        namesCountToUseStaticImportWithWildcard: 456",
@@ -201,6 +212,37 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         .valueByXPath("//option[@name='USE_PER_PROJECT_SETTINGS']/@value")
         .asBoolean()
         .isEqualTo(true);
+  }
+
+  @Test
+  public void arrangement() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[1]/rule/match/AND/FIELD")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[1]/rule/match/AND/PUBLIC")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[1]/rule/match/AND/STATIC")
+        .asBoolean()
+        .isEqualTo(true);
+
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[2]/rule/match/AND/CLASS")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[2]/rule/match/AND/PROTECTED")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[2]/rule/match/AND/NAME")
+        .isEqualTo("unprotected class");
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']//arrangement/rules/section[2]/rule/order")
+        .isEqualTo("BY_NAME");
   }
 
   @Test

@@ -5,6 +5,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_de
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaArrangementSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
@@ -16,6 +17,7 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaArrangementSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
@@ -74,14 +76,19 @@ public class OptionalSettingsApplierModule {
   }
 
   @Provides
+  static SettingsApplier<JavaArrangementSettings> provideJavaArrangementSettingsApplier(CodeStyleSettings codeStyleSettings) {
+    return provideIfLoaded(Plugin.JAVA, () -> new JavaArrangementSettingsApplier(codeStyleSettings));
+  }
+
+  @Provides
   static SettingsApplier<JavaAutoImportSettings> provideJavaAutoImportSettingsApplier(CodeInsightWorkspaceSettings codeInsightWorkspaceSettings,
                                                                                       Lazy<JavaProjectCodeInsightSettings> javaProjectCodeInsightSettings) {
     return provideIfLoaded(Plugin.JAVA, () -> new JavaAutoImportSettingsApplier(codeInsightWorkspaceSettings, javaProjectCodeInsightSettings.get()));
   }
 
   @Provides
-  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(CodeStyleSettings codeStyleSettings, Project project) {
-    return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(codeStyleSettings, project));
+  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(CodeStyleSettings codeStyleSettings) {
+    return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(codeStyleSettings));
   }
 
   @Provides
