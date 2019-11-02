@@ -9,7 +9,6 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.Ma
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleOrder;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleType;
 import com.google.common.collect.ImmutableList;
-import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
 import com.intellij.psi.codeStyle.arrangement.match.ArrangementMatchRule;
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementEntryMatcher;
@@ -34,9 +33,6 @@ public class JavaArrangementSettingsApplier implements SettingsApplier<JavaArran
 
   @Override
   public void apply(JavaArrangementSettings settings) {
-
-    Logger LOG = Logger.getInstance(getClass());
-    LOG.warn("Invoking JavaArrangementSettingsApplier#apply");
 
     final StdArrangementSettings stdArrangementSettings = new StdArrangementSettings();
     settings.matchingRules().ifPresent(matchingRules -> {
