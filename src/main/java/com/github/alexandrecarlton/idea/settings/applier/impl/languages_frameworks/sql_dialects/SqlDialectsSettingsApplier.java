@@ -31,12 +31,14 @@ import com.intellij.sql.dialects.sql92.Sql92Dialect;
 import com.intellij.sql.dialects.sqlite.SqliteDialect;
 import com.intellij.sql.dialects.sybase.SybaseDialect;
 import com.intellij.sql.dialects.vertica.VerticaDialect;
+import javax.inject.Inject;
 
 public class SqlDialectsSettingsApplier implements SettingsApplier<SqlDialectsSettings> {
 
   private final Project project;
   private final SqlDialectMappings sqlDialectMappings;
 
+  @Inject
   public SqlDialectsSettingsApplier(Project project, SqlDialectMappings sqlDialectMappings) {
     this.project = project;
     this.sqlDialectMappings = sqlDialectMappings;

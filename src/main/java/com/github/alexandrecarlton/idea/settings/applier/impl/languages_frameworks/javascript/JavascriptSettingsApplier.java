@@ -5,11 +5,13 @@ import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.jav
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
 import com.intellij.lang.javascript.dialects.JSLanguageLevel;
 import com.intellij.lang.javascript.settings.JSRootConfiguration;
+import javax.inject.Inject;
 
 public class JavascriptSettingsApplier implements SettingsApplier<JavascriptSettings> {
 
   private final JSRootConfiguration jsRootConfiguration;
 
+  @Inject
   public JavascriptSettingsApplier(JSRootConfiguration jsRootConfiguration) {
     this.jsRootConfiguration = jsRootConfiguration;
   }

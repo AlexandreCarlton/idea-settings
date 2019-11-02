@@ -24,27 +24,12 @@ import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.jav
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings;
-import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
-import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
-import com.intellij.compiler.CompilerConfiguration;
-import com.intellij.compiler.CompilerWorkspaceConfiguration;
-import com.intellij.execution.RunManager;
 import com.intellij.ide.plugins.PluginManager;
-import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.extensions.PluginId;
-import com.intellij.openapi.project.Project;
-import com.intellij.plugins.watcher.model.ProjectTasksOptions;
-import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
-import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
-import com.intellij.sql.dialects.SqlDialectMappings;
 import dagger.Lazy;
 import dagger.Module;
 import dagger.Provides;
-import java.util.function.Supplier;
-import javax.inject.Named;
-import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
-import org.jetbrains.idea.maven.project.MavenGeneralSettings;
 
 /**
  * Provides {@link SettingsApplier}s if the necessary plugins are loaded.
@@ -59,67 +44,63 @@ public class OptionalSettingsApplierModule {
   private static final Logger LOG = Logger.getInstance(OptionalSettingsApplierModule.class);
 
   @Provides
-  static SettingsApplier<CheckstyleSettings> provideCheckstyleSettingsApplier(
-      Project project,
-      Lazy<PluginConfigurationManager> pluginConfigurationManager) {
-    return provideIfLoaded(Plugin.CHECKSTYLE_IDEA, () -> new CheckstyleSettingsApplier(project, pluginConfigurationManager.get()));
+  static SettingsApplier<CheckstyleSettings> provideCheckstyleSettingsApplier(Lazy<CheckstyleSettingsApplier> checkstyleSettingsApplier) {
+    return provideIfLoaded(Plugin.CHECKSTYLE_IDEA, checkstyleSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<CompilerSettings> provideCompilerSettingsApplier(Lazy<CompilerConfiguration> compilerConfiguration,
-                                                                          Lazy<CompilerWorkspaceConfiguration> compilerWorkspaceConfiguration) {
-    return provideIfLoaded(Plugin.JAVA, () -> new CompilerSettingsApplier(compilerConfiguration.get(), compilerWorkspaceConfiguration.get()));
+  static SettingsApplier<CompilerSettings> provideCompilerSettingsApplier(Lazy<CompilerSettingsApplier> compilerSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, compilerSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<ProjectTasksOptions> projectTasksOptions) {
-    return provideIfLoaded(Plugin.FILE_WATCHERS, () -> new FileWatcherSettingsApplier(projectTasksOptions.get()));
+  static SettingsApplier<FileWatcherSettings> provideFileWatcherSettingsApplier(Lazy<FileWatcherSettingsApplier> fileWatcherSettingsApplier) {
+    return provideIfLoaded(Plugin.FILE_WATCHERS, fileWatcherSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<JavaArrangementSettings> provideJavaArrangementSettingsApplier(@Named("java") Lazy<CommonCodeStyleSettings> commonCodeStyleSettings) {
-    return provideIfLoaded(Plugin.JAVA, () -> new JavaArrangementSettingsApplier(commonCodeStyleSettings.get()));
+  static SettingsApplier<JavaArrangementSettings> provideJavaArrangementSettingsApplier(Lazy<JavaArrangementSettingsApplier> javaArrangementSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javaArrangementSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<JavaAutoImportSettings> provideJavaAutoImportSettingsApplier(CodeInsightWorkspaceSettings codeInsightWorkspaceSettings,
-                                                                                      Lazy<JavaProjectCodeInsightSettings> javaProjectCodeInsightSettings) {
-    return provideIfLoaded(Plugin.JAVA, () -> new JavaAutoImportSettingsApplier(codeInsightWorkspaceSettings, javaProjectCodeInsightSettings.get()));
+  static SettingsApplier<JavaAutoImportSettings> provideJavaAutoImportSettingsApplier(Lazy<JavaAutoImportSettingsApplier> javaAutoImportSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javaAutoImportSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(JavaCodeStyleSettings javaCodeStyleSettings) {
-    return provideIfLoaded(Plugin.JAVA, () -> new JavaImportsSettingsApplier(javaCodeStyleSettings));
+  static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(Lazy<JavaImportsSettingsApplier> javaImportsSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javaImportsSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<JavascriptSettings> provideJavascriptSettingsApplier(Lazy<JSRootConfiguration> jsRootConfiguration) {
-    return provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, () -> new JavascriptSettingsApplier(jsRootConfiguration.get()));
+  static SettingsApplier<JavascriptSettings> provideJavascriptSettingsApplier(Lazy<JavascriptSettingsApplier> javascriptSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<MavenImportingSettings> provideMavenImportingSettingsApplier(Lazy<org.jetbrains.idea.maven.project.MavenImportingSettings> mavenImportingSettings) {
-    return provideIfLoaded(Plugin.MAVEN, () -> new MavenImportingSettingsApplier(mavenImportingSettings.get()));
+  static SettingsApplier<MavenImportingSettings> provideMavenImportingSettingsApplier(Lazy<MavenImportingSettingsApplier> mavenImportingSettingsApplier) {
+    return provideIfLoaded(Plugin.MAVEN, mavenImportingSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<MavenSettings> provideMavenSettingsApplier(Lazy<MavenGeneralSettings> mavenGeneralSettings, SettingsApplier<MavenImportingSettings> mavenImportingSettingsApplier) {
-    return provideIfLoaded(Plugin.MAVEN, () -> new MavenSettingsApplier(mavenGeneralSettings.get(), mavenImportingSettingsApplier));
+  static SettingsApplier<MavenSettings> provideMavenSettingsApplier(Lazy<MavenSettingsApplier> mavenSettingsApplier) {
+    return provideIfLoaded(Plugin.MAVEN, mavenSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<SpringBootSettings> provideSpringBootSettingsApplier(Project project, RunManager runManager) {
-    return provideIfLoaded(Plugin.SPRING_BOOT, () -> new SpringBootSettingsApplier(project, runManager));
+  static SettingsApplier<SpringBootSettings> provideSpringBootSettingsApplier(Lazy<SpringBootSettingsApplier> springBootSettingsApplier) {
+    return provideIfLoaded(Plugin.SPRING_BOOT, springBootSettingsApplier);
   }
 
   @Provides
-  static SettingsApplier<SqlDialectsSettings> provideSqlDialectsSettingsApplier(Project project, Lazy<SqlDialectMappings> sqlDialectMappings) {
-    return provideIfLoaded(Plugin.DATABASE_TOOLS_AND_SQL, () -> new SqlDialectsSettingsApplier(project, sqlDialectMappings.get()));
+  static SettingsApplier<SqlDialectsSettings> provideSqlDialectsSettingsApplier(Lazy<SqlDialectsSettingsApplier> sqlDialectsSettingsApplier) {
+    return provideIfLoaded(Plugin.DATABASE_TOOLS_AND_SQL, sqlDialectsSettingsApplier);
   }
 
-  private static <T> SettingsApplier<T> provideIfLoaded(Plugin plugin, Supplier<SettingsApplier<T>> settingsApplierSupplier) {
+  private static <T> SettingsApplier<T> provideIfLoaded(Plugin plugin, Lazy<? extends SettingsApplier<T>> settingsApplier) {
     return PluginManager.isPluginInstalled(PluginId.findId(plugin.getId()))
-        ? settingsApplierSupplier.get()
+        ? settingsApplier.get()
         : settings -> LOG.warn("Unable to apply certain settings as plugin '" + plugin.getName() + "' is not installed.");
   }
 

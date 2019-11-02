@@ -1,5 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot;
 
+import static java.util.stream.Collectors.toList;
+
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationEnvironmentSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSpringBootSettings;
@@ -10,14 +12,14 @@ import com.intellij.openapi.project.Project;
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter;
 import com.intellij.spring.boot.run.SpringBootApplicationConfigurationType;
 import com.intellij.spring.boot.run.SpringBootApplicationRunConfiguration;
-
-import static java.util.stream.Collectors.toList;
+import javax.inject.Inject;
 
 public class SpringBootSettingsApplier implements SettingsApplier<SpringBootSettings> {
 
   private final Project project;
   private final RunManager runManager;
 
+  @Inject
   public SpringBootSettingsApplier(Project project, RunManager runManager) {
     this.project = project;
     this.runManager = runManager;
