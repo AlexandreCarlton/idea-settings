@@ -127,6 +127,23 @@ otherSettings:
 
 # Run / Debug configurations
 configurations:
+  - dockerImage:
+      name: Run Container
+      shareThroughVcs: true
+      imageId: hello-world
+      containerName: my-hello-world-container
+      executable:
+        entrypoint: /bin/bash
+        command: -c echo bar
+      bindPorts:
+        - hostPort: 1234
+          containerPort: 5678
+          protocol: tcp
+          hostIp: 1.2.3.4
+      environmentVariables:
+        - name: foo
+          value: bar
+      runOptions: --tty -it
   - remote:
       name: Debug
       shareThroughVcs: true

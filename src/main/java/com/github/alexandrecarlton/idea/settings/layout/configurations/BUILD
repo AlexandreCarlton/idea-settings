@@ -4,6 +4,7 @@ java_library(
     # but also reference them in JsonSubType annotations creates a circular dependency.
     srcs = glob([
         "*.java",
+        "docker/*.java",
         "spring_boot/*.java",
         "remote/*.java",
     ]),

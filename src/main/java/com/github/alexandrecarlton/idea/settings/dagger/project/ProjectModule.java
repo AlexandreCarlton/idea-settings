@@ -7,6 +7,7 @@ import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
 import com.intellij.compiler.CompilerConfiguration;
 import com.intellij.compiler.CompilerWorkspaceConfiguration;
+import com.intellij.docker.DockerRunConfigurationCreator;
 import com.intellij.execution.RunManager;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
@@ -83,6 +84,11 @@ public class ProjectModule {
   @Provides
   static CompilerWorkspaceConfiguration provideCompilerWorkspaceConfiguration(Project project) {
     return CompilerWorkspaceConfiguration.getInstance(project);
+  }
+
+  @Provides
+  static DockerRunConfigurationCreator provideDockerRunConfigurationCreator(Project project) {
+    return new DockerRunConfigurationCreator(project);
   }
 
   @Provides

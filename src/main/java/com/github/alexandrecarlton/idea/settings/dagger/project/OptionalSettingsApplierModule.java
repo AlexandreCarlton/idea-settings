@@ -4,6 +4,7 @@ import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenImportingSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerImageConfigurationSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaArrangementSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
@@ -17,6 +18,7 @@ import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaArrangementSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
@@ -53,6 +55,11 @@ public class OptionalSettingsApplierModule {
   @Provides
   static SettingsApplier<CompilerSettings> provideCompilerSettingsApplier(Lazy<CompilerSettingsApplier> compilerSettingsApplier) {
     return provideIfLoaded(Plugin.JAVA, compilerSettingsApplier);
+  }
+
+  @Provides
+  static SettingsApplier<DockerImageConfigurationSettings> provideDockerImageConfigurationSettingsApplier(Lazy<DockerImageConfigurationSettingsApplier> dockerImageConfigurationSettingsApplier) {
+    return provideIfLoaded(Plugin.DOCKER, dockerImageConfigurationSettingsApplier);
   }
 
   @Provides

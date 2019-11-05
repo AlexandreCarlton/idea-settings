@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.layout.configurations;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BeforeLaunchConfigurationSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
   use = JsonTypeInfo.Id.NAME,
   include = JsonTypeInfo.As.WRAPPER_OBJECT)
 @JsonSubTypes({
+  @JsonSubTypes.Type(name = "dockerImage", value = DockerImageConfigurationSettings.class),
   @JsonSubTypes.Type(name = "remote", value = RemoteSettings.class),
   @JsonSubTypes.Type(name = "springBoot", value = SpringBootSettings.class)})
 public interface ConfigurationSettings {

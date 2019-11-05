@@ -11,6 +11,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/build_tools/maven",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/docker",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/remote",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/spring_boot",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor",
@@ -74,6 +75,7 @@ java_library(
         "@idea-IC//:plugins/java/lib/java-impl",
         "@idea-IC//:plugins/maven/lib/maven",
         "@idea-IU//:plugins/DatabaseTools/lib/database-impl",
+        "@idea-IU//:plugins/Docker/lib/Docker-core",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
     ],
 )

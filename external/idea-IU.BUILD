@@ -19,6 +19,24 @@ java_import(
 )
 
 java_import(
+    name = "plugins/Docker/lib/Docker-agent-api-rt",
+    jars = ["plugins/Docker/lib/Docker-agent-api-rt.jar"],
+    neverlink = True,
+)
+
+java_import(
+    name = "plugins/Docker/lib/Docker-core",
+    jars = ["plugins/Docker/lib/Docker-core.jar"],
+    neverlink = True,
+)
+
+java_import(
+    name = "plugins/Docker/lib/Docker-remote-run",
+    jars = ["plugins/Docker/lib/Docker-remote-run.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
     jars = ["plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar"],
     neverlink = True,
@@ -49,6 +67,7 @@ java_import(
         "plugins/JavaScriptLanguage/**/*.jar",
         "plugins/CSS/**/*.jar",
         "plugins/DatabaseTools/**/*.jar",
+        "plugins/Docker/**/*.jar",
         "plugins/SpringBoot/**/*.jar",
         "plugins/Spring/**/*.jar",
     ]),
