@@ -101,8 +101,8 @@ following library to ensure it continues compiling:
 
 | Class | Dependency |
 | ----- | ---------- |
-| `AreaInstance` | `idea-IC//:lib/extensions` |
-| `PersistentStateComponent` | `idea-IC//:lib/platform-api` |
+| `AreaInstance` | `@idea-IC//:lib/extensions` |
+| `PersistentStateComponent` | `@idea-IC//:lib/platform-api` |
 | `UserDataHolder` | `@idea-IC//:lib/util` |
 
 ### Updating dependencies
