@@ -33,7 +33,6 @@ public class RemoteSettingsApplier implements SettingsApplier<RemoteSettings> {
         .flatMap(RemoteConfigurationSettings::port)
         .ifPresent(port -> { remoteConfiguration.PORT = Integer.toString(port); });
     final RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.createConfiguration(remoteConfiguration, new RemoteConfigurationType());
-    settings.shareThroughVcs().ifPresent(runnerAndConfigurationSettings::setShared);
     runManager.addConfiguration(runnerAndConfigurationSettings);
   }
 }

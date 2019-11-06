@@ -1,16 +1,21 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.*;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableOverrideParameter;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootConfigurationEnvironmentSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootConfigurationSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootConfigurationSpringBootSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.intellij.execution.RunManager;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter;
 import com.intellij.spring.boot.run.SpringBootApplicationRunConfiguration;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
 
@@ -28,7 +33,6 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
   public void basicSpringConfiguration() {
     settingsApplier.apply(ImmutableSpringBootSettings.builder()
       .name("Spring Boot Basic")
-      .shareThroughVcs(true)
       .configuration(ImmutableSpringBootConfigurationSettings.builder()
         .mainClass("com.Application")
         .build())
@@ -36,7 +40,6 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
 
     RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot Basic");
     assertThat(runnerAndConfigurationSettings).isNotNull();
-    assertThat(runnerAndConfigurationSettings.isShared()).isTrue();
 
     SpringBootApplicationRunConfiguration configuration = (SpringBootApplicationRunConfiguration) runnerAndConfigurationSettings.getConfiguration();
     assertThat(configuration.getSpringBootMainClass()).isEqualTo("com.Application");

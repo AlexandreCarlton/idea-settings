@@ -3,21 +3,21 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.co
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BuildConfigurationSettings;
 import com.intellij.compiler.options.CompileStepBeforeRun;
-import com.intellij.execution.configurations.RunConfiguration;
-
+import com.intellij.execution.BeforeRunTask;
+import java.util.List;
 import javax.inject.Inject;
 
 public class BuildConfigurationSettingsApplier implements SettingsApplier<BuildConfigurationSettings> {
 
-  private final RunConfiguration runConfiguration;
+  private final List<BeforeRunTask<?>> beforeRunTasks;
 
   @Inject
-  public BuildConfigurationSettingsApplier(RunConfiguration runConfiguration) {
-    this.runConfiguration = runConfiguration;
+  public BuildConfigurationSettingsApplier(List<BeforeRunTask<?>> beforeRunTasks) {
+    this.beforeRunTasks = beforeRunTasks;
   }
 
   @Override
   public void apply(BuildConfigurationSettings settings) {
-    runConfiguration.getBeforeRunTasks().add(new CompileStepBeforeRun.MakeBeforeRunTask());
+    beforeRunTasks.add(new CompileStepBeforeRun.MakeBeforeRunTask());
   }
 }

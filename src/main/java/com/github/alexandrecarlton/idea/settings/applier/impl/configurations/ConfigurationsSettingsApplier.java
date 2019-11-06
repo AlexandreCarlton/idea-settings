@@ -51,10 +51,16 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
       return;
     }
     settings.beforeLaunch().ifPresent(tasks -> runnerAndConfigurationSettings.getConfiguration().setBeforeRunTasks(new ArrayList<>()));
-    ConfigurationSubcomponent configurationSubcomponent = configurationSubcomponentBuilder.configuration(settings.name()).build();
+    ConfigurationSubcomponent configurationSubcomponent = configurationSubcomponentBuilder
+        .configuration(settings.name())
+        .build();
     settings.beforeLaunch()
       .orElse(Collections.emptyList())
       .forEach(configurationSubcomponent.beforeLaunchConfigurationSettingsApplier()::apply);
+
+    // To share through VCS we need to re-add the configuration.
+    settings.shareThroughVcs().ifPresent(runnerAndConfigurationSettings::setShared);
+    runManager.addConfiguration(runnerAndConfigurationSettings);
   }
 
 }

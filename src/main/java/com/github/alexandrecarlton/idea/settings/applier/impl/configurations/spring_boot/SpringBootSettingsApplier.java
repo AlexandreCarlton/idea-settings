@@ -35,7 +35,6 @@ public class SpringBootSettingsApplier implements SettingsApplier<SpringBootSett
     settings.configuration().environment().ifPresent(env -> setSpringBootEnvironment(configuration, env));
     settings.configuration().springBoot().ifPresent(config -> setSpringBootConfiguration(configuration, config));
     RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.createConfiguration(configuration, new SpringBootApplicationConfigurationType().getDefaultConfigurationFactory());
-    settings.shareThroughVcs().ifPresent(runnerAndConfigurationSettings::setShared);
     runManager.addConfiguration(runnerAndConfigurationSettings);
   }
 

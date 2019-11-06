@@ -1,5 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.remote;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.ImmutableRemoteConfigurationSettings;
@@ -9,8 +11,6 @@ import com.intellij.execution.RunManager;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.remote.RemoteConfiguration;
 import org.junit.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class RemoteSettingsApplierTest extends IdeaSettingsTestFixture {
 
@@ -28,11 +28,9 @@ public class RemoteSettingsApplierTest extends IdeaSettingsTestFixture {
   public void defaultRemoteApplied() {
     settingsApplier.apply(ImmutableRemoteSettings.builder()
         .name("Default Remote")
-        .shareThroughVcs(true)
         .build());
     RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.findConfigurationByName("Default Remote");
     assertThat(runnerAndConfigurationSettings).isNotNull();
-    assertThat(runnerAndConfigurationSettings.isShared()).isTrue();
   }
 
   @Test

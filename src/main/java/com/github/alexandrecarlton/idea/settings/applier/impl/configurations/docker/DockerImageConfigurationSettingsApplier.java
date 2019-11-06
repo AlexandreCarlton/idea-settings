@@ -29,9 +29,6 @@ public class DockerImageConfigurationSettingsApplier implements SettingsApplier<
     this.runManager = runManager;
   }
 
-  // TODO: Change this interface to RunnerAndConfigurationSettings RunnerAndConfigurationSettingsCreator#create(Settings),
-  // and returns a RunnerAndConfigurationSettingsCreator,
-  // so that we can apply common operations like addConfiguration and setShared in our ConfigurationSettingsApplier.
   @Override
   public void apply(DockerImageConfigurationSettings settings) {
 
@@ -60,7 +57,6 @@ public class DockerImageConfigurationSettingsApplier implements SettingsApplier<
         dockerDeploymentConfiguration,
         null);
     runnerAndConfigurationSettings.setName(settings.name());
-    settings.shareThroughVcs().ifPresent(runnerAndConfigurationSettings::setShared);
     runManager.addConfiguration(runnerAndConfigurationSettings);
   }
 

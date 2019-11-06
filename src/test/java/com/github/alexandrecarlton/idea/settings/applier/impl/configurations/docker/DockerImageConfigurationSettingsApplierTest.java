@@ -42,7 +42,6 @@ public class DockerImageConfigurationSettingsApplierTest extends IdeaSettingsTes
   public void imageIdApplied() {
     settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
         .name("Image ID")
-        .shareThroughVcs(true)
         .imageId("hello-world")
         .build());
     assertThat(getDockerDeploymentConfiguration("Image ID").getImageTag()).isEqualTo("hello-world");
