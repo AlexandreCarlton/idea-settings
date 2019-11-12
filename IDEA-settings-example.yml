@@ -150,6 +150,14 @@ configurations:
       configuration:
         host: localhost
         port: 5005
+  - shellScript:
+      name: Script
+      shareThroughVcs: true
+      scriptPath: ./foo.sh
+      scriptOptions: arg1 arg2
+      interpreter:
+        interpreterPath: /bin/sh
+        interpreterOptions: -e
   - springBoot:
       name: Spring Boot Application
       configuration:
@@ -164,6 +172,9 @@ configurations:
               value: value
         beforeLaunch:
           - build: {}
+            runAnotherConfiguration:
+              name: Run Container # For now, configuration in 'name' must be defined before this one.
+              type: Docker # Only necessary to specify in the event of two configurations sharing the same name.
             runMavenGoal:
               workingDirectory: .
               commandLine: checkstyle:check

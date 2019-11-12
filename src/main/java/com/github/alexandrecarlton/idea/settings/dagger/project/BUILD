@@ -13,6 +13,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/docker",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/remote",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/shell_script",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/spring_boot",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle",

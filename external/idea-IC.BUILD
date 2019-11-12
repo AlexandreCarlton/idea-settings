@@ -148,6 +148,13 @@ java_import(
 )
 
 java_import(
+    name = "plugins/sh/lib/sh",
+    jars = ["plugins/sh/lib/sh.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
     name = "test_runtime_deps",
     jars = [
         "@local_jdk//:lib/tools.jar",
@@ -156,6 +163,7 @@ java_import(
         "plugins/java/**/*.jar",
         "plugins/maven/**/*.jar",
         "plugins/properties/**/*.jar",
+        "plugins/sh/**/*.jar",
     ]),
     srcjar = "@idea-IC-sources//jar",
 )

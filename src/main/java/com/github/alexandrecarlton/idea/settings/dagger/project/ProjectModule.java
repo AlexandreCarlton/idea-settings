@@ -9,6 +9,7 @@ import com.intellij.compiler.CompilerConfiguration;
 import com.intellij.compiler.CompilerWorkspaceConfiguration;
 import com.intellij.docker.DockerRunConfigurationCreator;
 import com.intellij.execution.RunManager;
+import com.intellij.execution.impl.RunConfigurationBeforeRunProvider;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
 import com.intellij.ide.impl.ProjectUtil;
 import com.intellij.lang.java.JavaLanguage;
@@ -154,6 +155,11 @@ public class ProjectModule {
   @Provides
   static ProjectTasksOptions provideProjectTasksOptions(Project project) {
     return ProjectTasksOptions.getInstance(project);
+  }
+
+  @Provides
+  static RunConfigurationBeforeRunProvider provideRunConfigurationBeforeRunProvider(Project project) {
+    return new RunConfigurationBeforeRunProvider(project);
   }
 
   @Provides

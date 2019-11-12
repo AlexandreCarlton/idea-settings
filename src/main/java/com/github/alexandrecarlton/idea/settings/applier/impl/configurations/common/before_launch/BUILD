@@ -4,6 +4,8 @@ java_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
+        # TODO: Rethink dependency on dagger
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/dagger/common",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
         "//third_party/maven/javax/inject:javax_inject",
         "@idea-IC//:lib/extensions",
@@ -12,5 +14,9 @@ java_library(
         "@idea-IC//:lib/util",
         "@idea-IC//:plugins/java/lib/java-impl",
         "@idea-IC//:plugins/maven/lib/maven",
+        "@idea-IC//:plugins/sh/lib/sh",
+        "@idea-IU//:plugins/Docker/lib/Docker-core",
+        "@idea-IU//:plugins/SpringBoot/lib/spring-boot-run",
+        "@idea-IU//:plugins/SpringBoot/lib/spring-boot",
     ],
 )

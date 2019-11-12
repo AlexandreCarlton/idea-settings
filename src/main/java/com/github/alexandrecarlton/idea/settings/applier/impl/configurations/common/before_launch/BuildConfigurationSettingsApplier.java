@@ -2,7 +2,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.co
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BuildConfigurationSettings;
-import com.intellij.compiler.options.CompileStepBeforeRun;
+import com.intellij.compiler.options.CompileStepBeforeRun.MakeBeforeRunTask;
 import com.intellij.execution.BeforeRunTask;
 import java.util.List;
 import javax.inject.Inject;
@@ -18,6 +18,7 @@ public class BuildConfigurationSettingsApplier implements SettingsApplier<BuildC
 
   @Override
   public void apply(BuildConfigurationSettings settings) {
-    beforeRunTasks.add(new CompileStepBeforeRun.MakeBeforeRunTask());
+    final MakeBeforeRunTask makeBeforeRunTask = new MakeBeforeRunTask();
+    beforeRunTasks.add(makeBeforeRunTask);
   }
 }

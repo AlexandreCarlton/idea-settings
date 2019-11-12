@@ -28,10 +28,10 @@ public class RemoteSettingsApplier implements SettingsApplier<RemoteSettings> {
     remoteConfiguration.setName(settings.name());
     settings.configuration()
         .flatMap(RemoteConfigurationSettings::host)
-        .ifPresent(host -> { remoteConfiguration.HOST = host; });
+        .ifPresent(host -> remoteConfiguration.HOST = host);
     settings.configuration()
         .flatMap(RemoteConfigurationSettings::port)
-        .ifPresent(port -> { remoteConfiguration.PORT = Integer.toString(port); });
+        .ifPresent(port -> remoteConfiguration.PORT = Integer.toString(port));
     final RunnerAndConfigurationSettings runnerAndConfigurationSettings = runManager.createConfiguration(remoteConfiguration, new RemoteConfigurationType());
     runManager.addConfiguration(runnerAndConfigurationSettings);
   }

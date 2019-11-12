@@ -12,6 +12,7 @@ public enum Plugin {
   JAVA("com.intellij.java", "Java"),
   JAVASCRIPT_AND_TYPESCRIPT("JavaScript", "JavaScript and TypeScript"),
   MAVEN("org.jetbrains.idea.maven", "Maven"),
+  SHELL_SCRIPT("com.jetbrains.sh", "Shell Script"),
   SPRING_BOOT("com.intellij.spring.boot", "Spring Boot");
 
   private final String id;

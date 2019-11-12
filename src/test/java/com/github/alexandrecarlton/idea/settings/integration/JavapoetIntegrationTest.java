@@ -1,12 +1,12 @@
 package com.github.alexandrecarlton.idea.settings.integration;
 
-import org.assertj.core.api.Assertions;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import org.assertj.core.api.Assertions;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * An integration test that loads up an entire project first, and then verifies the output in
@@ -84,12 +84,23 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "        file: checkstyle.xml",
         "",
         "configurations:",
+        "  - shellScript:",
+        "      name: Shell Script",
+        "      shareThroughVcs: true",
+        "      scriptPath: maven-bin/bin/mvn",
+        "      scriptOptions: --version",
+        "      interpreter:",
+        "        interpreterPath: /bin/sh",
+        "        interpreterOptions: -e",
         "  - remote:",
         "      name: Remote Configuration",
         "      shareThroughVcs: true",
         "      configuration:",
         "        host: 8.8.8.8",
-        "        port: 5000");
+        "        port: 5000",
+        "      beforeLaunch:",
+        "        - runAnotherConfiguration:",
+        "            name: Shell Script");
 
     driver.copyDirectoryFromRunfiles("maven-bin", "");
     Files.move(
@@ -315,17 +326,57 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
   }
 
   @Test
-  public void checkRemoteConfigurationHost() throws IOException {
-    assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
-        .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='HOST']/@value")
-        .isEqualTo("8.8.8.8");
+  public void checkShellScriptPath() throws IOException {
+    assertThatXml(".idea/runConfigurations/Shell_Script.xml")
+        .valueByXPath("//configuration[@name='Shell Script']/option[@name='SCRIPT_PATH']/@value")
+        .isEqualTo("$PROJECT_DIR$/maven-bin/bin/mvn");
   }
 
   @Test
-  public void checkRemoteConfigurationPort() throws IOException {
+  public void checkShellScriptOptions() throws IOException {
+    assertThatXml(".idea/runConfigurations/Shell_Script.xml")
+        .valueByXPath("//configuration[@name='Shell Script']/option[@name='SCRIPT_OPTIONS']/@value")
+        .isEqualTo("--version");
+  }
+
+  @Test
+  public void checkShellScriptInterpreterPath() throws IOException {
+    final Path shellPath = Paths.get("/bin/sh").toRealPath();
+    assertThatXml(".idea/runConfigurations/Shell_Script.xml")
+        .valueByXPath("//configuration[@name='Shell Script']/option[@name='INTERPRETER_PATH']/@value")
+        .isEqualTo(shellPath.toString());
+  }
+
+  @Test
+  public void checkShellScriptInterpreterOptions() throws IOException {
+    assertThatXml(".idea/runConfigurations/Shell_Script.xml")
+        .valueByXPath("//configuration[@name='Shell Script']/option[@name='INTERPRETER_OPTIONS']/@value")
+        .isEqualTo("-e");
+  }
+
+  @Test
+  public void checkRemoteConfiguration() throws IOException {
+    assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
+        .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='HOST']/@value")
+        .isEqualTo("8.8.8.8");
     assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
         .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='PORT']/@value")
         .isEqualTo("5000");
+  }
+
+  @Test
+  public void checkRemoteConfigurationShellScript() throws IOException {
+    assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
+        .valueByXPath("//configuration[@name='Remote Configuration']/method[@v='2']/option[@name='RunConfigurationTask']/@run_configuration_name")
+        .isEqualTo("Shell Script");
+  }
+
+  @Test
+  public void checkRemoteConfigurationShellScriptEnabled() throws IOException {
+    assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
+        .valueByXPath("//configuration[@name='Remote Configuration']/method[@v='2']/option[@name='RunConfigurationTask']/@enabled")
+        .asBoolean()
+        .isTrue();
   }
 
 }

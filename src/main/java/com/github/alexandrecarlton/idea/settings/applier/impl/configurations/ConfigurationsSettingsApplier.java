@@ -5,13 +5,13 @@ import com.github.alexandrecarlton.idea.settings.dagger.configuration.Configurat
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ShellScriptConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.intellij.execution.RunManager;
 import com.intellij.execution.RunnerAndConfigurationSettings;
-
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.inject.Inject;
 
 public class ConfigurationsSettingsApplier implements SettingsApplier<ConfigurationSettings> {
 
@@ -19,6 +19,7 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
   private final ConfigurationSubcomponent.Builder configurationSubcomponentBuilder;
   private final SettingsApplier<DockerImageConfigurationSettings> dockerImageConfigurationSettingsApplier;
   private final SettingsApplier<RemoteSettings> remoteConfigurationApplier;
+  private final SettingsApplier<ShellScriptConfigurationSettings> shellScriptConfigurationSettingsApplier;
   private final SettingsApplier<SpringBootSettings> springBootConfigurationApplier;
 
   @Inject
@@ -26,11 +27,13 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
                                        ConfigurationSubcomponent.Builder configurationSubcomponentBuilder,
                                        SettingsApplier<DockerImageConfigurationSettings> dockerImageConfigurationSettingsApplier,
                                        SettingsApplier<RemoteSettings> remoteConfigurationApplier,
+                                       SettingsApplier<ShellScriptConfigurationSettings> shellScriptConfigurationSettingsApplier,
                                        SettingsApplier<SpringBootSettings> springBootConfigurationApplier) {
     this.runManager = runManager;
     this.configurationSubcomponentBuilder = configurationSubcomponentBuilder;
     this.dockerImageConfigurationSettingsApplier = dockerImageConfigurationSettingsApplier;
     this.remoteConfigurationApplier = remoteConfigurationApplier;
+    this.shellScriptConfigurationSettingsApplier = shellScriptConfigurationSettingsApplier;
     this.springBootConfigurationApplier = springBootConfigurationApplier;
   }
 
@@ -38,10 +41,12 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
   public void apply(ConfigurationSettings settings) {
     if (settings instanceof RemoteSettings) {
       remoteConfigurationApplier.apply((RemoteSettings) settings);
-    } else if (settings instanceof SpringBootSettings) {
-      springBootConfigurationApplier.apply((SpringBootSettings) settings);
     } else if (settings instanceof DockerImageConfigurationSettings) {
       dockerImageConfigurationSettingsApplier.apply((DockerImageConfigurationSettings) settings);
+    } else if (settings instanceof ShellScriptConfigurationSettings) {
+      shellScriptConfigurationSettingsApplier.apply((ShellScriptConfigurationSettings) settings);
+    } else if (settings instanceof SpringBootSettings) {
+      springBootConfigurationApplier.apply((SpringBootSettings) settings);
     } else {
       throw new IllegalArgumentException("Unhandled settings " + settings);
     }
@@ -57,6 +62,10 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
     settings.beforeLaunch()
       .orElse(Collections.emptyList())
       .forEach(configurationSubcomponent.beforeLaunchConfigurationSettingsApplier()::apply);
+
+    runnerAndConfigurationSettings.getConfiguration()
+        .getBeforeRunTasks()
+        .forEach(task -> task.setEnabled(true));
 
     // To share through VCS we need to re-add the configuration.
     settings.shareThroughVcs().ifPresent(runnerAndConfigurationSettings::setShared);

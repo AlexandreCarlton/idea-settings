@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
   include = As.WRAPPER_OBJECT)
 @JsonSubTypes({
   @Type(name = "build", value = BuildConfigurationSettings.class),
+  @Type(name = "runAnotherConfiguration", value = RunAnotherConfigurationSettings.class),
   @Type(name = "runMavenGoal", value = RunMavenGoalSettings.class)})
 public interface BeforeLaunchConfigurationSettings {
 }
