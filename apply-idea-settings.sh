@@ -46,6 +46,15 @@ idea_vmoptions_file=$(mktemp)
 mkdir -p "${idea_config_path}/plugins"
 mkdir -p "${idea_system_path}"
 
+# Generate a key file if a license server is available.
+if [ -n "${IDEA_LICENSE_SERVER-}" ]; then
+  echo -n "${IDEA_LICENSE_SERVER}" \
+    | sed 's/^/URL:/' \
+    | sed 's/.\{1\}/&\x00/g' \
+    | sed 's/^/\xff\xff/' \
+    > "${idea_config_path}/idea.key"
+fi
+
 # We clean up all generated files by default, unless we specified
 # IDEA_CONFIG_PATH or IDEA_SYSTEM_PATH, in case we want to inspect or capture
 # things like log files.
