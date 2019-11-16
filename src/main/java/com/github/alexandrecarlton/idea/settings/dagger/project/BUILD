@@ -79,6 +79,7 @@ java_library(
         "@idea-IU//:plugins/DatabaseTools/lib/database-impl",
         "@idea-IU//:plugins/Docker/lib/Docker-core",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
+        "@idea-IU//:plugins/JavaScriptLanguage/lib/javascript-openapi",
         "@idea-IU//:plugins/SpringBoot/lib/spring-boot-run",
     ],
 )

@@ -43,6 +43,12 @@ java_import(
 )
 
 java_import(
+    name = "plugins/JavaScriptLanguage/lib/javascript-openapi",
+    jars = ["plugins/JavaScriptLanguage/lib/javascript-openapi.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "plugins/SpringBoot/lib/spring-boot-run",
     jars = ["plugins/SpringBoot/lib/spring-boot-run.jar"],
     neverlink = True,

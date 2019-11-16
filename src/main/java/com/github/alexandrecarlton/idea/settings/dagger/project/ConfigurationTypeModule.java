@@ -59,7 +59,7 @@ public class ConfigurationTypeModule {
     if (PluginManager.isPluginInstalled(PluginId.findId(plugin.getId()))) {
       return configurationTypeSupplier::get;
     } else {
-      LOG.warn("Unable to use configuration type as '" + plugin.getName() + "' is not installed.");
+      LOG.warn("Unable to use run configuration type as '" + plugin.getName() + "' is not installed, using 'Unknown' instead.");
       return UnknownConfigurationType::getInstance;
     }
   }

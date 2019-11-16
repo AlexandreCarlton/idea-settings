@@ -3,15 +3,14 @@ package com.github.alexandrecarlton.idea.settings.dagger.project;
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings;
 import com.intellij.openapi.project.Project;
-
 import dagger.BindsInstance;
 import dagger.Component;
-
 import javax.inject.Named;
 
 @Component(modules = {
     SettingsApplierModule.class,
     ConfigurationTypeModule.class,
+    FileTypeModule.class,
     OptionalSettingsApplierModule.class,
     ProjectModule.class})
 public interface IdeaSettingsComponent {
