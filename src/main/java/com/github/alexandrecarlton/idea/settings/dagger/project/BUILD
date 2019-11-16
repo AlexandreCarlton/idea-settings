@@ -75,8 +75,10 @@ java_library(
         "@idea-IC//:plugins/java/lib/java-api",
         "@idea-IC//:plugins/java/lib/java-impl",
         "@idea-IC//:plugins/maven/lib/maven",
+        "@idea-IC//:plugins/sh/lib/sh",
         "@idea-IU//:plugins/DatabaseTools/lib/database-impl",
         "@idea-IU//:plugins/Docker/lib/Docker-core",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
+        "@idea-IU//:plugins/SpringBoot/lib/spring-boot-run",
     ],
 )

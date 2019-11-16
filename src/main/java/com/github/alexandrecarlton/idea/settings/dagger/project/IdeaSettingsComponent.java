@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 @Component(modules = {
     SettingsApplierModule.class,
+    ConfigurationTypeModule.class,
     OptionalSettingsApplierModule.class,
     ProjectModule.class})
 public interface IdeaSettingsComponent {
