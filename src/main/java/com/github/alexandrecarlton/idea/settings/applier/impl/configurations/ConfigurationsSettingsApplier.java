@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations;
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings;
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ShellScriptConfigurationSettings;
@@ -17,6 +18,7 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
 
   private final RunManager runManager;
   private final ConfigurationSubcomponent.Builder configurationSubcomponentBuilder;
+  private final SettingsApplier<DockerComposeConfigurationSettings> dockerComposeConfigurationSettingsApplier;
   private final SettingsApplier<DockerImageConfigurationSettings> dockerImageConfigurationSettingsApplier;
   private final SettingsApplier<RemoteSettings> remoteConfigurationApplier;
   private final SettingsApplier<ShellScriptConfigurationSettings> shellScriptConfigurationSettingsApplier;
@@ -25,12 +27,13 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
   @Inject
   public ConfigurationsSettingsApplier(RunManager runManager,
                                        ConfigurationSubcomponent.Builder configurationSubcomponentBuilder,
-                                       SettingsApplier<DockerImageConfigurationSettings> dockerImageConfigurationSettingsApplier,
+                                       SettingsApplier<DockerComposeConfigurationSettings> dockerComposeConfigurationSettingsApplier, SettingsApplier<DockerImageConfigurationSettings> dockerImageConfigurationSettingsApplier,
                                        SettingsApplier<RemoteSettings> remoteConfigurationApplier,
                                        SettingsApplier<ShellScriptConfigurationSettings> shellScriptConfigurationSettingsApplier,
                                        SettingsApplier<SpringBootSettings> springBootConfigurationApplier) {
     this.runManager = runManager;
     this.configurationSubcomponentBuilder = configurationSubcomponentBuilder;
+    this.dockerComposeConfigurationSettingsApplier = dockerComposeConfigurationSettingsApplier;
     this.dockerImageConfigurationSettingsApplier = dockerImageConfigurationSettingsApplier;
     this.remoteConfigurationApplier = remoteConfigurationApplier;
     this.shellScriptConfigurationSettingsApplier = shellScriptConfigurationSettingsApplier;
@@ -39,10 +42,12 @@ public class ConfigurationsSettingsApplier implements SettingsApplier<Configurat
 
   @Override
   public void apply(ConfigurationSettings settings) {
-    if (settings instanceof RemoteSettings) {
-      remoteConfigurationApplier.apply((RemoteSettings) settings);
+    if (settings instanceof DockerComposeConfigurationSettings) {
+      dockerComposeConfigurationSettingsApplier.apply((DockerComposeConfigurationSettings) settings);
     } else if (settings instanceof DockerImageConfigurationSettings) {
       dockerImageConfigurationSettingsApplier.apply((DockerImageConfigurationSettings) settings);
+    } else if (settings instanceof RemoteSettings) {
+      remoteConfigurationApplier.apply((RemoteSettings) settings);
     } else if (settings instanceof ShellScriptConfigurationSettings) {
       shellScriptConfigurationSettingsApplier.apply((ShellScriptConfigurationSettings) settings);
     } else if (settings instanceof SpringBootSettings) {
