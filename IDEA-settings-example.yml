@@ -29,6 +29,29 @@ projectSettings:
 editor:
   codeStyle:
     java:
+      javadoc:
+        alignment:
+          alignParameterDescriptions: false
+          alignThrownExceptionDescriptions: false
+        blankLines:
+          afterDescription: false
+          afterParameterDescriptions: true
+          afterReturnTag: true
+        invalidTags:
+          keepInvalidTags: false
+          keepEmptyParamTags: false
+          keepEmptyReturnTags: false
+          keepEmptyThrowsTags: false
+        other:
+          wrapAtRightMargin: true
+          enableLeadingAsterisks: false
+          useThrowsRatherThanException: false
+          generatePOnEmptyLines: false
+          keepEmptyLines: false
+          doNotWrapOneLineComments: true
+          preserveLineFeeds: true
+          parameterDescriptionsOnNewLine: true
+          indentContinuationLines: true
       imports:
         classCountToUseImportWithWildcard: 999
         namesCountToUseStaticImportWithWildcard: 999

@@ -49,6 +49,29 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "editor:",
         "  codeStyle:",
         "    java:",
+        "      javadoc:",
+        "        alignment:",
+        "          alignParameterDescriptions: false",
+        "          alignThrownExceptionDescriptions: false",
+        "        blankLines:",
+        "          afterDescription: false",
+        "          afterParameterDescriptions: true",
+        "          afterReturnTag: true",
+        "        invalidTags:",
+        "          keepInvalidTags: false",
+        "          keepEmptyParamTags: false",
+        "          keepEmptyReturnTags: false",
+        "          keepEmptyThrowsTags: false",
+        "        other:",
+        "          wrapAtRightMargin: true",
+        "          enableLeadingAsterisks: false",
+        "          useThrowsRatherThanException: false",
+        "          generatePOnEmptyLines: false",
+        "          keepEmptyLines: false",
+        "          doNotWrapOneLineComments: true",
+        "          preserveLineFeeds: true",
+        "          parameterDescriptionsOnNewLine: true",
+        "          indentContinuationLines: true",
         "      arrangement:",
         "        matchingRules:",
         "          - type: field",
@@ -221,6 +244,94 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
   public void usePerProjectSettings() throws IOException {
     assertThatXml(".idea/codeStyles/codeStyleConfig.xml")
         .valueByXPath("//option[@name='USE_PER_PROJECT_SETTINGS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+  }
+
+  @Test
+  public void javadocAlignment() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_ALIGN_PARAM_COMMENTS']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_ALIGN_EXCEPTION_COMMENTS']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+  }
+
+  @Test
+  public void javadocBlankLines() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_ADD_BLANK_AFTER_DESCRIPTION']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_ADD_BLANK_AFTER_PARM_COMMENTS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_ADD_BLANK_AFTER_RETURN']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+  }
+
+  @Test
+  public void javadocInvalidTags() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_KEEP_INVALID_TAGS']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_KEEP_EMPTY_PARAMETER']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_KEEP_EMPTY_EXCEPTION']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_KEEP_EMPTY_RETURN']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+  }
+
+  @Test
+  public void javadocOther() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='WRAP_COMMENTS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_LEADING_ASTERISKS_ARE_ENABLED']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_USE_THROWS_NOT_EXCEPTION']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_P_AT_EMPTY_LINES']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_KEEP_EMPTY_LINES']/@value")
+        .asBoolean()
+        .isEqualTo(false);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_DO_NOT_WRAP_ONE_LINE_COMMENTS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_PRESERVE_LINE_FEEDS']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_PARAM_DESCRIPTION_ON_NEW_LINE']/@value")
+        .asBoolean()
+        .isEqualTo(true);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='JD_INDENT_ON_CONTINUATION']/@value")
         .asBoolean()
         .isEqualTo(true);
   }
