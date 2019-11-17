@@ -10,6 +10,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.she
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaArrangementSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.javadoc.JavadocSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
@@ -26,6 +27,7 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_scr
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaArrangementSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
@@ -84,6 +86,11 @@ public class OptionalSettingsApplierModule {
   @Provides
   static SettingsApplier<JavaAutoImportSettings> provideJavaAutoImportSettingsApplier(Lazy<JavaAutoImportSettingsApplier> javaAutoImportSettingsApplier) {
     return provideIfLoaded(Plugin.JAVA, javaAutoImportSettingsApplier);
+  }
+
+  @Provides
+  static SettingsApplier<JavadocSettings> provideJavadocSettingsApplier(Lazy<JavadocSettingsApplier> javadocSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javadocSettingsApplier);
   }
 
   @Provides
