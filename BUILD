@@ -86,6 +86,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/shell_script",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/spring_boot",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/blank_lines",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/javascript",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",

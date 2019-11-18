@@ -1,16 +1,18 @@
 package com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaBlankLinesSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings;
-import org.immutables.value.Value;
-
 import java.util.Optional;
+import org.immutables.value.Value;
 
 @Value.Immutable
 @JsonDeserialize(as = ImmutableJavaCodeStyleSettings.class)
 public interface JavaCodeStyleSettings {
 
   Optional<JavaArrangementSettings> arrangement();
+
+  Optional<JavaBlankLinesSettings> blankLines();
 
   Optional<JavaImportsSettings> imports();
 

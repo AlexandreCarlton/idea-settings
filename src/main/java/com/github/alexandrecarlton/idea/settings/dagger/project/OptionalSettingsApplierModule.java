@@ -10,6 +10,8 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.she
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaArrangementSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.JavaImportsSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.blank_lines.JavaMinimumBlankLinesSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.javadoc.JavadocSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
@@ -27,6 +29,8 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_scr
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaArrangementSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaMinimumBlankLinesSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
@@ -96,6 +100,16 @@ public class OptionalSettingsApplierModule {
   @Provides
   static SettingsApplier<JavaImportsSettings> provideJavaImportsSettingsApplier(Lazy<JavaImportsSettingsApplier> javaImportsSettingsApplier) {
     return provideIfLoaded(Plugin.JAVA, javaImportsSettingsApplier);
+  }
+
+  @Provides
+  static SettingsApplier<JavaKeepMaximumBlankLinesSettings> provideJavaKeepMaximumBlankLinesSettings(Lazy<JavaKeepMaximumBlankLinesSettingsApplier> javaKeepMaximumBlankLinesSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javaKeepMaximumBlankLinesSettingsApplier);
+  }
+
+  @Provides
+  static SettingsApplier<JavaMinimumBlankLinesSettings> provideJavaMinimumBlankLinesSettingsApplier(Lazy<JavaMinimumBlankLinesSettingsApplier> javaMinimumBlankLinesSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javaMinimumBlankLinesSettingsApplier);
   }
 
   @Provides
