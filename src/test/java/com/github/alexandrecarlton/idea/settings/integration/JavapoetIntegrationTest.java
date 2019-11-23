@@ -49,6 +49,27 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "editor:",
         "  codeStyle:",
         "    java:",
+        "      blankLines:",
+        "        keepMaximumBlankLines:",
+        "          inDeclarations: 10",
+        "          inCode: 11",
+        "          beforeRightBrace: 12",
+        "          betweenHeaderAndPackage: 13",
+        "        minimumBlankLines:",
+        "          beforePackageStatement: 14",
+        "          afterPackageStatement: 15",
+        "          beforeImports: 16",
+        "          afterImports: 17",
+        "          aroundClass: 18",
+        "          afterClassHeader: 19",
+        "          beforeClassEnd: 20",
+        "          afterAnonymousClassHeader: 21",
+        "          aroundFieldInInterface: 22",
+        "          aroundField: 23",
+        "          aroundMethodInInterface: 24",
+        "          aroundMethod: 25",
+        "          beforeMethodBody: 26",
+        "          aroundInitializer: 27",
         "      javadoc:",
         "        alignment:",
         "          alignParameterDescriptions: false",
@@ -246,6 +267,86 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         .valueByXPath("//option[@name='USE_PER_PROJECT_SETTINGS']/@value")
         .asBoolean()
         .isEqualTo(true);
+  }
+
+  @Test
+  public void keepMaximumBlankLines() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='KEEP_BLANK_LINES_IN_DECLARATIONS']/@value")
+        .asInt()
+        .isEqualTo(10);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='KEEP_BLANK_LINES_IN_CODE']/@value")
+        .asInt()
+        .isEqualTo(11);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='KEEP_BLANK_LINES_BEFORE_RBRACE']/@value")
+        .asInt()
+        .isEqualTo(12);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='KEEP_BLANK_LINES_BETWEEN_PACKAGE_DECLARATION_AND_HEADER']/@value")
+        .asInt()
+        .isEqualTo(13);
+  }
+
+  @Test
+  public void minimumBlankLines() throws IOException {
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_BEFORE_PACKAGE']/@value")
+        .asInt()
+        .isEqualTo(14);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AFTER_PACKAGE']/@value")
+        .asInt()
+        .isEqualTo(15);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_BEFORE_IMPORTS']/@value")
+        .asInt()
+        .isEqualTo(16);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AFTER_IMPORTS']/@value")
+        .asInt()
+        .isEqualTo(17);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AROUND_CLASS']/@value")
+        .asInt()
+        .isEqualTo(18);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AFTER_CLASS_HEADER']/@value")
+        .asInt()
+        .isEqualTo(19);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_BEFORE_CLASS_END']/@value")
+        .asInt()
+        .isEqualTo(20);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AFTER_ANONYMOUS_CLASS_HEADER']/@value")
+        .asInt()
+        .isEqualTo(21);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AROUND_FIELD_IN_INTERFACE']/@value")
+        .asInt()
+        .isEqualTo(22);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AROUND_FIELD']/@value")
+        .asInt()
+        .isEqualTo(23);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AROUND_METHOD_IN_INTERFACE']/@value")
+        .asInt()
+        .isEqualTo(24);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_AROUND_METHOD']/@value")
+        .asInt()
+        .isEqualTo(25);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//codeStyleSettings[@language='JAVA']/option[@name='BLANK_LINES_BEFORE_METHOD_BODY']/@value")
+        .asInt()
+        .isEqualTo(26);
+    assertThatXml(".idea/codeStyles/Project.xml")
+        .valueByXPath("//JavaCodeStyleSettings/option[@name='BLANK_LINES_AROUND_INITIALIZER']/@value")
+        .asInt()
+        .isEqualTo(27);
   }
 
   @Test

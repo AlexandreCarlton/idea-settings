@@ -29,6 +29,27 @@ projectSettings:
 editor:
   codeStyle:
     java:
+      blankLines:
+        keepMaximumBlankLines:
+          inDeclarations: 10
+          inCode: 11
+          beforeRightBrace: 12
+          betweenHeaderAndPackage: 13
+        minimumBlankLines:
+          beforePackageStatement: 14
+          afterPackageStatement: 15
+          beforeImports: 16
+          afterImports: 17
+          aroundClass: 18
+          afterClassHeader: 19
+          beforeClassEnd: 20
+          afterAnonymousClassHeader: 21
+          aroundFieldInInterface: 22
+          aroundField: 23
+          aroundMethodInInterface: 24
+          aroundMethod: 25
+          beforeMethodBody: 26
+          aroundInitializer: 27
       javadoc:
         alignment:
           alignParameterDescriptions: false
