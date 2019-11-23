@@ -1,7 +1,7 @@
-package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java;
+package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.imports;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings;
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
 import javax.inject.Inject;
 

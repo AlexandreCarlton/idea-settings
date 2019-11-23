@@ -1,11 +1,11 @@
-package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java;
+package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.imports;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.ImmutableJavaImportsSettings;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.ImmutableJavaImportsSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings;
 import com.intellij.application.options.CodeStyle;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings;

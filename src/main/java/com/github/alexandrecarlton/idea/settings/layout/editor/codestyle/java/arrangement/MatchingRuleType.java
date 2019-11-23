@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java;
+package com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

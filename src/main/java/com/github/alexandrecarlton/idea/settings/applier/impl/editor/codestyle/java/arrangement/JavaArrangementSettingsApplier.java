@@ -1,13 +1,13 @@
-package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java;
+package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.arrangement;
 
 import static java.util.stream.Collectors.toList;
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaArrangementSettings;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRule;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleModifier;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleOrder;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.MatchingRuleType;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.JavaArrangementSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRule;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleModifier;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleOrder;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleType;
 import com.google.common.collect.ImmutableList;
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
 import com.intellij.psi.codeStyle.arrangement.match.ArrangementMatchRule;
