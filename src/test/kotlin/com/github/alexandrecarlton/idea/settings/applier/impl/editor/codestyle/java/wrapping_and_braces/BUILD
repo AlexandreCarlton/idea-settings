@@ -1,11 +1,13 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "wrapping_and_braces",
     tests = [":java_wrapping_and_braces_settings_applier_test"],
 )
 
-java_test(
+kt_jvm_test(
     name = "java_wrapping_and_braces_settings_applier_test",
-    srcs = ["JavaWrappingAndBracesSettingsApplierTest.java"],
+    srcs = ["JavaWrappingAndBracesSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [

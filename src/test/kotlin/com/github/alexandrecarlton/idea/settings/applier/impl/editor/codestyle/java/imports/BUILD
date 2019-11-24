@@ -1,11 +1,13 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "imports",
     tests = [":java_import_settings_applier_test"],
 )
 
-java_test(
+kt_jvm_test(
     name = "java_import_settings_applier_test",
-    srcs = ["JavaImportSettingsApplierTest.java"],
+    srcs = ["JavaImportSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.imports.JavaImportSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [

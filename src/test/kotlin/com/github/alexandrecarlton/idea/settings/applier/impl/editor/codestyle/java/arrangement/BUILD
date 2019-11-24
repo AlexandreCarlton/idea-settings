@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "arrangement",
     tests = [":java_arrangement_settings_applier_test"],
@@ -5,7 +7,7 @@ test_suite(
 
 java_test(
     name = "java_arrangement_settings_applier_test",
-    srcs = ["JavaArrangementSettingsApplierTest.java"],
+    srcs = ["JavaArrangementSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.arrangement.JavaArrangementSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [

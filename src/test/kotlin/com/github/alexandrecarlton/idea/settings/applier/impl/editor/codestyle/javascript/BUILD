@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "javascript",
     tests = [
@@ -5,9 +7,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "javascript_imports_settings_applier_test",
-    srcs = ["JavascriptImportsSettingsApplierTest.java"],
+    srcs = ["JavascriptImportsSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplierTest",
     runtime_deps = ["@idea-IU//:test_runtime_deps"],
     deps = [

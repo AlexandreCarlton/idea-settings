@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "blank_lines",
     tests = [
@@ -6,9 +8,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "java_keep_maximum_blank_lines_settings_applier_test",
-    srcs = ["JavaKeepMaximumBlankLinesSettingsApplierTest.java"],
+    srcs = ["JavaKeepMaximumBlankLinesSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
@@ -26,9 +28,9 @@ java_test(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "java_minimum_blank_lines_settings_applier_test",
-    srcs = ["JavaMinimumBlankLinesSettingsApplierTest.java"],
+    srcs = ["JavaMinimumBlankLinesSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.blank_lines.JavaMinimumBlankLinesSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
