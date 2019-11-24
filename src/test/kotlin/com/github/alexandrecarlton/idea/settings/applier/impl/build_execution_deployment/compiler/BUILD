@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "compiler",
     tests = [
@@ -5,9 +7,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "compiler_settings_applier_test",
-    srcs = ["CompilerSettingsApplierTest.java"],
+    srcs = ["CompilerSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
