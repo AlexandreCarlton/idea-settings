@@ -1,7 +1,9 @@
-java_library(
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
+
+kt_jvm_library(
     name = "fixtures",
     testonly = True,
-    srcs = glob(["*.java"]),
+    srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
     deps = [
         "//third_party/maven/com/google/guava",

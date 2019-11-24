@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "spelling",
     tests = [
@@ -5,16 +7,16 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "spelling_settings_applier_test",
-    srcs = ["SpellingSettingsApplierTest.java"],
+    srcs = ["SpellingSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",

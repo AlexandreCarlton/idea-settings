@@ -21,7 +21,7 @@ kt_jvm_test(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/tools/file_watchers",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/common",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/tools/file_watchers",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
         "//third_party/maven/org/mockito:mockito_core",

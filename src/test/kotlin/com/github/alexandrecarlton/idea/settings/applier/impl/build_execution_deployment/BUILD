@@ -18,7 +18,7 @@ kt_jvm_test(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/compiler",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",
         "//third_party/maven/org/mockito:mockito_core",

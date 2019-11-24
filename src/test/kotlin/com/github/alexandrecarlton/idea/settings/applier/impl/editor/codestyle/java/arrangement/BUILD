@@ -5,7 +5,7 @@ test_suite(
     tests = [":java_arrangement_settings_applier_test"],
 )
 
-java_test(
+kt_jvm_test(
     name = "java_arrangement_settings_applier_test",
     srcs = ["JavaArrangementSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.arrangement.JavaArrangementSettingsApplierTest",
@@ -14,7 +14,7 @@ java_test(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/arrangement",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/arrangement",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",

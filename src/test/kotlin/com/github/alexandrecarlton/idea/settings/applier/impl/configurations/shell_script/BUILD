@@ -16,7 +16,7 @@ kt_jvm_test(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/shell_script",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/configurations",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
         "@idea-IC//:lib/platform-api",
