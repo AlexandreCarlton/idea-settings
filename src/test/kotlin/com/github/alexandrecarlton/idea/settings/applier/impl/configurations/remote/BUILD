@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "remote",
     tests = [
@@ -5,9 +7,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "remote_settings_applier_test",
-    srcs = ["RemoteSettingsApplierTest.java"],
+    srcs = ["RemoteSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.configurations.remote.RemoteSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [

@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "docker",
     tests = [
@@ -6,9 +8,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "docker_compose_configuration_settings_applier_test",
-    srcs = ["DockerComposeConfigurationSettingsApplierTest.java"],
+    srcs = ["DockerComposeConfigurationSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerComposeConfigurationSettingsApplierTest",
     runtime_deps = ["@idea-IU//:test_runtime_deps"],
     deps = [
@@ -28,9 +30,9 @@ java_test(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "docker_image_configuration_settings_applier_test",
-    srcs = ["DockerImageConfigurationSettingsApplierTest.java"],
+    srcs = ["DockerImageConfigurationSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerImageConfigurationSettingsApplierTest",
     runtime_deps = ["@idea-IU//:test_runtime_deps"],
     deps = [

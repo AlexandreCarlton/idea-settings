@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "shell_script",
     tests = [
@@ -5,9 +7,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "shell_script_configuration_settings_applier_test",
-    srcs = ["ShellScriptConfigurationSettingsApplierTest.java"],
+    srcs = ["ShellScriptConfigurationSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.configurations.shell_script.ShellScriptConfigurationSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
