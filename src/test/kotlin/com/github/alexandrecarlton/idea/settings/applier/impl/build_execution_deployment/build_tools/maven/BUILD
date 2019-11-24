@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "maven",
     tests = [
@@ -6,9 +8,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "maven_settings_applier_test",
-    srcs = ["MavenSettingsApplierTest.java"],
+    srcs = ["MavenSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
@@ -25,9 +27,9 @@ java_test(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "maven_importing_settings_applier_test",
-    srcs = ["MavenImportingSettingsApplierTest.java"],
+    srcs = ["MavenImportingSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenImportingSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [

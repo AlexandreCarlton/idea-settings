@@ -1,0 +1,46 @@
+package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven
+
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.ImmutableMavenImportingSettings
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.ImmutableMavenSettings
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings
+import org.assertj.core.api.Assertions.assertThat
+import org.jetbrains.idea.maven.project.MavenGeneralSettings
+import org.jetbrains.idea.maven.project.MavenProjectsManager
+import org.junit.Before
+import org.junit.Test
+import org.mockito.Mock
+import org.mockito.Mockito.verify
+import java.nio.file.Paths
+
+class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
+
+    private lateinit var settingsApplier: SettingsApplier<MavenSettings>
+    private lateinit var mavenGeneralSettings: MavenGeneralSettings
+    @Mock
+    private lateinit var mavenImportingSettingsApplier: SettingsApplier<MavenImportingSettings>
+
+    @Before
+    public override fun setUp() {
+        mavenGeneralSettings = MavenProjectsManager.getInstance(project).generalSettings
+        settingsApplier = MavenSettingsApplier(mavenGeneralSettings, mavenImportingSettingsApplier)
+    }
+
+    @Test
+    fun vmOptionsForImporterApplied() {
+        settingsApplier.apply(ImmutableMavenSettings.builder()
+                .mavenHomeDirectory(Paths.get("/usr"))
+                .build())
+        assertThat(mavenGeneralSettings.mavenHome).isEqualTo("/usr")
+    }
+
+    @Test
+    fun importSettingsApplied() {
+        settingsApplier.apply(ImmutableMavenSettings.builder()
+                .importing(ImmutableMavenImportingSettings.builder().build())
+                .build())
+        verify(mavenImportingSettingsApplier).apply(ImmutableMavenImportingSettings.builder().build())
+    }
+}

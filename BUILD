@@ -79,7 +79,6 @@ test_suite(
     name = "tests",
     tests = [
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/build_tools/maven",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/docker",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/remote",
@@ -97,6 +96,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/tools/file_watchers",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/build_tools/maven",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
     ],
 )
