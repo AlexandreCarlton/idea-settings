@@ -2,16 +2,18 @@ package com.github.alexandrecarlton.idea.settings.fixtures;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
+import java.nio.file.Paths;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
 /**
- * Helper method to allow the test to run with JUnit 4.
+ * Helper class to allow the test to run with JUnit 4.
  */
 @RunWith(JUnit4.class)
 public class IdeaSettingsTestFixture extends BasePlatformTestCase {
@@ -19,17 +21,18 @@ public class IdeaSettingsTestFixture extends BasePlatformTestCase {
   @Rule
   public final MockitoRule mockitoRule = MockitoJUnit.rule();
 
-  static {
-    // TODO: Use a separate sandboxed path for each test invocation.
-    System.setProperty("idea.config.path", "/tmp/idea-config-path");
-    System.setProperty("idea.system.path", "/tmp/idea-system-path");
-  }
+  @Rule
+  public TemporaryFolder temporaryFolder = new TemporaryFolder(Paths.get("/tmp").toFile());
 
   protected Project project;
 
   @Before
   public void setUpIdeaSettingsTestFixture() throws Exception {
+    System.setProperty("idea.config.path", temporaryFolder.newFolder("idea", "config").toString());
+    System.setProperty("idea.system.path", temporaryFolder.newFolder("idea", "system").toString());
+
     super.setUp();
+
     project = myFixture.getProject();
   }
 
