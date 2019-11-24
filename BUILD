@@ -88,7 +88,6 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/arrangement",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/blank_lines",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/imports",
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/wrapping_and_braces",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/javascript",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
@@ -98,6 +97,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/tools/file_watchers",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
     ],
 )
 

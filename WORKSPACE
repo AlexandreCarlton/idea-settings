@@ -64,6 +64,19 @@ http_archive(
 )
 
 http_archive(
+    name = "io_bazel_rules_kotlin",
+    sha256 = "fc7ae525c3aefbc0044cd636319f4039c152b117cefee6b6b1b7d9c7de715e15",
+    strip_prefix = "rules_kotlin-legacy-1.3.0-rc1",
+    url = "https://github.com/bazelbuild/rules_kotlin/archive/legacy-1.3.0-rc1.tar.gz",
+)
+
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
+
+kotlin_repositories()
+
+kt_register_toolchains()
+
+http_archive(
     name = "rules_pkg",
     sha256 = "02de387c5ef874379e784ac968bf6efffe5285a168cab5a3169e08cfc634fd22",
     url = "https://github.com/bazelbuild/rules_pkg/releases/download/0.2.2/rules_pkg-0.2.2.tar.gz",
