@@ -9,6 +9,7 @@ java_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/blank_lines",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/imports",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/javadoc",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/wrapping_and_braces",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/javax/inject:javax_inject",
         "@idea-IC//:lib/platform-api",

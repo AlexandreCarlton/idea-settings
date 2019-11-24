@@ -5,6 +5,7 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.ar
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaBlankLinesSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettings;
 import java.util.Optional;
 import org.immutables.value.Value;
 
@@ -19,5 +20,7 @@ public interface JavaCodeStyleSettings {
   Optional<JavaImportsSettings> imports();
 
   Optional<JavadocSettings> javadoc();
+
+  Optional<JavaWrappingAndBracesSettings> wrappingAndBraces();
 
 }

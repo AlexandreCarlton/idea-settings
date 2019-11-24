@@ -89,6 +89,7 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/blank_lines",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/imports",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
+        "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/wrapping_and_braces",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/javascript",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/general/auto_import",
         "//src/test/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",

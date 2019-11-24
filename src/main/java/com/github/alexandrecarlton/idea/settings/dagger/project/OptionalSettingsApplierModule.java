@@ -9,10 +9,11 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.doc
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.shell_script.ShellScriptConfigurationSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.arrangement.JavaArrangementSettingsApplier;
-import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.imports.JavaImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.blank_lines.JavaMinimumBlankLinesSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.imports.JavaImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.javadoc.JavadocSettingsApplier;
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier;
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier;
@@ -28,10 +29,11 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.Do
 import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ShellScriptConfigurationSettings;
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.JavaArrangementSettings;
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaMinimumBlankLinesSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings;
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptImportsSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings;
@@ -110,6 +112,11 @@ public class OptionalSettingsApplierModule {
   @Provides
   static SettingsApplier<JavaMinimumBlankLinesSettings> provideJavaMinimumBlankLinesSettingsApplier(Lazy<JavaMinimumBlankLinesSettingsApplier> javaMinimumBlankLinesSettingsApplier) {
     return provideIfLoaded(Plugin.JAVA, javaMinimumBlankLinesSettingsApplier);
+  }
+
+  @Provides
+  static SettingsApplier<JavaWrappingAndBracesSettings> provideJavaWrappingAndBracesSettingsApplier(Lazy<JavaWrappingAndBracesSettingsApplier> javaWrappingAndBracesSettingsApplier) {
+    return provideIfLoaded(Plugin.JAVA, javaWrappingAndBracesSettingsApplier);
   }
 
   @Provides

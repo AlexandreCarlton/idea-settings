@@ -29,6 +29,47 @@ projectSettings:
 editor:
   codeStyle:
     java:
+      wrappingAndBraces:
+        hardWrapAt: 120
+        wrapOnTyping: true
+        keepWhenReformatting:
+          multipleExpressionsInOneLine: true
+          simpleBlocksInOneLine: true
+          simpleMethodsInOneLine: true
+          simpleLambdasInOneLine: true
+          simpleClassInOneLine: true
+        extendsImplementsList:
+          alignWhenMultiline: true
+        methodDeclarationParameters:
+          wrapping: Wrap if long
+        ifStatement:
+          forceBraces: Always
+        forStatement:
+          forceBraces: Always
+        whileStatement:
+          forceBraces: Always
+        doWhileStatement:
+          forceBraces: Always
+        tryWithResources:
+          wrapping: Wrap always
+        binaryExpressions:
+          wrapping: Chop down if long
+          alignWhenMultiline: true
+        assignmentStatement:
+          wrapping: Do not wrap
+        ternaryOperation:
+          wrapping: Wrap if long
+        arrayInitializer:
+          wrapping: Wrap if long
+        assertStatement:
+          wrapping: Wrap if long
+        parameterAnnotations:
+          wrapping: Do not wrap
+        localVariableAnnotations:
+          wrapping: Wrap if long
+        annotationParameters:
+          wrapping: Wrap if long
+          alignWhenMultiline: true
       blankLines:
         keepMaximumBlankLines:
           inDeclarations: 10
