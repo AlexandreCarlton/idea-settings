@@ -22,6 +22,7 @@ import com.intellij.psi.codeStyle.arrangement.model.ArrangementMatchConditionVis
 import com.intellij.psi.codeStyle.arrangement.std.StdArrangementTokens;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.Before;
 import org.junit.Test;
 
 public class JavaArrangementSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -29,9 +30,8 @@ public class JavaArrangementSettingsApplierTest extends IdeaSettingsTestFixture 
   private SettingsApplier<JavaArrangementSettings> settingsApplier;
   private CommonCodeStyleSettings commonCodeStyleSettings;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     CodeStyleSettings codeStyleSettings = CodeStyle.getSettings(project);
     commonCodeStyleSettings = codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE);
     settingsApplier = new JavaArrangementSettingsApplier(commonCodeStyleSettings);

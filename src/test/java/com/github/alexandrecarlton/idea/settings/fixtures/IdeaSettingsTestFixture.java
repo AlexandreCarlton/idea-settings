@@ -2,13 +2,11 @@ package com.github.alexandrecarlton.idea.settings.fixtures;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.testFramework.fixtures.BasePlatformTestCase;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
@@ -30,15 +28,13 @@ public class IdeaSettingsTestFixture extends BasePlatformTestCase {
   protected Project project;
 
   @Before
-  @Override
-  public void setUp() throws Exception {
+  public void setUpIdeaSettingsTestFixture() throws Exception {
     super.setUp();
     project = myFixture.getProject();
   }
 
   @After
-  @Override
-  public void tearDown() throws Exception {
+  public void tearDownIdeaSettingsTestFixture() throws Exception {
     super.tearDown();
   }
 

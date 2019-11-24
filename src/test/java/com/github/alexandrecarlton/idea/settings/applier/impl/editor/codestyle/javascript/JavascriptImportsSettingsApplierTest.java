@@ -18,9 +18,7 @@ public class JavascriptImportsSettingsApplierTest extends IdeaSettingsTestFixtur
   private SettingsApplier<JavascriptImportsSettings> javascriptImportsSettingsApplier;
 
   @Before
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     jsCodeStyleSettings = CodeStyle.getSettings(project).getCustomSettings(JSCodeStyleSettings.class);
     javascriptImportsSettingsApplier = new JavascriptImportsSettingsApplier(jsCodeStyleSettings);
   }

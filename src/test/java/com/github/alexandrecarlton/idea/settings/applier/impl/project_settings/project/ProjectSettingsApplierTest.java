@@ -12,7 +12,6 @@ import com.intellij.openapi.project.ex.ProjectEx;
 import com.intellij.openapi.roots.LanguageLevelProjectExtension;
 import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.pom.java.LanguageLevel;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,7 +23,6 @@ public class ProjectSettingsApplierTest extends IdeaSettingsTestFixture {
 
   @Before
   public void setUp() throws Exception {
-    super.setUp();
     languageLevelProjectExtension = LanguageLevelProjectExtension.getInstance(project);
     projectRootManager = ProjectRootManager.getInstance(project);
     settingsApplier = new ProjectSettingsApplier(languageLevelProjectExtension, (ProjectEx) project, projectRootManager);

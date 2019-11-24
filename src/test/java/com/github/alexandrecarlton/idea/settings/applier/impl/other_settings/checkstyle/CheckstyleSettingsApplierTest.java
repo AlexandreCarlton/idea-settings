@@ -8,11 +8,11 @@ import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyl
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.ImmutableCheckstyleConfigurationFile;
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.ImmutableCheckstyleSettings;
-
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager;
 import org.infernus.idea.checkstyle.model.ConfigurationLocation;
 import org.infernus.idea.checkstyle.model.ConfigurationType;
 import org.infernus.idea.checkstyle.model.ScanScope;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CheckstyleSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -20,9 +20,8 @@ public class CheckstyleSettingsApplierTest extends IdeaSettingsTestFixture {
   private SettingsApplier<CheckstyleSettings> settingsApplier;
   private PluginConfigurationManager pluginConfigurationManager;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     pluginConfigurationManager = PluginConfigurationManager.getInstance(project);
     settingsApplier = new CheckstyleSettingsApplier(project, pluginConfigurationManager);
   }

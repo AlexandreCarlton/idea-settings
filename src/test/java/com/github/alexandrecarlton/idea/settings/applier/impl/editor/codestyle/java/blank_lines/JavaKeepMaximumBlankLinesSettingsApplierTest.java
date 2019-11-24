@@ -18,8 +18,7 @@ public class JavaKeepMaximumBlankLinesSettingsApplierTest extends IdeaSettingsTe
   private SettingsApplier<JavaKeepMaximumBlankLinesSettings> settingsApplier;
 
   @Before
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     commonCodeStyleSettings = CodeStyle.getSettings(project).getCommonSettings(JavaLanguage.INSTANCE);
     settingsApplier = new JavaKeepMaximumBlankLinesSettingsApplier(commonCodeStyleSettings);
   }

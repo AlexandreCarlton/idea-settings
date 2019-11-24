@@ -26,11 +26,8 @@ public class DockerComposeConfigurationSettingsApplierTest extends IdeaSettingsT
   private SettingsApplier<DockerComposeConfigurationSettings> settingsApplier;
   private RunManager runManager;
 
-
-  @Override
   @Before
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     dockerRunConfigurationCreator = new DockerRunConfigurationCreator(project);
     runManager = RunManager.getInstance(project);
     settingsApplier = new DockerComposeConfigurationSettingsApplier(dockerRunConfigurationCreator, runManager);

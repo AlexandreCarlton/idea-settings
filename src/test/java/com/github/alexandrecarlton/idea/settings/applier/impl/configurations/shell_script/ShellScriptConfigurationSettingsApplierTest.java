@@ -14,6 +14,7 @@ import com.intellij.sh.run.ShRunConfiguration;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.file.Paths;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ShellScriptConfigurationSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -21,9 +22,8 @@ public class ShellScriptConfigurationSettingsApplierTest extends IdeaSettingsTes
   private SettingsApplier<ShellScriptConfigurationSettings> settingsApplier;
   private RunManager runManager;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     runManager = RunManager.getInstance(project);
     settingsApplier = new ShellScriptConfigurationSettingsApplier(project, runManager);
   }

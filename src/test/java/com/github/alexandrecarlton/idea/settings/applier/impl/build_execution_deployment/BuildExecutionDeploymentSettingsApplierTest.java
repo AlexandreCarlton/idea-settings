@@ -14,13 +14,11 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.ImmutableCompilerSettings;
 import com.intellij.externalDependencies.DependencyOnPlugin;
 import com.intellij.externalDependencies.ExternalDependenciesManager;
-
+import java.util.Collections;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-
-import java.util.Collections;
 
 public class BuildExecutionDeploymentSettingsApplierTest extends IdeaSettingsTestFixture {
 
@@ -29,16 +27,14 @@ public class BuildExecutionDeploymentSettingsApplierTest extends IdeaSettingsTes
   @Mock private SettingsApplier<BuildToolsSettings> buildToolsSettingsApplier;
   @Mock private SettingsApplier<CompilerSettings> compilerSettingsApplier;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     externalDependenciesManager = ExternalDependenciesManager.getInstance(project);
     settingsApplier = new BuildExecutionDeploymentSettingsApplier(externalDependenciesManager, buildToolsSettingsApplier, compilerSettingsApplier);
   }
 
-  @Override
-  public void tearDown() throws Exception {
-    super.tearDown();
+  @After
+  public void tearDown() {
     externalDependenciesManager.setAllDependencies(Collections.emptyList());
   }
 

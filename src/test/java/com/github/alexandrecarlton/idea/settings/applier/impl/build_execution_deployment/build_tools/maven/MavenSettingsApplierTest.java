@@ -9,13 +9,12 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.ImmutableMavenSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings;
-
+import java.nio.file.Paths;
 import org.jetbrains.idea.maven.project.MavenGeneralSettings;
 import org.jetbrains.idea.maven.project.MavenProjectsManager;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
-
-import java.nio.file.Paths;
 
 public class MavenSettingsApplierTest extends IdeaSettingsTestFixture {
 
@@ -23,9 +22,8 @@ public class MavenSettingsApplierTest extends IdeaSettingsTestFixture {
   private MavenGeneralSettings mavenGeneralSettings;
   @Mock private SettingsApplier<MavenImportingSettings> mavenImportingSettingsApplier;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     mavenGeneralSettings = MavenProjectsManager.getInstance(project).getGeneralSettings();
     settingsApplier = new MavenSettingsApplier(mavenGeneralSettings, mavenImportingSettingsApplier);
   }

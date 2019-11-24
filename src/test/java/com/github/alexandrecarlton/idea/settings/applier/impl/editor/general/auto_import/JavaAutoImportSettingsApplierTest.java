@@ -8,7 +8,7 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_impo
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings;
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings;
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings;
-
+import org.junit.Before;
 import org.junit.Test;
 
 public class JavaAutoImportSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -17,9 +17,8 @@ public class JavaAutoImportSettingsApplierTest extends IdeaSettingsTestFixture {
   private CodeInsightWorkspaceSettings codeInsightWorkspaceSettings;
   private JavaProjectCodeInsightSettings javaProjectCodeInsightSettings;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     codeInsightWorkspaceSettings = CodeInsightWorkspaceSettings.getInstance(project);
     javaProjectCodeInsightSettings = JavaProjectCodeInsightSettings.getSettings(project);
     settingsApplier = new JavaAutoImportSettingsApplier(codeInsightWorkspaceSettings, javaProjectCodeInsightSettings);

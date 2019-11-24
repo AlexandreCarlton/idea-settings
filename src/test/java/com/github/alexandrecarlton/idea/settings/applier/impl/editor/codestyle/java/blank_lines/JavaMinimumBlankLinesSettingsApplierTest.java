@@ -21,8 +21,7 @@ public class JavaMinimumBlankLinesSettingsApplierTest extends IdeaSettingsTestFi
   private SettingsApplier<JavaMinimumBlankLinesSettings> settingsApplier;
 
   @Before
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     CodeStyleSettings codeStyleSettings = CodeStyle.getSettings(project);
     commonCodeStyleSettings = codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE);
     javaCodeStyleSettings = codeStyleSettings.getCustomSettings(JavaCodeStyleSettings.class);

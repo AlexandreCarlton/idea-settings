@@ -6,7 +6,7 @@ import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.ImmutableMavenImportingSettings;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings;
-
+import org.junit.Before;
 import org.junit.Test;
 
 public class MavenImportingSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -14,9 +14,8 @@ public class MavenImportingSettingsApplierTest extends IdeaSettingsTestFixture {
   private SettingsApplier<MavenImportingSettings> settingsApplier;
   private org.jetbrains.idea.maven.project.MavenImportingSettings mavenImportingSettings;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     mavenImportingSettings = org.jetbrains.idea.maven.project.MavenProjectsManager.getInstance(project).getImportingSettings();
     settingsApplier = new MavenImportingSettingsApplier(mavenImportingSettings);
   }

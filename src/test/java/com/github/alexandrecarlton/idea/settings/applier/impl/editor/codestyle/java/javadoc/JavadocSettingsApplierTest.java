@@ -25,9 +25,7 @@ public class JavadocSettingsApplierTest extends IdeaSettingsTestFixture {
   private SettingsApplier<JavadocSettings> settingsApplier;
 
   @Before
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     final CodeStyleSettings codeStyleSettings = CodeStyle.getSettings(project);
     commonCodeStyleSettings = codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE);
     javaCodeStyleSettings = codeStyleSettings.getCustomSettings(JavaCodeStyleSettings.class);

@@ -23,8 +23,7 @@ public class SpringBootSettingsApplierTest extends IdeaSettingsTestFixture {
   private RunManager runManager;
 
   @Before
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     runManager = RunManager.getInstance(project);
     settingsApplier = new SpringBootSettingsApplier(project, runManager);
   }

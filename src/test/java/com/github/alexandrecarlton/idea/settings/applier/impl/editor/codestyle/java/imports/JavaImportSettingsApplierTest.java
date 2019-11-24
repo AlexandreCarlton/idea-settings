@@ -9,7 +9,8 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.im
 import com.intellij.application.options.CodeStyle;
 import com.intellij.psi.codeStyle.CodeStyleSettings;
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings;
-
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class JavaImportSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -17,19 +18,17 @@ public class JavaImportSettingsApplierTest extends IdeaSettingsTestFixture {
   private JavaCodeStyleSettings javaCodeStyleSettings;
   private SettingsApplier<JavaImportsSettings> applier;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     javaCodeStyleSettings = CodeStyle.getSettings(project).getCustomSettings(JavaCodeStyleSettings.class);
     applier = new JavaImportsSettingsApplier(javaCodeStyleSettings);
   }
 
-  @Override
-  public void tearDown() throws Exception {
+  @After
+  public void tearDown() {
     // The normal tear-down tries to verify that Code Insight settings haven't changed,
     // so we restore this just before finishing up.
     CodeStyle.getSettings(project).copyFrom(CodeStyleSettings.getDefaults());
-    super.tearDown();
   }
 
   @Test

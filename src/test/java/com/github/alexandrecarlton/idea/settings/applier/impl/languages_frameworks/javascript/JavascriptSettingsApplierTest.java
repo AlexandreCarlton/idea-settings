@@ -1,5 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.ImmutableJavascriptSettings;
@@ -10,16 +12,13 @@ import com.intellij.lang.javascript.settings.JSRootConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class JavascriptSettingsApplierTest extends IdeaSettingsTestFixture {
 
   private SettingsApplier<JavascriptSettings> settingsApplier;
   private JSRootConfiguration jsRootConfiguration;
 
   @Before
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     jsRootConfiguration = JSRootConfiguration.getInstance(project);
     settingsApplier = new JavascriptSettingsApplier(jsRootConfiguration);
   }

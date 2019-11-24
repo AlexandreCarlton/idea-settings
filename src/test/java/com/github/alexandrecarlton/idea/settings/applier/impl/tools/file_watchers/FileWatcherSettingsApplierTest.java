@@ -26,9 +26,7 @@ public class FileWatcherSettingsApplierTest extends IdeaSettingsTestFixture {
   private FileTypeMapper fileTypeMapper;
 
   @Before
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  public void setUp() {
     fileTypeMapper = mock(FileTypeMapper.class);
     projectTasksOptions = ProjectTasksOptions.getInstance(project);
     settingsApplier = new FileWatcherSettingsApplier(projectTasksOptions, fileTypeMapper);

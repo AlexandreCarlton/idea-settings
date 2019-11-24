@@ -1,5 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier;
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture;
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings;
@@ -8,9 +10,8 @@ import com.google.common.collect.ImmutableList;
 import com.intellij.compiler.CompilerConfiguration;
 import com.intellij.compiler.CompilerConfigurationImpl;
 import com.intellij.compiler.CompilerWorkspaceConfiguration;
+import org.junit.Before;
 import org.junit.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class CompilerSettingsApplierTest extends IdeaSettingsTestFixture {
 
@@ -18,9 +19,8 @@ public class CompilerSettingsApplierTest extends IdeaSettingsTestFixture {
   private CompilerConfiguration compilerConfiguration;
   private CompilerWorkspaceConfiguration compilerWorkspaceConfiguration;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     compilerConfiguration = CompilerConfiguration.getInstance(project);
     compilerWorkspaceConfiguration = CompilerWorkspaceConfiguration.getInstance(project);
     settingsApplier = new CompilerSettingsApplier(compilerConfiguration, compilerWorkspaceConfiguration);

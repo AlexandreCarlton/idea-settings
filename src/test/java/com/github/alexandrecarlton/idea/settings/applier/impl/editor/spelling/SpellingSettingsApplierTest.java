@@ -7,27 +7,25 @@ import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixtur
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.ImmutableSpellingSettings;
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
-
-import org.junit.Test;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 public class SpellingSettingsApplierTest extends IdeaSettingsTestFixture {
 
   private SettingsApplier<SpellingSettings> settingsApplier;
   private SpellCheckerSettings spellCheckerSettings;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     spellCheckerSettings = SpellCheckerSettings.getInstance(project);
     settingsApplier = new SpellingSettingsApplier(spellCheckerSettings);
   }
 
-  @Override
-  public void tearDown() throws Exception {
-    super.tearDown();
+  @After
+  public void tearDown() {
     spellCheckerSettings.getCustomDictionariesPaths().clear();
   }
 

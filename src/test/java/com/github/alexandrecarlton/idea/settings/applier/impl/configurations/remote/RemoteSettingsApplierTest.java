@@ -10,6 +10,7 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.Re
 import com.intellij.execution.RunManager;
 import com.intellij.execution.RunnerAndConfigurationSettings;
 import com.intellij.execution.remote.RemoteConfiguration;
+import org.junit.Before;
 import org.junit.Test;
 
 public class RemoteSettingsApplierTest extends IdeaSettingsTestFixture {
@@ -17,9 +18,8 @@ public class RemoteSettingsApplierTest extends IdeaSettingsTestFixture {
   private SettingsApplier<RemoteSettings> settingsApplier;
   private RunManager runManager;
 
-  @Override
-  public void setUp() throws Exception {
-    super.setUp();
+  @Before
+  public void setUp() {
     runManager = RunManager.getInstance(project);
     settingsApplier = new RemoteSettingsApplier(runManager, project);
   }
