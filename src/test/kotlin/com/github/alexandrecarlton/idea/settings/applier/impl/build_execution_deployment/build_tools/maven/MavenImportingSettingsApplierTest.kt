@@ -26,5 +26,4 @@ class MavenImportingSettingsApplierTest : IdeaSettingsTestFixture() {
                 .build())
         assertThat(mavenImportingSettings.vmOptionsForImporter).isEqualTo("-Xmx3g")
     }
-
 }

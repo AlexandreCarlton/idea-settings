@@ -1,3 +1,5 @@
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
+
 test_suite(
     name = "file_watchers",
     tests = [
@@ -5,9 +7,9 @@ test_suite(
     ],
 )
 
-java_test(
+kt_jvm_test(
     name = "file_watcher_settings_applier_test",
-    srcs = ["FileWatcherSettingsApplierTest.java"],
+    srcs = ["FileWatcherSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watchers.FileWatcherSettingsApplierTest",
     runtime_deps = [
         "@WebStorm//:test_runtime_deps",

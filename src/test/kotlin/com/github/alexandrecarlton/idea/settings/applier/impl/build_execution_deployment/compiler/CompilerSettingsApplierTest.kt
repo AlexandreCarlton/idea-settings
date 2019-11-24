@@ -25,13 +25,12 @@ class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier = CompilerSettingsApplier(compilerConfiguration, compilerWorkspaceConfiguration)
     }
 
-
     @Test
     fun addRuntimeAssertionsForNotnullAnnotatedMethodsAndParametersApplied() {
         settingsApplier.apply(ImmutableCompilerSettings.builder()
                 .addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters(false)
                 .build())
-        assertThat(compilerConfiguration.isAddNotNullAssertions).isFalse
+        assertThat(compilerConfiguration.isAddNotNullAssertions).isFalse()
     }
 
     @Test
@@ -47,7 +46,7 @@ class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(ImmutableCompilerSettings.builder()
                 .compileIndependentModulesInParallel(true)
                 .build())
-        assertThat(compilerWorkspaceConfiguration.PARALLEL_COMPILATION).isTrue
+        assertThat(compilerWorkspaceConfiguration.PARALLEL_COMPILATION).isTrue()
     }
 
     @Test
@@ -55,7 +54,7 @@ class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(ImmutableCompilerSettings.builder()
                 .rebuildModuleOnDependencyChange(false)
                 .build())
-        assertThat(compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE).isFalse
+        assertThat(compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE).isFalse()
     }
 
     @Test

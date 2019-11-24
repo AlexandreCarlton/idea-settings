@@ -1,8 +1,5 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment
 
-import org.assertj.core.api.Assertions.assertThat
-import org.mockito.Mockito.verify
-
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings
@@ -14,11 +11,12 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.ImmutableCompilerSettings
 import com.intellij.externalDependencies.DependencyOnPlugin
 import com.intellij.externalDependencies.ExternalDependenciesManager
-import java.util.Collections
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
+import org.mockito.Mockito.verify
 
 class BuildExecutionDeploymentSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -73,5 +71,4 @@ class BuildExecutionDeploymentSettingsApplierTest : IdeaSettingsTestFixture() {
         verify(buildToolsSettingsApplier).apply(ImmutableBuildToolsSettings.builder().build())
         verify(compilerSettingsApplier).apply(ImmutableCompilerSettings.builder().build())
     }
-
 }
