@@ -22,10 +22,15 @@ java_library(
     exports = [
         "//external:jar/com/google/dagger/dagger_compiler",
         "//third_party/maven/com/google/googlejavaformat:google_java_format",
+        "//third_party/maven/com/google/guava:failureaccess",
         "//third_party/maven/com/google/guava:guava",
         "//third_party/maven/com/squareup:javapoet",
         "//third_party/maven/javax/annotation:jsr250_api",
         "//third_party/maven/javax/inject:javax_inject",
+        "//third_party/maven/net/ltgt/gradle/incap:incap",
+        "//third_party/maven/org/checkerframework:checker_compat_qual",
+        "//third_party/maven/org/jetbrains/kotlin:kotlin_stdlib",
+        "//third_party/maven/org/jetbrains/kotlinx:kotlinx_metadata_jvm",
         ":dagger",
         ":dagger_producers",
         ":dagger_spi"
@@ -42,10 +47,15 @@ java_plugin(
     deps = [
         "//external:jar/com/google/dagger/dagger_compiler",
         "//third_party/maven/com/google/googlejavaformat:google_java_format",
+        "//third_party/maven/com/google/guava:failureaccess",
         "//third_party/maven/com/google/guava:guava",
         "//third_party/maven/com/squareup:javapoet",
         "//third_party/maven/javax/annotation:jsr250_api",
         "//third_party/maven/javax/inject:javax_inject",
+        "//third_party/maven/net/ltgt/gradle/incap:incap",
+        "//third_party/maven/org/checkerframework:checker_compat_qual",
+        "//third_party/maven/org/jetbrains/kotlin:kotlin_stdlib",
+        "//third_party/maven/org/jetbrains/kotlinx:kotlinx_metadata_jvm",
         ":dagger",
         ":dagger_producers",
         ":dagger_spi"
@@ -67,6 +77,7 @@ java_library(
     name = "dagger_producers",
     exports = [
         "//external:jar/com/google/dagger/dagger_producers",
+        "//third_party/maven/com/google/guava:failureaccess",
         "//third_party/maven/com/google/guava:guava",
         "//third_party/maven/javax/inject:javax_inject",
         "//third_party/maven/org/checkerframework:checker_compat_qual",
@@ -86,7 +97,9 @@ java_library(
     name = "dagger_spi",
     exports = [
         "//external:jar/com/google/dagger/dagger_spi",
+        "//third_party/maven/com/google/guava:failureaccess",
         "//third_party/maven/com/google/guava:guava",
+        "//third_party/maven/com/squareup:javapoet",
         "//third_party/maven/javax/inject:javax_inject",
         ":dagger",
         ":dagger_producers"

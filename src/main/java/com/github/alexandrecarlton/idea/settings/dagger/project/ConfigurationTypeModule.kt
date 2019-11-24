@@ -17,7 +17,7 @@ import java.util.function.Supplier
 import javax.inject.Named
 
 @Module
-class ConfigurationTypeModule {
+object ConfigurationTypeModule {
 
     private val LOG = Logger.getInstance(ConfigurationTypeModule::class.java)
 

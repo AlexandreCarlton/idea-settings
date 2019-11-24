@@ -37,7 +37,7 @@ import dagger.Provides
  * this way, we will not incur any [NoClassDefFoundError]s if the plugins are not loaded.
  */
 @Module
-class OptionalSettingsApplierModule {
+object OptionalSettingsApplierModule {
 
     private val LOG = Logger.getInstance(OptionalSettingsApplierModule::class.java)
 

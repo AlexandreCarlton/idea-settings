@@ -26,11 +26,11 @@ dependencies:
   com.google.dagger:
     dagger:
       lang: java
-      version: "2.21"
+      version: "2.25.2"
     dagger-compiler:
       lang: java
-      version: "2.21"
-      generatesApi: True
+      version: "2.25.2"
+      generatesApi: true
       processorClasses:
         - dagger.internal.codegen.ComponentProcessor
   com.google.guava:

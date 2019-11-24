@@ -36,7 +36,7 @@ import javax.inject.Named
  * Provides components that depend on the imported [Project].
  */
 @Module(subcomponents = [ModuleSubcomponent::class, ConfigurationSubcomponent::class])
-class ProjectModule {
+object ProjectModule {
 
     @Provides
     internal fun provideProject(@Named("project") path: String): Project =

@@ -9,7 +9,7 @@ import dagger.Provides
 import javax.inject.Named
 
 @Module
-class ConfigurationModule {
+object ConfigurationModule {
 
     @Provides
     internal fun provideRunnerAndConfigurationSettings(@Named("configuration") name: String, runManager: RunManager) =

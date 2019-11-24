@@ -8,7 +8,7 @@ import dagger.Provides
  * A [dagger.Module] for an IDEA [com.intellij.openapi.module.Module]
  */
 @dagger.Module
-class ModuleModule {
+object ModuleModule {
 
     @Provides
     internal fun provideModuleRootManager(module: Module) = ModuleRootManager.getInstance(module)

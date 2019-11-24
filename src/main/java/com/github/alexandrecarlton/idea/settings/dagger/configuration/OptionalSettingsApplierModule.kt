@@ -12,7 +12,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class OptionalSettingsApplierModule {
+object OptionalSettingsApplierModule {
 
     private val LOG = Logger.getInstance(OptionalSettingsApplierModule::class.java)
 

@@ -14,7 +14,7 @@ import java.util.function.Supplier
 import javax.inject.Named
 
 @Module
-class FileTypeModule {
+object FileTypeModule {
 
     private val LOG = Logger.getInstance(FileTypeModule::class.java)
 
