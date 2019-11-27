@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alexandrecarlton/bazel:0.23.0
+      - image: alpine:3.10.3
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -11,6 +11,13 @@ jobs:
 
       - restore_cache:
           key: circle-ci-idea-settings
+
+      - run:
+          name: Download bazelisk
+          command: |
+            apk add curl
+            curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64
+            chmod +x /usr/local/bin/bazel
 
       - run:
           name: Build idea-settings
@@ -42,4 +49,5 @@ jobs:
       - save_cache:
           paths:
             - ~/.cache/bazel
+            - ~/.cache/bazelisk
           key: circle-ci-idea-settings
