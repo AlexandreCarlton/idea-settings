@@ -17,7 +17,7 @@ jobs:
           name: Download bazelisk
           command: |
             apt update
-            apt install --yes curl pkg-config zip g++ zlib1g-dev unzip python
+            apt install --yes curl pkg-config zip g++ zlib1g-dev unzip python openjdk-8-jdk
             curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64
             chmod +x /usr/local/bin/bazel
 
