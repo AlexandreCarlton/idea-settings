@@ -3,7 +3,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alpine:3.10.3
+      # Bazel doesn't work on alpine, even if we have libc6-compat, libstdc++ and libgcc
+      - image: ubuntu:18.04
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -15,7 +16,8 @@ jobs:
       - run:
           name: Download bazelisk
           command: |
-            apk add curl
+            apt update
+            apt install --yes curl
             curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64
             chmod +x /usr/local/bin/bazel
 
