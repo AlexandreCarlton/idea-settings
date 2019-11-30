@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          key: circle-ci-idea-settings
-
       - run:
           name: Download bazelisk
           command: |
@@ -21,6 +18,9 @@ jobs:
             ln -s /usr/bin/python3.7 /usr/local/bin/python
             curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64
             chmod +x /usr/local/bin/bazel
+
+      - restore_cache:
+          key: circle-ci-idea-settings
 
       - run:
           name: Build idea-settings
