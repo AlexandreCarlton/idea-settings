@@ -15,14 +15,13 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
+import java.util.function.Supplier
 
 class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<FileWatcherSettings>
     private lateinit var projectTasksOptions: ProjectTasksOptions
-    @Mock
-    private lateinit var fileTypeMapper: FileTypeMapper
+    private val fileTypeMapper = FileTypeMapper(Supplier { JavaScriptFileType.INSTANCE })
 
     @Before
     public override fun setUp() {
@@ -32,8 +31,6 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun basicSettingsApplied() {
-        `when`(fileTypeMapper.mapFileType(FileType.JAVASCRIPT)).thenReturn(JavaScriptFileType.INSTANCE)
-
         settingsApplier.apply(ImmutableFileWatcherSettings.builder()
                 .name("Basic File Watcher")
                 .toolToRunOnChanges(ImmutableFileWatcherToolToRunOnChangesSettings.builder()

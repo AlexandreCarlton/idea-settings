@@ -1,0 +1,14 @@
+package com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling
+
+import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
+import com.intellij.spellchecker.settings.SpellCheckerSettings
+import javax.inject.Inject
+
+class SpellingSettingsApplier @Inject
+constructor(private val spellCheckerSettings: SpellCheckerSettings) : SettingsApplier<SpellingSettings> {
+
+    override fun apply(settings: SpellingSettings) {
+        spellCheckerSettings.customDictionariesPaths = settings.dictionaries().map { it.toString() }
+    }
+}

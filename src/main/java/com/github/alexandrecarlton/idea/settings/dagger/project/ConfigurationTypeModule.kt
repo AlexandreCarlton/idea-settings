@@ -49,9 +49,9 @@ object ConfigurationTypeModule {
 
     private fun provideIfLoaded(plugin: Plugin, configurationTypeSupplier: Lazy<out ConfigurationType>): Supplier<ConfigurationType> =
         if (PluginManager.isPluginInstalled(PluginId.findId(plugin.id))) {
-          Supplier { configurationTypeSupplier.get() }
+            Supplier { configurationTypeSupplier.get() }
         } else {
-          LOG.warn("Unable to use run configuration type as '" + plugin.pluginName + "' is not installed, using 'Unknown' instead.")
-          Supplier { UnknownConfigurationType.getInstance() }
+            LOG.warn("Unable to use run configuration type as '" + plugin.pluginName + "' is not installed, using 'Unknown' instead.")
+            Supplier { UnknownConfigurationType.getInstance() }
         }
 }

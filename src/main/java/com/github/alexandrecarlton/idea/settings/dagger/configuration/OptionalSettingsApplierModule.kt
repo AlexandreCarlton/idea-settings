@@ -28,5 +28,9 @@ object OptionalSettingsApplierModule {
         if (PluginManager.isPluginInstalled(PluginId.findId(plugin.id)))
             settingsApplier.get()
         else
-            SettingsApplier { LOG.warn("Unable to apply certain settings as plugin '" + plugin.pluginName + "' is not installed.") }
+            object : SettingsApplier<T> {
+                override fun apply(settings: T) {
+                    LOG.warn("Unable to apply certain settings as plugin '" + plugin.pluginName + "' is not installed.")
+                }
+            }
 }

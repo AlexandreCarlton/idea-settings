@@ -106,7 +106,7 @@ object ProjectModule {
     internal fun provideModuleManager(project: Project) = ModuleManager.getInstance(project)
 
     @Provides
-    internal fun providePluginConfigurationManager(project: Project)= PluginConfigurationManager.getInstance(project)
+    internal fun providePluginConfigurationManager(project: Project) = PluginConfigurationManager.getInstance(project)
 
     @Provides
     internal fun provideProjectRootManager(project: Project) = ProjectRootManager.getInstance(project)
