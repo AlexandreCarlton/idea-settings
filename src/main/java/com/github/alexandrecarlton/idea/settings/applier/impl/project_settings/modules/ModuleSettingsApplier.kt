@@ -14,41 +14,27 @@ constructor(private val modifiableRootModel: ModifiableRootModel) : SettingsAppl
 
     override fun apply(settings: ModuleSettings) {
         val contentEntries = listOf(*modifiableRootModel.contentEntries)
-        settings.sources().forEach { source ->
+        settings.sources?.forEach { source ->
             try {
                 val contentEntry = contentEntries
-                    .firstOrNull { c -> Paths.get(URI.create(c.url)) == source.contentRoot() }
-                    ?: modifiableRootModel.addContentEntry(source.contentRoot().toUri().toString())
+                    .firstOrNull { c -> Paths.get(URI.create(c.url)) == source.contentRoot }
+                    ?: modifiableRootModel.addContentEntry(source.contentRoot.toUri().toString())
 
-                source.sources()
-                    .stream()
-                    .map { source.contentRoot().resolve(it) }
-                    .map { it.toUri() }
-                    .map { it.toString() }
-                    .forEach { contentEntry.addSourceFolder(it, JavaSourceRootType.SOURCE) }
-                source.tests()
-                    .map { source.contentRoot().resolve(it) }
-                    .map { it.toUri() }
-                    .map { it.toString() }
-                    .forEach { contentEntry.addSourceFolder(it, JavaSourceRootType.TEST_SOURCE) }
-                source.resources()
-                    .stream()
-                    .map { source.contentRoot().resolve(it) }
-                    .map { it.toUri() }
-                    .map { it.toString() }
-                    .forEach { contentEntry.addSourceFolder(it, JavaResourceRootType.RESOURCE) }
-                source.testResources()
-                    .stream()
-                    .map { source.contentRoot().resolve(it) }
-                    .map { it.toUri() }
-                    .map { it.toString() }
-                    .forEach { contentEntry.addSourceFolder(it, JavaResourceRootType.TEST_RESOURCE) }
-                source.excluded()
-                    .stream()
-                    .map { source.contentRoot().resolve(it) }
-                    .map { it.toUri() }
-                    .map { it.toString() }
-                    .forEach { contentEntry.addExcludeFolder(it) }
+                source.sources
+                    ?.map { source.contentRoot.resolve(it) }
+                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaSourceRootType.SOURCE) }
+                source.tests
+                    ?.map { source.contentRoot.resolve(it) }
+                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaSourceRootType.TEST_SOURCE) }
+                source.resources
+                    ?.map { source.contentRoot.resolve(it) }
+                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaResourceRootType.RESOURCE) }
+                source.testResources
+                    ?.map { source.contentRoot.resolve(it) }
+                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaResourceRootType.TEST_RESOURCE) }
+                source.excluded
+                    ?.map { source.contentRoot.resolve(it) }
+                    ?.forEach { contentEntry.addExcludeFolder(it.toUri().toString()) }
             } finally {
                 modifiableRootModel.commit()
             }

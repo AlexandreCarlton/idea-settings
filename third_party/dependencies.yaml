@@ -23,6 +23,10 @@ dependencies:
         - guava
         - jdk8
       version: 2.9.8
+  com.fasterxml.jackson.module:
+    jackson-module-kotlin:
+      lang: kotlin
+      version: 2.9.8
   com.google.dagger:
     dagger:
       lang: java

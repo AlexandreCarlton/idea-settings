@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.au
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.ImmutableJavaAutoImportSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.JavaAutoImportSettings
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings
@@ -25,19 +24,16 @@ class JavaAutoImportSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun optimizeImportsOnTheFlyApplied() {
-        settingsApplier.apply(ImmutableJavaAutoImportSettings.builder()
-            .optimizeImportsOnTheFly(true)
-            .build())
+        settingsApplier.apply(JavaAutoImportSettings(optimizeImportsOnTheFly = true))
         assertThat(codeInsightWorkspaceSettings.optimizeImportsOnTheFly).isTrue()
     }
 
     @Test
     fun excludeFromImportAndCompletionApplied() {
-        settingsApplier.apply(ImmutableJavaAutoImportSettings.builder()
-            .addExcludeFromImportAndCompletion(
+        settingsApplier.apply(JavaAutoImportSettings(
+            excludeFromImportAndCompletion = listOf(
                 "com.google.inject.Inject",
-                "com.sun.istack.internal.Nullable")
-            .build())
+                "com.sun.istack.internal.Nullable")))
         assertThat(javaProjectCodeInsightSettings.excludedNames).containsExactlyInAnyOrder(
             "com.google.inject.Inject",
             "com.sun.istack.internal.Nullable")

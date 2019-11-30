@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.ImmutableSpellingSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
 import com.intellij.spellchecker.settings.SpellCheckerSettings
 import org.assertj.core.api.Assertions.assertThat
@@ -30,17 +29,13 @@ class SpellingSettingsApplierTest : IdeaSettingsTestFixture() {
     @Test
     fun dictionaryRelativeToProjectApplied() {
         val dict = Paths.get(project.basePath).resolve("dict.dic")
-        settingsApplier.apply(ImmutableSpellingSettings.builder()
-            .addDictionaries(dict)
-            .build())
+        settingsApplier.apply(SpellingSettings(dictionaries = listOf(dict)))
         assertThat(spellCheckerSettings.customDictionariesPaths).containsOnly(dict.toString())
     }
 
     @Test
     fun absoluteDictionaryApplied() {
-        settingsApplier.apply(ImmutableSpellingSettings.builder()
-            .addDictionaries(Paths.get("/tmp/dict.dic"))
-            .build())
+        settingsApplier.apply(SpellingSettings(dictionaries = listOf(Paths.get("/tmp/dict.dic"))))
         assertThat(spellCheckerSettings.customDictionariesPaths).containsOnly("/tmp/dict.dic")
     }
 }

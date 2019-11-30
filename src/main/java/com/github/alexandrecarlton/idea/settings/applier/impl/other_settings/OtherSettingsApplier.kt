@@ -10,6 +10,6 @@ class OtherSettingsApplier @Inject
 constructor(private val checkstyleSettingsApplier: SettingsApplier<CheckstyleSettings>) : SettingsApplier<OtherSettings> {
 
     override fun apply(settings: OtherSettings) {
-        settings.checkstyle().ifPresent { checkstyleSettingsApplier.apply(it) }
+        settings.checkstyle?.let(checkstyleSettingsApplier::apply)
     }
 }

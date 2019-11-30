@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.languages_framewo
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.ImmutableJavascriptSettings
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptLanguageVersion
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings
 import com.intellij.lang.javascript.dialects.JSLanguageLevel
@@ -24,9 +23,7 @@ class JavascriptSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun setLanguageToReact() {
-        settingsApplier.apply(ImmutableJavascriptSettings.builder()
-            .javascriptLanguageVersion(JavascriptLanguageVersion.REACT_JSX)
-            .build())
+        settingsApplier.apply(JavascriptSettings(javascriptLanguageVersion = JavascriptLanguageVersion.REACT_JSX))
         assertThat(jsRootConfiguration.languageLevel).isEqualTo(JSLanguageLevel.JSX)
     }
 }

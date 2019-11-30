@@ -11,7 +11,7 @@ constructor(private val javaKeepMaximumBlankLinesSettingsApplier: SettingsApplie
             private val javaMinimumBlankLinesSettingsApplier: SettingsApplier<JavaMinimumBlankLinesSettings>) : SettingsApplier<JavaBlankLinesSettings> {
 
     override fun apply(settings: JavaBlankLinesSettings) {
-        settings.keepMaximumBlankLines().ifPresent { javaKeepMaximumBlankLinesSettingsApplier.apply(it) }
-        settings.minimumBlankLines().ifPresent { javaMinimumBlankLinesSettingsApplier.apply(it) }
+        settings.keepMaximumBlankLines?.let(javaKeepMaximumBlankLinesSettingsApplier::apply)
+        settings.minimumBlankLines?.let(javaMinimumBlankLinesSettingsApplier::apply)
     }
 }

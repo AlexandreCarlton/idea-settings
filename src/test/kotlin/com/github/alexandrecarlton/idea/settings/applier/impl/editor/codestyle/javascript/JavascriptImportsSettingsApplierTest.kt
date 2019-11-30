@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.ImmutableJavascriptImportsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptImportsSettings
 import com.intellij.application.options.CodeStyle
 import com.intellij.lang.javascript.formatter.JSCodeStyleSettings
@@ -25,9 +24,7 @@ class JavascriptImportsSettingsApplierTest : IdeaSettingsTestFixture() {
     @Test
     fun usePathsRelativeToTheProjectResourceOrSourcesRootsApplied() {
         assertThat(jsCodeStyleSettings.IMPORT_PREFER_ABSOLUTE_PATH).isEqualTo(BooleanWithGlobalOption.GLOBAL)
-        javascriptImportsSettingsApplier.apply(ImmutableJavascriptImportsSettings.builder()
-            .usePathsRelativeToTheProjectResourceOrSourcesRoots(true)
-            .build())
+        javascriptImportsSettingsApplier.apply(JavascriptImportsSettings(usePathsRelativeToTheProjectResourceOrSourcesRoots = true))
         assertThat(jsCodeStyleSettings.IMPORT_PREFER_ABSOLUTE_PATH).isEqualTo(BooleanWithGlobalOption.TRUE)
     }
 }

@@ -12,7 +12,7 @@ constructor(private val javascriptSettingsApplier: SettingsApplier<JavascriptSet
             private val sqlDialectsSettingsApplier: SettingsApplier<SqlDialectsSettings>) : SettingsApplier<LanguagesFrameworksSettings> {
 
     override fun apply(settings: LanguagesFrameworksSettings) {
-        settings.javascript().ifPresent { javascriptSettingsApplier.apply(it) }
-        settings.sqlDialects().ifPresent { sqlDialectsSettingsApplier.apply(it) }
+        settings.javascript?.let(javascriptSettingsApplier::apply)
+        settings.sqlDialects?.let(sqlDialectsSettingsApplier::apply)
     }
 }

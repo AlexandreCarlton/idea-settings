@@ -2,9 +2,8 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.ImmutableJavaArrangementSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.ImmutableMatchingRule
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.JavaArrangementSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRule
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleModifier
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleOrder
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleType
@@ -33,16 +32,15 @@ class JavaArrangementSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun singleMatchingRuleApplied() {
-        settingsApplier.apply(ImmutableJavaArrangementSettings.builder()
-            .matchingRules(listOf(
-                ImmutableMatchingRule.builder()
-                    .type(MatchingRuleType.CLASS)
-                    .addModifier(MatchingRuleModifier.FINAL)
-                    .addModifier(MatchingRuleModifier.NOT_ABSTRACT)
-                    .name("First Rule")
-                    .order(MatchingRuleOrder.ORDER_BY_NAME)
-                    .build()))
-            .build())
+        settingsApplier.apply(JavaArrangementSettings(
+            matchingRules = listOf(
+                MatchingRule(
+                    type = MatchingRuleType.CLASS,
+                    modifier = listOf(
+                        MatchingRuleModifier.FINAL,
+                        MatchingRuleModifier.NOT_ABSTRACT),
+                    name = "First Rule",
+                    order = MatchingRuleOrder.ORDER_BY_NAME))))
 
         val collector = AtomMatchConditionCollector()
         val matchRules = commonCodeStyleSettings.arrangementSettings!!

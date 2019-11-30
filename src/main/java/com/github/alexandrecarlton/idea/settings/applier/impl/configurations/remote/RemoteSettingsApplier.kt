@@ -13,13 +13,9 @@ constructor(private val runManager: RunManager, private val project: Project) : 
 
     override fun apply(settings: RemoteSettings) {
         val remoteConfiguration = RemoteConfiguration(project, RemoteConfigurationType())
-        remoteConfiguration.name = settings.name()
-        settings.configuration()
-            .flatMap { it.host() }
-            .ifPresent { host -> remoteConfiguration.HOST = host }
-        settings.configuration()
-            .flatMap { it.port() }
-            .ifPresent { port -> remoteConfiguration.PORT = port.toString() }
+        remoteConfiguration.name = settings.name
+        settings.configuration?.host?.let { remoteConfiguration.HOST = it }
+        settings.configuration?.port?.let { remoteConfiguration.PORT = it.toString() }
         val runnerAndConfigurationSettings = runManager.createConfiguration(remoteConfiguration, RemoteConfigurationType())
         runManager.addConfiguration(runnerAndConfigurationSettings)
     }

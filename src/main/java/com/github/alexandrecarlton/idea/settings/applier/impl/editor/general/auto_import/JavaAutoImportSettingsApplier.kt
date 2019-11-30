@@ -12,8 +12,8 @@ constructor(private val codeInsightWorkspaceSettings: CodeInsightWorkspaceSettin
             private val javaProjectCodeInsightSettings: JavaProjectCodeInsightSettings) : SettingsApplier<JavaAutoImportSettings> {
 
     override fun apply(settings: JavaAutoImportSettings) {
-        settings.optimizeImportsOnTheFly().ifPresent { codeInsightWorkspaceSettings.optimizeImportsOnTheFly = it }
+        settings.optimizeImportsOnTheFly?.let { codeInsightWorkspaceSettings.optimizeImportsOnTheFly = it }
 
-        javaProjectCodeInsightSettings.excludedNames = settings.excludeFromImportAndCompletion()
+        settings.excludeFromImportAndCompletion?.let { javaProjectCodeInsightSettings.excludedNames = it }
     }
 }

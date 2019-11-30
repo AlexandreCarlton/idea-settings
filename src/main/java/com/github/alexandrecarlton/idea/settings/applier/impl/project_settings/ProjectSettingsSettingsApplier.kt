@@ -19,20 +19,16 @@ constructor(
 : SettingsApplier<ProjectSettingsSettings> {
 
     override fun apply(settings: ProjectSettingsSettings) {
-        for (moduleSettings in settings.modules()) {
-            var module = moduleManager.findModuleByName(moduleSettings.name())
+        for (moduleSettings in settings.modules ?: emptyList()) {
+            var module = moduleManager.findModuleByName(moduleSettings.name)
             if (module == null) {
-                val moduleFile = moduleSettings.sources()
-                    .stream()
-                    .findFirst()
-                    .map { it.contentRoot() }
-                    .orElse(Paths.get(project.basePath))
-                    .resolve(moduleSettings.name() + ".iml")
+                val moduleFile = (moduleSettings.sources?.firstOrNull()?.contentRoot ?: Paths.get(project.basePath))
+                    .resolve("${moduleSettings.name}.iml")
                 module = moduleManager.newModule(moduleFile.toString(), ModuleTypeId.JAVA_MODULE)
             }
             val moduleSubcomponent = moduleSubcomponentBuilder.module(module).build()
             moduleSubcomponent.settingsApplier().apply(moduleSettings)
         }
-        settings.project().ifPresent { projectSettingsApplier.apply(it) }
+        settings.project?.let(projectSettingsApplier::apply)
     }
 }

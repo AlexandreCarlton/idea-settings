@@ -2,8 +2,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.re
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.ImmutableRemoteConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.ImmutableRemoteSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings
 import com.intellij.execution.RunManager
 import com.intellij.execution.remote.RemoteConfiguration
@@ -24,22 +23,14 @@ class RemoteSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun defaultRemoteApplied() {
-        settingsApplier.apply(ImmutableRemoteSettings.builder()
-                .name("Default Remote")
-                .build())
+        settingsApplier.apply(RemoteSettings(name = "Default Remote"))
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Default Remote")
-        assertThat(runnerAndConfigurationSettings).isNotNull
+        assertThat(runnerAndConfigurationSettings).isNotNull()
     }
 
     @Test
     fun customRemoteApplied() {
-        settingsApplier.apply(ImmutableRemoteSettings.builder()
-                .name("Configured Remote")
-                .configuration(ImmutableRemoteConfigurationSettings.builder()
-                        .host("8.8.8.8")
-                        .port(5000)
-                        .build())
-                .build())
+        settingsApplier.apply(RemoteSettings(name = "Configured Remote", configuration = RemoteConfigurationSettings(host = "8.8.8.8", port = 5000)))
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Configured Remote")
         assertThat(runnerAndConfigurationSettings).isNotNull
         assertThat(runnerAndConfigurationSettings!!.configuration).isInstanceOf(RemoteConfiguration::class.java)

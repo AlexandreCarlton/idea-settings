@@ -61,9 +61,7 @@ class SqlDialectsSettingsApplier @Inject
 constructor(private val project: Project, private val sqlDialectMappings: SqlDialectMappings) : SettingsApplier<SqlDialectsSettings> {
 
     override fun apply(settings: SqlDialectsSettings) {
-        settings.projectSqlDialect()
-            .map { toSqlLanguageDialect(it) }
-            .ifPresent { sqlDialectMappings.setMapping(project.projectFile, it) }
+        settings.projectSqlDialect?.let { sqlDialectMappings.setMapping(project.projectFile, toSqlLanguageDialect(it)) }
     }
 
     private fun toSqlLanguageDialect(sqlDialect: SqlDialect) =

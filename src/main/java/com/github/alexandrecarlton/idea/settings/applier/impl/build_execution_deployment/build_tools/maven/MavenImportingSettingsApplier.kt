@@ -11,7 +11,7 @@ constructor(private val mavenImportingSettings: org.jetbrains.idea.maven.project
         // Setting this to true causes IntelliJ IDEA to hang.
         // The method itself fires off listeners, but even if we set this reflectively, it still
         // prevents us from shutting down.
-//        settings.importMavenProjectsAutomatically().ifPresent { mavenImportingSettings.isImportAutomatically = it }
-        settings.vmOptionsForImporter().ifPresent { mavenImportingSettings.vmOptionsForImporter = it }
+        // :wsettings.importMavenProjectsAutomatically?.let { mavenImportingSettings.isImportAutomatically = it }
+        settings.vmOptionsForImporter?.let { mavenImportingSettings.vmOptionsForImporter = it }
     }
 }

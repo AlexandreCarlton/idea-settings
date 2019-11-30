@@ -18,6 +18,7 @@ import org.infernus.idea.checkstyle.model.ScanScope
 import java.net.MalformedURLException
 import java.net.URL
 import java.nio.file.Paths
+import java.util.Collections.emptySortedSet
 import javax.inject.Inject
 
 class CheckstyleSettingsApplier @Inject
@@ -32,28 +33,20 @@ constructor(
 
     override fun apply(settings: CheckstyleSettings) {
         val builder = PluginConfigurationBuilder.from(pluginConfigurationManager.current)
-        settings.checkstyleVersion().ifPresent { builder.withCheckstyleVersion(it) }
-        settings.scanScope().map { toScanScope(it) }
-            .ifPresent{ builder.withScanScope(it) }
-        settings.treatCheckstyleErrorsAsWarnings().ifPresent { builder.withSuppressErrors(it) }
-        builder.withLocations(settings.configurationFiles()
-            .map { toConfigurationLocation(it) }
-            .toSortedSet())
-        settings.configurationFiles()
-            .stream()
-            .filter { it.active() }
-            .map{ toConfigurationLocation(it) }
-            .findFirst()
-            .ifPresent{ builder.withActiveLocation(it) }
+        settings.checkstyleVersion?.let { builder.withCheckstyleVersion(it) }
+        settings.scanScope?.let { builder.withScanScope(toScanScope(it)) }
+        settings.treatCheckstyleErrorsAsWarnings?.let { builder.withSuppressErrors(it) }
+        builder.withLocations(settings.configurationFiles?.map { toConfigurationLocation(it) }?.toSortedSet() ?: emptySortedSet())
+        settings.configurationFiles?.firstOrNull { it.active }?.let { builder.withActiveLocation(toConfigurationLocation(it)) }
         pluginConfigurationManager.setCurrent(builder.build(), true)
     }
 
     private fun toConfigurationLocation(configurationFile: CheckstyleConfigurationFile) =
         ConfigurationLocationFactory().create(
             project,
-            toConfigurationType(configurationFile.file()),
-            toLocation(configurationFile.file()),
-            configurationFile.description())
+            toConfigurationType(configurationFile.file),
+            toLocation(configurationFile.file),
+            configurationFile.description)
 
     private fun toLocation(location: String) =
         if (location == BUNDLED_LOCATION || isURL(location) || Paths.get(location).isAbsolute) {

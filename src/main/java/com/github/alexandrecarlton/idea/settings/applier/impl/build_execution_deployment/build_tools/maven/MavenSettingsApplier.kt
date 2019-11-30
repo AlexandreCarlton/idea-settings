@@ -12,10 +12,7 @@ constructor(
     private val mavenImportingSettingsApplier: SettingsApplier<MavenImportingSettings>) : SettingsApplier<MavenSettings> {
 
     override fun apply(settings: MavenSettings) {
-        settings.importing().ifPresent { mavenImportingSettingsApplier.apply(it) }
-        settings.mavenHomeDirectory()
-            .map { it.toAbsolutePath() }
-            .map { it.toString() }
-            .ifPresent { mavenGeneralSettings.mavenHome = it }
+        settings.importing?.let(mavenImportingSettingsApplier::apply)
+        settings.mavenHomeDirectory?.let { mavenGeneralSettings.mavenHome = it.toAbsolutePath().toString() }
     }
 }

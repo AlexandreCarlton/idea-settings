@@ -17,10 +17,10 @@ constructor(private val javaArrangementSettingsApplier: SettingsApplier<JavaArra
             private val javaWrappingAndBracesSettingsApplier: SettingsApplier<JavaWrappingAndBracesSettings>) : SettingsApplier<JavaCodeStyleSettings> {
 
     override fun apply(settings: JavaCodeStyleSettings) {
-        settings.arrangement().ifPresent { javaArrangementSettingsApplier.apply(it) }
-        settings.blankLines().ifPresent { javaBlankLinesSettingsApplier.apply(it) }
-        settings.imports().ifPresent { javaImportsSettingsApplier.apply(it) }
-        settings.javadoc().ifPresent { javadocSettingsApplier.apply(it) }
-        settings.wrappingAndBraces().ifPresent { javaWrappingAndBracesSettingsApplier.apply(it) }
+        settings.arrangement?.let(javaArrangementSettingsApplier::apply)
+        settings.blankLines?.let(javaBlankLinesSettingsApplier::apply)
+        settings.imports?.let(javaImportsSettingsApplier::apply)
+        settings.javadoc?.let(javadocSettingsApplier::apply)
+        settings.wrappingAndBraces?.let(javaWrappingAndBracesSettingsApplier::apply)
     }
 }

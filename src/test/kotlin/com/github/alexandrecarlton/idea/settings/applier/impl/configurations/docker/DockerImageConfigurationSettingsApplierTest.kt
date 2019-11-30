@@ -5,10 +5,9 @@ import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixtur
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerPortBindingProtocol
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerPublishToHostInterface
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerEnvironmentVariable
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerExecutableSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerImageConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerPortBinding
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerExecutableSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerPortBinding
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
 import com.intellij.docker.agent.settings.DockerEnvVarImpl
@@ -34,93 +33,73 @@ class DockerImageConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun imageIdApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Image ID")
-                .imageId("hello-world")
-                .build())
+        settingsApplier.apply(DockerImageConfigurationSettings(name = "Image ID", imageId = "hello-world"))
         assertThat(getDockerDeploymentConfiguration("Image ID").imageTag).isEqualTo("hello-world")
     }
 
     @Test
     fun containerNameApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Container Name")
-                .containerName("container-name")
-                .build())
+        settingsApplier.apply(DockerImageConfigurationSettings(name = "Container Name", containerName = "container-name"))
         assertThat(getDockerDeploymentConfiguration("Container Name").containerName).isEqualTo("container-name")
     }
 
     @Test
     fun publishtToHostInterfaceApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Publish all")
-                .publishExposedPortsToTheHostInterfaces(DockerPublishToHostInterface.ALL)
-                .build())
+        settingsApplier.apply(DockerImageConfigurationSettings(
+            name = "Publish all",
+            publishExposedPortsToTheHostInterfaces = DockerPublishToHostInterface.ALL))
         assertThat(getDockerDeploymentConfiguration("Publish all").isPublishAllPorts).isTrue()
     }
 
     @Test
     fun executableApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Executable")
-                .executable(ImmutableDockerExecutableSettings.builder()
-                        .command("command")
-                        .entrypoint("/bin/entrypoint")
-                        .build())
-                .build())
+        settingsApplier.apply(DockerImageConfigurationSettings(
+            name = "Executable",
+            executable = DockerExecutableSettings(
+                command = "command",
+                entrypoint = "/bin/entrypoint")))
         assertThat(getDockerDeploymentConfiguration("Executable").entrypoint).isEqualTo("/bin/entrypoint")
         assertThat(getDockerDeploymentConfiguration("Executable").command).isEqualTo("command")
     }
 
     @Test
     fun portBindingApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Port Binding")
-                .bindPorts(listOf(
-                        ImmutableDockerPortBinding.builder()
-                                .containerPort(1234)
-                                .hostPort(5678)
-                                .hostIp("1.2.3.4")
-                                .protocol(DockerPortBindingProtocol.TCP)
-                                .build()))
-                .build())
-        val expectedDockerPortBindingImpl = DockerPortBindingImpl()
-        expectedDockerPortBindingImpl.containerPort = 1234
-        expectedDockerPortBindingImpl.hostPort = 5678
-        expectedDockerPortBindingImpl.hostIp = "1.2.3.4"
-        expectedDockerPortBindingImpl.protocol = "tcp"
+        settingsApplier.apply(DockerImageConfigurationSettings(
+                name ="Port Binding",
+                bindPorts = listOf(DockerPortBinding(
+                    containerPort = 1234,
+                    hostPort = 5678,
+                    hostIp = "1.2.3.4",
+                    protocol = DockerPortBindingProtocol.TCP))))
+        val expectedDockerPortBindingImpl = DockerPortBindingImpl().apply {
+            containerPort = 1234
+            hostPort = 5678
+            hostIp = "1.2.3.4"
+            protocol = "tcp"
+        }
         assertThat(getDockerDeploymentConfiguration("Port Binding").portBindings)
                 .containsExactly(expectedDockerPortBindingImpl)
     }
 
     @Test
     fun environmentVariablesApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Environment Variables")
-                .environmentVariables(listOf(
-                        ImmutableDockerEnvironmentVariable.builder()
-                                .name("name")
-                                .value("value")
-                                .build()))
-                .build())
+        settingsApplier.apply(DockerImageConfigurationSettings(
+                name = "Environment Variables",
+                environmentVariables = listOf(DockerEnvironmentVariable(
+                    name = "name", value = "value"))))
         assertThat(getDockerDeploymentConfiguration("Environment Variables").envVars)
                 .containsExactly(DockerEnvVarImpl("name", "value"))
     }
 
     @Test
     fun runOptionsApplied() {
-        settingsApplier.apply(ImmutableDockerImageConfigurationSettings.builder()
-                .name("Run Options")
-                .runOptions("--rm -it")
-                .build())
-        assertThat(getDockerDeploymentConfiguration("Run Options").runCliOptions)
-                .isEqualTo("--rm -it")
+        settingsApplier.apply(DockerImageConfigurationSettings(name = "Run Options", runOptions = "--rm -it"))
+        assertThat(getDockerDeploymentConfiguration("Run Options").runCliOptions).isEqualTo("--rm -it")
     }
 
     private fun getDockerDeploymentConfiguration(name: String): DockerDeploymentConfiguration {
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName(name)
-        assertThat(runnerAndConfigurationSettings).isNotNull()
-        val deployToServerRunConfiguration = runnerAndConfigurationSettings!!.configuration as DeployToServerRunConfiguration<*, *>
+        val runnerAndConfigurationSettings = runManager.findConfigurationByName(name)!!
+        val deployToServerRunConfiguration = runnerAndConfigurationSettings.configuration as DeployToServerRunConfiguration<*, *>
         return deployToServerRunConfiguration.deploymentConfiguration as DockerDeploymentConfiguration
     }
 }

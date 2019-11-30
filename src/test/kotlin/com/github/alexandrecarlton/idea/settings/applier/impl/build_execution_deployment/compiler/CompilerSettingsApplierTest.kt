@@ -3,8 +3,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_d
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.ImmutableCompilerSettings
-import com.google.common.collect.ImmutableList
 import com.intellij.compiler.CompilerConfiguration
 import com.intellij.compiler.CompilerConfigurationImpl
 import com.intellij.compiler.CompilerWorkspaceConfiguration
@@ -27,48 +25,37 @@ class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun addRuntimeAssertionsForNotnullAnnotatedMethodsAndParametersApplied() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters(false)
-                .build())
+        settingsApplier.apply(CompilerSettings(addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters = false))
         assertThat(compilerConfiguration.isAddNotNullAssertions).isFalse()
     }
 
     @Test
     fun buildProcessHeapSizeApplied() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .buildProcessHeapSizeMbytes(1234)
-                .build())
+        settingsApplier.apply(CompilerSettings(buildProcessHeapSizeMbytes = 1234))
         assertThat(compilerConfiguration.getBuildProcessHeapSize(0)).isEqualTo(1234)
     }
 
     @Test
     fun compileIndependentModulesInParallel() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .compileIndependentModulesInParallel(true)
-                .build())
+        settingsApplier.apply(CompilerSettings(compileIndependentModulesInParallel = true))
         assertThat(compilerWorkspaceConfiguration.PARALLEL_COMPILATION).isTrue()
     }
 
     @Test
     fun rebuildModuleOnDependencyChange() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .rebuildModuleOnDependencyChange(false)
-                .build())
+        settingsApplier.apply(CompilerSettings(rebuildModuleOnDependencyChange = false))
         assertThat(compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE).isFalse()
     }
 
     @Test
     fun sharedBuildProcessVmOptions() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .sharedBuildProcessVmOptions("-Xms1g")
-                .build())
+        settingsApplier.apply(CompilerSettings(sharedBuildProcessVmOptions = "-Xms1g"))
         assertThat(compilerConfiguration.buildProcessVMOptions).isEqualTo("-Xms1g")
     }
 
     @Test
     fun resourcePatternsIfNotSetAreDefaults() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .build())
+        settingsApplier.apply(CompilerSettings())
         assertThat(compilerConfiguration).isInstanceOf(CompilerConfigurationImpl::class.java)
         val compilerConfigurationImpl = compilerConfiguration as CompilerConfigurationImpl
         assertThat(compilerConfigurationImpl.resourceFilePatterns).contains("!?*.java")
@@ -76,9 +63,7 @@ class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun resourcePatterns() {
-        settingsApplier.apply(ImmutableCompilerSettings.builder()
-                .resourcePatterns(ImmutableList.of("resource.properties"))
-                .build())
+        settingsApplier.apply(CompilerSettings(resourcePatterns = listOf("resource.properties")))
         assertThat(compilerConfiguration).isInstanceOf(CompilerConfigurationImpl::class.java)
         val compilerConfigurationImpl = compilerConfiguration as CompilerConfigurationImpl
         assertThat(compilerConfigurationImpl.resourceFilePatterns).containsExactly("resource.properties")

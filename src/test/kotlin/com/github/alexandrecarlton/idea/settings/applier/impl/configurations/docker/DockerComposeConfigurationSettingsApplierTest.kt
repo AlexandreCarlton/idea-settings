@@ -2,10 +2,9 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.do
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerComposeConfigurationOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerComposeConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.ImmutableDockerEnvironmentVariable
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
 import com.intellij.docker.agent.settings.DockerEnvVarImpl
@@ -31,23 +30,20 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
 
     @Test
     fun servicesApplied() {
-        settingsApplier.apply(ImmutableDockerComposeConfigurationSettings.builder()
-                .name("Docker Compose Services")
-                .services(listOf("service1"))
-                .build())
-        assertThat(getDockerDeploymentConfiguration("Docker Compose Services").services)
-                .containsExactly("service1")
+        settingsApplier.apply(DockerComposeConfigurationSettings(
+            name = "Docker Compose Services",
+            services = listOf("service1")))
+        assertThat(getDockerDeploymentConfiguration("Docker Compose Services").services).containsExactly("service1")
     }
 
     @Test
     fun composeFilesApplied() {
-        settingsApplier.apply(ImmutableDockerComposeConfigurationSettings.builder()
-                .name("Docker Compose Files")
-                .composeFiles(listOf(
-                        Paths.get(project.basePath).resolve("docker-compose.yml"),
-                        Paths.get(project.basePath).resolve("docker-compose-2.yml"),
-                        Paths.get(project.basePath).resolve("docker-compose-3.yml")))
-                .build())
+        settingsApplier.apply(DockerComposeConfigurationSettings(
+            name = "Docker Compose Files",
+            composeFiles = listOf(
+                Paths.get(project.basePath).resolve("docker-compose.yml"),
+                Paths.get(project.basePath).resolve("docker-compose-2.yml"),
+                Paths.get(project.basePath).resolve("docker-compose-3.yml"))))
         assertThat(getDockerDeploymentConfiguration("Docker Compose Files").sourceFilePath)
                 .isEqualTo(Paths.get(project.basePath).resolve("docker-compose.yml").toString())
         assertThat(getDockerDeploymentConfiguration("Docker Compose Files").secondarySourceFiles)
@@ -58,26 +54,19 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
 
     @Test
     fun environmentVariablesApplied() {
-        settingsApplier.apply(ImmutableDockerComposeConfigurationSettings.builder()
-                .name("Docker Compose Environment Variables")
-                .environmentVariables(listOf(
-                        ImmutableDockerEnvironmentVariable.builder()
-                                .name("name")
-                                .value("value")
-                                .build()))
-                .build())
+        settingsApplier.apply(DockerComposeConfigurationSettings(
+            name = "Docker Compose Environment Variables",
+            environmentVariables = listOf(DockerEnvironmentVariable(name = "name", value = "value"))))
         assertThat(getDockerDeploymentConfiguration("Docker Compose Environment Variables").envVars)
                 .containsExactly(DockerEnvVarImpl("name", "value"))
     }
 
     @Test
     fun forceBuildApplied() {
-        settingsApplier.apply(ImmutableDockerComposeConfigurationSettings.builder()
-                .name("Docker Compose Force Build")
-                .options(ImmutableDockerComposeConfigurationOptionsSettings.builder()
-                        .buildForceBuildImages(true)
-                        .build())
-                .build())
+        settingsApplier.apply(DockerComposeConfigurationSettings(
+            name = "Docker Compose Force Build",
+            options = DockerComposeConfigurationOptionsSettings(
+                buildForceBuildImages = true)))
         assertThat(getDockerDeploymentConfiguration("Docker Compose Force Build").runCliOptions)
                 .isEqualTo("--build")
     }

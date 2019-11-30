@@ -25,28 +25,20 @@ constructor(
     override fun apply(settings: DockerImageConfigurationSettings) {
 
         val dockerDeploymentConfiguration = DockerDeploymentConfiguration()
-        settings.imageId().ifPresent { dockerDeploymentConfiguration.imageTag = it }
-        settings.containerName().ifPresent { dockerDeploymentConfiguration.containerName = it }
-        settings.publishExposedPortsToTheHostInterfaces()
-            .map { this.toPublishAllPorts(it) }
-            .ifPresent { dockerDeploymentConfiguration.isPublishAllPorts = it }
-        settings.executable().flatMap { it.entrypoint() }
-            .ifPresent { dockerDeploymentConfiguration.entrypoint = it }
-        settings.executable().flatMap { it.command() }
-            .ifPresent { dockerDeploymentConfiguration.command = it }
-        settings.bindPorts().ifPresent { bindings ->
-            dockerDeploymentConfiguration.portBindings = bindings.map { this.toDockerPortBindingImpl(it) }
-        }
-        settings.environmentVariables().ifPresent { variables ->
-            dockerDeploymentConfiguration.envVars = variables.map { this.toDockerEnvVarImpl(it) }
-        }
-        settings.runOptions().ifPresent { dockerDeploymentConfiguration.runCliOptions = it }
+        settings.imageId?.let { dockerDeploymentConfiguration.imageTag = it }
+        settings.containerName?.let { dockerDeploymentConfiguration.containerName = it }
+        settings.publishExposedPortsToTheHostInterfaces?.let { dockerDeploymentConfiguration.isPublishAllPorts = toPublishAllPorts(it) }
+        settings.executable?.entrypoint?.let { dockerDeploymentConfiguration.entrypoint = it }
+        settings.executable?.command?.let { dockerDeploymentConfiguration.command = it }
+        settings.bindPorts?.let { dockerDeploymentConfiguration.portBindings = it.map(::toDockerPortBindingImpl) }
+        settings.environmentVariables?.let { dockerDeploymentConfiguration.envVars = it.map(::toDockerEnvVarImpl) }
+        settings.runOptions?.let { dockerDeploymentConfiguration.runCliOptions = it }
 
         val runnerAndConfigurationSettings = dockerRunConfigurationCreator.createConfiguration(
             DockerImageDeploymentSourceType.getInstance().singletonSource,
             dockerDeploymentConfiguration,
             null)
-        runnerAndConfigurationSettings.name = settings.name()
+        runnerAndConfigurationSettings.name = settings.name
         runManager.addConfiguration(runnerAndConfigurationSettings)
     }
 
@@ -58,17 +50,17 @@ constructor(
 
     private fun toDockerPortBindingImpl(dockerPortBinding: DockerPortBinding): DockerPortBindingImpl {
         val dockerPortBindingImpl = DockerPortBindingImpl()
-        dockerPortBinding.hostPort().ifPresent { dockerPortBindingImpl.hostPort = it }
-        dockerPortBinding.containerPort().ifPresent { dockerPortBindingImpl.containerPort = it }
-        dockerPortBinding.hostIp().ifPresent { dockerPortBindingImpl.hostIp = it }
-        dockerPortBinding.protocol().map { this.toProtocolString(it) }.ifPresent { dockerPortBindingImpl.protocol = it }
+        dockerPortBinding.hostPort?.let { dockerPortBindingImpl.hostPort = it }
+        dockerPortBinding.containerPort?.let { dockerPortBindingImpl.containerPort = it }
+        dockerPortBinding.hostIp?.let { dockerPortBindingImpl.hostIp = it }
+        dockerPortBinding.protocol?.let { dockerPortBindingImpl.protocol = toProtocolString(it) }
         return dockerPortBindingImpl
     }
 
     private fun toDockerEnvVarImpl(dockerEnvironmentVariable: DockerEnvironmentVariable): DockerEnvVarImpl {
         val dockerEnvVarImpl = DockerEnvVarImpl()
-        dockerEnvironmentVariable.name().ifPresent { dockerEnvVarImpl.name = it }
-        dockerEnvironmentVariable.value().ifPresent { dockerEnvVarImpl.value = it }
+        dockerEnvironmentVariable.name?.let { dockerEnvVarImpl.name = it }
+        dockerEnvironmentVariable.value?.let { dockerEnvVarImpl.value = it }
         return dockerEnvVarImpl
     }
 

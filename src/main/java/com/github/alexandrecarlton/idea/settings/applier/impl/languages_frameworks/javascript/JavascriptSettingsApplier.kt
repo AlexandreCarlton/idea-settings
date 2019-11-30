@@ -18,9 +18,7 @@ class JavascriptSettingsApplier @Inject
 constructor(private val jsRootConfiguration: JSRootConfiguration) : SettingsApplier<JavascriptSettings> {
 
     override fun apply(settings: JavascriptSettings) {
-        settings.javascriptLanguageVersion()
-            .map { toJSLanguageLevel(it) }
-            .ifPresent { jsRootConfiguration.storeLanguageLevelAndUpdateCaches(it) }
+        settings.javascriptLanguageVersion?.let { jsRootConfiguration.storeLanguageLevelAndUpdateCaches(toJSLanguageLevel(it)) }
     }
 
     private fun toJSLanguageLevel(version: JavascriptLanguageVersion) =

@@ -24,12 +24,12 @@ constructor(
 : SettingsApplier<IdeaSettings> {
 
     override fun apply(settings: IdeaSettings) {
-        settings.buildExecutionDeployment().ifPresent{ buildExecutionDeploymentSettingsApplier.apply(it) }
-        settings.configurations().forEach { configurationsSettingsApplier.apply(it) }
-        settings.editor().ifPresent { editorSettingsApplier.apply(it) }
-        settings.languagesFrameworks().ifPresent { languagesFrameworksSettingsApplier.apply(it) }
-        settings.otherSettings().ifPresent { otherSettingsApplier.apply(it) }
-        settings.projectSettings().ifPresent { projectSettingsSettingsApplier.apply(it) }
-        settings.tools().ifPresent { toolsSettingsApplier.apply(it) }
+        settings.buildExecutionDeployment?.let(buildExecutionDeploymentSettingsApplier::apply)
+        settings.configurations?.forEach(configurationsSettingsApplier::apply)
+        settings.editor?.let(editorSettingsApplier::apply)
+        settings.languagesFrameworks?.let(languagesFrameworksSettingsApplier::apply)
+        settings.otherSettings?.let(otherSettingsApplier::apply)
+        settings.projectSettings?.let(projectSettingsSettingsApplier::apply)
+        settings.tools?.let(toolsSettingsApplier::apply)
     }
 }

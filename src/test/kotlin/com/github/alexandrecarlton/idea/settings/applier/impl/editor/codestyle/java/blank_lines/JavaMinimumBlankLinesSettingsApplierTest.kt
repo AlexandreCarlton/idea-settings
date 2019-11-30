@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.ImmutableJavaMinimumBlankLinesSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaMinimumBlankLinesSettings
 import com.intellij.application.options.CodeStyle
 import com.intellij.lang.java.JavaLanguage
@@ -28,113 +27,85 @@ class JavaMinimumBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun minimumBlankLinesBeforePackageStatement() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .beforePackageStatement(10)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(beforePackageStatement = 10))
         assertThat(commonCodeStyleSettings.BLANK_LINES_BEFORE_PACKAGE).isEqualTo(10)
     }
 
     @Test
     fun minimumBlankLinesAfterPackageStatement() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .afterPackageStatement(11)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(afterPackageStatement = 11))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AFTER_PACKAGE).isEqualTo(11)
     }
 
     @Test
     fun minimumBlankLinesBeforeImports() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .beforeImports(12)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(beforeImports = 12))
         assertThat(commonCodeStyleSettings.BLANK_LINES_BEFORE_IMPORTS).isEqualTo(12)
     }
 
     @Test
     fun minimumBlankLinesAfterImports() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .afterImports(13)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(afterImports = 13))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AFTER_IMPORTS).isEqualTo(13)
     }
 
     @Test
     fun minimumBlankLinesAroundClass() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .aroundClass(14)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(aroundClass = 14))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AROUND_CLASS).isEqualTo(14)
     }
 
     @Test
     fun minimumBlankLinesAfterClassHeader() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .afterClassHeader(15)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(afterClassHeader = 15))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AFTER_CLASS_HEADER).isEqualTo(15)
     }
 
     @Test
     fun minimumBlankLinesBeforeClassEnd() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .beforeClassEnd(16)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(beforeClassEnd = 16))
         assertThat(commonCodeStyleSettings.BLANK_LINES_BEFORE_CLASS_END).isEqualTo(16)
     }
 
     @Test
     fun minimumBlankLinesAfterAnonymousClassHeader() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .afterAnonymousClassHeader(17)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(afterAnonymousClassHeader = 17))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AFTER_ANONYMOUS_CLASS_HEADER).isEqualTo(17)
     }
 
     @Test
     fun minimumBlankLinesAroundFieldInInterface() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .aroundFieldInInterface(18)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(aroundFieldInInterface = 18))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AROUND_FIELD_IN_INTERFACE).isEqualTo(18)
     }
 
     @Test
     fun minimumBlankLinesAroundField() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .aroundField(19)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(aroundField = 19))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AROUND_FIELD).isEqualTo(19)
     }
 
     @Test
     fun minimumBlankLinesAroundMethodInInterface() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .aroundMethodInInterface(20)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(aroundMethodInInterface = 20))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AROUND_METHOD_IN_INTERFACE).isEqualTo(20)
     }
 
     @Test
     fun minimumBlankLinesAroundMethod() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .aroundMethod(21)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(aroundMethod = 21))
         assertThat(commonCodeStyleSettings.BLANK_LINES_AROUND_METHOD).isEqualTo(21)
     }
 
     @Test
     fun minimumBlankLinesBeforeMethodBody() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .beforeMethodBody(22)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(beforeMethodBody = 22))
         assertThat(commonCodeStyleSettings.BLANK_LINES_BEFORE_METHOD_BODY).isEqualTo(22)
     }
 
     @Test
     fun minimumBlankLinesAroundInitializer() {
-        settingsApplier.apply(ImmutableJavaMinimumBlankLinesSettings.builder()
-            .aroundInitializer(23)
-            .build())
+        settingsApplier.apply(JavaMinimumBlankLinesSettings(aroundInitializer = 23))
         assertThat(javaCodeStyleSettings.BLANK_LINES_AROUND_INITIALIZER).isEqualTo(23)
     }
 }

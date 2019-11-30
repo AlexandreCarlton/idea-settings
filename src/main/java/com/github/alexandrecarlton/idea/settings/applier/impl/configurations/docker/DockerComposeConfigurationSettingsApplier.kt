@@ -19,47 +19,36 @@ constructor(private val dockerRunConfigurationCreator: DockerRunConfigurationCre
         val dockerComposeDeploymentSourceType = DockerComposeDeploymentSourceType.getInstance()
         val dockerDeploymentConfiguration = DockerDeploymentConfiguration()
 
-        settings.services()
-            .ifPresent { dockerDeploymentConfiguration.services = it }
+        settings.services?.let { dockerDeploymentConfiguration.services = it }
 
-        settings.composeFiles()
-            .map { composeFiles ->
+        settings.composeFiles
+            ?.let { composeFiles ->
                 composeFiles
                     .map { it.toAbsolutePath() }
                     .map { it.toString() }
             }
-            .flatMap { composeFiles ->
-                if (composeFiles.isEmpty())
-                    Optional.empty()
-                else
-                    Optional.of(composeFiles)
-            }
-            .ifPresent { composeFiles ->
+            ?.let { composeFiles -> if (composeFiles.isNotEmpty()) composeFiles else null }
+            ?.let { composeFiles ->
                 dockerDeploymentConfiguration.sourceFilePath = composeFiles[0]
                 dockerDeploymentConfiguration.secondarySourceFiles = composeFiles.subList(1, composeFiles.size)
             }
 
-        settings.environmentVariables().ifPresent { variables ->
-            dockerDeploymentConfiguration.envVars = variables
-                .map { this.toDockerEnvVarImpl(it) }
-        }
+        settings.environmentVariables?.let { variables -> dockerDeploymentConfiguration.envVars = variables.map { toDockerEnvVarImpl(it) } }
 
-        settings.options()
-            .flatMap { it.buildForceBuildImages() }
-            .ifPresent { dockerComposeDeploymentSourceType.applyForceBuild(dockerDeploymentConfiguration, it) }
+        settings.options?.buildForceBuildImages?.let { dockerComposeDeploymentSourceType.applyForceBuild(dockerDeploymentConfiguration, it) }
 
         val runnerAndConfigurationSettings = dockerRunConfigurationCreator.createConfiguration(
             dockerComposeDeploymentSourceType.singletonSource,
             dockerDeploymentConfiguration,
             null)
-        runnerAndConfigurationSettings.name = settings.name()
+        runnerAndConfigurationSettings.name = settings.name
         runManager.addConfiguration(runnerAndConfigurationSettings)
     }
 
     private fun toDockerEnvVarImpl(dockerEnvironmentVariable: DockerEnvironmentVariable): DockerEnvVarImpl {
         val dockerEnvVarImpl = DockerEnvVarImpl()
-        dockerEnvironmentVariable.name().ifPresent { dockerEnvVarImpl.name = it }
-        dockerEnvironmentVariable.value().ifPresent { dockerEnvVarImpl.value = it }
+        dockerEnvironmentVariable.name?.let { dockerEnvVarImpl.name = it }
+        dockerEnvironmentVariable.value?.let { dockerEnvVarImpl.value = it }
         return dockerEnvVarImpl
     }
 }

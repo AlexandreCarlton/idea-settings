@@ -10,6 +10,6 @@ class GeneralSettingsApplier @Inject
 constructor(private val autoImportSettingsSettingsApplier: SettingsApplier<AutoImportSettings>) : SettingsApplier<GeneralSettings> {
 
     override fun apply(settings: GeneralSettings) {
-        settings.autoImport().ifPresent { autoImportSettingsSettingsApplier.apply(it) }
+        settings.autoImport?.let(autoImportSettingsSettingsApplier::apply)
     }
 }

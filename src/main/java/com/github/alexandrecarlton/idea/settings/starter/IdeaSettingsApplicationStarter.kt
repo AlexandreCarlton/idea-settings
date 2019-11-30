@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import com.fasterxml.jackson.datatype.guava.GuavaModule
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
+import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.github.alexandrecarlton.idea.settings.dagger.project.DaggerIdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.dagger.project.IdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings
@@ -58,6 +59,7 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         val ideaSettingsReader = YAMLMapper()
             .registerModule(Jdk8Module())
             .registerModule(GuavaModule())
+            .registerModule(KotlinModule())
             .registerModule(SimpleModule()
                 .addDeserializer(Path::class.java, HomeExpandingPathDeserializer(project)))
             .readerFor(IdeaSettings::class.java)

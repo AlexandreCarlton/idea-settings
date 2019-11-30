@@ -9,7 +9,7 @@ class JavaImportsSettingsApplier @Inject
 constructor(private val javaCodeStyleSettings: JavaCodeStyleSettings) : SettingsApplier<JavaImportsSettings> {
 
     override fun apply(settings: JavaImportsSettings) {
-        settings.classCountToUseImportWithWildcard().ifPresent { javaCodeStyleSettings.classCountToUseImportOnDemand = it }
-        settings.namesCountToUseStaticImportWithWildcard().ifPresent { javaCodeStyleSettings.namesCountToUseImportOnDemand = it }
+        settings.classCountToUseImportWithWildcard?.let { javaCodeStyleSettings.classCountToUseImportOnDemand = it }
+        settings.namesCountToUseStaticImportWithWildcard?.let { javaCodeStyleSettings.namesCountToUseImportOnDemand = it }
     }
 }

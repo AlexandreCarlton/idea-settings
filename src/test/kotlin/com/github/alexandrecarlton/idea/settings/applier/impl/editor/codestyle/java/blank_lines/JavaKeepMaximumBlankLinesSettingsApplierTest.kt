@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.ImmutableJavaKeepMaximumBlankLinesSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettings
 import com.intellij.application.options.CodeStyle
 import com.intellij.lang.java.JavaLanguage
@@ -24,33 +23,25 @@ class JavaKeepMaximumBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun keepMaximumBlankLinesInDeclarations() {
-        settingsApplier.apply(ImmutableJavaKeepMaximumBlankLinesSettings.builder()
-            .inDeclarations(10)
-            .build())
+        settingsApplier.apply(JavaKeepMaximumBlankLinesSettings(inDeclarations = 10))
         assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_IN_DECLARATIONS).isEqualTo(10)
     }
 
     @Test
     fun keepMaximumBlankLinesInCode() {
-        settingsApplier.apply(ImmutableJavaKeepMaximumBlankLinesSettings.builder()
-            .inCode(11)
-            .build())
+        settingsApplier.apply(JavaKeepMaximumBlankLinesSettings(inCode = 11))
         assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_IN_CODE).isEqualTo(11)
     }
 
     @Test
     fun keepMaximumBlankLinesBeforeRightBrace() {
-        settingsApplier.apply(ImmutableJavaKeepMaximumBlankLinesSettings.builder()
-            .beforeRightBrace(12)
-            .build())
+        settingsApplier.apply(JavaKeepMaximumBlankLinesSettings(beforeRightBrace = 12))
         assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_BEFORE_RBRACE).isEqualTo(12)
     }
 
     @Test
     fun keepMaximumBlankLinesBetweenHeaderAndPackage() {
-        settingsApplier.apply(ImmutableJavaKeepMaximumBlankLinesSettings.builder()
-            .betweenHeaderAndPackage(13)
-            .build())
+        settingsApplier.apply(JavaKeepMaximumBlankLinesSettings(betweenHeaderAndPackage = 13))
         assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_BETWEEN_PACKAGE_DECLARATION_AND_HEADER).isEqualTo(13)
     }
 }

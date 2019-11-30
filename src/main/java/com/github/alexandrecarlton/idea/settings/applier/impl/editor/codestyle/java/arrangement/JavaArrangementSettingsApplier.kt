@@ -6,7 +6,6 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.ar
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleModifier
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleOrder
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleType
-import com.google.common.collect.ImmutableList
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.codeStyle.arrangement.match.ArrangementMatchRule
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementEntryMatcher
@@ -25,14 +24,12 @@ constructor(@param:Named("java") private val commonCodeStyleSettings: CommonCode
     override fun apply(settings: JavaArrangementSettings) {
 
         val stdArrangementSettings = StdArrangementSettings()
-        settings.matchingRules().ifPresent { matchingRules ->
+        settings.matchingRules?.let { matchingRules ->
             matchingRules
                 .map { matchingRule ->
                     StdArrangementMatchRule(
                         StdArrangementEntryMatcher(toArrangementMatchCondition(matchingRule)),
-                        matchingRule.order()
-                            .map { this.toOrder(it) }
-                            .orElse(ArrangementMatchRule.DEFAULT_ORDER_TYPE))
+                        matchingRule.order?.let { toOrder(it) } ?: ArrangementMatchRule.DEFAULT_ORDER_TYPE)
                 }
                 .forEach{ stdArrangementSettings.addSectionRule(it) }
         }
@@ -44,20 +41,19 @@ constructor(@param:Named("java") private val commonCodeStyleSettings: CommonCode
 
     private fun toArrangementMatchCondition(matchingRule: MatchingRule): ArrangementCompositeMatchCondition {
 
-        val conditionsBuilder = ImmutableList.builder<ArrangementMatchCondition>()
+        val conditions = mutableListOf<ArrangementMatchCondition>()
 
-        matchingRule.type()
-            .map { this.toArrangementMatchCondition(it) }
-            .ifPresent { conditionsBuilder.add(it) }
+        matchingRule.type
+            ?.let { this.toArrangementMatchCondition(it) }
+            ?.let { conditions.add(it) }
 
-        conditionsBuilder.addAll(matchingRule.modifier()
-            .map { this.toArrangementMatchCondition(it) })
+        conditions.addAll(matchingRule.modifier.map { toArrangementMatchCondition(it) })
 
-        matchingRule.name()
-            .map { name -> ArrangementAtomMatchCondition(StdArrangementTokens.Regexp.NAME, name) }
-            .ifPresent { conditionsBuilder.add(it) }
+        matchingRule.name
+            ?.let { name -> ArrangementAtomMatchCondition(StdArrangementTokens.Regexp.NAME, name) }
+            ?.let { conditions.add(it) }
 
-        return ArrangementCompositeMatchCondition(conditionsBuilder.build())
+        return ArrangementCompositeMatchCondition(conditions)
     }
 
     private fun toArrangementMatchCondition(type: MatchingRuleType): ArrangementAtomMatchCondition {

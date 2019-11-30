@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.ImmutableJavaImportsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings
 import com.intellij.application.options.CodeStyle
 import com.intellij.psi.codeStyle.CodeStyleSettings
@@ -32,17 +31,13 @@ class JavaImportSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun classCountToUseWithImportSettingsAreApplied() {
-        applier.apply(ImmutableJavaImportsSettings.builder()
-            .classCountToUseImportWithWildcard(555)
-            .build())
+        applier.apply(JavaImportsSettings(classCountToUseImportWithWildcard = 555))
         assertThat(javaCodeStyleSettings.CLASS_COUNT_TO_USE_IMPORT_ON_DEMAND).isEqualTo(555)
     }
 
     @Test
     fun namesCountToUseWithStaticImportSettingsAreApplied() {
-        applier.apply(ImmutableJavaImportsSettings.builder()
-            .namesCountToUseStaticImportWithWildcard(777)
-            .build())
+        applier.apply(JavaImportsSettings(namesCountToUseStaticImportWithWildcard = 777))
         assertThat(javaCodeStyleSettings.NAMES_COUNT_TO_USE_IMPORT_ON_DEMAND).isEqualTo(777)
     }
 }

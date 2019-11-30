@@ -9,6 +9,6 @@ class JavascriptCodeStyleSettingsApplier @Inject
 constructor(private val javascriptImportsSettingsApplier: SettingsApplier<JavascriptImportsSettings>) : SettingsApplier<JavascriptCodeStyleSettings> {
 
     override fun apply(settings: JavascriptCodeStyleSettings) {
-        settings.imports().ifPresent { javascriptImportsSettingsApplier.apply(it) }
+        settings.imports?.let(javascriptImportsSettingsApplier::apply)
     }
 }

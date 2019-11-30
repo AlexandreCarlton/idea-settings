@@ -2,10 +2,9 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.ch
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
+import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleConfigurationFile
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.ImmutableCheckstyleConfigurationFile
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.ImmutableCheckstyleSettings
 import org.assertj.core.api.Assertions.assertThat
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager
 import org.infernus.idea.checkstyle.model.ConfigurationType
@@ -26,39 +25,26 @@ class CheckstyleSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun checkstyleVersionApplied() {
-        settingsApplier.apply(ImmutableCheckstyleSettings.builder()
-            .checkstyleVersion("8.16")
-            .build())
+        settingsApplier.apply(CheckstyleSettings(checkstyleVersion = "8.16"))
         assertThat(pluginConfigurationManager.current.checkstyleVersion).isEqualTo("8.16")
     }
 
     @Test
     fun scanScopeApplied() {
-        settingsApplier.apply(ImmutableCheckstyleSettings.builder()
-            .scanScope(CheckstyleScanScope.ONLY_JAVA_SOURCES_INCLUDING_TESTS)
-            .build())
-        assertThat(pluginConfigurationManager.current.scanScope)
-            .isEqualTo(ScanScope.JavaOnlyWithTests)
+        settingsApplier.apply(CheckstyleSettings(scanScope = CheckstyleScanScope.ONLY_JAVA_SOURCES_INCLUDING_TESTS))
+        assertThat(pluginConfigurationManager.current.scanScope).isEqualTo(ScanScope.JavaOnlyWithTests)
     }
 
     @Test
     fun treatCheckstyleErrorsAsWarningsApplied() {
-        settingsApplier.apply(ImmutableCheckstyleSettings.builder()
-            .treatCheckstyleErrorsAsWarnings(true)
-            .build())
-        assertThat(pluginConfigurationManager.current.isSuppressErrors)
-            .isEqualTo(true)
+        settingsApplier.apply(CheckstyleSettings(treatCheckstyleErrorsAsWarnings = true))
+        assertThat(pluginConfigurationManager.current.isSuppressErrors).isTrue()
     }
 
     @Test
     fun localConfigurationFileApplied() {
-        settingsApplier.apply(ImmutableCheckstyleSettings.builder()
-            .addConfigurationFiles(ImmutableCheckstyleConfigurationFile.builder()
-                .active(true)
-                .description("My CheckStyle")
-                .file("checkstyle.xml")
-                .build())
-            .build())
+        settingsApplier.apply(CheckstyleSettings(configurationFiles = listOf(
+            CheckstyleConfigurationFile(active = true, description = "My CheckStyle", file = "checkstyle.xml"))))
 
         val activeLocation = pluginConfigurationManager.current.activeLocation!!
         assertThat(activeLocation.type).isEqualTo(ConfigurationType.PROJECT_RELATIVE)
@@ -68,13 +54,8 @@ class CheckstyleSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun bundledConfigurationFileApplied() {
-        settingsApplier.apply(ImmutableCheckstyleSettings.builder()
-            .addConfigurationFiles(ImmutableCheckstyleConfigurationFile.builder()
-                .active(true)
-                .description("Google Checks")
-                .file("bundled")
-                .build())
-            .build())
+        settingsApplier.apply(CheckstyleSettings(configurationFiles = listOf(
+            CheckstyleConfigurationFile(active = true, description = "Google Checks", file = "bundled"))))
 
         val activeLocation = pluginConfigurationManager.current.activeLocation!!
         assertThat(activeLocation.type).isEqualTo(ConfigurationType.BUNDLED)

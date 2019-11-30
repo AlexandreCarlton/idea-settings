@@ -10,6 +10,6 @@ class ToolsSettingsApplier @Inject
 constructor(private val fileWatcherSettingsApplier: SettingsApplier<FileWatcherSettings>) : SettingsApplier<ToolsSettings> {
 
     override fun apply(settings: ToolsSettings) {
-        settings.fileWatchers().forEach { fileWatcherSettingsApplier.apply(it) }
+        settings.fileWatchers?.forEach(fileWatcherSettingsApplier::apply)
     }
 }

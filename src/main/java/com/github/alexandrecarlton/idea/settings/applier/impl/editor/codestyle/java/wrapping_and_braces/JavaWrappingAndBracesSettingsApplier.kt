@@ -15,129 +15,51 @@ constructor(@param:Named("java") private val commonCodeStyleSettings: CommonCode
             private val javaCodeStyleSettings: JavaCodeStyleSettings) : SettingsApplier<JavaWrappingAndBracesSettings> {
 
     override fun apply(settings: JavaWrappingAndBracesSettings) {
-        settings.hardWrapAt()
-            .ifPresent { commonCodeStyleSettings.RIGHT_MARGIN = it }
-        settings.wrapOnTyping()
-            .map { this.toWrapOnTyping(it) }
-            .ifPresent { commonCodeStyleSettings.WRAP_ON_TYPING = it.intValue }
+        settings.hardWrapAt?.let { commonCodeStyleSettings.RIGHT_MARGIN = it }
+        settings.wrapOnTyping?.let { commonCodeStyleSettings.WRAP_ON_TYPING = toWrapOnTyping(it).intValue }
 
-        settings.keepWhenReformatting()
-            .flatMap { it.lineBreaks() }
-            .ifPresent { commonCodeStyleSettings.KEEP_LINE_BREAKS = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.commentAtFirstColumn() }
-            .ifPresent { commonCodeStyleSettings.KEEP_FIRST_COLUMN_COMMENT = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.controlStatementInOneLine() }
-            .ifPresent { commonCodeStyleSettings.KEEP_CONTROL_STATEMENT_IN_ONE_LINE = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.multipleExpressionsInOneLine() }
-            .ifPresent { commonCodeStyleSettings.KEEP_MULTIPLE_EXPRESSIONS_IN_ONE_LINE = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.simpleBlocksInOneLine() }
-            .ifPresent { commonCodeStyleSettings.KEEP_SIMPLE_BLOCKS_IN_ONE_LINE = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.simpleMethodsInOneLine() }
-            .ifPresent { commonCodeStyleSettings.KEEP_SIMPLE_METHODS_IN_ONE_LINE = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.simpleLambdasInOneLine() }
-            .ifPresent { commonCodeStyleSettings.KEEP_SIMPLE_LAMBDAS_IN_ONE_LINE = it }
-        settings.keepWhenReformatting()
-            .flatMap { it.simpleClassesInOneLine() }
-            .ifPresent { commonCodeStyleSettings.KEEP_SIMPLE_CLASSES_IN_ONE_LINE = it }
+        settings.keepWhenReformatting?.lineBreaks?.let { commonCodeStyleSettings.KEEP_LINE_BREAKS = it }
+        settings.keepWhenReformatting?.commentAtFirstColumn?.let { commonCodeStyleSettings.KEEP_FIRST_COLUMN_COMMENT = it }
+        settings.keepWhenReformatting?.controlStatementInOneLine?.let { commonCodeStyleSettings.KEEP_CONTROL_STATEMENT_IN_ONE_LINE = it }
+        settings.keepWhenReformatting?.multipleExpressionsInOneLine?.let { commonCodeStyleSettings.KEEP_MULTIPLE_EXPRESSIONS_IN_ONE_LINE = it }
+        settings.keepWhenReformatting?.simpleBlocksInOneLine?.let { commonCodeStyleSettings.KEEP_SIMPLE_BLOCKS_IN_ONE_LINE = it }
+        settings.keepWhenReformatting?.simpleMethodsInOneLine?.let { commonCodeStyleSettings.KEEP_SIMPLE_METHODS_IN_ONE_LINE = it }
+        settings.keepWhenReformatting?.simpleLambdasInOneLine?.let { commonCodeStyleSettings.KEEP_SIMPLE_LAMBDAS_IN_ONE_LINE = it }
+        settings.keepWhenReformatting?.simpleClassesInOneLine?.let { commonCodeStyleSettings.KEEP_SIMPLE_CLASSES_IN_ONE_LINE = it }
 
-        settings.extendsImplementsList()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.EXTENDS_LIST_WRAP = it }
-        settings.extendsImplementsList()
-            .flatMap { it.alignWhenMultiline() }
-            .ifPresent { commonCodeStyleSettings.ALIGN_MULTILINE_EXTENDS_LIST = it }
+        settings.extendsImplementsList?.wrapping?.let { commonCodeStyleSettings.EXTENDS_LIST_WRAP = toWrap(it) }
+        settings.extendsImplementsList?.alignWhenMultiline?.let { commonCodeStyleSettings.ALIGN_MULTILINE_EXTENDS_LIST = it }
 
-        settings.methodDeclarationParameters()
-            .flatMap  { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.METHOD_PARAMETERS_WRAP = it }
+        settings.methodDeclarationParameters?.wrapping?.let { commonCodeStyleSettings.METHOD_PARAMETERS_WRAP = toWrap(it) }
 
-        settings.ifStatement()
-            .flatMap { it.forceBraces() }
-            .map { toForce(it) }
-            .ifPresent { commonCodeStyleSettings.IF_BRACE_FORCE = it }
+        settings.ifStatement?.forceBraces?.let { commonCodeStyleSettings.IF_BRACE_FORCE = toForce(it) }
 
-        settings.forStatement()
-            .flatMap { it.wrapping() }
-            .map { this.toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.FOR_STATEMENT_WRAP = it }
-        settings.forStatement()
-            .flatMap { it.forceBraces() }
-            .map { toForce(it) }
-            .ifPresent { commonCodeStyleSettings.FOR_BRACE_FORCE = it }
+        settings.forStatement?.wrapping?.let { commonCodeStyleSettings.FOR_STATEMENT_WRAP = toWrap(it) }
+        settings.forStatement?.forceBraces?.let { commonCodeStyleSettings.FOR_BRACE_FORCE = toForce(it) }
 
-        settings.whileStatement()
-            .flatMap { it.forceBraces() }
-            .map { toForce(it) }
-            .ifPresent { commonCodeStyleSettings.WHILE_BRACE_FORCE = it }
+        settings.whileStatement?.forceBraces?.let { commonCodeStyleSettings.WHILE_BRACE_FORCE = toForce(it) }
 
-        settings.doWhileStatement()
-            .flatMap { it.forceBraces() }
-            .map { toForce(it) }
-            .ifPresent { commonCodeStyleSettings.DOWHILE_BRACE_FORCE = it }
+        settings.doWhileStatement?.forceBraces?.let { commonCodeStyleSettings.DOWHILE_BRACE_FORCE = toForce(it) }
 
-        settings.tryWithResources()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.RESOURCE_LIST_WRAP = it }
+        settings.tryWithResources?.wrapping?.let { commonCodeStyleSettings.RESOURCE_LIST_WRAP = toWrap(it) }
 
-        settings.binaryExpressions()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.BINARY_OPERATION_WRAP = it }
-        settings.binaryExpressions()
-            .flatMap { it.alignWhenMultiline() }
-            .ifPresent { commonCodeStyleSettings.ALIGN_MULTILINE_BINARY_OPERATION = it }
+        settings.binaryExpressions?.wrapping?.let { commonCodeStyleSettings.BINARY_OPERATION_WRAP = toWrap(it) }
+        settings.binaryExpressions?.alignWhenMultiline?.let { commonCodeStyleSettings.ALIGN_MULTILINE_BINARY_OPERATION = it }
 
-        settings.assignmentStatement()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.ASSIGNMENT_WRAP = it }
+        settings.assignmentStatement?.wrapping?.let { commonCodeStyleSettings.ASSIGNMENT_WRAP = toWrap(it) }
 
-        settings.ternaryOperation()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.TERNARY_OPERATION_WRAP = it }
+        settings.ternaryOperation?.wrapping?.let { commonCodeStyleSettings.TERNARY_OPERATION_WRAP = toWrap(it) }
 
-        settings.arrayInitializer()
-            .flatMap { it.wrapping() }
-            .map { this.toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.ARRAY_INITIALIZER_WRAP = it }
+        settings.arrayInitializer?.wrapping?.let { commonCodeStyleSettings.ARRAY_INITIALIZER_WRAP = toWrap(it) }
 
-        settings.assertStatement()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.ASSERT_STATEMENT_WRAP = it }
+        settings.assertStatement?.wrapping?.let { commonCodeStyleSettings.ASSERT_STATEMENT_WRAP = toWrap(it) }
 
-        settings.parameterAnnotations()
-            .flatMap { it.wrapping() }
-            .map { this.toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.PARAMETER_ANNOTATION_WRAP = it }
+        settings.parameterAnnotations?.wrapping?.let { commonCodeStyleSettings.PARAMETER_ANNOTATION_WRAP = toWrap(it) }
 
-        settings.localVariableAnnotations()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.VARIABLE_ANNOTATION_WRAP = it }
+        settings.localVariableAnnotations?.wrapping?.let { commonCodeStyleSettings.VARIABLE_ANNOTATION_WRAP = toWrap(it) }
 
-        settings.localVariableAnnotations()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { commonCodeStyleSettings.VARIABLE_ANNOTATION_WRAP = it }
-
-        settings.annotationParameters()
-            .flatMap { it.wrapping() }
-            .map { toWrap(it) }
-            .ifPresent { javaCodeStyleSettings.ANNOTATION_PARAMETER_WRAP = it }
-        settings.annotationParameters()
-            .flatMap { it.alignWhenMultiline() }
-            .ifPresent { javaCodeStyleSettings.ALIGN_MULTILINE_ANNOTATION_PARAMETERS = it }
+        settings.annotationParameters?.wrapping?.let { javaCodeStyleSettings.ANNOTATION_PARAMETER_WRAP = toWrap(it) }
+        settings.annotationParameters?.alignWhenMultiline?.let { javaCodeStyleSettings.ALIGN_MULTILINE_ANNOTATION_PARAMETERS = it }
     }
 
     // TODO: Add option to use 'Default'?

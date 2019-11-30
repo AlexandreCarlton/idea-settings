@@ -27,9 +27,9 @@ constructor(private val languageLevelProjectExtension: LanguageLevelProjectExten
             private val projectRootManager: ProjectRootManager) : SettingsApplier<ProjectSettings> {
 
     override fun apply(settings: ProjectSettings) {
-        settings.projectName().ifPresent { projectEx.setProjectName(it) }
-        settings.projectSdk().ifPresent { projectRootManager.projectSdkName = it }
-        settings.projectLanguageLevel().ifPresent { languageLevelProjectExtension.languageLevel = toLanguageLevel(it) }
+        settings.projectName?.let(projectEx::setProjectName)
+        settings.projectSdk?.let { projectRootManager.projectSdkName = it }
+        settings.projectLanguageLevel?.let { languageLevelProjectExtension.languageLevel = toLanguageLevel(it) }
     }
 
     private fun toLanguageLevel(level: ProjectLanguageLevel) =

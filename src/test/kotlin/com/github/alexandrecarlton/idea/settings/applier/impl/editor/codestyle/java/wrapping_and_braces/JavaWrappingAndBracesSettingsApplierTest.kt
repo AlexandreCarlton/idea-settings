@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.ImmutableJavaWrappingAndBracesSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettings
 import com.intellij.application.options.CodeStyle
 import com.intellij.lang.java.JavaLanguage
@@ -28,17 +27,13 @@ class JavaWrappingAndBracesSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun hardWrapAtApplied() {
-        settingsApplier.apply(ImmutableJavaWrappingAndBracesSettings.builder()
-            .hardWrapAt(160)
-            .build())
+        settingsApplier.apply(JavaWrappingAndBracesSettings(hardWrapAt = 160))
         assertThat(commonCodeStyleSettings.RIGHT_MARGIN).isEqualTo(160)
     }
 
     @Test
     fun wrapOnTypingApplied() {
-        settingsApplier.apply(ImmutableJavaWrappingAndBracesSettings.builder()
-            .wrapOnTyping(true)
-            .build())
+        settingsApplier.apply(JavaWrappingAndBracesSettings(wrapOnTyping = true))
         assertThat(commonCodeStyleSettings.WRAP_ON_TYPING).isEqualTo(1)
     }
 }

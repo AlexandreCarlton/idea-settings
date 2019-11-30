@@ -16,15 +16,11 @@ constructor(
 ) : SettingsApplier<BuildExecutionDeploymentSettings> {
 
     override fun apply(settings: BuildExecutionDeploymentSettings) {
-        externalDependenciesManager.allDependencies = settings.requiredPlugins()
-            .map { required ->
-                DependencyOnPlugin(
-                    required.plugin(),
-                    required.minimumVersion().orElse(null),
-                    required.maximumVersion().orElse(null))
-            }
+        settings.requiredPlugins
+            ?.map { required -> DependencyOnPlugin(required.plugin, required.minimumVersion, required.maximumVersion) }
+            ?.let { externalDependenciesManager.allDependencies = it }
 
-        settings.buildTools().ifPresent { buildToolsSettingsApplier.apply(it) }
-        settings.compiler().ifPresent { compilerSettingsApplier.apply(it) }
+        settings.buildTools?.let(buildToolsSettingsApplier::apply)
+        settings.compiler?.let(compilerSettingsApplier::apply)
     }
 }

@@ -4,17 +4,15 @@ import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.common.FileTypeMapper
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.common.FileType
+import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherAdvancedOptionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherFilesToWatchSettings
 import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.ImmutableFileWatcherAdvancedOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.ImmutableFileWatcherFilesToWatchSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.ImmutableFileWatcherSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.ImmutableFileWatcherToolToRunOnChangesSettings
+import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherToolToRunOnChangesSettings
 import com.intellij.lang.javascript.JavaScriptFileType
 import com.intellij.plugins.watcher.model.ProjectTasksOptions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
 import java.util.function.Supplier
 
 class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
@@ -31,18 +29,15 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun basicSettingsApplied() {
-        settingsApplier.apply(ImmutableFileWatcherSettings.builder()
-                .name("Basic File Watcher")
-                .toolToRunOnChanges(ImmutableFileWatcherToolToRunOnChangesSettings.builder()
-                        .program("/usr/bin/foo")
-                        .arguments("bar")
-                        .outputPathsToRefresh("\$FilePath$")
-                        .build())
-                .filesToWatch(ImmutableFileWatcherFilesToWatchSettings.builder()
-                        .fileType(FileType.JAVASCRIPT)
-                        .scope("Module 'foo'")
-                        .build())
-                .build())
+        settingsApplier.apply(FileWatcherSettings(
+            name = "Basic File Watcher",
+            filesToWatch = FileWatcherFilesToWatchSettings(
+                fileType = FileType.JAVASCRIPT,
+                scope = "Module 'foo'"),
+            toolToRunOnChanges = FileWatcherToolToRunOnChangesSettings(
+                program = "/usr/bin/foo",
+                arguments = "bar",
+                outputPathsToRefresh = "\$FilePath$")))
 
         val taskOptions = projectTasksOptions.tasks
                 .stream()
@@ -60,23 +55,19 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun advancedSettingsApplied() {
-        settingsApplier.apply(ImmutableFileWatcherSettings.builder()
-                .name("Advanced Watcher Settings")
-                .toolToRunOnChanges(ImmutableFileWatcherToolToRunOnChangesSettings.builder()
-                        .program("/usr/bin/foo")
-                        .arguments("bar")
-                        .outputPathsToRefresh("\$FilePath$")
-                        .build())
-                .filesToWatch(ImmutableFileWatcherFilesToWatchSettings.builder()
-                        .fileType(FileType.JAVASCRIPT)
-                        .scope("Module 'foo'")
-                        .build())
-                .advancedOptions(ImmutableFileWatcherAdvancedOptionsSettings.builder()
-                        .autoSaveEditedFilesToTriggerTheWatcher(true)
-                        .triggerTheWatcherOnExternalChanges(false)
-                        .triggerTheWatcherRegardlessOfSyntaxErrors(true)
-                        .build())
-                .build())
+        settingsApplier.apply(FileWatcherSettings(
+            name = "Advanced Watcher Settings",
+            filesToWatch = FileWatcherFilesToWatchSettings(
+                fileType = FileType.JAVASCRIPT,
+                scope = "Module 'foo'"),
+            toolToRunOnChanges = FileWatcherToolToRunOnChangesSettings(
+                program = "/usr/bin/foo",
+                arguments = "bar",
+                outputPathsToRefresh = "\$FilePath"),
+            advancedOptions = FileWatcherAdvancedOptionsSettings(
+                autoSaveEditedFilesToTriggerTheWatcher = true,
+                triggerTheWatcherOnExternalChanges = false,
+                triggerTheWatcherRegardlessOfSyntaxErrors = true)))
 
         val taskOptions = projectTasksOptions.tasks
                 .stream()

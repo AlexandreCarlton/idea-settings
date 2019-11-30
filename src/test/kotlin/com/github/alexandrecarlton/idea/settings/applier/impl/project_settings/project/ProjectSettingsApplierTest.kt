@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ImmutableProjectSettings
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings
 import com.intellij.openapi.application.WriteAction
@@ -29,27 +28,21 @@ class ProjectSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun projectNameApplied() {
-        settingsApplier.apply(ImmutableProjectSettings.builder()
-            .projectName("my-project-name")
-            .build())
+        settingsApplier.apply(ProjectSettings(projectName = "my-project-name"))
         assertThat(project.name).isEqualTo("my-project-name")
     }
 
     @Test
     fun projectSdkApplied() {
         WriteAction.runAndWait<RuntimeException> {
-            settingsApplier.apply(ImmutableProjectSettings.builder()
-                .projectSdk("my-project-sdk")
-                .build())
+            settingsApplier.apply(ProjectSettings(projectSdk = "my-project-sdk"))
         }
         assertThat(projectRootManager.projectSdkName).isEqualTo("my-project-sdk")
     }
 
     @Test
     fun projectLanguageLevelApplied() {
-        settingsApplier.apply(ImmutableProjectSettings.builder()
-            .projectLanguageLevel(ProjectLanguageLevel.JAVA_6)
-            .build())
+        settingsApplier.apply(ProjectSettings(projectLanguageLevel = ProjectLanguageLevel.JAVA_6))
         assertThat(languageLevelProjectExtension.languageLevel).isEqualByComparingTo(LanguageLevel.JDK_1_6)
     }
 }

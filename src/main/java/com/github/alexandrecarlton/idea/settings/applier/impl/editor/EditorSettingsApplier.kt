@@ -14,8 +14,8 @@ constructor(private val generalSettingsApplier: SettingsApplier<GeneralSettings>
             private val spellingSettingsApplier: SettingsApplier<SpellingSettings>) : SettingsApplier<EditorSettings> {
 
     override fun apply(settings: EditorSettings) {
-        settings.general().ifPresent { generalSettingsApplier.apply(it) }
-        settings.codeStyle().ifPresent { codeStyleSettingsApplier.apply(it) }
-        settings.spelling().ifPresent { spellingSettingsApplier.apply(it) }
+        settings.general?.let(generalSettingsApplier::apply)
+        settings.codeStyle?.let(codeStyleSettingsApplier::apply)
+        settings.spelling?.let(spellingSettingsApplier::apply)
     }
 }

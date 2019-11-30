@@ -8,9 +8,11 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.common.be
 import javax.inject.Inject
 
 class BeforeLaunchConfigurationSettingsApplier @Inject
-constructor(private val buildConfigurationSettingsApplier: SettingsApplier<BuildConfigurationSettings>,
-            private val runAnotherConfigurationSettingsApplier: SettingsApplier<RunAnotherConfigurationSettings>,
-            private val runMavenGoalSettingsApplier: SettingsApplier<RunMavenGoalSettings>) : SettingsApplier<BeforeLaunchConfigurationSettings> {
+constructor(
+    private val buildConfigurationSettingsApplier: SettingsApplier<BuildConfigurationSettings>,
+    private val runAnotherConfigurationSettingsApplier: SettingsApplier<RunAnotherConfigurationSettings>,
+    private val runMavenGoalSettingsApplier: SettingsApplier<RunMavenGoalSettings>
+) : SettingsApplier<BeforeLaunchConfigurationSettings> {
 
     override fun apply(settings: BeforeLaunchConfigurationSettings) {
         when (settings) {

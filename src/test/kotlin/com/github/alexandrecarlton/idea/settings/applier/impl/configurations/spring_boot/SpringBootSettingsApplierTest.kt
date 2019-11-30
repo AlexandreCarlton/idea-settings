@@ -2,11 +2,10 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.sp
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableOverrideParameter
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootConfigurationEnvironmentSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootConfigurationSpringBootSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.ImmutableSpringBootSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.OverrideParameter
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationEnvironmentSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSpringBootSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings
 import com.intellij.execution.RunManager
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter
@@ -28,12 +27,10 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun basicSpringConfiguration() {
-        settingsApplier.apply(ImmutableSpringBootSettings.builder()
-                .name("Spring Boot Basic")
-                .configuration(ImmutableSpringBootConfigurationSettings.builder()
-                        .mainClass("com.Application")
-                        .build())
-                .build())
+        settingsApplier.apply(SpringBootSettings(
+                name = "Spring Boot Basic",
+                configuration = SpringBootConfigurationSettings(
+                    mainClass = "com.Application")))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot Basic")
         assertThat(runnerAndConfigurationSettings).isNotNull()
@@ -44,15 +41,12 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun dependenciesWithProvidedScopeApplied() {
-        settingsApplier.apply(ImmutableSpringBootSettings.builder()
-                .name("Spring Boot With Provided")
-                .configuration(ImmutableSpringBootConfigurationSettings.builder()
-                        .mainClass("com.Application")
-                        .environment(ImmutableSpringBootConfigurationEnvironmentSettings.builder()
-                                .includeDependenciesWithProvidedScope(false)
-                                .build())
-                        .build())
-                .build())
+        settingsApplier.apply(SpringBootSettings(
+                name = "Spring Boot With Provided",
+                configuration = SpringBootConfigurationSettings(
+                    mainClass = "com.Application",
+                    environment = SpringBootConfigurationEnvironmentSettings(
+                        includeDependenciesWithProvidedScope = false))))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With Provided")!!
         val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration
@@ -64,15 +58,12 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun vmOptionsApplied() {
-        settingsApplier.apply(ImmutableSpringBootSettings.builder()
-                .name("Spring Boot With VM Options")
-                .configuration(ImmutableSpringBootConfigurationSettings.builder()
-                        .mainClass("com.Application")
-                        .environment(ImmutableSpringBootConfigurationEnvironmentSettings.builder()
-                                .vmOptions("-Xmx123m")
-                                .build())
-                        .build())
-                .build())
+        settingsApplier.apply(SpringBootSettings(
+                name = "Spring Boot With VM Options",
+                configuration = SpringBootConfigurationSettings(
+                    mainClass = "com.Application",
+                    environment = SpringBootConfigurationEnvironmentSettings(
+                        vmOptions = "-Xmx123m"))))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With VM Options")!!
         val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration
@@ -82,18 +73,12 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun overrideParametersApplied() {
-        settingsApplier.apply(ImmutableSpringBootSettings.builder()
-                .name("Spring Boot With Override")
-                .configuration(ImmutableSpringBootConfigurationSettings.builder()
-                        .mainClass("com.Application")
-                        .springBoot(ImmutableSpringBootConfigurationSpringBootSettings.builder()
-                                .addOverrideParameters(ImmutableOverrideParameter.builder()
-                                        .name("Key")
-                                        .value("Value")
-                                        .build())
-                                .build())
-                        .build())
-                .build())
+        settingsApplier.apply(SpringBootSettings(
+                name = "Spring Boot With Override",
+                configuration = SpringBootConfigurationSettings(
+                    mainClass = "com.Application",
+                    springBoot = SpringBootConfigurationSpringBootSettings(
+                        overrideParameters = listOf(OverrideParameter(name = "Key", value = "Value"))))))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With Override")!!
         val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration

@@ -2,8 +2,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.sh
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ImmutableInterpreterConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ImmutableShellScriptConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.InterpreterConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ShellScriptConfigurationSettings
 import com.intellij.execution.RunManager
 import com.intellij.sh.run.ShRunConfiguration
@@ -26,10 +25,9 @@ class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun simpleShellConfiguration() {
-        settingsApplier.apply(ImmutableShellScriptConfigurationSettings.builder()
-                .name("Simple Shell Configuration")
-                .scriptPath(Paths.get("/usr/bin/foo"))
-                .build())
+        settingsApplier.apply(ShellScriptConfigurationSettings(
+            name = "Simple Shell Configuration",
+            scriptPath = Paths.get("/usr/bin/foo")))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Simple Shell Configuration")
         assertThat(runnerAndConfigurationSettings).isNotNull()
@@ -42,15 +40,13 @@ class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun fullShellConfiguration() {
-        settingsApplier.apply(ImmutableShellScriptConfigurationSettings.builder()
-                .name("Full Shell Configuration")
-                .scriptPath(Paths.get("/usr/bin/foo"))
-                .scriptOptions("bar")
-                .interpreter(ImmutableInterpreterConfigurationSettings.builder()
-                        .interpreterPath(Paths.get("/bin/sh"))
-                        .interpreterOptions("-e")
-                        .build())
-                .build())
+        settingsApplier.apply(ShellScriptConfigurationSettings(
+                name = "Full Shell Configuration",
+                scriptPath = Paths.get("/usr/bin/foo"),
+                scriptOptions = "bar",
+                interpreter = InterpreterConfigurationSettings(
+                    interpreterPath = Paths.get("/bin/sh"),
+                    interpreterOptions ="-e")))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Full Shell Configuration")!!
         val shRunConfiguration = runnerAndConfigurationSettings.configuration as ShRunConfiguration
@@ -60,6 +56,7 @@ class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
         assertThat(invokeGetMethod(shRunConfiguration, "getInterpreterOptions")).isEqualTo("-e")
     }
 
+    // TODO: Look into Kotlin method of reflection
     private fun invokeGetMethod(shRunConfiguration: ShRunConfiguration, methodName: String): String {
         try {
             val method = shRunConfiguration.javaClass.getDeclaredMethod(methodName)

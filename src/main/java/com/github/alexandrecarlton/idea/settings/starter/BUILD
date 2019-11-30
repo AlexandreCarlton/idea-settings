@@ -13,6 +13,7 @@ kt_jvm_library(
         "//third_party/maven/com/fasterxml/jackson/dataformat:jackson_dataformat_yaml",
         "//third_party/maven/com/fasterxml/jackson/datatype:jackson_datatype_guava",
         "//third_party/maven/com/fasterxml/jackson/datatype:jackson_datatype_jdk8",
+        "//third_party/maven/com/fasterxml/jackson/module:jackson_module_kotlin",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
     ],

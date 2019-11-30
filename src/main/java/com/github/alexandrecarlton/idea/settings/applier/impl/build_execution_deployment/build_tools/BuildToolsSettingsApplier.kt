@@ -10,6 +10,6 @@ class BuildToolsSettingsApplier
 @Inject constructor(private val mavenSettingsApplier: SettingsApplier<MavenSettings>) : SettingsApplier<BuildToolsSettings> {
 
     override fun apply(settings: BuildToolsSettings) {
-        settings.maven().ifPresent { mavenSettingsApplier.apply(it) }
+        settings.maven?.let(mavenSettingsApplier::apply)
     }
 }

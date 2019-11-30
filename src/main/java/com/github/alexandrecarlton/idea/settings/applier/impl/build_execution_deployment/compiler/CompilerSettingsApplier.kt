@@ -14,22 +14,19 @@ constructor(
     private val compilerWorkspaceConfiguration: CompilerWorkspaceConfiguration
 ) : SettingsApplier<CompilerSettings> {
 
-    private val LOG = Logger.getInstance(CompilerSettingsApplier::class.java)
+    companion object {
+        private val LOG = Logger.getInstance(CompilerSettingsApplier::class.java)
+    }
 
     override fun apply(settings: CompilerSettings) {
-        settings.addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters()
-            .ifPresent { compilerConfiguration.isAddNotNullAssertions = it }
-        settings.buildProcessHeapSizeMbytes()
-            .ifPresent { compilerConfiguration.setBuildProcessHeapSize(it) }
-        settings.compileIndependentModulesInParallel()
-            .ifPresent { compilerWorkspaceConfiguration.PARALLEL_COMPILATION = it }
-        settings.rebuildModuleOnDependencyChange()
-            .ifPresent { compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE = it }
-        settings.sharedBuildProcessVmOptions()
-            .ifPresent { compilerConfiguration.buildProcessVMOptions = it }
+        settings.addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters?.let { compilerConfiguration.isAddNotNullAssertions = it }
+        settings.buildProcessHeapSizeMbytes?.let { compilerConfiguration.setBuildProcessHeapSize(it) }
+        settings.compileIndependentModulesInParallel?.let { compilerWorkspaceConfiguration.PARALLEL_COMPILATION = it }
+        settings.rebuildModuleOnDependencyChange?.let { compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE = it }
+        settings.sharedBuildProcessVmOptions?.let { compilerConfiguration.buildProcessVMOptions = it }
 
         if (compilerConfiguration is CompilerConfigurationImpl) {
-            settings.resourcePatterns().ifPresent { patterns ->
+            settings.resourcePatterns?.let { patterns ->
                 compilerConfiguration.removeResourceFilePatterns()
                 patterns.forEach { compilerConfiguration.addResourceFilePattern(it) }
             }

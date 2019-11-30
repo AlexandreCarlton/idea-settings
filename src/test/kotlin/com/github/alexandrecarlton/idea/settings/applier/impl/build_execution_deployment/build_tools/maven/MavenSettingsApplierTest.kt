@@ -2,8 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_d
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.ImmutableMavenImportingSettings
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.ImmutableMavenSettings
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenSettings
 import org.assertj.core.api.Assertions.assertThat
@@ -30,17 +28,13 @@ class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun vmOptionsForImporterApplied() {
-        settingsApplier.apply(ImmutableMavenSettings.builder()
-                .mavenHomeDirectory(Paths.get("/usr"))
-                .build())
+        settingsApplier.apply(MavenSettings(mavenHomeDirectory = Paths.get("/usr")))
         assertThat(mavenGeneralSettings.mavenHome).isEqualTo("/usr")
     }
 
     @Test
     fun importSettingsApplied() {
-        settingsApplier.apply(ImmutableMavenSettings.builder()
-                .importing(ImmutableMavenImportingSettings.builder().build())
-                .build())
-        verify(mavenImportingSettingsApplier).apply(ImmutableMavenImportingSettings.builder().build())
+        settingsApplier.apply(MavenSettings(importing = MavenImportingSettings()))
+        verify(mavenImportingSettingsApplier).apply(MavenImportingSettings())
     }
 }

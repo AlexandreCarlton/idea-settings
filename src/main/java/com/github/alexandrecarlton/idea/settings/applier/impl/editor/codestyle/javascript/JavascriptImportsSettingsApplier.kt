@@ -10,8 +10,7 @@ class JavascriptImportsSettingsApplier @Inject
 constructor(private val jsCodeStyleSettings: JSCodeStyleSettings) : SettingsApplier<JavascriptImportsSettings> {
 
     override fun apply(settings: JavascriptImportsSettings) {
-        settings.usePathsRelativeToTheProjectResourceOrSourcesRoots()
-            .ifPresent { jsCodeStyleSettings.IMPORT_PREFER_ABSOLUTE_PATH = toBooleanWithGlobalOption(it) }
+        settings.usePathsRelativeToTheProjectResourceOrSourcesRoots?.let { jsCodeStyleSettings.IMPORT_PREFER_ABSOLUTE_PATH = toBooleanWithGlobalOption(it) }
     }
 
     private fun toBooleanWithGlobalOption(value: Boolean) =

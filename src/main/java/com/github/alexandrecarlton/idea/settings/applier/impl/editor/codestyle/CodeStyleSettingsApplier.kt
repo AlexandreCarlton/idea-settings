@@ -11,7 +11,7 @@ constructor(private val javaCodeStyleSettingsApplier: SettingsApplier<JavaCodeSt
             private val javascriptCodeStyleSettingsApplier: SettingsApplier<JavascriptCodeStyleSettings>) : SettingsApplier<CodeStyleSettings> {
 
     override fun apply(settings: CodeStyleSettings) {
-        settings.java().ifPresent { javaCodeStyleSettingsApplier.apply(it) }
-        settings.javascript().ifPresent { javascriptCodeStyleSettingsApplier.apply(it) }
+        settings.java?.let(javaCodeStyleSettingsApplier::apply)
+        settings.javascript?.let(javascriptCodeStyleSettingsApplier::apply)
     }
 }

@@ -6,7 +6,6 @@ import com.intellij.execution.BeforeRunTask
 import com.intellij.execution.RunManager
 import com.intellij.execution.impl.RunConfigurationBeforeRunProvider
 import com.intellij.openapi.diagnostic.Logger
-import java.util.Objects
 import javax.inject.Inject
 
 class RunAnotherConfigurationSettingsApplier @Inject
@@ -22,16 +21,11 @@ constructor(private val beforeRunTasks: MutableList<BeforeRunTask<*>>,
 
     override fun apply(settings: RunAnotherConfigurationSettings) {
 
-        val runnerAndConfigurationSettings = settings.type()
-            .map { type -> runManager.findConfigurationByTypeAndName(configurationTypeMapper.mapRunConfigurationType(type), settings.name()) }
-            .orElse(runManager.findConfigurationByName(settings.name()))
+        val runnerAndConfigurationSettings = settings.type
+            ?.let { runManager.findConfigurationByTypeAndName(configurationTypeMapper.mapRunConfigurationType(it), settings.name) }
+            ?: runManager.findConfigurationByName(settings.name)
         if (runnerAndConfigurationSettings == null) {
-            LOG.warn("Unable to find Run Configuration with name " + settings.name()
-                + settings.type()
-                .map { Objects.toString(it) }
-                .map { " and type: $it" }
-                .orElse("")
-                + ".")
+            LOG.warn("Unable to find Run Configuration with name ${settings.name} and type ${settings.type}")
             return
         }
 
