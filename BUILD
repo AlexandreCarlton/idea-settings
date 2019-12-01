@@ -81,6 +81,7 @@ test_suite(
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/build_tools/maven",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/application",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/docker",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/remote",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/shell_script",

@@ -7,6 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
  */
 enum class RunConfigurationType {
 
+    @JsonProperty("Application")
+    APPLICATION,
+
     @JsonProperty("Docker")
     DOCKER,
 

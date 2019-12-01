@@ -4,6 +4,7 @@ import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenImportingSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.maven.MavenSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.CompilerSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.application.ApplicationConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerComposeConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerImageConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.shell_script.ShellScriptConfigurationSettingsApplier
@@ -40,6 +41,10 @@ import dagger.Provides
 object OptionalSettingsApplierModule {
 
     private val LOG = Logger.getInstance(OptionalSettingsApplierModule::class.java)
+
+    @Provides
+    internal fun provideApplicationConfigurationSettingsApplier(applicationConfigurationSettingsApplier: Lazy<ApplicationConfigurationSettingsApplier>) =
+        provideIfLoaded(Plugin.JAVA, applicationConfigurationSettingsApplier)
 
     @Provides
     internal fun provideCheckstyleSettingsApplier(checkstyleSettingsApplier: Lazy<CheckstyleSettingsApplier>) =

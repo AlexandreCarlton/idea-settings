@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.application.ApplicationConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings
@@ -15,13 +16,17 @@ import javax.inject.Inject
 class ConfigurationsSettingsApplier @Inject
 constructor(private val runManager: RunManager,
             private val configurationSubcomponentBuilder: ConfigurationSubcomponent.Builder,
-            private val dockerComposeConfigurationSettingsApplier: SettingsApplier<DockerComposeConfigurationSettings>, private val dockerImageConfigurationSettingsApplier: SettingsApplier<DockerImageConfigurationSettings>,
+            private val applicationConfigurationSettingsApplier: SettingsApplier<ApplicationConfigurationSettings>,
+            private val dockerComposeConfigurationSettingsApplier: SettingsApplier<DockerComposeConfigurationSettings>,
+            private val dockerImageConfigurationSettingsApplier: SettingsApplier<DockerImageConfigurationSettings>,
             private val remoteConfigurationApplier: SettingsApplier<RemoteSettings>,
             private val shellScriptConfigurationSettingsApplier: SettingsApplier<ShellScriptConfigurationSettings>,
-            private val springBootConfigurationApplier: SettingsApplier<SpringBootSettings>) : SettingsApplier<ConfigurationSettings> {
+            private val springBootConfigurationApplier: SettingsApplier<SpringBootSettings>
+) : SettingsApplier<ConfigurationSettings> {
 
     override fun apply(settings: ConfigurationSettings) {
         when (settings) {
+            is ApplicationConfigurationSettings -> applicationConfigurationSettingsApplier.apply(settings)
             is DockerComposeConfigurationSettings -> dockerComposeConfigurationSettingsApplier.apply(settings)
             is DockerImageConfigurationSettings -> dockerImageConfigurationSettingsApplier.apply(settings)
             is RemoteSettings -> remoteConfigurationApplier.apply(settings)

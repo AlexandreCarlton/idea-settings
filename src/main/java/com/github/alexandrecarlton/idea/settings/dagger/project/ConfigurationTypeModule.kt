@@ -2,8 +2,10 @@ package com.github.alexandrecarlton.idea.settings.dagger.project
 
 import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin
 import com.intellij.docker.DockerCloudType
+import com.intellij.execution.application.ApplicationConfigurationType
 import com.intellij.execution.configurations.ConfigurationType
 import com.intellij.execution.configurations.UnknownConfigurationType
+import com.intellij.execution.remote.RemoteConfigurationType
 import com.intellij.ide.plugins.PluginManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
@@ -22,6 +24,14 @@ object ConfigurationTypeModule {
     private val LOG = Logger.getInstance(ConfigurationTypeModule::class.java)
 
     @Provides
+    internal fun provideApplicationConfigurationType() = ApplicationConfigurationType.getInstance()
+
+    @Provides
+    @Named("Application")
+    internal fun provideApplicationConfigurationTypeSupplier(configurationType: Lazy<ApplicationConfigurationType>) =
+        provideIfLoaded(Plugin.JAVA, configurationType)
+
+    @Provides
     @Named("Docker")
     internal fun provideDockerConfigurationType(): DeployToServerConfigurationType =
         DockerCloudType.getRunConfigurationType()
@@ -30,6 +40,14 @@ object ConfigurationTypeModule {
     @Named("Docker")
     internal fun provideDockerConfigurationTypeSupplier(@Named("Docker") configurationType: Lazy<DeployToServerConfigurationType>) =
         provideIfLoaded(Plugin.DOCKER, configurationType)
+
+    @Provides
+    internal fun provideRemoteConfigurationType() = RemoteConfigurationType.getInstance()
+
+    @Provides
+    @Named("Remote")
+    internal fun provideRemoteConfigurationTypeSupplier(configurationType: Lazy<RemoteConfigurationType>) =
+        provideIfLoaded(Plugin.JAVA, configurationType)
 
     @Provides
     internal fun provideShellScriptConfigurationType() = ShConfigurationType()

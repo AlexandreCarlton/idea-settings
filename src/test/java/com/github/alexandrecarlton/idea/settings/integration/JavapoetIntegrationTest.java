@@ -128,6 +128,15 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "        file: checkstyle.xml",
         "",
         "configurations:",
+        "  - application:",
+        "      name: Application Configuration",
+        "      shareThroughVcs: true",
+        "      configuration:",
+        "        mainClass: com.Application",
+        "        useClassPathOfModule: javapoet",
+        "        vmOptions: -Xmx1g",
+        "        programArguments: foo bar",
+        "        workingDirectory: src",
         "  - shellScript:",
         "      name: Shell Script",
         "      shareThroughVcs: true",
@@ -535,6 +544,41 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
     assertThatXml(".idea/checkstyle-idea.xml")
         .valueByXPath("//entry[@key='active-configuration']/@value")
         .isEqualTo("PROJECT_RELATIVE:$PROJECT_DIR$/checkstyle.xml:Javapoet Checkstyle");
+  }
+
+  @Test
+  public void applicationConfigurationMainClassName() throws IOException {
+    assertThatXml(".idea/runConfigurations/Application_Configuration.xml")
+        .valueByXPath("//configuration[@name='Application Configuration']/option[@name='MAIN_CLASS_NAME']/@value")
+        .isEqualTo("com.Application");
+  }
+
+  @Test
+  public void applicationConfigurationModule() throws IOException {
+    assertThatXml(".idea/runConfigurations/Application_Configuration.xml")
+        .valueByXPath("//configuration[@name='Application Configuration']/module/@name")
+        .isEqualTo("javapoet");
+  }
+
+  @Test
+  public void applicationConfigurationVmOptions() throws IOException {
+    assertThatXml(".idea/runConfigurations/Application_Configuration.xml")
+        .valueByXPath("//configuration[@name='Application Configuration']/option[@name='VM_PARAMETERS']/@value")
+        .isEqualTo("-Xmx1g");
+  }
+
+  @Test
+  public void applicationConfigurationProgramArguments() throws IOException {
+    assertThatXml(".idea/runConfigurations/Application_Configuration.xml")
+        .valueByXPath("//configuration[@name='Application Configuration']/option[@name='PROGRAM_PARAMETERS']/@value")
+        .isEqualTo("foo bar");
+  }
+
+  @Test
+  public void applicationConfigurationWorkingDirectory() throws IOException {
+    assertThatXml(".idea/runConfigurations/Application_Configuration.xml")
+        .valueByXPath("//configuration[@name='Application Configuration']/option[@name='WORKING_DIRECTORY']/@value")
+        .isEqualTo("$PROJECT_DIR$/src");
   }
 
   @Test

@@ -212,6 +212,15 @@ otherSettings:
 
 # Run / Debug configurations
 configurations:
+  - application:
+      name: My Application
+      shareThroughVcs: true
+      configuration:
+        mainClass: com.Application
+        useClassPathOfModule: app
+        vmOptions: -Xmx1g
+        programArguments: arg1 arg2
+        workingDirectory: .
   - dockerImage:
       name: Run Container
       shareThroughVcs: true

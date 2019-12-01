@@ -94,7 +94,7 @@ tail -f /tmp/*/log/idea.log
 
 ### Troubleshooting
 
-#### `error: cannot access <class>`
+#### `error: supertypes of the following classes cannot be resolved.`
 
 Occasionally a compile error will reveal itself of the above form - add the
 following library to ensure it continues compiling:
@@ -102,8 +102,13 @@ following library to ensure it continues compiling:
 | Class | Dependency |
 | ----- | ---------- |
 | `AreaInstance` | `@idea-IC//:lib/extensions` |
+| `CommonProgramRunConfigurationParameters` | `@idea-IC//:lib/platform-impl` |
+| `ConfigurationWithAlternativeJre` | `@idea-IC//:plugins/java/lib/java-api` |
+| `ConfigurationWithCommandLineShortener` | `@idea-IC//:lib/platform-impl` |
+| `InputRedirectAware` | `@idea-IC//:lib/platform-impl` |
 | `PersistentStateComponent` | `@idea-IC//:lib/platform-api` |
 | `UserDataHolder` | `@idea-IC//:lib/util` |
+| `UserDataHolderBase` | `@idea-IC//:lib/util` |
 
 ### Updating dependencies
 

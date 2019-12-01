@@ -13,6 +13,7 @@ kt_jvm_library(
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/build_tools/maven",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/build_execution_deployment/compiler",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations",
+        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/application",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/docker",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/remote",
         "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/shell_script",
