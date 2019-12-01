@@ -92,6 +92,13 @@ java_import(
 )
 
 java_import(
+    name = "lib/platform-serviceContainer",
+    jars = ["lib/platform-serviceContainer.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
     name = "lib/platform-util-ex",
     jars = ["lib/platform-util-ex.jar"],
     neverlink = True,

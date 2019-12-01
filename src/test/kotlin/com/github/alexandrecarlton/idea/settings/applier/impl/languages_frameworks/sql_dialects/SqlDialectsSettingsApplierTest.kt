@@ -5,7 +5,7 @@ import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixtur
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialect
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings
 import com.intellij.sql.dialects.SqlDialectMappings
-import com.intellij.sql.dialects.postgres.PostgresDialect
+import com.intellij.sql.dialects.postgres.PgDialect
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Ignore
@@ -26,6 +26,6 @@ class SqlDialectsSettingsApplierTest : IdeaSettingsTestFixture() {
     @Ignore("Light fixture fails on project.getProjectFile() access.")
     fun projectSqlDialectApplied() {
         settingsApplier.apply(SqlDialectsSettings(projectSqlDialect = SqlDialect.POSTGRESQL))
-        assertThat(sqlDialectMappings.getMapping(project.projectFile)).isEqualTo(PostgresDialect.INSTANCE)
+        assertThat(sqlDialectMappings.getMapping(project.projectFile)).isEqualTo(PgDialect.INSTANCE)
     }
 }

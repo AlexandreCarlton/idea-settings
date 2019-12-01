@@ -14,6 +14,7 @@ kt_jvm_library(
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
+        "@idea-IC//:lib/platform-serviceContainer",
         "@idea-IC//:lib/util",
     ],
 )

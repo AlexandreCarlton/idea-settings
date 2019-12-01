@@ -7,6 +7,12 @@ exports_files([
 ])
 
 java_import(
+    name = "plugins/DatabaseTools/lib/database-dialects",
+    jars = ["plugins/DatabaseTools/lib/database-dialects.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "plugins/DatabaseTools/lib/database-impl",
     jars = ["plugins/DatabaseTools/lib/database-impl.jar"],
     neverlink = True,

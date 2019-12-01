@@ -30,31 +30,31 @@ import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings
 import com.intellij.openapi.project.Project
 import com.intellij.sql.dialects.SqlDialectMappings
-import com.intellij.sql.dialects.cassandra.CassandraDialect
+import com.intellij.sql.dialects.cassandra.CassDialect
 import com.intellij.sql.dialects.clickhouse.CHouseDialect
 import com.intellij.sql.dialects.db2.Db2ISDialect
 import com.intellij.sql.dialects.db2.Db2LUWDialect
 import com.intellij.sql.dialects.db2.Db2ZOSDialect
 import com.intellij.sql.dialects.derby.DerbyDialect
-import com.intellij.sql.dialects.exasol.ExasolDialect
+import com.intellij.sql.dialects.exasol.ExaDialect
 import com.intellij.sql.dialects.generic.GenericDialect
 import com.intellij.sql.dialects.greenplum.GPlumDialect
 import com.intellij.sql.dialects.h2.H2Dialect
 import com.intellij.sql.dialects.hive.HiveDialect
 import com.intellij.sql.dialects.hsql.HsqlDialect
-import com.intellij.sql.dialects.mariadb.MariaDialect
-import com.intellij.sql.dialects.mssql.MssqlDialect
+import com.intellij.sql.dialects.maria.MariaDialect
+import com.intellij.sql.dialects.mssql.MsDialect
 import com.intellij.sql.dialects.mysql.MysqlDialect
-import com.intellij.sql.dialects.oracle.OracleDialect
+import com.intellij.sql.dialects.oracle.OraDialect
 import com.intellij.sql.dialects.oraplus.OraPlusDialect
-import com.intellij.sql.dialects.postgres.PostgresDialect
-import com.intellij.sql.dialects.redshift.RedshiftDialect
+import com.intellij.sql.dialects.postgres.PgDialect
+import com.intellij.sql.dialects.redshift.RsDialect
 import com.intellij.sql.dialects.snowflake.SFlakeDialect
 import com.intellij.sql.dialects.spark.SparkDialect
 import com.intellij.sql.dialects.sql92.Sql92Dialect
 import com.intellij.sql.dialects.sqlite.SqliteDialect
-import com.intellij.sql.dialects.sybase.SybaseDialect
-import com.intellij.sql.dialects.vertica.VerticaDialect
+import com.intellij.sql.dialects.sybase.AseDialect
+import com.intellij.sql.dialects.vertica.VertDialect
 import javax.inject.Inject
 
 class SqlDialectsSettingsApplier @Inject
@@ -66,13 +66,13 @@ constructor(private val project: Project, private val sqlDialectMappings: SqlDia
 
     private fun toSqlLanguageDialect(sqlDialect: SqlDialect) =
         when (sqlDialect) {
-            AMAZON_REDSHIFT -> RedshiftDialect.INSTANCE
-            APACHE_CASSANDRA -> CassandraDialect.INSTANCE
+            AMAZON_REDSHIFT -> RsDialect.INSTANCE
+            APACHE_CASSANDRA -> CassDialect.INSTANCE
             APACHE_DERBY -> DerbyDialect.INSTANCE
             APACHE_HIVE -> HiveDialect.INSTANCE
             APACHE_SPARK -> SparkDialect.INSTANCE
             CLICKHOUSE -> CHouseDialect.INSTANCE
-            EXASOL -> ExasolDialect.INSTANCE
+            EXASOL -> ExaDialect.INSTANCE
             GENERIC_SQL -> GenericDialect.INSTANCE
             GREENPLUM -> GPlumDialect.INSTANCE
             H2 -> H2Dialect.INSTANCE
@@ -81,15 +81,15 @@ constructor(private val project: Project, private val sqlDialectMappings: SqlDia
             IBM_DB2_LUW -> Db2LUWDialect.INSTANCE
             IBM_DB2_Z_OS -> Db2ZOSDialect.INSTANCE
             MARIADB -> MariaDialect.INSTANCE
-            MICROSOFT_SQL_SERVER -> MssqlDialect.INSTANCE
+            MICROSOFT_SQL_SERVER -> MsDialect.INSTANCE
             MYSQL -> MysqlDialect.INSTANCE
-            ORACLE -> OracleDialect.INSTANCE
+            ORACLE -> OraDialect.INSTANCE
             ORACLE_SQL_PLUS -> OraPlusDialect.INSTANCE
-            POSTGRESQL -> PostgresDialect.INSTANCE
+            POSTGRESQL -> PgDialect.INSTANCE
             SNOWFLAKE -> SFlakeDialect.INSTANCE
             SQL92 -> Sql92Dialect.INSTANCE
             SQLITE -> SqliteDialect.INSTANCE
-            SYBASE_ASE -> SybaseDialect.INSTANCE
-            VERTICA -> VerticaDialect.INSTANCE
+            SYBASE_ASE -> AseDialect.INSTANCE
+            VERTICA -> VertDialect.INSTANCE
         }
 }
