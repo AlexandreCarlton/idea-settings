@@ -13,9 +13,9 @@ kt_jvm_test(
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/editor/spelling",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/com/google/guava",
         "//third_party/maven/junit",

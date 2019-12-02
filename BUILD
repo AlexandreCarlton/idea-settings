@@ -15,7 +15,7 @@ intellij_plugin(
 
 intellij_plugin_library(
     name = "plugin_library",
-    deps = ["//src/main/java/com/github/alexandrecarlton/idea/settings/starter"],
+    deps = ["//src/main/kotlin/com/github/alexandrecarlton/idea/settings/starter"],
 )
 
 pkg_tar(

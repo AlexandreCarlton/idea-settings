@@ -11,9 +11,9 @@ kt_jvm_test(
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.javadoc.JavadocSettingsApplierTest",
     runtime_deps = ["@idea-IC//:test_runtime_deps"],
     deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/javadoc",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/editor/codestyle/java/javadoc",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/javadoc",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",

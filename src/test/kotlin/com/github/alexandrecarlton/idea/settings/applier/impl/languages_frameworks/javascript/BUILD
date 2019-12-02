@@ -13,9 +13,9 @@ kt_jvm_test(
         "@idea-IU//:test_runtime_deps",
     ],
     deps = [
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/api",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript",
-        "//src/main/java/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//third_party/maven/junit",
         "//third_party/maven/org/assertj:assertj_core",
