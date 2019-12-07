@@ -1,9 +1,15 @@
 package com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot
 
+import com.fasterxml.jackson.annotation.JsonProperty
+
 data class SpringBootConfigurationEnvironmentSettings(
+
+    @JsonProperty("VM options")
     val vmOptions: String? = null,
 
+    @JsonProperty("Include dependencies with provided scope")
     val includeDependenciesWithProvidedScope: Boolean? = null,
 
-    val useClassPathOfModule: String? = null
+    @JsonProperty("Use classpath of module")
+    val useClasspathOfModule: String? = null
 )

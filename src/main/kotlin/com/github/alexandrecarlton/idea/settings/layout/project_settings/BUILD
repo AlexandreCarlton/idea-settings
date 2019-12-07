@@ -7,5 +7,6 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/project_settings/modules",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/project_settings/project",
+        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
     ],
 )

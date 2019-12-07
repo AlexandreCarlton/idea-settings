@@ -4,5 +4,8 @@ kt_jvm_library(
     name = "file_watchers",
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
-    deps = ["//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/common"],
+    deps = [
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/common",
+        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
+    ],
 )

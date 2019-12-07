@@ -4,4 +4,5 @@ kt_jvm_library(
     name = "auto_import",
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
+    deps = ["//third_party/maven/com/fasterxml/jackson/core:jackson_annotations"],
 )

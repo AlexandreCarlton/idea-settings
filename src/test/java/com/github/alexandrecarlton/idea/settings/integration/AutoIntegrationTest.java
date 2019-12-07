@@ -16,19 +16,19 @@ public class AutoIntegrationTest extends AbstractIntegrationTest {
   @BeforeClass
   public static void setUpClass() throws IOException, InterruptedException {
     AbstractIntegrationTest.setUpClass("auto",
-        "projectSettings:",
-        "  modules:",
-        "    - name: auto-parent",
-        "      sources:",
-        "        - contentRoot: .",
-        "          excluded:" ,
+        "Project Settings:",
+        "  Modules:",
+        "    - Name: auto-parent",
+        "      Sources:",
+        "        - Content Root: .",
+        "          Excluded:" ,
         "            - README.md",
-        "    - name: common",
-        "      sources:",
-        "        - contentRoot: common",
-        "          sources:",
+        "    - Name: common",
+        "      Sources:",
+        "        - Content Root: common",
+        "          Sources:",
         "            - src/main/java",
-        "          tests:",
+        "          Tests:",
         "            - src/test/java");
     runIdeaSettings();
     auto = path;

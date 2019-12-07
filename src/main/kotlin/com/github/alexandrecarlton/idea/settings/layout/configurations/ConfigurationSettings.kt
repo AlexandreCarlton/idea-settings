@@ -14,12 +14,12 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_bo
 // TODO: Look into sealed classes
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
 @JsonSubTypes(
-    Type(name = "application", value = ApplicationConfigurationSettings::class),
-    Type(name = "dockerCompose", value = DockerComposeConfigurationSettings::class),
-    Type(name = "dockerImage", value = DockerImageConfigurationSettings::class),
-    Type(name = "remote", value = RemoteSettings::class),
-    Type(name = "shellScript", value = ShellScriptConfigurationSettings::class),
-    Type(name = "springBoot", value = SpringBootSettings::class))
+    Type(name = "Application", value = ApplicationConfigurationSettings::class),
+    Type(name = "Docker-compose", value = DockerComposeConfigurationSettings::class),
+    Type(name = "Docker Image", value = DockerImageConfigurationSettings::class),
+    Type(name = "Remote", value = RemoteSettings::class),
+    Type(name = "Shell Script", value = ShellScriptConfigurationSettings::class),
+    Type(name = "Spring Boot", value = SpringBootSettings::class))
 interface ConfigurationSettings {
 
     val name: String

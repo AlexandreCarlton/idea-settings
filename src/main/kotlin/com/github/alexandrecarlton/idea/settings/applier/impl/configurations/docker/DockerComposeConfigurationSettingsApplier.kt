@@ -47,7 +47,7 @@ constructor(private val dockerRunConfigurationCreator: DockerRunConfigurationCre
 
     private fun toDockerEnvVarImpl(dockerEnvironmentVariable: DockerEnvironmentVariable): DockerEnvVarImpl {
         val dockerEnvVarImpl = DockerEnvVarImpl()
-        dockerEnvironmentVariable.name?.let { dockerEnvVarImpl.name = it }
+        dockerEnvironmentVariable.name.let { dockerEnvVarImpl.name = it }
         dockerEnvironmentVariable.value?.let { dockerEnvVarImpl.value = it }
         return dockerEnvVarImpl
     }

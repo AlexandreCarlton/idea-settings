@@ -19,7 +19,7 @@ constructor(private val project: Project, private val runManager: RunManager) : 
             settings.name)
         configuration.setMainClassName(settings.configuration.mainClass)
         settings.configuration.environment?.includeDependenciesWithProvidedScope?.let { configuration.isIncludeProvidedScope = it }
-        settings.configuration.environment?.useClassPathOfModule?.let { configuration.setModuleName(it) }
+        settings.configuration.environment?.useClasspathOfModule?.let { configuration.setModuleName(it) }
         settings.configuration.environment?.vmOptions?.let { configuration.vmParameters = it }
 
         settings.configuration.springBoot?.overrideParameters

@@ -4,5 +4,8 @@ kt_jvm_library(
     name = "build_tools",
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
-    deps = ["//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools/maven"],
+    deps = [
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools/maven",
+        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
+    ],
 )

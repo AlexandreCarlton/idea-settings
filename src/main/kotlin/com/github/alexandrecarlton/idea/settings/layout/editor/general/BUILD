@@ -4,5 +4,8 @@ kt_jvm_library(
     name = "general",
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
-    deps = ["//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/general/auto_import"],
+    deps = [
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/general/auto_import",
+        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
+    ],
 )

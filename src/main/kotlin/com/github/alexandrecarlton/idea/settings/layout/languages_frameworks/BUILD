@@ -7,5 +7,6 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/sql_dialects",
+        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
     ],
 )

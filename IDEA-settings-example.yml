@@ -3,272 +3,272 @@
 # The layout is strongly intended to mimic the graphical menus that expose these settings.
 
 # This can be found not in 'Settings...' but under 'Project Structure...'
-projectSettings:
-  project:
-    projectName: project-name-in-intellij
-    projectSdk: ProjectSDK
-    projectLanguageLevel: '8'
-  modules:
-    - name: my-module
-      sources:
+Project Settings:
+  Project:
+    Project name: project-name-in-intellij
+    Project SDK: ProjectSDK
+    Project language level: '8'
+  Modules:
+    - Name: my-module
+      Sources:
         # If relative, this will be evaluated with respect to the project.
-        - contentRoot: path/to/module
+        - Content Root: path/to/module
           # Note that folders listed here are merely appended to the existing list;
           # we do NOT clear out all folders first.
-          sources:
+          Sources:
             - src/main/kotlin
-          tests:
+          Tests:
             - src/it/java
-          resources:
+          Resources:
             - src/main/other_resources
-          testResources:
+          Test Resources:
             - src/test/other_resources
-          excluded:
+          Excluded:
             - src/main/resources/too_large_to_index
 
-editor:
-  codeStyle:
-    java:
-      wrappingAndBraces:
-        hardWrapAt: 120
-        wrapOnTyping: true
-        keepWhenReformatting:
-          multipleExpressionsInOneLine: true
-          simpleBlocksInOneLine: true
-          simpleMethodsInOneLine: true
-          simpleLambdasInOneLine: true
-          simpleClassInOneLine: true
-        extendsImplementsList:
-          alignWhenMultiline: true
-        methodDeclarationParameters:
-          wrapping: Wrap if long
-        ifStatement:
-          forceBraces: Always
-        forStatement:
-          forceBraces: Always
-        whileStatement:
-          forceBraces: Always
-        doWhileStatement:
-          forceBraces: Always
-        tryWithResources:
-          wrapping: Wrap always
-        binaryExpressions:
-          wrapping: Chop down if long
-          alignWhenMultiline: true
-        assignmentStatement:
-          wrapping: Do not wrap
-        ternaryOperation:
-          wrapping: Wrap if long
-        arrayInitializer:
-          wrapping: Wrap if long
-        assertStatement:
-          wrapping: Wrap if long
-        parameterAnnotations:
-          wrapping: Do not wrap
-        localVariableAnnotations:
-          wrapping: Wrap if long
-        annotationParameters:
-          wrapping: Wrap if long
-          alignWhenMultiline: true
-      blankLines:
-        keepMaximumBlankLines:
-          inDeclarations: 10
-          inCode: 11
-          beforeRightBrace: 12
-          betweenHeaderAndPackage: 13
-        minimumBlankLines:
-          beforePackageStatement: 14
-          afterPackageStatement: 15
-          beforeImports: 16
-          afterImports: 17
-          aroundClass: 18
-          afterClassHeader: 19
-          beforeClassEnd: 20
-          afterAnonymousClassHeader: 21
-          aroundFieldInInterface: 22
-          aroundField: 23
-          aroundMethodInInterface: 24
-          aroundMethod: 25
-          beforeMethodBody: 26
-          aroundInitializer: 27
-      javadoc:
-        alignment:
-          alignParameterDescriptions: false
-          alignThrownExceptionDescriptions: false
-        blankLines:
-          afterDescription: false
-          afterParameterDescriptions: true
-          afterReturnTag: true
-        invalidTags:
-          keepInvalidTags: false
-          keepEmptyParamTags: false
-          keepEmptyReturnTags: false
-          keepEmptyThrowsTags: false
-        other:
-          wrapAtRightMargin: true
-          enableLeadingAsterisks: false
-          useThrowsRatherThanException: false
-          generatePOnEmptyLines: false
-          keepEmptyLines: false
-          doNotWrapOneLineComments: true
-          preserveLineFeeds: true
-          parameterDescriptionsOnNewLine: true
-          indentContinuationLines: true
-      imports:
-        classCountToUseImportWithWildcard: 999
-        namesCountToUseStaticImportWithWildcard: 999
-      arrangement:
-        matchingRules:
-          - type: field
-            modifier:
+Editor:
+  Code Style:
+    Java:
+      Wrapping and Braces:
+        Hard wrap at: 120
+        Wrap on typing: true
+        Keep when reformatting:
+          Multiple expressions in one line: true
+          Simple blocks in one line: true
+          Simple methods in one line: true
+          Simple lambdas in one line: true
+          Simple classes in one line: true
+        Extends/implements list:
+          Align when multiline: true
+        Method declaration parameters:
+          Wrapping: Wrap if long
+        if() statement:
+          Force braces: Always
+        for() statement:
+          Force braces: Always
+        while() statement:
+          Force braces: Always
+        do ... while() Statement:
+          Force braces: Always
+        try-with-resources:
+          Wrapping: Wrap always
+        Binary expressions:
+          Wrapping: Chop down if long
+          Align when multiline: true
+        Assignment statement:
+          Wrapping: Do not wrap
+        Ternary operation:
+          Wrapping: Wrap if long
+        Array initializer:
+          Wrapping: Wrap if long
+        Assert statement:
+          Wrapping: Wrap if long
+        Parameter annotations:
+          Wrapping: Do not wrap
+        Local variable annotations:
+          Wrapping: Wrap if long
+        Annotation parameters:
+          Wrapping: Wrap if long
+          Align when multiline: true
+      Blank Lines:
+        Keep Maximum Blank Lines:
+          In declarations: 10
+          In code: 11
+          Before '}': 12
+          Between header and package: 13
+        Minimum Blank Lines:
+          Before package statement: 14
+          After package statement: 15
+          Before imports: 16
+          After imports: 17
+          Around class: 18
+          After class header: 19
+          Before class end: 20
+          After anonymous class header: 21
+          Around field in interface: 22
+          Around field: 23
+          Around method in interface: 24
+          Around method: 25
+          Before method body: 26
+          Around initializer: 27
+      JavaDoc:
+        Alignment:
+          Align parameter descriptions: false
+          Align thrown exception descriptions: false
+        Blank lines:
+          After description: false
+          After parameter descriptions: true
+          After return tag: true
+        Invalid tags:
+          Keep invalid tags: false
+          Keep empty @param tags: false
+          Keep empty @return tags: false
+          Keep empty @throws tags: false
+        Other:
+          Wrap at right margin: true
+          Enable leading asterisks: false
+          Use @throws rather than @exception: false
+          Generate '<p>' on empty lines: false
+          Keep empty lines: false
+          Do not wrap one line comments: true
+          Preserve line feeds: true
+          Parameter descriptions on new line: true
+          Indent continuation lines: true
+      Imports:
+        Class count to use import with '*': 999
+        Names count to use static import with '*': 999
+      Arrangement:
+        Matching rules:
+          - Type: field
+            Modifier:
               - public
               - static
               - final
-            name: matchingRule
-            order: keep order
-          - type: field
-            modifier:
+            Name: matchingRule
+            Order: keep order
+          - Type: field
+            Modifier:
               - private
               - not static
-            name: my rule
-            order: by name
-    javascript:
-      imports:
-        usePathsRelativeToTheProjectResourceOrSourcesRoots: true
-  general:
-    autoImport:
-      java:
-        optimizeImportsOnTheFly: true
-        excludeFromImportAndCompletion:
+            Name: my rule
+            Order: order by name
+    JavaScript:
+      Imports:
+        Use paths relative to the project, resource or sources roots: true
+  General:
+    Auto Import:
+      Java:
+        Optimize imports on the fly (for current project): true
+        Exclude from import and completion:
           - com.google.inject.Inject
           - com.sun.istack.internal.Nullable
           - edu.umd.cs.findbugs.annotations.Nullable
-  spelling:
-    dictionaries:
+  Spelling:
+    Dictionaries:
       # files containing a word on each line to be used as custom spelling dictionaries.
       - relative_to_project.dic
       - /tmp/absolute.dic
 
-buildExecutionDeployment:
-  buildTools:
-    maven:
-      importing:
-        vmOptionsForImporter: -Xmx1g
-      mavenHomeDirectory: /usr
-  compiler:
-    resourcePatterns:
+Build, Execution, Deployment:
+  Build Tools:
+    Maven:
+      Importing:
+        VM options for importer: -Xmx1g
+      Maven home directory: /usr
+  Compiler:
+    Resource patterns:
       - '!?*.java'
       - '!resource.properties'
-    addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: false
-    buildProcessHeapSizeMbytes: 1024
-    compileIndependentModulesInParallel: true
-    rebuildModuleOnDependencyChange: false
-    sharedBuildProcessVmOptions: -Xms123m
-  requiredPlugins:
-    - plugin: CheckStyle-IDEA
-      minimumVersion: 5.23.0
-      maximumVersion: 5.24.1
+    Add runtime assertions for notnull-annotated methods and parameters: false
+    Build process heap size (Mbytes): 1024
+    Compile independent modules in parallel: true
+    Rebuild module on dependency change: false
+    Shared build process VM options: -Xms123m
+  Required plugins:
+    - Plugin: CheckStyle-IDEA
+      Minimum version: 5.23.0
+      Maximum version: 5.24.1
 
-languagesFrameworks:
-  javascript:
-    javascriptLanguageVersion: React JSX
-  sqlDialects:
-    projectSqlDialect: PostgreSQL
+Languages & Frameworks:
+  JavaScript:
+    JavaScript language version: React JSX
+  SQL Dialects:
+    Project SQL Dialect: PostgreSQL
 
-tools:
-  fileWatchers:
-    - name: Prettier
-      filesToWatch:
-        fileType: JavaScript
-        scope: Project Files
-      toolToRunOnChanges:
-        program: $ProjectFileDir$/node_modules/.bin/prettier
-        arguments: --write $FilePath$
-        outputPathsToRefresh: $FilePath$
-      advancedOptions:
-        autoSaveEditedFilesToTriggerTheWatcher: false
-        triggerTheWatcherOnExternalChanges: true
-        triggerTheWatcherRegardlessOfSyntaxErrors: true
+Tools:
+  File Watchers:
+    - Name: Prettier
+      Files to watch:
+        File type: JavaScript
+        Scope: Project Files
+      Tool to Run on Changes:
+        Program: $ProjectFileDir$/node_modules/.bin/prettier
+        Arguments: --write $FilePath$
+        Output paths to refresh: $FilePath$
+      Advanced Options:
+        Auto-save edited files to trigger the watcher: false
+        Trigger the watcher on external changes: true
+        Trigger the watcher regardless of syntax errors: true
 
-otherSettings:
-  checkstyle:
-    checkstyleVersion: "8.16"
+Other Settings:
+  Checkstyle:
+    Checkstyle version: "8.16"
     # Manages the files that Checkstyle verifies. Can be one of:
     # - Only Java sources (but not tests)
     # - Only Java sources (including tests)
     # - All sources (but not tests)
     # - All sources (including tests)
     # - All files in project
-    scanScope: Only Java sources (including tests)
-    treatCheckstyleErrorsAsWarnings: false
-    configurationFiles:
-      - active: true
-        description: Project Checkstyle Configuration
+    Scan Scope: Only Java sources (including tests)
+    Treat Checkstyle errors as warnings: false
+    Configuration files:
+      - Active: true
+        Description: Project Checkstyle Configuration
         # Can be one of:
         # - a local file
         # - an HTTP URL
         # - 'bundled' (with description matching the bundled description, e.g. "Google Checks")
-        file: checkstyle.xml
+        File: checkstyle.xml
 
 # Run / Debug configurations
-configurations:
-  - application:
-      name: My Application
-      shareThroughVcs: true
-      configuration:
-        mainClass: com.Application
-        useClassPathOfModule: app
-        vmOptions: -Xmx1g
-        programArguments: arg1 arg2
-        workingDirectory: .
-  - dockerImage:
-      name: Run Container
-      shareThroughVcs: true
-      imageId: hello-world
-      containerName: my-hello-world-container
-      executable:
-        entrypoint: /bin/bash
-        command: -c echo bar
-      bindPorts:
-        - hostPort: 1234
-          containerPort: 5678
-          protocol: tcp
-          hostIp: 1.2.3.4
-      environmentVariables:
-        - name: foo
-          value: bar
-      runOptions: --tty -it
-  - remote:
+Configurations:
+  - Application:
+      Name: My Application
+      Share through VCS: true
+      Configuration:
+        Main class: com.Application
+        Use class path of module: app
+        VM options: -Xmx1g
+        Program arguments: arg1 arg2
+        Working directory: .
+  - Docker Image:
+      Name: Run Container
+      Share through VCS: true
+      Image ID: hello-world
+      Container name: my-hello-world-container
+      Executable:
+        Entrypoint: /bin/bash
+        Command: -c echo bar
+      Bind ports:
+        - Host port: 1234
+          Container port: 5678
+          Protocol: tcp
+          Host IP: 1.2.3.4
+      Environment variables:
+        - Name: foo
+          Value: bar
+      Run options: --tty -it
+  - Remote:
       name: Debug
-      shareThroughVcs: true
-      configuration:
-        host: localhost
-        port: 5005
-  - shellScript:
-      name: Script
-      shareThroughVcs: true
-      scriptPath: ./foo.sh
-      scriptOptions: arg1 arg2
-      interpreter:
-        interpreterPath: /bin/sh
-        interpreterOptions: -e
-  - springBoot:
-      name: Spring Boot Application
-      configuration:
-        mainClass: com.application.MyApplication
-        environment:
-          vmOptions: -Xmx123m
-          includeDependenciesWithProvidedScope: false
-          useClassPathOfModule: my-module
-        springBoot:
-          overrideParameters:
-            - key: system.property
-              value: value
-        beforeLaunch:
-          - build: {}
-            runAnotherConfiguration:
-              name: Run Container # For now, configuration in 'name' must be defined before this one.
-              type: Docker # Only necessary to specify in the event of two configurations sharing the same name.
-            runMavenGoal:
-              workingDirectory: .
-              commandLine: checkstyle:check
+      Share through VCS: true
+      Configuration:
+        Host: localhost
+        Port: 5005
+  - Shell Script:
+      Name: Script
+      Share through VCS: true
+      Script path: ./foo.sh
+      Script options: arg1 arg2
+      Interpreter:
+        Interpreter path: /bin/sh
+        Interpreter options: -e
+  - Spring Boot:
+      Name: Spring Boot Application
+      Configuration:
+        Main class: com.application.MyApplication
+        Environment:
+          VM options: -Xmx123m
+          Include dependencies with provided scope: false
+          Use class path of module: my-module
+        Spring Boot:
+          Override parameters:
+            - Name: system.property
+              Value: value
+        Before launch:
+          - Build: {}
+            Run Another Configuration:
+              Name: Run Container # For now, configuration in 'name' must be defined before this one.
+              Type: Docker # Only necessary to specify in the event of two configurations sharing the same name.
+            Run Maven Goal:
+              Working directory: .
+              Command line: checkstyle:check
