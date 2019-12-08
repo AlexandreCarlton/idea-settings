@@ -9,7 +9,7 @@ kt_jvm_library(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/dagger/configuration",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:javax_inject_javax_inject",
         "@idea-IC//:lib/platform-api",
     ],
 )

@@ -50,7 +50,7 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         val settings = loadSettings(path)
         ApplicationManagerEx.getApplicationEx().isSaveAllowed = true
         WriteAction.runAndWait<RuntimeException> {
-            settings?.also { component.applier().apply(it) }
+            settings?.let { component.applier().apply(it) }
             component.project().save()
         }
     }

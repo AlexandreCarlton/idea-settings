@@ -112,10 +112,10 @@ following library to ensure it continues compiling:
 
 ### Updating dependencies
 
-This projects uses [`bazel-deps`](https://github.com/johnynek/bazel-deps).
-To update a Maven dependency, modify [`third_party/dependencies.yaml`](third_party/dependencies.yaml).
-Then, checkout the aforementioned repository and run:
+This projects uses [`rules_jvm_external`](https://github.com/bazelbuild/rules_jvm_external).
+To update a Maven dependency, modify the `maven_install` entry in [`WORKSPACE`](./WORKSPACE)
+and run:
 
 ```sh
-bazel run //:parse -- generate --repo-root <iml-generator-checkout> --sha-file third_party/package-lock.bzl --deps third_party/dependencies.yaml
+bazel run @unpinned_maven//:pin
 ```

@@ -4,5 +4,5 @@ kt_jvm_library(
     name = "arrangement",
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
-    deps = ["//third_party/maven/com/fasterxml/jackson/core:jackson_annotations"],
+    deps = ["@maven//:com_fasterxml_jackson_core_jackson_annotations"],
 )

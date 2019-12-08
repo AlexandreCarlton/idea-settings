@@ -7,7 +7,7 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/other_settings/checkstyle",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:javax_inject_javax_inject",
         "@CheckStyle-IDEA//:lib/checkstyle-idea",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",

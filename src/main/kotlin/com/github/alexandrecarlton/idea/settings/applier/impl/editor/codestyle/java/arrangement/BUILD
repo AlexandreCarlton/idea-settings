@@ -7,8 +7,8 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/arrangement",
-        "//third_party/maven/com/google/guava",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:com_google_guava_guava",
+        "@maven//:javax_inject_javax_inject",
         "@idea-IC//:lib/platform-api",
     ],
 )

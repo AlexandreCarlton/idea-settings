@@ -108,3 +108,24 @@ test_suite(
         "//src/test/java/com/github/alexandrecarlton/idea/settings/integration",
     ],
 )
+
+# TODO: Use @com_google_dagger//:dagger_with_compiler once it is discovered
+# how to use this with kotlin.
+java_library(
+    name = "dagger_with_compiler",
+    exported_plugins = [":dagger_with_compiler_plugin"],
+    exports = [
+        "@maven//:com_google_dagger_dagger",
+        "@maven//:com_google_dagger_dagger_compiler",
+    ],
+)
+
+java_plugin(
+    name = "dagger_with_compiler_plugin",
+    generates_api = True,
+    processor_class = "dagger.internal.codegen.ComponentProcessor",
+    deps = [
+        "@maven//:com_google_dagger_dagger",
+        "@maven//:com_google_dagger_dagger_compiler",
+    ],
+)

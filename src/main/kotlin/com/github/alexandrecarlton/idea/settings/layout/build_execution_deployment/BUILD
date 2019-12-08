@@ -7,6 +7,6 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/compiler",
-        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
+        "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],
 )

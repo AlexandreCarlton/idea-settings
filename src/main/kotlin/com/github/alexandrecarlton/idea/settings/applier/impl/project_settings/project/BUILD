@@ -7,8 +7,8 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/project_settings/project",
-        "//third_party/maven/com/fasterxml/jackson/core:jackson_databind",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:com_fasterxml_jackson_core_jackson_databind",
+        "@maven//:javax_inject_javax_inject",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",

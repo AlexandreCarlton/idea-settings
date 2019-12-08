@@ -27,8 +27,8 @@ bazel_java_integration_test(
     ],
     versions = GET_LATEST_BAZEL_VERSIONS(count = 1),
     deps = [
-        "//third_party/maven/org/assertj:assertj_core",
-        "//third_party/maven/org/xmlunit:xmlunit_assertj",
+        "@maven//:org_assertj_assertj_core",
+        "@maven//:org_xmlunit_xmlunit_assertj",
     ],
 )
 
@@ -51,7 +51,7 @@ bazel_java_integration_test(
     ],
     versions = GET_LATEST_BAZEL_VERSIONS(count = 1),
     deps = [
-        "//third_party/maven/org/assertj:assertj_core",
-        "//third_party/maven/org/xmlunit:xmlunit_assertj",
+        "@maven//:org_assertj_assertj_core",
+        "@maven//:org_xmlunit_xmlunit_assertj",
     ],
 )

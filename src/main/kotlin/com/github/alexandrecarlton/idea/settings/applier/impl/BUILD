@@ -14,6 +14,6 @@ kt_jvm_library(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/other_settings",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/project_settings",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/tools",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:javax_inject_javax_inject",
     ],
 )

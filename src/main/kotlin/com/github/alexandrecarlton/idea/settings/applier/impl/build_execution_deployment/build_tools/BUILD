@@ -8,6 +8,6 @@ kt_jvm_library(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools/maven",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:javax_inject_javax_inject",
     ],
 )

@@ -9,6 +9,6 @@ kt_jvm_library(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/sql_dialects",
-        "//third_party/maven/javax/inject:javax_inject",
+        "@maven//:javax_inject_javax_inject",
     ],
 )

@@ -65,9 +65,9 @@ http_archive(
 
 http_archive(
     name = "io_bazel_rules_kotlin",
-    sha256 = "fc7ae525c3aefbc0044cd636319f4039c152b117cefee6b6b1b7d9c7de715e15",
-    strip_prefix = "rules_kotlin-legacy-1.3.0-rc1",
-    url = "https://github.com/bazelbuild/rules_kotlin/archive/legacy-1.3.0-rc1.tar.gz",
+    sha256 = "54678552125753d9fc0a37736d140f1d2e69778d3e52cf454df41a913b964ede",
+    strip_prefix = "rules_kotlin-legacy-1.3.0-rc3",
+    url = "https://github.com/bazelbuild/rules_kotlin/archive/legacy-1.3.0-rc3.zip",
 )
 
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
@@ -85,12 +85,6 @@ http_archive(
 load("@rules_pkg//:deps.bzl", "rules_pkg_dependencies")
 
 rules_pkg_dependencies()
-
-# bazel-deps will soon produce a jar that can be used to run @bazel-deps//:parse from within
-# this project.
-load("//third_party:package-lock.bzl", "maven_dependencies")
-
-maven_dependencies()
 
 # Test dependencies
 http_archive(
@@ -142,3 +136,72 @@ http_archive(
 load("@build_bazel_integration_testing//tools:bazel_java_integration_test.bzl", "bazel_java_integration_test_deps")
 
 bazel_java_integration_test_deps()
+
+http_archive(
+    name = "google_bazel_common",
+    sha256 = "090d1f394c2bbeae37f091a9d7853bafc7a9b3174d1e100d762fdd07767a2269",
+    strip_prefix = "bazel-common-1c8dcb31eed0713306cb6dc07f8334d84c925a01",
+    urls = ["https://github.com/google/bazel-common/archive/1c8dcb31eed0713306cb6dc07f8334d84c925a01.zip"],
+)
+
+load("@google_bazel_common//:workspace_defs.bzl", "google_common_workspace_rules")
+
+google_common_workspace_rules()
+
+http_archive(
+    name = "com_google_dagger",
+    urls = ["https://github.com/google/dagger/archive/6c2568dfc708abfe2539343f0976356dc8cf1349.zip"],
+    strip_prefix = "dagger-6c2568dfc708abfe2539343f0976356dc8cf1349",
+    sha256 = "1ef40a620a34e2b627a16f4e734151cbbd1342b1774afef436aa1fa2abfbf02d",
+)
+
+http_archive(
+    name = "rules_jvm_external",
+    strip_prefix = "rules_jvm_external-3.0",
+    sha256 = "62133c125bf4109dfd9d2af64830208356ce4ef8b165a6ef15bbff7460b35c3a",
+    url = "https://github.com/bazelbuild/rules_jvm_external/archive/3.0.zip",
+)
+
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+
+load("@rules_jvm_external//:specs.bzl", "maven")
+
+maven_install(
+    artifacts = [
+        "com.fasterxml.jackson.core:jackson-annotations:2.9.8",
+        "com.fasterxml.jackson.core:jackson-core:2.9.8",
+        "com.fasterxml.jackson.core:jackson-databind:2.9.8",
+        "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8",
+        "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.9.8",
+        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8",
+        "com.google.dagger:dagger:2.25.2",
+        "com.google.guava:guava:27.0.1-jre",
+        "javax.inject:javax.inject:1",
+        "junit:junit:4.12",
+        "org.assertj:assertj-core:3.11.1",
+        "org.mockito:mockito-core:2.28.2",
+        "org.xmlunit:xmlunit-assertj:2.6.2",
+        maven.artifact(
+            group = "com.fasterxml.jackson.module",
+            artifact = "jackson-module-kotlin",
+            version = "2.9.8",
+            exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
+        ),
+        maven.artifact(
+            group = "com.google.dagger",
+            artifact = "dagger-compiler",
+            version = "2.25.2",
+            exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
+        ),
+    ],
+    repositories = [
+        "https://jcenter.bintray.com/",
+        "https://maven.google.com",
+        "https://repo1.maven.org/maven2",
+    ],
+    maven_install_json = "//:maven_install.json",
+)
+
+load("@maven//:defs.bzl", "pinned_maven_install")
+
+pinned_maven_install()

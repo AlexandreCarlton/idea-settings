@@ -18,8 +18,8 @@ kt_jvm_test(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/other_settings/checkstyle",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
-        "//third_party/maven/junit",
-        "//third_party/maven/org/assertj:assertj_core",
+        "@maven//:junit_junit",
+        "@maven//:org_assertj_assertj_core",
         "@CheckStyle-IDEA//:lib/checkstyle-idea",
     ],
 )

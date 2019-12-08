@@ -10,6 +10,6 @@ kt_jvm_library(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/imports",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/javadoc",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle/java/wrapping_and_braces",
-        "//third_party/maven/com/fasterxml/jackson/core:jackson_annotations",
+        "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],
 )
