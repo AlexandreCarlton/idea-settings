@@ -164,7 +164,7 @@ Build, Execution, Deployment:
     Compile independent modules in parallel: true
     Rebuild module on dependency change: false
     Shared build process VM options: -Xms123m
-  Required plugins:
+  Required Plugins:
     - Plugin: CheckStyle-IDEA
       Minimum version: 5.23.0
       Maximum version: 5.24.1
