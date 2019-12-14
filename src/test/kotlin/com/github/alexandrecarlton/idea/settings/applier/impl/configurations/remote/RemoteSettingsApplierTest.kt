@@ -3,7 +3,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.re
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.RemoteSettings
 import com.intellij.execution.RunManager
 import com.intellij.execution.remote.RemoteConfiguration
 import org.assertj.core.api.Assertions.assertThat

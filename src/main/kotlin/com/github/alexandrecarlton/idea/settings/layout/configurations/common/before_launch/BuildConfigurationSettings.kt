@@ -1,3 +1,0 @@
-package com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch
-
-class BuildConfigurationSettings : BeforeLaunchConfigurationSettings

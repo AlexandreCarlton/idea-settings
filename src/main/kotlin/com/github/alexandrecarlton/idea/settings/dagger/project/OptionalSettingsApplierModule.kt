@@ -7,6 +7,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_de
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.application.ApplicationConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerComposeConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker.DockerImageConfigurationSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.remote.RemoteSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.shell_script.ShellScriptConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot.SpringBootSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.arrangement.JavaArrangementSettingsApplier
@@ -109,6 +110,10 @@ object OptionalSettingsApplierModule {
     @Provides
     internal fun provideMavenSettingsApplier(mavenSettingsApplier: Lazy<MavenSettingsApplier>) =
         provideIfLoaded(Plugin.MAVEN, mavenSettingsApplier)
+
+    @Provides
+    internal fun provideRemoteSettingsApplier(remoteSettingsApplier: Lazy<RemoteSettingsApplier>) =
+        provideIfLoaded(Plugin.JAVA, remoteSettingsApplier)
 
     @Provides
     internal fun provideShellScriptConfigurationSettings(shellScriptConfigurationSettingsApplier: Lazy<ShellScriptConfigurationSettingsApplier>) =

@@ -168,12 +168,12 @@ load("@rules_jvm_external//:specs.bzl", "maven")
 
 maven_install(
     artifacts = [
-        "com.fasterxml.jackson.core:jackson-annotations:2.9.8",
-        "com.fasterxml.jackson.core:jackson-core:2.9.8",
-        "com.fasterxml.jackson.core:jackson-databind:2.9.8",
-        "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.9.8",
-        "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.9.8",
-        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8",
+        "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
+        "com.fasterxml.jackson.core:jackson-core:2.10.1",
+        "com.fasterxml.jackson.core:jackson-databind:2.10.1",
+        "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1",
+        "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.1",
+        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1",
         "com.google.dagger:dagger:2.25.2",
         "com.google.guava:guava:27.0.1-jre",
         "javax.inject:javax.inject:1",
@@ -184,8 +184,11 @@ maven_install(
         maven.artifact(
             group = "com.fasterxml.jackson.module",
             artifact = "jackson-module-kotlin",
-            version = "2.9.8",
-            exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
+            version = "2.10.1",
+            exclusions = [
+                "org.jetbrains.kotlin:kotlin-reflect",
+                "org.jetbrains.kotlin:kotlin-stdlib",
+            ],
         ),
         maven.artifact(
             group = "com.google.dagger",

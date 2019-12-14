@@ -3,7 +3,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.do
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator

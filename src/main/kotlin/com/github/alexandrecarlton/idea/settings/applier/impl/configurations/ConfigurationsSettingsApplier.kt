@@ -2,18 +2,20 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent
+import com.github.alexandrecarlton.idea.settings.layout.configurations.ApplicationConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.application.ApplicationConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerImageConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.ShellScriptConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerImageConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.RemoteSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.ShellScriptConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.SpringBootSettings
 import com.intellij.execution.RunManager
 import java.util.ArrayList
 import javax.inject.Inject
 
 class ConfigurationsSettingsApplier @Inject
+// TODO: Could we maybe inject the appliers into a map, from class -> applier?
+// We lose the 'when' compiler failure though :/
 constructor(private val runManager: RunManager,
             private val configurationSubcomponentBuilder: ConfigurationSubcomponent.Builder,
             private val applicationConfigurationSettingsApplier: SettingsApplier<ApplicationConfigurationSettings>,
@@ -32,7 +34,6 @@ constructor(private val runManager: RunManager,
             is RemoteSettings -> remoteConfigurationApplier.apply(settings)
             is ShellScriptConfigurationSettings -> shellScriptConfigurationSettingsApplier.apply(settings)
             is SpringBootSettings -> springBootConfigurationApplier.apply(settings)
-            else -> throw IllegalArgumentException("Unhandled settings $settings")
         }
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName(settings.name) ?: return

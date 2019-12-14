@@ -1,14 +1,37 @@
 package com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch
 
-import com.fasterxml.jackson.annotation.JsonSubTypes
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id
+import com.fasterxml.jackson.annotation.JsonTypeName
+import java.nio.file.Path
 
 @JsonTypeInfo(use = Id.NAME, include = As.WRAPPER_OBJECT)
-@JsonSubTypes(
-    Type(name = "Build", value = BuildConfigurationSettings::class),
-    Type(name = "Run Another Configuration", value = RunAnotherConfigurationSettings::class),
-    Type(name = "Run Maven Goal", value = RunMavenGoalSettings::class))
-interface BeforeLaunchConfigurationSettings
+sealed class BeforeLaunchConfigurationSettings
+
+@JsonTypeName("Build")
+object BuildConfigurationSettings : BeforeLaunchConfigurationSettings()
+
+@JsonTypeName("Run Another Configuration")
+data class RunAnotherConfigurationSettings(
+
+    @JsonProperty("Name")
+    val name: String,
+
+    @JsonProperty("Type")
+    val type: RunConfigurationType? = null
+
+) : BeforeLaunchConfigurationSettings()
+
+@JsonTypeName("Run Maven Goal")
+data class RunMavenGoalSettings(
+
+    @JsonProperty("Working directory")
+    val workingDirectory: Path,
+
+    @JsonProperty("Command line")
+    val commandLine: String
+
+) : BeforeLaunchConfigurationSettings()
+

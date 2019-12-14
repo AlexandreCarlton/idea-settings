@@ -1,14 +1,13 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.docker
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
 import com.intellij.docker.agent.settings.DockerEnvVarImpl
 import com.intellij.docker.deploymentSource.DockerComposeDeploymentSourceType
 import com.intellij.execution.RunManager
-import java.util.Optional
 import javax.inject.Inject
 
 class DockerComposeConfigurationSettingsApplier @Inject

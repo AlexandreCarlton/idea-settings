@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.spring_boot
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.SpringBootSettings
 import com.intellij.execution.RunManager
 import com.intellij.openapi.project.Project
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter
