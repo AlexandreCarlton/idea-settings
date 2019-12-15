@@ -9,19 +9,17 @@ import org.jetbrains.jps.model.java.JavaSourceRootType
 import javax.inject.Inject
 
 class ModuleSettingsApplier @Inject
-constructor(private val modifiableRootModel: ModifiableRootModel) : SettingsApplier<ModuleSettings> {
+constructor(private val localFileSystem: LocalFileSystem,
+            private val modifiableRootModel: ModifiableRootModel) : SettingsApplier<ModuleSettings> {
 
     override fun apply(settings: ModuleSettings) {
         val contentEntries = listOf(*modifiableRootModel.contentEntries)
         settings.sources?.forEach { source ->
             try {
-                // So here, we try to get the ContentEntry whose url matches
-                // TODO: Inject this.
-                val localFileSystem = LocalFileSystem.getInstance();
-                val virtualFile = localFileSystem.findFileByIoFile(source.contentRoot)!!
+                val contentRootFile = localFileSystem.findFileByIoFile(source.contentRoot)!!
                 val contentEntry = contentEntries
-                    .firstOrNull { entry -> entry.file == virtualFile }
-                    ?: modifiableRootModel.addContentEntry(virtualFile)
+                    .firstOrNull { entry -> entry.file == contentRootFile }
+                    ?: modifiableRootModel.addContentEntry(contentRootFile)
 
                 source.sources
                     ?.map(source.contentRoot::resolve)

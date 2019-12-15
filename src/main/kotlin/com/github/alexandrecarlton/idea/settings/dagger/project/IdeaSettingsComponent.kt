@@ -10,6 +10,7 @@ import javax.inject.Named
 @Component(modules = [
     SettingsApplierModule::class,
     ConfigurationTypeModule::class,
+    IdeaModule::class,
     FileTypeModule::class,
     OptionalSettingsApplierModule::class,
     ProjectModule::class])
