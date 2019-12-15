@@ -52,27 +52,27 @@ sh_binary(
 alias(
     name = "idea.sh",
     actual = select({
-        "community": "@idea-IC//:bin/idea.sh",
-        "ultimate": "@idea-IU//:bin/idea.sh",
+        "intellij-idea-community": "@idea-IC//:bin/idea.sh",
+        "intellij-idea-ultimate": "@idea-IU//:bin/idea.sh",
     }),
 )
 
 alias(
     name = "idea64.vmoptions",
     actual = select({
-        "community": "@idea-IC//:bin/linux/idea64.vmoptions",
-        "ultimate": "@idea-IU//:bin/linux/idea64.vmoptions",
+        "intellij-idea-community": "@idea-IC//:bin/linux/idea64.vmoptions",
+        "intellij-idea-ultimate": "@idea-IU//:bin/linux/idea64.vmoptions",
     }),
 )
 
 config_setting(
-    name = "community",
-    values = {"define": "product=community"},
+    name = "intellij-idea-community",
+    values = {"define": "product=intellij-idea-community"},
 )
 
 config_setting(
-    name = "ultimate",
-    values = {"define": "product=ultimate"},
+    name = "intellij-idea-ultimate",
+    values = {"define": "product=intellij-idea-ultimate"},
 )
 
 test_suite(

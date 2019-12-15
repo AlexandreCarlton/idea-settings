@@ -1,4 +1,4 @@
-build --define product=community
+build --define product=intellij-idea-community
 # A bug with Android Studio 2.2 (fixed in 2.3) means we need to set this to some writeable directory.
 # See https://issuetracker.google.com/issues/37120836
 test --test_env="ANDROID_SDK_HOME=/tmp/android-sdk-home"
