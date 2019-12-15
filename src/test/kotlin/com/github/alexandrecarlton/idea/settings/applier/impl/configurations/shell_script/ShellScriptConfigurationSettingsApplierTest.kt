@@ -10,7 +10,6 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import java.io.File
-import java.lang.reflect.InvocationTargetException
 
 class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -56,17 +55,12 @@ class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
         assertThat(invokeGetMethod(shRunConfiguration, "getInterpreterOptions")).isEqualTo("-e")
     }
 
-    // TODO: Look into Kotlin method of reflection
     private fun invokeGetMethod(shRunConfiguration: ShRunConfiguration, methodName: String): String {
         try {
             val method = shRunConfiguration.javaClass.getDeclaredMethod(methodName)
             method.isAccessible = true
             return method.invoke(shRunConfiguration) as String
-        } catch (e: IllegalAccessException) {
-            throw RuntimeException("Unable to invoke method $methodName.", e)
-        } catch (e: InvocationTargetException) {
-            throw RuntimeException("Unable to invoke method $methodName.", e)
-        } catch (e: NoSuchMethodException) {
+        } catch (e: Exception) {
             throw RuntimeException("Unable to invoke method $methodName.", e)
         }
     }
