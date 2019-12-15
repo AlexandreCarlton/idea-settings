@@ -14,6 +14,7 @@ import com.intellij.docker.agent.settings.DockerEnvVarImpl
 import com.intellij.docker.agent.settings.DockerPortBindingImpl
 import com.intellij.docker.deploymentSource.DockerImageDeploymentSourceType
 import com.intellij.execution.RunManager
+import com.intellij.remoteServer.impl.configuration.deployment.DeployToServerRunConfiguration
 import javax.inject.Inject
 
 class DockerImageConfigurationSettingsApplier @Inject
@@ -38,6 +39,10 @@ constructor(
             DockerImageDeploymentSourceType.getInstance().singletonSource,
             dockerDeploymentConfiguration,
             null)
+        settings.server?.let {
+            val deployToServerRunConfiguration = runnerAndConfigurationSettings.configuration as DeployToServerRunConfiguration<*, *>
+            deployToServerRunConfiguration.serverName = it
+        }
         runnerAndConfigurationSettings.name = settings.name
         runManager.addConfiguration(runnerAndConfigurationSettings)
     }

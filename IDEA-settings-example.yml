@@ -224,6 +224,7 @@ Configurations:
   - Docker Image:
       Name: Run Container
       Share through VCS: true
+      Server: Docker
       Image ID: hello-world
       Container name: my-hello-world-container
       Executable:

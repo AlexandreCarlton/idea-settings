@@ -54,6 +54,9 @@ data class DockerComposeConfigurationSettings(
     @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
+    @JsonProperty("Server")
+    val server: String? = null,
+
     @JsonProperty("Compose file(s)")
     val composeFiles: List<File>? = null,
 
@@ -78,6 +81,9 @@ data class DockerImageConfigurationSettings(
 
     @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
+
+    @JsonProperty("Server")
+    val server: String? = null,
 
     @JsonProperty("Image ID")
     val imageId: String? = null,

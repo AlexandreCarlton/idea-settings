@@ -32,6 +32,16 @@ class DockerImageConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
     }
 
     @Test
+    fun serverApplied() {
+        settingsApplier.apply(DockerImageConfigurationSettings(
+            name = "Image Server",
+            server = "Docker"))
+        val runnerAndConfigurationSettings = runManager.findConfigurationByName("Image Server")
+        val deployToServerRunConfiguration = runnerAndConfigurationSettings!!.configuration as DeployToServerRunConfiguration<*, *>
+        assertThat(deployToServerRunConfiguration.serverName).isEqualTo("Docker")
+    }
+
+    @Test
     fun imageIdApplied() {
         settingsApplier.apply(DockerImageConfigurationSettings(name = "Image ID", imageId = "hello-world"))
         assertThat(getDockerDeploymentConfiguration("Image ID").imageTag).isEqualTo("hello-world")

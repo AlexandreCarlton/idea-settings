@@ -30,6 +30,16 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
     }
 
     @Test
+    fun serverApplied() {
+        settingsApplier.apply(DockerComposeConfigurationSettings(
+            name = "Docker Compose Server",
+            server = "Docker"))
+        val runnerAndConfigurationSettings = runManager.findConfigurationByName("Docker Compose Server")
+        val deployToServerRunConfiguration = runnerAndConfigurationSettings!!.configuration as DeployToServerRunConfiguration<*, *>
+        assertThat(deployToServerRunConfiguration.serverName).isEqualTo("Docker")
+    }
+
+    @Test
     fun servicesApplied() {
         settingsApplier.apply(DockerComposeConfigurationSettings(
             name = "Docker Compose Services",
