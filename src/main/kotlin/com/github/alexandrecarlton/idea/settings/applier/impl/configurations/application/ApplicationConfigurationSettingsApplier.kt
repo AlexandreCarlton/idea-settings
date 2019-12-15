@@ -21,7 +21,7 @@ class ApplicationConfigurationSettingsApplier
 
         settings.configuration.vmOptions?.let { applicationConfiguration.vmParameters = it }
         settings.configuration.programArguments?.let { applicationConfiguration.programParameters = it }
-        settings.configuration.workingDirectory?.let { applicationConfiguration.workingDirectory = it.toAbsolutePath().toString() }
+        settings.configuration.workingDirectory?.let { applicationConfiguration.workingDirectory = it.absolutePath }
 
         val runnerAndConfigurationSettings = runManager.createConfiguration(
             applicationConfiguration,

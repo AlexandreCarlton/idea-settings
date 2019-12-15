@@ -2,8 +2,6 @@ package com.github.alexandrecarlton.idea.settings.starter
 
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
-import com.fasterxml.jackson.datatype.guava.GuavaModule
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.github.alexandrecarlton.idea.settings.dagger.project.DaggerIdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.dagger.project.IdeaSettingsComponent
@@ -11,10 +9,8 @@ import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings
 import com.intellij.openapi.application.ApplicationStarter
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.application.ex.ApplicationManagerEx
+import java.io.File
 import java.io.IOException
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
 
 class IdeaSettingsApplicationStarter : ApplicationStarter {
 
@@ -30,24 +26,24 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         if (args.size < 2) {
             throw IllegalArgumentException("Please supply the path to the project.")
         }
-        val path = Paths.get(args[1])
-        if (!Files.exists(path)) {
+        val project = File(args[1])
+        if (!project.exists()) {
             throw IllegalArgumentException("Please supply a valid path to the project.")
         }
     }
 
     override fun main(vararg args: String) {
-        val path = Paths.get(args[1])
-        applySettings(path)
+        val project = File(args[1])
+        applySettings(project)
         ApplicationManagerEx.getApplicationEx().exit(true, true)
     }
 
-    private fun applySettings(path: Path) {
+    private fun applySettings(project: File) {
         val component: IdeaSettingsComponent = DaggerIdeaSettingsComponent
             .builder()
-            .project(path.toString())
+            .project(project.absolutePath)
             .build()
-        val settings = loadSettings(path)
+        val settings = loadSettings(project)
         ApplicationManagerEx.getApplicationEx().isSaveAllowed = true
         WriteAction.runAndWait<RuntimeException> {
             settings?.let { component.applier().apply(it) }
@@ -55,20 +51,18 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         }
     }
 
-    private fun loadSettings(project: Path): IdeaSettings? {
+    private fun loadSettings(project: File): IdeaSettings? {
         val ideaSettingsReader = YAMLMapper()
-            .registerModule(Jdk8Module())
-            .registerModule(GuavaModule())
             .registerModule(KotlinModule())
             .registerModule(SimpleModule()
-                .addDeserializer(Path::class.java, HomeExpandingPathDeserializer(project)))
+                .addDeserializer(File::class.java, ProjectRelativeFileDeserializer(project)))
             .readerFor(IdeaSettings::class.java)
         val configFile = project.resolve(IDEA_SETTINGS_FILENAME)
-        if (!Files.exists(configFile)) {
+        if (!configFile.exists()) {
             return null
         }
         return try {
-            Files.newInputStream(configFile).use { inputStream -> ideaSettingsReader.readValue(inputStream) }
+            ideaSettingsReader.readValue(configFile.inputStream())
         } catch (e: IOException) {
             println(e.message)
             null

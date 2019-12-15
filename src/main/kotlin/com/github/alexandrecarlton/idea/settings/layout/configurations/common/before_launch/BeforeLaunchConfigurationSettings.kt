@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id
 import com.fasterxml.jackson.annotation.JsonTypeName
-import java.nio.file.Path
+import java.io.File
 
 @JsonTypeInfo(use = Id.NAME, include = As.WRAPPER_OBJECT)
 sealed class BeforeLaunchConfigurationSettings
@@ -28,7 +28,7 @@ data class RunAnotherConfigurationSettings(
 data class RunMavenGoalSettings(
 
     @JsonProperty("Working directory")
-    val workingDirectory: Path,
+    val workingDirectory: File,
 
     @JsonProperty("Command line")
     val commandLine: String

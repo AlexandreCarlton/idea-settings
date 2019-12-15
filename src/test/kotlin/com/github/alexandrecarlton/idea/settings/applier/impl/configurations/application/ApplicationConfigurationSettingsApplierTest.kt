@@ -2,14 +2,14 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.ap
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.application.ApplicationConfigurationConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ApplicationConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.application.ApplicationConfigurationConfigurationSettings
 import com.intellij.execution.RunManager
 import com.intellij.execution.application.ApplicationConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import java.nio.file.Paths
+import java.io.File
 
 class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -68,7 +68,7 @@ class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
             configuration = ApplicationConfigurationConfigurationSettings(
                 mainClass = "com.Application",
                 useClassPathOfModule = "app",
-                workingDirectory = Paths.get("/root"))))
+                workingDirectory = File("/root"))))
 
         val configuration = runManager.findConfigurationByName("Application with Working Directory")!!.configuration as ApplicationConfiguration
         assertThat(configuration.workingDirectory).isEqualTo("/root")

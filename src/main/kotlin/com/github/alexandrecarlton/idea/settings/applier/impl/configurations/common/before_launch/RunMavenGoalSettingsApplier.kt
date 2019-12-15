@@ -10,9 +10,9 @@ class RunMavenGoalSettingsApplier @Inject
 constructor(private val beforeRunTasks: MutableList<BeforeRunTask<*>>) : SettingsApplier<RunMavenGoalSettings> {
 
     override fun apply(settings: RunMavenGoalSettings) {
-        val mavenBeforeRunTask = MavenBeforeRunTask()
-        mavenBeforeRunTask.goal = settings.commandLine
-        mavenBeforeRunTask.projectPath = settings.workingDirectory.resolve("pom.xml").toString()
-        beforeRunTasks.add(mavenBeforeRunTask)
+        beforeRunTasks.add(MavenBeforeRunTask().apply {
+            goal = settings.commandLine
+            projectPath = settings.workingDirectory.resolve("pom.xml").absolutePath
+        })
     }
 }

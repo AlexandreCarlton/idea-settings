@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.do
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
 import com.intellij.docker.agent.settings.DockerEnvVarImpl
@@ -21,18 +20,14 @@ constructor(private val dockerRunConfigurationCreator: DockerRunConfigurationCre
         settings.services?.let { dockerDeploymentConfiguration.services = it }
 
         settings.composeFiles
-            ?.let { composeFiles ->
-                composeFiles
-                    .map { it.toAbsolutePath() }
-                    .map { it.toString() }
-            }
+            ?.let { composeFiles -> composeFiles.map { it.absolutePath } }
             ?.let { composeFiles -> if (composeFiles.isNotEmpty()) composeFiles else null }
             ?.let { composeFiles ->
                 dockerDeploymentConfiguration.sourceFilePath = composeFiles[0]
                 dockerDeploymentConfiguration.secondarySourceFiles = composeFiles.subList(1, composeFiles.size)
             }
 
-        settings.environmentVariables?.let { variables -> dockerDeploymentConfiguration.envVars = variables.map { toDockerEnvVarImpl(it) } }
+        settings.environmentVariables?.let { variables -> dockerDeploymentConfiguration.envVars = variables.map { DockerEnvVarImpl(it.name, it.value) } }
 
         settings.options?.buildForceBuildImages?.let { dockerComposeDeploymentSourceType.applyForceBuild(dockerDeploymentConfiguration, it) }
 
@@ -42,12 +37,5 @@ constructor(private val dockerRunConfigurationCreator: DockerRunConfigurationCre
             null)
         runnerAndConfigurationSettings.name = settings.name
         runManager.addConfiguration(runnerAndConfigurationSettings)
-    }
-
-    private fun toDockerEnvVarImpl(dockerEnvironmentVariable: DockerEnvironmentVariable): DockerEnvVarImpl {
-        val dockerEnvVarImpl = DockerEnvVarImpl()
-        dockerEnvironmentVariable.name.let { dockerEnvVarImpl.name = it }
-        dockerEnvironmentVariable.value?.let { dockerEnvVarImpl.value = it }
-        return dockerEnvVarImpl
     }
 }

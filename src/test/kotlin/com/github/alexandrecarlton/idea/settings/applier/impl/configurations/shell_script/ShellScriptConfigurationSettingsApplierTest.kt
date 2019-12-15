@@ -9,8 +9,8 @@ import com.intellij.sh.run.ShRunConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
+import java.io.File
 import java.lang.reflect.InvocationTargetException
-import java.nio.file.Paths
 
 class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -27,7 +27,7 @@ class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
     fun simpleShellConfiguration() {
         settingsApplier.apply(ShellScriptConfigurationSettings(
             name = "Simple Shell Configuration",
-            scriptPath = Paths.get("/usr/bin/foo")))
+            scriptPath = File("/usr/bin/foo")))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Simple Shell Configuration")
         assertThat(runnerAndConfigurationSettings).isNotNull()
@@ -42,10 +42,10 @@ class ShellScriptConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
     fun fullShellConfiguration() {
         settingsApplier.apply(ShellScriptConfigurationSettings(
                 name = "Full Shell Configuration",
-                scriptPath = Paths.get("/usr/bin/foo"),
+                scriptPath = File("/usr/bin/foo"),
                 scriptOptions = "bar",
                 interpreter = InterpreterConfigurationSettings(
-                    interpreterPath = Paths.get("/bin/sh"),
+                    interpreterPath = File("/bin/sh"),
                     interpreterOptions ="-e")))
 
         val runnerAndConfigurationSettings = runManager.findConfigurationByName("Full Shell Configuration")!!

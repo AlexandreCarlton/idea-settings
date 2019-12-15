@@ -2,8 +2,8 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.configurations.do
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerComposeConfigurationOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
@@ -13,6 +13,7 @@ import com.intellij.remoteServer.impl.configuration.deployment.DeployToServerRun
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
+import java.io.File
 import java.nio.file.Paths
 
 class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
@@ -41,9 +42,9 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
         settingsApplier.apply(DockerComposeConfigurationSettings(
             name = "Docker Compose Files",
             composeFiles = listOf(
-                Paths.get(project.basePath).resolve("docker-compose.yml"),
-                Paths.get(project.basePath).resolve("docker-compose-2.yml"),
-                Paths.get(project.basePath).resolve("docker-compose-3.yml"))))
+                File(project.basePath).resolve("docker-compose.yml"),
+                File(project.basePath).resolve("docker-compose-2.yml"),
+                File(project.basePath).resolve("docker-compose-3.yml"))))
         assertThat(getDockerDeploymentConfiguration("Docker Compose Files").sourceFilePath)
                 .isEqualTo(Paths.get(project.basePath).resolve("docker-compose.yml").toString())
         assertThat(getDockerDeploymentConfiguration("Docker Compose Files").secondarySourceFiles)

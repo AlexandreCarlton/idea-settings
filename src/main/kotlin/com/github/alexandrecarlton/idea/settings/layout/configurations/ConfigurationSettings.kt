@@ -13,7 +13,7 @@ import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.Do
 import com.github.alexandrecarlton.idea.settings.layout.configurations.remote.RemoteConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.InterpreterConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSettings
-import java.nio.file.Path
+import java.io.File
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
 sealed class ConfigurationSettings(
@@ -55,7 +55,7 @@ data class DockerComposeConfigurationSettings(
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Compose file(s)")
-    val composeFiles: List<Path>? = null,
+    val composeFiles: List<File>? = null,
 
     @JsonProperty("Service(s)")
     val services: List<String>? = null,
@@ -133,7 +133,7 @@ data class ShellScriptConfigurationSettings(
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Script path")
-    val scriptPath: Path,
+    val scriptPath: File,
 
     @JsonProperty("Script options")
     val scriptOptions: String? = null,

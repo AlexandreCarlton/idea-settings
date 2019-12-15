@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.starter
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext
 import com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer
+import java.io.File
 import java.nio.file.Path
 
 /**
@@ -12,14 +13,10 @@ import java.nio.file.Path
  * Note that this requires that the path exist on the user's filesystem.
  */
 // TODO: This should deserialise a File instead, once everything is in Kotlin.
-class HomeExpandingPathDeserializer(private val basePath: Path, vc: Class<*>?) : StdScalarDeserializer<Path>(vc) {
+class ProjectRelativeFileDeserializer(private val project: File, vc: Class<*>?) : StdScalarDeserializer<File>(vc) {
 
-    constructor(basePath: Path) : this(basePath, null)
+    constructor(project: File) : this(project, null)
 
-    override fun deserialize(jp: JsonParser, ctxt: DeserializationContext): Path =
-        basePath.resolve(jp.valueAsString
-            .replace("~", System.getProperty("user.home")))
-            // TODO: Remove toRealPath; just call it when comparing modules.
-            // Causing us too many issues otherwise.
-            .toRealPath()
+    override fun deserialize(jp: JsonParser, ctxt: DeserializationContext): File =
+        project.resolve(File(jp.valueAsString))
 }

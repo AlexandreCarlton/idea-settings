@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.layout.configurations.application
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.nio.file.Path
+import java.io.File
 
 data class ApplicationConfigurationConfigurationSettings(
 
@@ -15,7 +15,7 @@ data class ApplicationConfigurationConfigurationSettings(
     val programArguments: String? = null,
 
     @JsonProperty("Working directory")
-    val workingDirectory: Path? = null,
+    val workingDirectory: File? = null,
 
     @JsonProperty("Use classpath of module")
     val useClassPathOfModule: String

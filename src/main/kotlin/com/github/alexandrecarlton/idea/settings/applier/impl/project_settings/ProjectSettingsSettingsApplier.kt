@@ -7,7 +7,7 @@ import com.github.alexandrecarlton.idea.settings.layout.project_settings.project
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.module.ModuleTypeId
 import com.intellij.openapi.project.Project
-import java.nio.file.Paths
+import java.io.File
 import javax.inject.Inject
 
 class ProjectSettingsSettingsApplier @Inject
@@ -22,7 +22,7 @@ constructor(
         for (moduleSettings in settings.modules ?: emptyList()) {
             var module = moduleManager.findModuleByName(moduleSettings.name)
             if (module == null) {
-                val moduleFile = (moduleSettings.sources?.firstOrNull()?.contentRoot ?: Paths.get(project.basePath))
+                val moduleFile = (moduleSettings.sources?.firstOrNull()?.contentRoot ?: File(project.basePath))
                     .resolve("${moduleSettings.name}.iml")
                 module = moduleManager.newModule(moduleFile.toString(), ModuleTypeId.JAVA_MODULE)
             }

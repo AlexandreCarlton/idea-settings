@@ -597,7 +597,7 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
 
   @Test
   public void checkShellScriptInterpreterPath() throws IOException {
-    final Path shellPath = Paths.get("/bin/sh").toRealPath();
+    final Path shellPath = Paths.get("/bin/sh");
     assertThatXml(".idea/runConfigurations/Shell_Script.xml")
         .valueByXPath("//configuration[@name='Shell Script']/option[@name='INTERPRETER_PATH']/@value")
         .isEqualTo(shellPath.toString());

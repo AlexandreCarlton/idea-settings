@@ -3,10 +3,9 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.project_settings.
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.modules.ModuleSettings
 import com.intellij.openapi.roots.ModifiableRootModel
+import com.intellij.openapi.vfs.LocalFileSystem
 import org.jetbrains.jps.model.java.JavaResourceRootType
 import org.jetbrains.jps.model.java.JavaSourceRootType
-import java.net.URI
-import java.nio.file.Paths
 import javax.inject.Inject
 
 class ModuleSettingsApplier @Inject
@@ -16,25 +15,35 @@ constructor(private val modifiableRootModel: ModifiableRootModel) : SettingsAppl
         val contentEntries = listOf(*modifiableRootModel.contentEntries)
         settings.sources?.forEach { source ->
             try {
+                // So here, we try to get the ContentEntry whose url matches
+                // TODO: Inject this.
+                val localFileSystem = LocalFileSystem.getInstance();
+                val virtualFile = localFileSystem.findFileByIoFile(source.contentRoot)!!
                 val contentEntry = contentEntries
-                    .firstOrNull { c -> Paths.get(URI.create(c.url)) == source.contentRoot }
-                    ?: modifiableRootModel.addContentEntry(source.contentRoot.toUri().toString())
+                    .firstOrNull { entry -> entry.file == virtualFile }
+                    ?: modifiableRootModel.addContentEntry(virtualFile)
 
                 source.sources
-                    ?.map { source.contentRoot.resolve(it) }
-                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaSourceRootType.SOURCE) }
+                    ?.map(source.contentRoot::resolve)
+                    ?.mapNotNull(localFileSystem::findFileByIoFile)
+                    ?.forEach { contentEntry.addSourceFolder(it, JavaSourceRootType.SOURCE) }
                 source.tests
-                    ?.map { source.contentRoot.resolve(it) }
-                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaSourceRootType.TEST_SOURCE) }
+                    ?.map(source.contentRoot::resolve)
+                    ?.mapNotNull(localFileSystem::findFileByIoFile)
+                    ?.forEach { contentEntry.addSourceFolder(it, JavaSourceRootType.TEST_SOURCE) }
                 source.resources
-                    ?.map { source.contentRoot.resolve(it) }
-                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaResourceRootType.RESOURCE) }
+                    ?.map(source.contentRoot::resolve)
+                    ?.mapNotNull(localFileSystem::findFileByIoFile)
+                    ?.forEach { contentEntry.addSourceFolder(it, JavaResourceRootType.RESOURCE) }
                 source.testResources
-                    ?.map { source.contentRoot.resolve(it) }
-                    ?.forEach { contentEntry.addSourceFolder(it.toUri().toString(), JavaResourceRootType.TEST_RESOURCE) }
+                    ?.map(source.contentRoot::resolve)
+                    ?.mapNotNull(localFileSystem::findFileByIoFile)
+                    ?.forEach { contentEntry.addSourceFolder(it, JavaResourceRootType.TEST_RESOURCE) }
                 source.excluded
-                    ?.map { source.contentRoot.resolve(it) }
-                    ?.forEach { contentEntry.addExcludeFolder(it.toUri().toString()) }
+                    ?.map(source.contentRoot::resolve)
+                    ?.mapNotNull(localFileSystem::findFileByIoFile)
+                    ?.forEach { contentEntry.addExcludeFolder(it) }
+
             } finally {
                 modifiableRootModel.commit()
             }

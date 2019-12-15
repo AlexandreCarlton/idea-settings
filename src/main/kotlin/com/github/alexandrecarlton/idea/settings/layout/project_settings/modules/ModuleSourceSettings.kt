@@ -1,12 +1,12 @@
 package com.github.alexandrecarlton.idea.settings.layout.project_settings.modules
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.nio.file.Path
+import java.io.File
 
 data class ModuleSourceSettings(
 
     @JsonProperty("Content Root")
-    val contentRoot: Path,
+    val contentRoot: File,
 
     @JsonProperty("Sources")
     val sources: List<String>? = null,

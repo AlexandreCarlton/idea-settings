@@ -11,7 +11,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.verify
-import java.nio.file.Paths
+import java.io.File
 
 class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -28,7 +28,7 @@ class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
 
     @Test
     fun vmOptionsForImporterApplied() {
-        settingsApplier.apply(MavenSettings(mavenHomeDirectory = Paths.get("/usr")))
+        settingsApplier.apply(MavenSettings(mavenHomeDirectory = File("/usr")))
         assertThat(mavenGeneralSettings.mavenHome).isEqualTo("/usr")
     }
 

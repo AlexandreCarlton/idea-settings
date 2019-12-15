@@ -186,7 +186,8 @@ maven_install(
             artifact = "jackson-module-kotlin",
             version = "2.10.1",
             exclusions = [
-                "org.jetbrains.kotlin:kotlin-reflect",
+                # Keeping this generates a warning about bundling in a Kotlin runtime, but is necessary for deserialisation.
+                # "org.jetbrains.kotlin:kotlin-reflect",
                 "org.jetbrains.kotlin:kotlin-stdlib",
             ],
         ),
