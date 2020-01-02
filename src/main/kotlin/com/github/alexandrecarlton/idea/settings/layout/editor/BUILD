@@ -7,6 +7,7 @@ kt_jvm_library(
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/general",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
         "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],

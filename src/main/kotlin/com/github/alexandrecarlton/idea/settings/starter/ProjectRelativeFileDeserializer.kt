@@ -12,11 +12,9 @@ import java.nio.file.Path
  * - expands `~` to the user's home directory.
  * Note that this requires that the path exist on the user's filesystem.
  */
-// TODO: This should deserialise a File instead, once everything is in Kotlin.
 class ProjectRelativeFileDeserializer(private val project: File, vc: Class<*>?) : StdScalarDeserializer<File>(vc) {
 
     constructor(project: File) : this(project, null)
 
-    override fun deserialize(jp: JsonParser, ctxt: DeserializationContext): File =
-        project.resolve(File(jp.valueAsString))
+    override fun deserialize(jp: JsonParser, ctxt: DeserializationContext) = project.resolve(File(jp.valueAsString))
 }

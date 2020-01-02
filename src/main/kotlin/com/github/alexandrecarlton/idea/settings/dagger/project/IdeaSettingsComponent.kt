@@ -11,9 +11,11 @@ import javax.inject.Named
     SettingsApplierModule::class,
     ConfigurationTypeModule::class,
     IdeaModule::class,
+    InspectionSettingsApplierModule::class,
     FileTypeModule::class,
     OptionalSettingsApplierModule::class,
-    ProjectModule::class])
+    ProjectModule::class,
+    ToolsImplModule::class])
 interface IdeaSettingsComponent {
 
     fun applier(): SettingsApplier<IdeaSettings>

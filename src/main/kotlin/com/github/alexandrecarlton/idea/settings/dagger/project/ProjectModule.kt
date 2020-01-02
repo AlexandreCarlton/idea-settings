@@ -1,10 +1,12 @@
 package com.github.alexandrecarlton.idea.settings.dagger.project
 
 import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent
+import com.github.alexandrecarlton.idea.settings.dagger.inspections.InspectionsSubcomponent
 import com.github.alexandrecarlton.idea.settings.dagger.module.ModuleSubcomponent
 import com.intellij.application.options.CodeStyle
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings
+import com.intellij.codeInspection.ex.InspectionProfileImpl
 import com.intellij.compiler.CompilerConfiguration
 import com.intellij.compiler.CompilerWorkspaceConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
@@ -21,6 +23,7 @@ import com.intellij.openapi.project.ex.ProjectEx
 import com.intellij.openapi.roots.LanguageLevelProjectExtension
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.plugins.watcher.model.ProjectTasksOptions
+import com.intellij.profile.codeInspection.ProjectInspectionProfileManager
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CodeStyleSettingsManager
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings
@@ -35,7 +38,10 @@ import javax.inject.Named
 /**
  * Provides components that depend on the imported [Project].
  */
-@Module(subcomponents = [ModuleSubcomponent::class, ConfigurationSubcomponent::class])
+@Module(subcomponents = [
+    ModuleSubcomponent::class,
+    ConfigurationSubcomponent::class,
+    InspectionsSubcomponent::class])
 object ProjectModule {
 
     @Provides
@@ -77,6 +83,13 @@ object ProjectModule {
     internal fun provideExternalDependenciesManager(project: Project) = ExternalDependenciesManager.getInstance(project)
 
     @Provides
+    internal fun provideInspectionProfileImpl(projectInspectionProfileManager: ProjectInspectionProfileManager): InspectionProfileImpl {
+        val profile = projectInspectionProfileManager.getProfile("Project Default")
+        profile.isProjectLevel = true
+        return profile
+    }
+
+    @Provides
     internal fun provideJavaCodeStyleSettings(codeStyleSettings: CodeStyleSettings): JavaCodeStyleSettings =
         codeStyleSettings.getCustomSettings(JavaCodeStyleSettings::class.java)
 
@@ -107,6 +120,9 @@ object ProjectModule {
 
     @Provides
     internal fun providePluginConfigurationManager(project: Project) = PluginConfigurationManager.getInstance(project)
+
+    @Provides
+    internal fun provideProjectInspectionProfileManager(project: Project) = ProjectInspectionProfileManager.getInstance(project)
 
     @Provides
     internal fun provideProjectRootManager(project: Project) = ProjectRootManager.getInstance(project)

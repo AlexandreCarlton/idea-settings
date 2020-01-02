@@ -18,14 +18,17 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.j
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.java.JavaInspectionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watchers.FileWatcherSettingsApplier
 import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.JavaInspectionsSettings
 import com.intellij.ide.plugins.PluginManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
+import dagger.Binds
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -82,6 +85,10 @@ object OptionalSettingsApplierModule {
     @Provides
     internal fun provideJavaImportsSettingsApplier(javaImportsSettingsApplier: Lazy<JavaImportsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, javaImportsSettingsApplier)
+
+    @Provides
+    internal fun bindJavaInspectionsSettingsApplier(javaInspectionSettingsApplier: Lazy<JavaInspectionsSettingsApplier>) =
+        provideIfLoaded(Plugin.JAVA, javaInspectionSettingsApplier)
 
     @Provides
     internal fun provideJavaKeepMaximumBlankLinesSettings(javaKeepMaximumBlankLinesSettingsApplier: Lazy<JavaKeepMaximumBlankLinesSettingsApplier>) =

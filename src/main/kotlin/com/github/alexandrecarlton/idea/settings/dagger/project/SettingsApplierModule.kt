@@ -13,6 +13,8 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.j
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptCodeStyleSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.GeneralSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.AutoImportSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.InspectionsSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.java.code_style_issues.JavaCodeStyleIssuesInspectionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.LanguagesFrameworksSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.OtherSettingsApplier
@@ -31,6 +33,8 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.bl
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptCodeStyleSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.AutoImportSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.InspectionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.JavaCodeStyleIssuesInspectionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.LanguagesFrameworksSettings
 import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings
@@ -71,6 +75,12 @@ interface SettingsApplierModule {
     fun bindIdeaSettingsApplier(applier: IdeaSettingsApplier): SettingsApplier<IdeaSettings>
 
     @Binds
+    fun bindInspectionsSettingsApplier(applier: InspectionsSettingsApplier): SettingsApplier<InspectionsSettings>
+
+    @Binds
+    fun bindJavaCodeStyleIssuesInspectionsSettingsApplier(applier: JavaCodeStyleIssuesInspectionsSettingsApplier): SettingsApplier<JavaCodeStyleIssuesInspectionsSettings>
+
+    @Binds
     fun bindJavaCodeStyleSettingsApplier(applier: JavaCodeStyleSettingsApplier): SettingsApplier<JavaCodeStyleSettings>
 
     @Binds
@@ -96,4 +106,5 @@ interface SettingsApplierModule {
 
     @Binds
     fun bindToolsSettingsApplier(applier: ToolsSettingsApplier): SettingsApplier<ToolsSettings>
+
 }
