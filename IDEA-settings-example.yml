@@ -143,6 +143,22 @@ Editor:
           - com.google.inject.Inject
           - com.sun.istack.internal.Nullable
           - edu.umd.cs.findbugs.annotations.Nullable
+  Inspections:
+    Java:
+      Code style issues:
+        Unnecessary parentheses:
+          Enabled: true
+          Severity by Scope:
+            - Scope: Project Files
+              Severity: Error
+              Options:
+                Ignore clarifying parentheses: false
+            - Scope: Everywhere Else
+              Severity: No highlighting, only fix
+              Options:
+                Ignore clarifying parentheses: true
+        Unnecessary qualifier for 'this' or 'super':
+          Enabled: true
   Spelling:
     Dictionaries:
       # files containing a word on each line to be used as custom spelling dictionaries.
