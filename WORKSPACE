@@ -114,19 +114,6 @@ filegroup(
 )
 
 http_archive(
-    name = "maven-bin",
-    build_file_content = """
-package(default_visibility = ["//visibility:public"])
-filegroup(
-    name = "maven-bin",
-    srcs = glob(["**"]),
-)""",
-    sha256 = "7e6cfe98dc9c16ae6aa267db277860594695144d719c99d1fc519e89346a8edf",
-    strip_prefix = "apache-maven-3.6.1",
-    url = "http://apache.mirror.amaze.com.au/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.zip",
-)
-
-http_archive(
     name = "build_bazel_integration_testing",
     sha256 = "e055ff971787a27d6942a83ffd182953988c88dfa82e89138ccc83bf410a65d6",
     strip_prefix = "bazel-integration-testing-2a4f6c244312c036e0f3a125ee6086637ee7723b",

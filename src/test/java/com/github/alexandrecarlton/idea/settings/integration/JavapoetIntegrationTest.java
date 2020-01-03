@@ -155,11 +155,6 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "        - Run Another Configuration:",
         "            Name: Shell Script");
 
-    driver.copyDirectoryFromRunfiles("maven-bin", "");
-    Files.move(
-        driver.currentWorkspace().resolve("maven-bin"),
-        driver.currentWorkspace().resolve("javapoet/maven-bin"));
-
     driver.scratchFile("javapoet/dict.dic");
 
     runIdeaSettings();
