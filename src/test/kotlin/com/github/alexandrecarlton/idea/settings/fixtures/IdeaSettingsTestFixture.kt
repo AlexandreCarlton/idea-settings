@@ -17,10 +17,10 @@ import java.nio.file.Paths
 open class IdeaSettingsTestFixture : BasePlatformTestCase() {
 
     @get:Rule
-    public val mockitoRule = MockitoJUnit.rule()
+    val mockitoRule = MockitoJUnit.rule()
 
     @get:Rule
-    public val temporaryFolder = TemporaryFolder(Paths.get("/tmp").toFile())
+    val temporaryFolder = TemporaryFolder(Paths.get("/tmp").toFile())
 
     @Before
     @Throws(Exception::class)

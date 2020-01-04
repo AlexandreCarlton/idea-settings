@@ -10,6 +10,13 @@ data class CompilerSettings (
     @JsonProperty("Add runtime assertions for notnull-annotated methods and parameters")
     val addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters: Boolean? = null,
 
+    /**
+     * This can be found in the Compiler menu by clicking on 'Configure annotations...'
+     * We use the window name (defined by xprop) for the [JsonProperty] value.
+     */
+    @JsonProperty("Nullable/NotNull Configuration")
+    val nullableNotNullConfiguration: NullableNotNullConfigurationSettings? = null,
+
     @JsonProperty("Build process heap size (Mbytes)")
     val buildProcessHeapSizeMbytes: Int? = null,
 

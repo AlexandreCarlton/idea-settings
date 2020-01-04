@@ -5,6 +5,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.IdeaSettingsApplie
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.BuildExecutionDeploymentSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.build_tools.BuildToolsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.AnnotationProcessorsSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_deployment.compiler.NullableNotNullConfigurationSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.ConfigurationsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.EditorSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.CodeStyleSettingsApplier
@@ -25,6 +26,7 @@ import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.BuildToolsSettings
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.AnnotationProcessorsSettings
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.NullableNotNullConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings
@@ -91,6 +93,9 @@ interface SettingsApplierModule {
 
     @Binds
     fun bindLanguagesFrameworksSettingsApplier(applier: LanguagesFrameworksSettingsApplier): SettingsApplier<LanguagesFrameworksSettings>
+
+    @Binds
+    fun bindNullableNotNullConfigurationSettingsApplier(applier: NullableNotNullConfigurationSettingsApplier): SettingsApplier<NullableNotNullConfigurationSettings>
 
     @Binds
     fun bindOtherSettingsApplier(applier: OtherSettingsApplier): SettingsApplier<OtherSettings>

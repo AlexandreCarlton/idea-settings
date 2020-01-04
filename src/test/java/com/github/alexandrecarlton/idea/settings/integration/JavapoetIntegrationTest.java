@@ -1,12 +1,14 @@
 package com.github.alexandrecarlton.idea.settings.integration;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import com.google.common.collect.ImmutableList;
 import org.assertj.core.api.Assertions;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 /**
  * An integration test that loads up an entire project first, and then verifies the output in
@@ -38,6 +40,22 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         "      - '!?*.java'",
         "      - '!resource.properties'",
         "    Add runtime assertions for notnull-annotated methods and parameters: false",
+        "    Nullable/NotNull Configuration:",
+        "      Nullable annotations:",
+        "        Annotation used for code generation: javax.annotation.Nullable",
+        "        Annotations:",
+        "          - javax.annotation.Nullable",
+        "          - javax.annotation.CheckForNull",
+        "          - my.fake.annotation.Nullable",
+        "      NotNull annotations:",
+        "        Annotation used for code generation: javax.annotation.Nonnull",
+        "        Annotations:",
+        "          - Annotation: javax.annotation.Nonnull",
+        "            Instrument: true",
+        "          - Annotation: androidx.annotation.Nonnull",
+        "            Instrument: false",
+        "          - Annotation: my.fake.annotation.Nonnull",
+        "            Instrument: true",
         "    Build process heap size (Mbytes): 1234",
         "    Compile independent modules in parallel: true",
         "    Rebuild module on dependency change: false",
@@ -240,6 +258,55 @@ public class JavapoetIntegrationTest extends AbstractIntegrationTest {
         .valueByXPath("//component[@name='CompilerConfiguration']/addNotNullAssertions/@enabled")
         .asBoolean()
         .isEqualTo(false);
+  }
+
+  @Test
+  public void nullableAnnotationUsedForCodeGeneration() throws IOException {
+    assertThatXml(".idea/misc.xml")
+        .valueByXPath("//component[@name='NullableNotNullManager']/option[@name='myDefaultNullable']/@value")
+        .isEqualTo("javax.annotation.Nullable");
+  }
+
+  @Test
+  public void nullableAnnotations() throws IOException {
+    final List<String> nullableAnnotations = ImmutableList.of(
+        "javax.annotation.Nullable",
+        "javax.annotation.CheckForNull",
+        "my.fake.annotation.Nullable");
+    for (String annotation : nullableAnnotations) {
+      assertThatXml(".idea/misc.xml")
+          .hasXPath(String.format("//component[@name='NullableNotNullManager']/option[@name='myNullables']//item[@itemvalue='%s']", annotation));
+    }
+  }
+
+  @Test
+  public void notNullAnnotationUsedForCodeGeneration() throws IOException {
+    assertThatXml(".idea/misc.xml")
+        .valueByXPath("//component[@name='NullableNotNullManager']/option[@name='myDefaultNotNull']/@value")
+        .isEqualTo("javax.annotation.Nonnull");
+  }
+
+  @Test
+  public void notNullAnnotations() throws IOException {
+    final List<String> notNullAnnotations = ImmutableList.of(
+        "javax.annotation.Nonnull",
+        "androidx.annotation.Nonnull",
+        "my.fake.annotation.Nonnull");
+    for (String annotation : notNullAnnotations) {
+      assertThatXml(".idea/misc.xml")
+          .hasXPath(String.format("//component[@name='NullableNotNullManager']/option[@name='myNotNulls']//item[@itemvalue='%s']", annotation));
+    }
+  }
+
+  @Test
+  public void instrumentedNotNullAnnotations() throws IOException {
+    final List<String> instrumentedNotNullAnnotations = ImmutableList.of(
+        "javax.annotation.Nonnull",
+        "my.fake.annotation.Nonnull");
+    for (String annotation : instrumentedNotNullAnnotations) {
+      assertThatXml(".idea/misc.xml")
+          .hasXPath(String.format("//component[@name='NullableNotNullManager']/instrumentedNotNulls/option[@value='%s']", annotation));
+    }
   }
 
   @Test

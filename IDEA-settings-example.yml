@@ -176,6 +176,22 @@ Build, Execution, Deployment:
       - '!?*.java'
       - '!resource.properties'
     Add runtime assertions for notnull-annotated methods and parameters: false
+    Nullable/NotNull Configuration:
+      Nullable annotations:
+        Annotation used for code generation: javax.annotation.Nullable
+        Annotations:
+          - javax.annotation.Nullable
+          - javax.annotation.CheckForNull
+          - my.fake.annotation.Nullable
+      NotNull annotations:
+        Annotation used for code generation: javax.annotation.Nonnull
+        Annotations:
+          - Annotation: javax.annotation.Nonnull
+            Instrument: true
+          - Annotation: androidx.annotation.Nonnull
+            Instrument: false
+          - Annotation: my.fake.annotation.Nonnull
+            Instrument: false
     Build process heap size (Mbytes): 1024
     Compile independent modules in parallel: true
     Rebuild module on dependency change: false

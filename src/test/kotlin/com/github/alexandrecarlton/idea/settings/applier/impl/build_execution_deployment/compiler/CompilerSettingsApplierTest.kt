@@ -3,24 +3,28 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.build_execution_d
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings
+import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.NullableNotNullConfigurationSettings
 import com.intellij.compiler.CompilerConfiguration
 import com.intellij.compiler.CompilerConfigurationImpl
 import com.intellij.compiler.CompilerWorkspaceConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mock
 
 class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<CompilerSettings>
     private lateinit var compilerConfiguration: CompilerConfiguration
     private lateinit var compilerWorkspaceConfiguration: CompilerWorkspaceConfiguration
+    @Mock
+    private lateinit var nullableNotNullConfigurationSettingsApplier: SettingsApplier<NullableNotNullConfigurationSettings>
 
     @Before
     public override fun setUp() {
         compilerConfiguration = CompilerConfiguration.getInstance(project)
         compilerWorkspaceConfiguration = CompilerWorkspaceConfiguration.getInstance(project)
-        settingsApplier = CompilerSettingsApplier(compilerConfiguration, compilerWorkspaceConfiguration)
+        settingsApplier = CompilerSettingsApplier(compilerConfiguration, compilerWorkspaceConfiguration, nullableNotNullConfigurationSettingsApplier)
     }
 
     @Test

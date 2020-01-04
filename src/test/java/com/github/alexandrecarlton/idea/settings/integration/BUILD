@@ -50,6 +50,7 @@ bazel_java_integration_test(
     ],
     versions = GET_LATEST_BAZEL_VERSIONS(count = 1),
     deps = [
+        "@maven//:com_google_guava_guava",
         "@maven//:org_assertj_assertj_core",
         "@maven//:org_xmlunit_xmlunit_assertj",
     ],

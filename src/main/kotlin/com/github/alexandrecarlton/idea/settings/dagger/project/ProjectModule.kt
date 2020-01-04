@@ -6,6 +6,7 @@ import com.github.alexandrecarlton.idea.settings.dagger.module.ModuleSubcomponen
 import com.intellij.application.options.CodeStyle
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings
+import com.intellij.codeInsight.NullableNotNullManager
 import com.intellij.codeInspection.ex.InspectionProfileImpl
 import com.intellij.compiler.CompilerConfiguration
 import com.intellij.compiler.CompilerWorkspaceConfiguration
@@ -117,6 +118,9 @@ object ProjectModule {
 
     @Provides
     internal fun provideModuleManager(project: Project) = ModuleManager.getInstance(project)
+
+    @Provides
+    internal fun provideNullableNotNullManager(project: Project) = NullableNotNullManager.getInstance(project)
 
     @Provides
     internal fun providePluginConfigurationManager(project: Project) = PluginConfigurationManager.getInstance(project)
