@@ -1,29 +1,17 @@
 load("@build_bazel_integration_testing//tools:bazel_java_integration_test.bzl", "bazel_java_integration_test")
 load("@build_bazel_integration_testing//tools:common.bzl", "GET_LATEST_BAZEL_VERSIONS")
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_library")
 
 test_suite(
     name = "integration",
     tests = [
-        ":AutoIntegrationTest",
-        ":JavapoetIntegrationTest",
-    ],
-)
-
-java_library(
-    name = "integration_lib",
-    testonly = True,
-    srcs = glob(["*.java"]),
-    deps = [
-        "@build_bazel_integration_testing//java/build/bazel/tests/integration:workspace_driver",
-        "@maven//:com_google_guava_guava",
-        "@maven//:junit_junit",
-        "@maven//:org_assertj_assertj_core",
-        "@maven//:org_xmlunit_xmlunit_assertj",
+        ":auto_integration_test",
+        ":javapoet_integration_test",
     ],
 )
 
 bazel_java_integration_test(
-    name = "AutoIntegrationTest",
+    name = "auto_integration_test",
     data = [
         "//:apply-idea-settings.sh",
         "//:plugins_tar",
@@ -38,7 +26,7 @@ bazel_java_integration_test(
 )
 
 bazel_java_integration_test(
-    name = "JavapoetIntegrationTest",
+    name = "javapoet_integration_test",
     data = [
         "//:apply-idea-settings.sh",
         "//:plugins_tar",
@@ -50,4 +38,16 @@ bazel_java_integration_test(
     test_class = "com.github.alexandrecarlton.idea.settings.integration.JavapoetIntegrationTest",
     versions = GET_LATEST_BAZEL_VERSIONS(count = 1),
     runtime_deps = [":integration_lib"],
+)
+
+kt_jvm_library(
+    name = "integration_lib",
+    testonly = True,
+    srcs = glob(["*.kt"]),
+    deps = [
+        "@build_bazel_integration_testing//java/build/bazel/tests/integration:workspace_driver",
+        "@maven//:junit_junit",
+        "@maven//:org_assertj_assertj_core",
+        "@maven//:org_xmlunit_xmlunit_assertj",
+    ],
 )
