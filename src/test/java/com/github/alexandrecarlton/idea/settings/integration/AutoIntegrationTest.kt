@@ -15,21 +15,21 @@ class AutoIntegrationTest : AbstractIntegrationTest() {
         @JvmStatic
         @BeforeClass
         fun setUpClass() {
-            AbstractIntegrationTest.setUpClass("auto",
-                "Project Settings:",
-                "  Modules:",
-                "    - Name: auto-parent",
-                "      Sources:",
-                "        - Content Root: .",
-                "          Excluded:",
-                "            - README.md",
-                "    - Name: common",
-                "      Sources:",
-                "        - Content Root: common",
-                "          Sources:",
-                "            - src/main/java",
-                "          Tests:",
-                "            - src/test/java")
+            AbstractIntegrationTest.setUpClass("auto", """
+                Project Settings:
+                  Modules:
+                    - Name: auto-parent
+                      Sources:
+                        - Content Root: .
+                          Excluded:
+                            - README.md
+                    - Name: common
+                      Sources:
+                        - Content Root: common
+                          Sources:
+                            - src/main/java
+                          Tests:
+                            - src/test/java""".trimIndent())
             runIdeaSettings()
         }
     }

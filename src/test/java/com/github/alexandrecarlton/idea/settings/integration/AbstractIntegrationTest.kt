@@ -21,7 +21,7 @@ abstract class AbstractIntegrationTest {
         internal val driver = WorkspaceDriver()
         internal lateinit var path: Path
 
-        fun setUpClass(project: String, vararg ideaSettings: String) {
+        fun setUpClass(project: String, ideaSettings: String) {
             WorkspaceDriver.setUpClass()
             driver.setUp()
 
@@ -32,18 +32,18 @@ abstract class AbstractIntegrationTest {
                 "idea-IC/bin/linux/idea64.vmoptions")
             driver.copyDirectoryFromRunfiles(project, "")
 
-            driver.scratchFile("BUILD",
-                "sh_binary(",
-                "    name = \"apply-idea-settings\",",
-                "    srcs = [\"apply-idea-settings.sh\"],",
-                "    data = [",
-                "        \"plugins.tar\",",
-                "        \"idea-IC/bin/idea.sh\",",
-                "        \"idea-IC/bin/linux/idea64.vmoptions\",",
-                "    ],",
-                "    deps = [\"@bazel_tools//tools/bash/runfiles\"],",
-                ")")
-            driver.scratchFile("$project/.IDEA-settings.yml", *ideaSettings)
+            driver.scratchFile("BUILD", """
+                sh_binary(
+                    name = "apply-idea-settings",
+                    srcs = ["apply-idea-settings.sh"],
+                    data = [
+                        "plugins.tar",
+                        "idea-IC/bin/idea.sh",
+                        "idea-IC/bin/linux/idea64.vmoptions",
+                    ],
+                    deps = ["@bazel_tools//tools/bash/runfiles"],
+                )""".trimIndent())
+            driver.scratchFile("$project/.IDEA-settings.yml", ideaSettings)
             path = driver.currentWorkspace().resolve(project)
         }
 

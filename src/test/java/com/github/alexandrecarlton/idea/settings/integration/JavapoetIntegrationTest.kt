@@ -17,156 +17,156 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         @JvmStatic
         @BeforeClass
         fun setUpClass() {
-            AbstractIntegrationTest.setUpClass("javapoet",
-                "Project Settings:",
-                "  Project:",
-                "    Project name: my-project-name",
-                "    Project SDK: my-project-sdk",
-                "    Project language level: '6'",
-                "",
-                "Build, Execution, Deployment:",
-                "  Build Tools:",
-                "    Maven:",
-                "      Importing:",
-                "        VM options for importer: -Xmx1g",
-                "      Maven home directory: maven-bin",
-                "  Compiler:",
-                "    Resource patterns:",
-                "      - '!?*.java'",
-                "      - '!resource.properties'",
-                "    Add runtime assertions for notnull-annotated methods and parameters: false",
-                "    Nullable/NotNull Configuration:",
-                "      Nullable annotations:",
-                "        Annotation used for code generation: javax.annotation.Nullable",
-                "        Annotations:",
-                "          - javax.annotation.Nullable",
-                "          - javax.annotation.CheckForNull",
-                "          - my.fake.annotation.Nullable",
-                "      NotNull annotations:",
-                "        Annotation used for code generation: javax.annotation.Nonnull",
-                "        Annotations:",
-                "          - Annotation: javax.annotation.Nonnull",
-                "            Instrument: true",
-                "          - Annotation: androidx.annotation.Nonnull",
-                "            Instrument: false",
-                "          - Annotation: my.fake.annotation.Nonnull",
-                "            Instrument: true",
-                "    Build process heap size (Mbytes): 1234",
-                "    Compile independent modules in parallel: true",
-                "    Rebuild module on dependency change: false",
-                "    Shared build process VM options: -Xms123m",
-                "  Required Plugins:",
-                "    - Plugin: CheckStyle-IDEA",
-                "      Minimum version: 5.23.0",
-                "      Maximum version: 5.24.1",
-                "Editor:",
-                "  Code Style:",
-                "    Java:",
-                "      Blank Lines:",
-                "        Keep Maximum Blank Lines:",
-                "          In declarations: 10",
-                "          In code: 11",
-                "          Before '}': 12",
-                "          Between header and package: 13",
-                "        Minimum Blank Lines:",
-                "          Before package statement: 14",
-                "          After package statement: 15",
-                "          Before imports: 16",
-                "          After imports: 17",
-                "          Around class: 18",
-                "          After class header: 19",
-                "          Before class end: 20",
-                "          After anonymous class header: 21",
-                "          Around field in interface: 22",
-                "          Around field: 23",
-                "          Around method in interface: 24",
-                "          Around method: 25",
-                "          Before method body: 26",
-                "          Around initializer: 27",
-                "      JavaDoc:",
-                "        Alignment:",
-                "          Align parameter descriptions: false",
-                "          Align thrown exception descriptions: false",
-                "        Blank lines:",
-                "          After description: false",
-                "          After parameter descriptions: true",
-                "          After return tag: true",
-                "        Invalid tags:",
-                "          Keep invalid tags: false",
-                "          Keep empty @param tags: false",
-                "          Keep empty @return tags: false",
-                "          Keep empty @throws tags: false",
-                "        Other:",
-                "          Wrap at right margin: true",
-                "          Enable leading asterisks: false",
-                "          Use @throws rather than @exception: false",
-                "          Generate '<p>' on empty lines: false",
-                "          Keep empty lines: false",
-                "          Do not wrap one line comments: true",
-                "          Preserve line feeds: true",
-                "          Parameter descriptions on new line: true",
-                "          Indent continuation lines: true",
-                "      Arrangement:",
-                "        Matching rules:",
-                "          - Type: field",
-                "            Modifier:",
-                "              - public",
-                "              - static",
-                "          - Type: class",
-                "            Modifier:",
-                "              - not protected",
-                "            Name: unprotected class",
-                "            Order: order by name",
-                "      Imports:",
-                "        Class count to use import with '*': 123",
-                "        Names count to use static import with '*': 456",
-                "  General:",
-                "    Auto Import:",
-                "      Java:",
-                "        Optimize imports on the fly (for current project): true",
-                "        Exclude from import and completion:",
-                "          - com.google.inject.Inject",
-                "          - com.sun.istack.internal.Nullable",
-                "  Spelling:",
-                "    Dictionaries:",
-                "      - dict.dic",
-                "Other Settings:",
-                "  Checkstyle:",
-                "    Checkstyle version: '8.16'",
-                "    Scan Scope: Only Java sources (including tests)",
-                "    Treat Checkstyle errors as warnings: true",
-                "    Configuration files:",
-                "      - Active: true",
-                "        Description: Javapoet Checkstyle",
-                "        File: checkstyle.xml",
-                "",
-                "Configurations:",
-                "  - Application:",
-                "      Name: Application Configuration",
-                "      Share through VCS: true",
-                "      Configuration:",
-                "        Main class: com.Application",
-                "        Use classpath of module: javapoet",
-                "        VM options: -Xmx1g",
-                "        Program arguments: foo bar",
-                "        Working directory: src",
-                "  - Shell Script:",
-                "      Name: Shell Script",
-                "      Share through VCS: true",
-                "      Script path: maven-bin/bin/mvn",
-                "      Script options: --version",
-                "      Interpreter:",
-                "        Interpreter path: /bin/sh",
-                "        Interpreter options: -e",
-                "  - Remote:",
-                "      Name: Remote Configuration",
-                "      Share through VCS: true",
-                "      Configuration:",
-                "        Host: 8.8.8.8",
-                "        Port: 5000",
-                "      Before launch:",
-                "        - Run Another Configuration:",
-                "            Name: Shell Script")
+            AbstractIntegrationTest.setUpClass("javapoet", """
+                Project Settings:
+                  Project:
+                    Project name: my-project-name
+                    Project SDK: my-project-sdk
+                    Project language level: '6'
+
+                Build, Execution, Deployment:
+                  Build Tools:
+                    Maven:
+                      Importing:
+                        VM options for importer: -Xmx1g
+                      Maven home directory: maven-bin
+                  Compiler:
+                    Resource patterns:
+                      - '!?*.java'
+                      - '!resource.properties'
+                    Add runtime assertions for notnull-annotated methods and parameters: false
+                    Nullable/NotNull Configuration:
+                      Nullable annotations:
+                        Annotation used for code generation: javax.annotation.Nullable
+                        Annotations:
+                          - javax.annotation.Nullable
+                          - javax.annotation.CheckForNull
+                          - my.fake.annotation.Nullable
+                      NotNull annotations:
+                        Annotation used for code generation: javax.annotation.Nonnull
+                        Annotations:
+                          - Annotation: javax.annotation.Nonnull
+                            Instrument: true
+                          - Annotation: androidx.annotation.Nonnull
+                            Instrument: false
+                          - Annotation: my.fake.annotation.Nonnull
+                            Instrument: true
+                    Build process heap size (Mbytes): 1234
+                    Compile independent modules in parallel: true
+                    Rebuild module on dependency change: false
+                    Shared build process VM options: -Xms123m
+                  Required Plugins:
+                    - Plugin: CheckStyle-IDEA
+                      Minimum version: 5.23.0
+                      Maximum version: 5.24.1
+                Editor:
+                  Code Style:
+                    Java:
+                      Blank Lines:
+                        Keep Maximum Blank Lines:
+                          In declarations: 10
+                          In code: 11
+                          Before '}': 12
+                          Between header and package: 13
+                        Minimum Blank Lines:
+                          Before package statement: 14
+                          After package statement: 15
+                          Before imports: 16
+                          After imports: 17
+                          Around class: 18
+                          After class header: 19
+                          Before class end: 20
+                          After anonymous class header: 21
+                          Around field in interface: 22
+                          Around field: 23
+                          Around method in interface: 24
+                          Around method: 25
+                          Before method body: 26
+                          Around initializer: 27
+                      JavaDoc:
+                        Alignment:
+                          Align parameter descriptions: false
+                          Align thrown exception descriptions: false
+                        Blank lines:
+                          After description: false
+                          After parameter descriptions: true
+                          After return tag: true
+                        Invalid tags:
+                          Keep invalid tags: false
+                          Keep empty @param tags: false
+                          Keep empty @return tags: false
+                          Keep empty @throws tags: false
+                        Other:
+                          Wrap at right margin: true
+                          Enable leading asterisks: false
+                          Use @throws rather than @exception: false
+                          Generate '<p>' on empty lines: false
+                          Keep empty lines: false
+                          Do not wrap one line comments: true
+                          Preserve line feeds: true
+                          Parameter descriptions on new line: true
+                          Indent continuation lines: true
+                      Arrangement:
+                        Matching rules:
+                          - Type: field
+                            Modifier:
+                              - public
+                              - static
+                          - Type: class
+                            Modifier:
+                              - not protected
+                            Name: unprotected class
+                            Order: order by name
+                      Imports:
+                        Class count to use import with '*': 123
+                        Names count to use static import with '*': 456
+                  General:
+                    Auto Import:
+                      Java:
+                        Optimize imports on the fly (for current project): true
+                        Exclude from import and completion:
+                          - com.google.inject.Inject
+                          - com.sun.istack.internal.Nullable
+                  Spelling:
+                    Dictionaries:
+                      - dict.dic
+                Other Settings:
+                  Checkstyle:
+                    Checkstyle version: '8.16'
+                    Scan Scope: Only Java sources (including tests)
+                    Treat Checkstyle errors as warnings: true
+                    Configuration files:
+                      - Active: true
+                        Description: Javapoet Checkstyle
+                        File: checkstyle.xml
+
+                Configurations:
+                  - Application:
+                      Name: Application Configuration
+                      Share through VCS: true
+                      Configuration:
+                        Main class: com.Application
+                        Use classpath of module: javapoet
+                        VM options: -Xmx1g
+                        Program arguments: foo bar
+                        Working directory: src
+                  - Shell Script:
+                      Name: Shell Script
+                      Share through VCS: true
+                      Script path: maven-bin/bin/mvn
+                      Script options: --version
+                      Interpreter:
+                        Interpreter path: /bin/sh
+                        Interpreter options: -e
+                  - Remote:
+                      Name: Remote Configuration
+                      Share through VCS: true
+                      Configuration:
+                        Host: 8.8.8.8
+                        Port: 5000
+                      Before launch:
+                        - Run Another Configuration:
+                            Name: Shell Script""".trimIndent())
             driver.scratchFile("javapoet/dict.dic")
             runIdeaSettings()
         }
