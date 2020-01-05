@@ -12,7 +12,7 @@ data class ScopedSeverity<Options>(
 
     /**
      * Represents the options that can be configured at each scope.
-     * If no options are available, we'll leave this as [Unit].
+     * If no options are available, we use a distinct object declaration to avoid duplicate bindings.
      */
     @JsonProperty("Options")
     val options: Options? = null

@@ -14,6 +14,11 @@ import javax.inject.Named
 object ToolsImplModule {
 
     @Provides
+    @Named("UnnecessarySuperConstructor")
+    internal fun provideUnnecessarySuperConstructor(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
+        inspectionProfileImpl.getTools("UnnecessarySuperConstructor", project)
+
+    @Provides
     @Named("UnnecessaryParentheses")
     internal fun provideUnnecessaryParentheses(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
         inspectionProfileImpl.getTools("UnnecessaryParentheses", project)
@@ -22,4 +27,5 @@ object ToolsImplModule {
     @Named("UnnecessaryQualifierForThis")
     internal fun provideUnnecessaryQualifierForThis(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
         inspectionProfileImpl.getTools("UnnecessaryQualifierForThis", project)
+
 }

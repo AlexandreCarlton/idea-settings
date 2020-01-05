@@ -18,7 +18,9 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.Severity.TYPO
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.Severity.WARNING
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.Severity.WEAK_WARNING
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryCallToSuperInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
 import com.intellij.codeHighlighting.HighlightDisplayLevel
 import com.intellij.codeInspection.ex.ToolsImpl
 import com.intellij.ide.scratch.ScratchesNamedScope
@@ -65,8 +67,9 @@ abstract class BaseInspectionSettingsApplier<Options>(private val toolsImpl: Too
                     .scopeToolState(scopeToolState)
                     .build()
                 when(options) {
+                    UnnecessaryCallToSuperInspectionOptionsSettings -> {}
+                    UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings -> {}
                     is UnnecessaryParenthesesInspectionOptionsSettings -> inspectionsSubcomponent.unnecessaryParenthesesInspectionOptionsSettingsApplier().apply(options)
-                    Unit -> {}
                     else ->  LOG.warn("Unhandled Inspection Options $settings")
                 }
             }
