@@ -37,7 +37,9 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
             toolToRunOnChanges = FileWatcherToolToRunOnChangesSettings(
                 program = "/usr/bin/foo",
                 arguments = "bar",
-                outputPathsToRefresh = "\$FilePath$")))
+                outputPathsToRefresh = "\$FilePath$",
+                workingDirectory = "\$ProjectFileDir$"
+                )))
 
         val taskOptions = projectTasksOptions.tasks
                 .stream()
@@ -49,6 +51,7 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
         assertThat(taskOptions.program).isEqualTo("/usr/bin/foo")
         assertThat(taskOptions.arguments).isEqualTo("bar")
         assertThat(taskOptions.output).isEqualTo("\$FilePath$")
+        assertThat(taskOptions.workingDir).isEqualTo("\$ProjectFileDir$")
         assertThat(taskOptions.fileExtension).isEqualTo("js")
         assertThat(taskOptions.scopeName).isEqualTo("Module 'foo'")
     }

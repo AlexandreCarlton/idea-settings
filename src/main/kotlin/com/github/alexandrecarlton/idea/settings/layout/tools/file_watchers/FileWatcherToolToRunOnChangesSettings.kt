@@ -11,5 +11,8 @@ data class FileWatcherToolToRunOnChangesSettings(
     val arguments: String,
 
     @JsonProperty("Output paths to refresh")
-    val outputPathsToRefresh: String
+    val outputPathsToRefresh: String,
+
+    @JsonProperty("Working directory")
+    val workingDirectory: String? = null
 )

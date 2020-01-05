@@ -24,6 +24,7 @@ constructor(private val projectTasksOptions: ProjectTasksOptions, private val fi
         taskOptions.program = settings.toolToRunOnChanges.program
         taskOptions.arguments = settings.toolToRunOnChanges.arguments
         taskOptions.output = settings.toolToRunOnChanges.outputPathsToRefresh
+        settings.toolToRunOnChanges.workingDirectory?.let { taskOptions.workingDir = it }
 
         settings.advancedOptions?.autoSaveEditedFilesToTriggerTheWatcher?.let { taskOptions.isImmediateSync = it }
         settings.advancedOptions?.triggerTheWatcherRegardlessOfSyntaxErrors?.let { taskOptions.isCheckSyntaxErrors = it }
