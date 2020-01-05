@@ -140,7 +140,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                         Description: Javapoet Checkstyle
                         File: checkstyle.xml
 
-                Configurations:
+                Run/Debug Configurations:
                   - Application:
                       Name: Application Configuration
                       Share through VCS: true

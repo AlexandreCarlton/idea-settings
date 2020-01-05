@@ -242,8 +242,7 @@ Other Settings:
         # - 'bundled' (with description matching the bundled description, e.g. "Google Checks")
         File: checkstyle.xml
 
-# Run / Debug configurations
-Configurations:
+Run/Debug Configurations:
   - Application:
       Name: My Application
       Share through VCS: true

@@ -33,7 +33,7 @@ data class IdeaSettings(
     @JsonProperty("Project Settings")
     val projectSettings: ProjectSettingsSettings? = null,
 
-    @JsonProperty("Configurations")
+    @JsonProperty("Run/Debug Configurations")
     val configurations: List<ConfigurationSettings>? = null
 )
 
