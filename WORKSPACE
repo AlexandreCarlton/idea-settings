@@ -136,21 +136,13 @@ load("@google_bazel_common//:workspace_defs.bzl", "google_common_workspace_rules
 google_common_workspace_rules()
 
 http_archive(
-    name = "com_google_dagger",
-    urls = ["https://github.com/google/dagger/archive/6c2568dfc708abfe2539343f0976356dc8cf1349.zip"],
-    strip_prefix = "dagger-6c2568dfc708abfe2539343f0976356dc8cf1349",
-    sha256 = "1ef40a620a34e2b627a16f4e734151cbbd1342b1774afef436aa1fa2abfbf02d",
-)
-
-http_archive(
     name = "rules_jvm_external",
-    strip_prefix = "rules_jvm_external-3.0",
     sha256 = "62133c125bf4109dfd9d2af64830208356ce4ef8b165a6ef15bbff7460b35c3a",
+    strip_prefix = "rules_jvm_external-3.0",
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/3.0.zip",
 )
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
-
 load("@rules_jvm_external//:specs.bzl", "maven")
 
 maven_install(
@@ -161,7 +153,7 @@ maven_install(
         "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1",
         "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.1",
         "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1",
-        "com.google.dagger:dagger:2.25.2",
+        "com.google.dagger:dagger:2.25.4",
         "com.google.guava:guava:27.0.1-jre",
         "javax.inject:javax.inject:1",
         "junit:junit:4.12",
@@ -185,12 +177,12 @@ maven_install(
             exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
         ),
     ],
+    maven_install_json = "//:maven_install.json",
     repositories = [
         "https://jcenter.bintray.com/",
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
     ],
-    maven_install_json = "//:maven_install.json",
 )
 
 load("@maven//:defs.bzl", "pinned_maven_install")
