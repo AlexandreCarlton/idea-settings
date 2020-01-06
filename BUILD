@@ -105,7 +105,7 @@ test_suite(
 test_suite(
     name = "integration-tests",
     tests = [
-        "//src/test/java/com/github/alexandrecarlton/idea/settings/integration",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/integration",
     ],
 )
 
