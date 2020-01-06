@@ -15,6 +15,7 @@ import org.infernus.idea.checkstyle.config.PluginConfigurationManager
 import org.infernus.idea.checkstyle.model.ConfigurationLocationFactory
 import org.infernus.idea.checkstyle.model.ConfigurationType
 import org.infernus.idea.checkstyle.model.ScanScope
+import java.io.File
 import java.net.MalformedURLException
 import java.net.URL
 import java.nio.file.Paths
@@ -38,6 +39,7 @@ constructor(
         settings.treatCheckstyleErrorsAsWarnings?.let { builder.withSuppressErrors(it) }
         builder.withLocations(settings.configurationFiles?.map { toConfigurationLocation(it) }?.toSortedSet() ?: emptySortedSet())
         settings.configurationFiles?.firstOrNull { it.active }?.let { builder.withActiveLocation(toConfigurationLocation(it)) }
+        settings.thirdPartyChecks?.map(File::toString)?.let { builder.withThirdPartyClassPath(it) }
         pluginConfigurationManager.setCurrent(builder.build(), true)
     }
 

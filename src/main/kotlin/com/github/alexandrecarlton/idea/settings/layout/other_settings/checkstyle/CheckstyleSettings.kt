@@ -1,6 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.io.File
 
 data class CheckstyleSettings(
 
@@ -14,5 +15,8 @@ data class CheckstyleSettings(
     val treatCheckstyleErrorsAsWarnings: Boolean? = null,
 
     @JsonProperty("Configuration files")
-    val configurationFiles: List<CheckstyleConfigurationFile>? = null
+    val configurationFiles: List<CheckstyleConfigurationFile>? = null,
+
+    @JsonProperty("Third-Party Checks")
+    val thirdPartyChecks: List<File>? = null
 )

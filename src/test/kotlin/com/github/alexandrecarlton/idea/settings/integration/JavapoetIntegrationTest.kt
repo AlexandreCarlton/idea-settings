@@ -17,7 +17,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         @JvmStatic
         @BeforeClass
         fun setUpClass() {
-            AbstractIntegrationTest.setUpClass("javapoet", """
+            setUpClass("javapoet", """
                 Project Settings:
                   Project:
                     Project name: my-project-name
@@ -139,6 +139,9 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                       - Active: true
                         Description: Javapoet Checkstyle
                         File: checkstyle.xml
+                    Third-Party Checks:
+                      - lib/checkstyle-custom-1.jar
+                      - lib/checkstyle-custom-2.jar
 
                 Run/Debug Configurations:
                   - Application:
@@ -598,6 +601,13 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         assertThatXml(".idea/checkstyle-idea.xml")
             .valueByXPath("//entry[@key='active-configuration']/@value")
             .isEqualTo("PROJECT_RELATIVE:\$PROJECT_DIR$/checkstyle.xml:Javapoet Checkstyle")
+    }
+
+    @Test
+    fun checkstyleThirdPartyChecks() {
+        assertThatXml(".idea/checkstyle-idea.xml")
+            .valueByXPath("//entry[@key='thirdparty-classpath']/@value")
+            .isEqualTo("\$PROJECT_DIR\$/lib/checkstyle-custom-1.jar;\$PROJECT_DIR\$/lib/checkstyle-custom-2.jar")
     }
 
     @Test

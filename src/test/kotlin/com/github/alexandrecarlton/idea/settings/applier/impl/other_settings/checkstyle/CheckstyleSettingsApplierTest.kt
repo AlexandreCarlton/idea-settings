@@ -11,6 +11,7 @@ import org.infernus.idea.checkstyle.model.ConfigurationType
 import org.infernus.idea.checkstyle.model.ScanScope
 import org.junit.Before
 import org.junit.Test
+import java.io.File
 
 class CheckstyleSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -60,5 +61,11 @@ class CheckstyleSettingsApplierTest : IdeaSettingsTestFixture() {
         val activeLocation = pluginConfigurationManager.current.activeLocation!!
         assertThat(activeLocation.type).isEqualTo(ConfigurationType.BUNDLED)
         assertThat(activeLocation.description).isEqualTo("Google Checks")
+    }
+
+    @Test
+    fun thirdPartyChecksApplied() {
+        settingsApplier.apply(CheckstyleSettings(thirdPartyChecks = listOf(File("${project.basePath}/lib/checkstyle-custom.jar"))))
+        assertThat(pluginConfigurationManager.current.thirdPartyClasspath).containsExactly("${project.basePath}/lib/checkstyle-custom.jar")
     }
 }
