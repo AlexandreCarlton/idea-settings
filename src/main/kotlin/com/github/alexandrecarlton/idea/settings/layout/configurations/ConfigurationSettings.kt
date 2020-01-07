@@ -18,23 +18,23 @@ import java.io.File
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
 sealed class ConfigurationSettings(
 
+    @get:JsonProperty("Name")
     open val name: String,
 
+    @get:JsonProperty("Share through VCS")
     open val shareThroughVcs: Boolean?,
 
+    @get:JsonProperty("Before launch")
     open val beforeLaunch: List<BeforeLaunchConfigurationSettings>?
 )
 
 @JsonTypeName("Application")
 data class ApplicationConfigurationSettings(
 
-    @JsonProperty("Name")
     override val name: String,
 
-    @JsonProperty("Share through VCS")
     override val shareThroughVcs: Boolean? = null,
 
-    @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Configuration")
@@ -45,13 +45,10 @@ data class ApplicationConfigurationSettings(
 @JsonTypeName("Docker-compose")
 data class DockerComposeConfigurationSettings(
 
-    @JsonProperty("Name")
     override val name: String,
 
-    @JsonProperty("Share through VCS")
     override val shareThroughVcs: Boolean? = null,
 
-    @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Server")
@@ -73,13 +70,10 @@ data class DockerComposeConfigurationSettings(
 @JsonTypeName("Docker Image")
 data class DockerImageConfigurationSettings(
 
-    @JsonProperty("Name")
     override val name: String,
 
-    @JsonProperty("Share through VCS")
     override val shareThroughVcs: Boolean? = null,
 
-    @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Server")
@@ -113,13 +107,10 @@ data class DockerImageConfigurationSettings(
 @JsonTypeName("Remote")
 data class RemoteSettings (
 
-    @JsonProperty("Name")
     override val name: String,
 
-    @JsonProperty("Share through VCS")
     override val shareThroughVcs: Boolean? = null,
 
-    @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Configuration")
@@ -129,13 +120,10 @@ data class RemoteSettings (
 @JsonTypeName("Shell Script")
 data class ShellScriptConfigurationSettings(
 
-    @JsonProperty("Name")
     override val name: String,
 
-    @JsonProperty("Share through VCS")
     override val shareThroughVcs: Boolean? = null,
 
-    @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Script path")
@@ -150,13 +138,11 @@ data class ShellScriptConfigurationSettings(
 
 @JsonTypeName("Spring Boot")
 data class SpringBootSettings (
-    @JsonProperty("Name")
+
     override val name: String,
 
-    @JsonProperty("Share through VCS")
     override val shareThroughVcs: Boolean? = null,
 
-    @JsonProperty("Before launch")
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Configuration")
