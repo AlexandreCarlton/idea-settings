@@ -63,15 +63,11 @@ abstract class BaseInspectionSettingsApplier<Options>(private val toolsImpl: Too
             }
 
             scopedSeverity.options?.let { options ->
-                val inspectionsSubcomponent = inspectionsSubcomponentBuilder
+                inspectionsSubcomponentBuilder
                     .scopeToolState(scopeToolState)
                     .build()
-                when(options) {
-                    UnnecessaryCallToSuperInspectionOptionsSettings -> {}
-                    UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings -> {}
-                    is UnnecessaryParenthesesInspectionOptionsSettings -> inspectionsSubcomponent.unnecessaryParenthesesInspectionOptionsSettingsApplier().apply(options)
-                    else ->  LOG.warn("Unhandled Inspection Options $settings")
-                }
+                    .settingsApplier()
+                    .apply(options as Any)
             }
         }
     }

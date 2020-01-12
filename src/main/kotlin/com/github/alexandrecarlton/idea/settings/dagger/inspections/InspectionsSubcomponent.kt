@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dagger.inspections
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionOptionsSettings
 import com.intellij.codeInspection.ex.ScopeToolState
 import dagger.BindsInstance
 import dagger.Subcomponent
@@ -20,14 +19,14 @@ import dagger.Subcomponent
  * To circumvent this, we manuallymanually declare each options applier in [InspectionsSubcomponent],
  *
  * Injecting them into a [Map] using multibindings did not take; see https://github.com/google/dagger/issues/1478.
- * @see SettingsApplierModule
+ * @see InspectionOptionsSettingsApplierModule
  */
 @Subcomponent(modules = [
     InspectionsModule::class,
-    SettingsApplierModule::class])
+    InspectionOptionsSettingsApplierModule::class])
 interface InspectionsSubcomponent {
 
-    fun unnecessaryParenthesesInspectionOptionsSettingsApplier(): SettingsApplier<UnnecessaryParenthesesInspectionOptionsSettings>
+    fun settingsApplier(): SettingsApplier<Any>
 
     @Subcomponent.Builder
     interface Builder {

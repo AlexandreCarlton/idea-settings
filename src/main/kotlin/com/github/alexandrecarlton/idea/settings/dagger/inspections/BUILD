@@ -12,6 +12,7 @@ kt_jvm_library(
         # Without the annotations library, we get warnings like:
         # warning: unknown enum constant Nls$Capitalization.Sentence
         "@idea-IC//:lib/annotations",
+        "@idea-IC//:lib/util",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:plugins/java/lib/java-api",
