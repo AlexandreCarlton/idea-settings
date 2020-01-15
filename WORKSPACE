@@ -3,15 +3,15 @@ workspace(name = "idea_settings")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_VERSION = "2019.3"
+IDEA_VERSION = "2019.3.1"
 
-IDEA_IC_SHA256 = "6c8d3f0b5adf05e5e64272975dfa50fe2895a334e441c1033b2074c56c9b28c8"
+IDEA_IC_SHA256 = "6074bfa917f65fa157a14a9798fecd6ef3a1dfb2889fbe2f338538d89e175c94"
 
-IDEA_IU_SHA256 = "4dde257fcecf163a7f33c40bba69142a35bc45043b66dd41cdc4f7303a87d66d"
+IDEA_IU_SHA256 = "0cd0771630385eadf308c8e29e9979acc4f92f2010eda27041cfa04c2f51214f"
 
-IDEA_IC_SOURCES_SHA256 = "4dd103af9a0a0322b76ad07848a105fc154d5f5dfeae45e773bfae8607b65848"
+IDEA_IC_SOURCES_SHA256 = "c0ba55daf20d47ed6aba5620ad18181b3792cdfc95324cdd7735d5219a6d9386"
 
-WEBSTORM_SHA256 = "63ffa9d500182909078356157dd4c7ee97abfc55c51bced45d71423c7230e593"
+WEBSTORM_SHA256 = "7732bb3fea2b36b06813dac04f55ec3c47ca8a155d133af6beb4554254685862"
 
 http_archive(
     name = "idea-IC",
@@ -37,7 +37,7 @@ http_archive(
     name = "WebStorm",
     build_file = "WebStorm.BUILD",
     sha256 = WEBSTORM_SHA256,
-    strip_prefix = "WebStorm-193.5233.80",
+    strip_prefix = "WebStorm-193.5662.54",
     url = "https://download.jetbrains.com/webstorm/WebStorm-{0}.tar.gz".format(IDEA_VERSION),
 )
 
