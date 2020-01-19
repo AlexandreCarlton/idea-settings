@@ -10,15 +10,20 @@ import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.jav
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptLanguageVersion.NASHORN_JS
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptLanguageVersion.REACT_JSX
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.JavascriptSettings
+import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.JavascriptCodeQualityToolsSettings
 import com.intellij.lang.javascript.dialects.JSLanguageLevel
 import com.intellij.lang.javascript.settings.JSRootConfiguration
 import javax.inject.Inject
 
 class JavascriptSettingsApplier @Inject
-constructor(private val jsRootConfiguration: JSRootConfiguration) : SettingsApplier<JavascriptSettings> {
+constructor(
+    private val jsRootConfiguration: JSRootConfiguration,
+    private val javascriptCodeQualityToolsSettingsApplier: SettingsApplier<JavascriptCodeQualityToolsSettings>
+) : SettingsApplier<JavascriptSettings> {
 
     override fun apply(settings: JavascriptSettings) {
         settings.javascriptLanguageVersion?.let { jsRootConfiguration.storeLanguageLevelAndUpdateCaches(toJSLanguageLevel(it)) }
+        settings.codeQualityTools?.let(javascriptCodeQualityToolsSettingsApplier::apply)
     }
 
     private fun toJSLanguageLevel(version: JavascriptLanguageVersion) =

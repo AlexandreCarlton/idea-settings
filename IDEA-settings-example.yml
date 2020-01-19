@@ -159,6 +159,10 @@ Editor:
                 Ignore clarifying parentheses: true
         Unnecessary qualifier for 'this' or 'super':
           Enabled: true
+    JavaScript:
+      Code quality tools:
+        ESLint:
+          Enabled: true
   Spelling:
     Dictionaries:
       # files containing a word on each line to be used as custom spelling dictionaries.
@@ -204,6 +208,22 @@ Build, Execution, Deployment:
 Languages & Frameworks:
   JavaScript:
     JavaScript language version: React JSX
+    Code Quality Tools:
+      ESLint:
+        # We can also have the following options instead of 'Manual...':
+        # Disable ESLint: {}
+        # Automatic ESLint configuration: {}
+        Manual ESLint configuration:
+          Node interpreter: /usr/bin/node
+          ESLint package: /usr/lib/node_modules/eslint
+          Configuration file:
+            # Instead of configuration file, we can also have:
+            # Automatic Search: {}
+            Configuration file:
+              File: .eslint-foo.js
+          Additional rules directory: rules/
+          Extra eslint options: --extra-optioins
+
   SQL Dialects:
     Project SQL Dialect: PostgreSQL
 

@@ -8,6 +8,8 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.code_quality_tools.EslintInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.code_quality_tools.EslintInspectionSettings
 import com.intellij.codeInspection.ex.ToolsImpl
 import dagger.Binds
 import dagger.Module
@@ -15,6 +17,8 @@ import javax.inject.Inject
 import javax.inject.Named
 
 
+// Should be able to generate these.
+class EslintInspectionSettingsApplier @Inject constructor(@Named("Eslint") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<EslintInspectionOptionsSettings>(toolsImpl)
 class UnnecessaryCallToSuperInspectionSettingsApplier @Inject constructor(@Named("UnnecessarySuperConstructor") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<UnnecessaryCallToSuperInspectionOptionsSettings>(toolsImpl)
 class UnnecessaryParenthesesInspectionSettingsApplier @Inject constructor(@Named("UnnecessaryParentheses") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<UnnecessaryParenthesesInspectionOptionsSettings>(toolsImpl)
 class UnnecessaryQualifierForThisOrSuperInspectionSettingsApplier @Inject constructor(@Named("UnnecessaryQualifierForThis") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings>(toolsImpl)
@@ -25,6 +29,9 @@ class UnnecessaryQualifierForThisOrSuperInspectionSettingsApplier @Inject constr
  */
 @Module
 interface InspectionSettingsApplierModule {
+
+    @Binds
+    fun provideEslintInspectionSettingsApplier(applier: EslintInspectionSettingsApplier): SettingsApplier<EslintInspectionSettings>
 
     @Binds
     fun provideUnnecessaryCallToSuperInspectionSettingsApplier(applier: UnnecessaryCallToSuperInspectionSettingsApplier): SettingsApplier<UnnecessaryCallToSuperInspectionSettings>

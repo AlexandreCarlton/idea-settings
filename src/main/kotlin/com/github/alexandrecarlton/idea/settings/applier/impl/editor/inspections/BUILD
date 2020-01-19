@@ -8,6 +8,7 @@ kt_jvm_library(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections/java",
+        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections/javascript",
         "@maven//:javax_inject_javax_inject",
     ],
 )

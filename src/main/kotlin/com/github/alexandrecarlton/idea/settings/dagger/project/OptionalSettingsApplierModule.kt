@@ -19,6 +19,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.j
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.codestyle.javascript.JavascriptImportsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.JavaAutoImportSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.java.JavaInspectionsSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.javascript.JavascriptInspectionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier
@@ -105,6 +106,10 @@ object OptionalSettingsApplierModule {
     @Provides
     internal fun provideJavascriptImportsSettingsApplier(javascriptImportsSettingsApplier: Lazy<JavascriptImportsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptImportsSettingsApplier)
+
+    @Provides
+    internal fun provideJavascriptInspectionsSettingsApplier(javascriptInspectionsSettingsApplier: Lazy<JavascriptInspectionsSettingsApplier>) =
+        provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptInspectionsSettingsApplier)
 
     @Provides
     internal fun provideJavascriptSettingsApplier(javascriptSettingsApplier: Lazy<JavascriptSettingsApplier>) =

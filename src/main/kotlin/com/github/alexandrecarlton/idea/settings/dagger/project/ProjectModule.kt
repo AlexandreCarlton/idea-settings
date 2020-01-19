@@ -17,6 +17,7 @@ import com.intellij.externalDependencies.ExternalDependenciesManager
 import com.intellij.ide.impl.ProjectUtil
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.lang.javascript.formatter.JSCodeStyleSettings
+import com.intellij.lang.javascript.linter.eslint.EslintConfiguration
 import com.intellij.lang.javascript.settings.JSRootConfiguration
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.project.Project
@@ -79,6 +80,9 @@ object ProjectModule {
 
     @Provides
     internal fun provideDockerRunConfigurationCreator(project: Project) = DockerRunConfigurationCreator(project)
+
+    @Provides
+    internal fun provideEslintConfiguration(project: Project) = EslintConfiguration.getInstance(project)
 
     @Provides
     internal fun provideExternalDependenciesManager(project: Project) = ExternalDependenciesManager.getInstance(project)

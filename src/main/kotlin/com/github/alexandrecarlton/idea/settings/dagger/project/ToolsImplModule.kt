@@ -14,6 +14,11 @@ import javax.inject.Named
 object ToolsImplModule {
 
     @Provides
+    @Named("Eslint")
+    internal fun provideEslint(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
+        inspectionProfileImpl.getTools("Eslint", project)
+
+    @Provides
     @Named("UnnecessarySuperConstructor")
     internal fun provideUnnecessarySuperConstructor(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
         inspectionProfileImpl.getTools("UnnecessarySuperConstructor", project)
