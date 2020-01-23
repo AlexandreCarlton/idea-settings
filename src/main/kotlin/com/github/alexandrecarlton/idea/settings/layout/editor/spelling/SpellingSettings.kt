@@ -5,5 +5,8 @@ import java.io.File
 
 data class SpellingSettings(
     @JsonProperty("Dictionaries")
-    val dictionaries: List<File>? = null
+    val dictionaries: List<File>? = null,
+
+    @JsonProperty("Accepted Words")
+    val acceptedWords: List<String>? = null
 )

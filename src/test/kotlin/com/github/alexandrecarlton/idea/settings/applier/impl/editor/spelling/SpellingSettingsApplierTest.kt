@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
+import com.intellij.spellchecker.SpellCheckerManager
 import com.intellij.spellchecker.settings.SpellCheckerSettings
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.After
@@ -13,12 +14,14 @@ import java.io.File
 class SpellingSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<SpellingSettings>
+    private lateinit var spellCheckerManager: SpellCheckerManager
     private lateinit var spellCheckerSettings: SpellCheckerSettings
 
     @Before
     public override fun setUp() {
+        spellCheckerManager = SpellCheckerManager.getInstance(project)
         spellCheckerSettings = SpellCheckerSettings.getInstance(project)
-        settingsApplier = SpellingSettingsApplier(spellCheckerSettings)
+        settingsApplier = SpellingSettingsApplier(spellCheckerManager, spellCheckerSettings)
     }
 
     @After
@@ -37,5 +40,11 @@ class SpellingSettingsApplierTest : IdeaSettingsTestFixture() {
     fun absoluteDictionaryApplied() {
         settingsApplier.apply(SpellingSettings(dictionaries = listOf(File("/tmp/dict.dic"))))
         assertThat(spellCheckerSettings.customDictionariesPaths).containsOnly("/tmp/dict.dic")
+    }
+
+    @Test
+    fun acceptedWordsApplied() {
+        settingsApplier.apply(SpellingSettings(acceptedWords = listOf("abcd", "efgh")))
+        assertThat(spellCheckerManager.userDictionaryWords).contains("abcd", "efgh")
     }
 }

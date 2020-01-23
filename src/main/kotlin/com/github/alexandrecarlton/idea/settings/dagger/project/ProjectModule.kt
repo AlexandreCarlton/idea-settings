@@ -29,6 +29,7 @@ import com.intellij.profile.codeInspection.ProjectInspectionProfileManager
 import com.intellij.psi.codeStyle.CodeStyleSettings
 import com.intellij.psi.codeStyle.CodeStyleSettingsManager
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings
+import com.intellij.spellchecker.SpellCheckerManager
 import com.intellij.spellchecker.settings.SpellCheckerSettings
 import com.intellij.sql.dialects.SqlDialectMappings
 import dagger.Module
@@ -146,6 +147,9 @@ object ProjectModule {
 
     @Provides
     internal fun provideRunManager(project: Project) = RunManager.getInstance(project)
+
+    @Provides
+    internal fun provideSpellCheckerManager(project: Project) = SpellCheckerManager.getInstance(project)
 
     @Provides
     internal fun provideSpellCheckerSettings(project: Project) = SpellCheckerSettings.getInstance(project)

@@ -168,6 +168,9 @@ Editor:
       # files containing a word on each line to be used as custom spelling dictionaries.
       - relative_to_project.dic
       - /tmp/absolute.dic
+    Accepted Words:
+      - foo
+      - bar
 
 Build, Execution, Deployment:
   Build Tools:

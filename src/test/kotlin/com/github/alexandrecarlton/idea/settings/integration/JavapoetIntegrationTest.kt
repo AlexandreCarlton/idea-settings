@@ -130,6 +130,9 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                   Spelling:
                     Dictionaries:
                       - dict.dic
+                    Accepted Words:
+                      - abcd
+                      - efgh
                 Other Settings:
                   Checkstyle:
                     Checkstyle version: '8.16'
@@ -572,6 +575,14 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
             .valueByXPath("//component[@name='SpellCheckerSettings']/@CustomDictionary0")
             .asString()
             .isEqualTo("\$PROJECT_DIR$/dict.dic")
+    }
+
+    @Test
+    fun acceptedWords() {
+        for (word in listOf("abcd", "efgh")) {
+            assertThatXml(".idea/dictionaries/${System.getProperty("user.name")}.xml")
+                .hasXPath("//component[@name='ProjectDictionaryState']/dictionary/words/w[text()='$word']")
+        }
     }
 
     @Test
