@@ -15,7 +15,7 @@ class AutoIntegrationTest : AbstractIntegrationTest() {
         @JvmStatic
         @BeforeClass
         fun setUpClass() {
-            AbstractIntegrationTest.setUpClass("auto", """
+            setUpClass("auto", """
                 Project Settings:
                   Modules:
                     - Name: auto-parent
@@ -23,13 +23,18 @@ class AutoIntegrationTest : AbstractIntegrationTest() {
                         - Content Root: .
                           Excluded:
                             - README.md
-                    - Name: common
+                    - Name: auto-service
                       Sources:
-                        - Content Root: common
+                        - Content Root: service/processor
                           Sources:
-                            - src/main/java
+                            - Root: src/main/java
                           Tests:
-                            - src/test/java""".trimIndent())
+                            - Root: src/test/java
+                          Resources:
+                            - Root: src/main/resources
+                          Test Resources:
+                            - Root: src/test/resources
+                            """.trimIndent())
             runIdeaSettings()
         }
     }
@@ -41,10 +46,26 @@ class AutoIntegrationTest : AbstractIntegrationTest() {
     }
 
     @Test
-    fun testCreatedModule() {
-        assertThatXml("common/common.iml")
+    fun sourceInCreatedModule() {
+        assertThatXml("service/processor/auto-service.iml")
             .hasXPath("//content[@url='file://\$MODULE_DIR$']/sourceFolder[@url='file://\$MODULE_DIR$/src/main/java'][@isTestSource='false']")
-        assertThatXml("common/common.iml")
+    }
+
+    @Test
+    fun testSourceInCreatedModule() {
+        assertThatXml("service/processor/auto-service.iml")
             .hasXPath("//content[@url='file://\$MODULE_DIR$']/sourceFolder[@url='file://\$MODULE_DIR$/src/test/java'][@isTestSource='true']")
+    }
+
+    @Test
+    fun resourceInCreatedModule() {
+        assertThatXml("service/processor/auto-service.iml")
+                .hasXPath("//content[@url='file://\$MODULE_DIR$']/sourceFolder[@url='file://\$MODULE_DIR$/src/main/resources'][@type='java-resource']")
+    }
+
+    @Test
+    fun testResourceInCreatedModule() {
+        assertThatXml("service/processor/auto-service.iml")
+                .hasXPath("//content[@url='file://\$MODULE_DIR$']/sourceFolder[@url='file://\$MODULE_DIR$/src/test/resources'][@type='java-test-resource']")
     }
 }

@@ -9,16 +9,16 @@ data class ModuleSourceSettings(
     val contentRoot: File,
 
     @JsonProperty("Sources")
-    val sources: List<String>? = null,
+    val sources: List<SourceRootSettings>? = null,
 
     @JsonProperty("Tests")
-    val tests: List<String>? = null,
+    val tests: List<SourceRootSettings>? = null,
 
     @JsonProperty("Resources")
-    val resources: List<String>? = null,
+    val resources: List<ResourceRootSettings>? = null,
 
     @JsonProperty("Test Resources")
-    val testResources: List<String>? = null,
+    val testResources: List<ResourceRootSettings>? = null,
 
     @JsonProperty("Excluded")
     val excluded: List<String>? = null

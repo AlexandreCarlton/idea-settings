@@ -23,6 +23,15 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                     Project name: my-project-name
                     Project SDK: my-project-sdk
                     Project language level: '6'
+                  Modules:
+                    - Name: javapoet
+                      Sources:
+                        - Content Root: .
+                          Sources:
+                            - Root: src/main/java
+                              Properties:
+                                Package prefix: foo
+                                For generated sources: true
 
                 Build, Execution, Deployment:
                   Build Tools:
@@ -196,6 +205,21 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         assertThatXml(".idea/misc.xml")
             .valueByXPath("//component[@name='ProjectRootManager']/@languageLevel")
             .isEqualTo("JDK_1_6")
+    }
+
+    @Test
+    fun packagePrefixForExistingModule() {
+        assertThatXml("javapoet.iml")
+            .valueByXPath("//sourceFolder[@url='file://\$MODULE_DIR$/src/main/java']/@packagePrefix")
+            .isEqualTo("foo")
+    }
+
+    @Test
+    fun forGeneratedSourcesForExistingModule() {
+        assertThatXml("javapoet.iml")
+                .valueByXPath("//sourceFolder[@url='file://\$MODULE_DIR$/src/main/java']/@generated")
+                .asBoolean()
+                .isTrue()
     }
 
     @Test

@@ -16,13 +16,21 @@ Project Settings:
           # Note that folders listed here are merely appended to the existing list;
           # we do NOT clear out all folders first.
           Sources:
-            - src/main/kotlin
+            - Root: src/main/kotlin
+              Properties:
+                Package prefix: foo
+                For generated sources: true
+          # These may also be configured in a similar manner to 'Sources'
           Tests:
-            - src/it/java
+            - Root: src/it/java
           Resources:
-            - src/main/other_resources
+            - Root: src/main/other_resources
+              Properties:
+                Package prefix: foo
+                For generated resources: true
           Test Resources:
-            - src/test/other_resources
+            - Root: src/test/other_resources
+          # Excluded does not allow configuration, unlike the above.
           Excluded:
             - src/main/resources/too_large_to_index
 
