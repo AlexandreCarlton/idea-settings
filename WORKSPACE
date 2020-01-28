@@ -183,6 +183,7 @@ maven_install(
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
     ],
+    fetch_sources = True,
 )
 
 load("@maven//:defs.bzl", "pinned_maven_install")

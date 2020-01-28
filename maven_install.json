@@ -18,6 +18,19 @@
                 "sha256": "673f8ae16becea4fa937404b3a851417faf42df3bbc592028bbe2bfe0cc9d8cb"
             },
             {
+                "coord": "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar"
+                ],
+                "sha256": "51edbe61480b811fc9ceaa158e233b88a193b58b69a4c9cfe7c8b2ef50f98b5d"
+            },
+            {
                 "coord": "com.fasterxml.jackson.core:jackson-core:2.10.1",
                 "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar",
                 "directDependencies": [],
@@ -29,6 +42,19 @@
                     "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar"
                 ],
                 "sha256": "79bffbdcd349f69a5ac252e2b4096131704386af4fa14d95395ea9a0e423cf33"
+            },
+            {
+                "coord": "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar"
+                ],
+                "sha256": "001eeeb4ae3241e0e880ab2f9b867c33d560c73b34a5d69d9b216b8b04cfb9bd"
             },
             {
                 "coord": "com.fasterxml.jackson.core:jackson-databind:2.10.1",
@@ -50,6 +76,25 @@
                 "sha256": "2d23f47001492233565adf5a34f225f2ae89564cee08024873ec36b7842ede46"
             },
             {
+                "coord": "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
+                "directDependencies": [
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1"
+                ],
+                "dependencies": [
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1"
+                ],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar"
+                ],
+                "sha256": "43fb05e9652c4aef1e272b330649037e92d32b96af005a49e4b801a7f1585e15"
+            },
+            {
                 "coord": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1",
                 "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar",
                 "directDependencies": [
@@ -67,6 +112,25 @@
                     "https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar"
                 ],
                 "sha256": "d1f0a32e15894aa3639cf31680b813f5fbb39650618a145cb2631e65ad1cd9c2"
+            },
+            {
+                "coord": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
+                "directDependencies": [
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "org.yaml:snakeyaml:jar:sources:1.24"
+                ],
+                "dependencies": [
+                    "org.yaml:snakeyaml:jar:sources:1.24",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1"
+                ],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar"
+                ],
+                "sha256": "9cdeb072fed1ab8a00ee1385af42719f565cd9040ad1512cdbd86fdf07da2237"
             },
             {
                 "coord": "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.1",
@@ -98,6 +162,35 @@
                 "sha256": "5a83d183bbc39d5376b8151de35caa3d9e1aaa500ada5354965fffe5a2941237"
             },
             {
+                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
+                "directDependencies": [
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre"
+                ],
+                "dependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre"
+                ],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar"
+                ],
+                "sha256": "1dccbbcd969d8d75dc13d6e57d56c88153e239b48232af68f717657c57adcd5d"
+            },
+            {
                 "coord": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1",
                 "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar",
                 "directDependencies": [
@@ -116,6 +209,26 @@
                     "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar"
                 ],
                 "sha256": "05c45b1441e74ea5e4b0c7a20823d2c7cfded946108902b5691a129e78f60515"
+            },
+            {
+                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
+                "directDependencies": [
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1"
+                ],
+                "dependencies": [
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1"
+                ],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar"
+                ],
+                "sha256": "308dfb0d8cc24f29bab64cf689deace73c1b9df05ef7c456b0981c0da863e46a"
             },
             {
                 "coord": "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1",
@@ -143,6 +256,31 @@
                 "sha256": "49958ee89f12c4c321ef3040514d334fc44c45e02661942d876b4f114e1807f3"
             },
             {
+                "coord": "com.fasterxml.jackson.module:jackson-module-kotlin:jar:sources:2.10.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1-sources.jar",
+                "directDependencies": [
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                    "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50"
+                ],
+                "dependencies": [
+                    "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50",
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1-sources.jar"
+                ],
+                "sha256": "fa50a68b8bd28f29c5cc992818eb9dd9d70960933f0e2e01a9a009cb86da79d2"
+            },
+            {
                 "coord": "com.google.code.findbugs:jsr305:3.0.2",
                 "file": "v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
                 "directDependencies": [],
@@ -154,6 +292,19 @@
                     "https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
                 ],
                 "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+            },
+            {
+                "coord": "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                "file": "v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                    "https://maven.google.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar"
+                ],
+                "sha256": "1c9e85e272d0708c6a591dc74828c71603053b48cc75ae83cce56912a2aa063b"
             },
             {
                 "coord": "com.google.dagger:dagger-compiler:2.25.2",
@@ -205,6 +356,55 @@
                 "sha256": "1cf2d7f8512d4017546b6993e356baf43e486d659b954ca23a01d669fdceac85"
             },
             {
+                "coord": "com.google.dagger:dagger-compiler:jar:sources:2.25.2",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
+                "directDependencies": [
+                    "org.jetbrains.kotlinx:kotlinx-metadata-jvm:jar:sources:0.1.0",
+                    "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
+                    "com.google.googlejavaformat:google-java-format:jar:sources:1.5",
+                    "javax.inject:javax.inject:jar:sources:1",
+                    "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger:jar:sources:2.25.4",
+                    "net.ltgt.gradle.incap:incap:jar:sources:0.2",
+                    "com.google.dagger:dagger-spi:jar:sources:2.25.2",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre",
+                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                    "javax.annotation:jsr250-api:jar:sources:1.0"
+                ],
+                "dependencies": [
+                    "org.jetbrains.kotlinx:kotlinx-metadata-jvm:jar:sources:0.1.0",
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
+                    "com.google.errorprone:javac-shaded:jar:sources:9-dev-r4023-3",
+                    "com.google.googlejavaformat:google-java-format:jar:sources:1.5",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "javax.inject:javax.inject:jar:sources:1",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger:jar:sources:2.25.4",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "net.ltgt.gradle.incap:incap:jar:sources:0.2",
+                    "com.google.dagger:dagger-spi:jar:sources:2.25.2",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre",
+                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                    "javax.annotation:jsr250-api:jar:sources:1.0"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar"
+                ],
+                "sha256": "fda54fbeb260709c97b8a264e35863c01b586b6ea08acc9643003fd7abccdefb"
+            },
+            {
                 "coord": "com.google.dagger:dagger-producers:2.25.2",
                 "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar",
                 "directDependencies": [
@@ -237,6 +437,40 @@
                     "https://repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar"
                 ],
                 "sha256": "3aa473ad3a7faa86b2291a704dc44b3139dc9071f5807e9463f541ded3eb9ee3"
+            },
+            {
+                "coord": "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
+                "directDependencies": [
+                    "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
+                    "javax.inject:javax.inject:jar:sources:1",
+                    "com.google.dagger:dagger:jar:sources:2.25.4",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre"
+                ],
+                "dependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "javax.inject:javax.inject:jar:sources:1",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.google.dagger:dagger:jar:sources:2.25.4",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar"
+                ],
+                "sha256": "147598f6a430234f4f7ae8c3ecae0b84c5bc7407373d8aad2ef9556251e25d88"
             },
             {
                 "coord": "com.google.dagger:dagger-spi:2.25.2",
@@ -276,6 +510,43 @@
                 "sha256": "d70c13eb0e86c1491edcdc15ed2da5e564fd4b1b9f8a224e5adc5a04b539ee86"
             },
             {
+                "coord": "com.google.dagger:dagger-spi:jar:sources:2.25.2",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
+                "directDependencies": [
+                    "javax.inject:javax.inject:jar:sources:1",
+                    "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger:jar:sources:2.25.4",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre",
+                    "com.google.dagger:dagger-producers:jar:sources:2.25.2"
+                ],
+                "dependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "javax.inject:javax.inject:jar:sources:1",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger:jar:sources:2.25.4",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre",
+                    "com.google.dagger:dagger-producers:jar:sources:2.25.2"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar"
+                ],
+                "sha256": "7e0dd51de99b0bb6eb154811f03919e593a842ddbaa45b389a059f5d572b51dd"
+            },
+            {
                 "coord": "com.google.dagger:dagger:2.25.4",
                 "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4.jar",
                 "directDependencies": [
@@ -293,6 +564,23 @@
                 "sha256": "bfd19924d051d279ec34bba1d2e2c0df5e3aa7a1684e92df3fcdd27657a533f9"
             },
             {
+                "coord": "com.google.dagger:dagger:jar:sources:2.25.4",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
+                "directDependencies": [
+                    "javax.inject:javax.inject:jar:sources:1"
+                ],
+                "dependencies": [
+                    "javax.inject:javax.inject:jar:sources:1"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar"
+                ],
+                "sha256": "05539e2fef2e6b5961dd438b0968e0550b1d69309e9a7f12ff995a51004e4f3c"
+            },
+            {
                 "coord": "com.google.errorprone:error_prone_annotations:2.2.0",
                 "file": "v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0.jar",
                 "directDependencies": [],
@@ -304,6 +592,19 @@
                     "https://repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0.jar"
                 ],
                 "sha256": "6ebd22ca1b9d8ec06d41de8d64e0596981d9607b42035f9ed374f9de271a481a"
+            },
+            {
+                "coord": "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                "file": "v1/https/jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0-sources.jar",
+                    "https://maven.google.com/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0-sources.jar"
+                ],
+                "sha256": "626adccd4894bee72c3f9a0384812240dcc1282fb37a87a3f6cb94924a089496"
             },
             {
                 "coord": "com.google.errorprone:javac-shaded:9-dev-r4023-3",
@@ -320,6 +621,22 @@
                     "https://repo1.maven.org/maven2/com/google/errorprone/javac-shaded/9-dev-r4023-3/javac-shaded-9-dev-r4023-3.jar"
                 ],
                 "sha256": "65bfccf60986c47fbc17c9ebab0be626afc41741e0a6ec7109e0768817a36f30"
+            },
+            {
+                "coord": "com.google.errorprone:javac-shaded:jar:sources:9-dev-r4023-3",
+                "file": "v1/https/jcenter.bintray.com/com/google/errorprone/javac-shaded/9-dev-r4023-3/javac-shaded-9-dev-r4023-3-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/errorprone/javac-shaded/9-dev-r4023-3/javac-shaded-9-dev-r4023-3-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/errorprone/javac-shaded/9-dev-r4023-3/javac-shaded-9-dev-r4023-3-sources.jar",
+                    "https://maven.google.com/com/google/errorprone/javac-shaded/9-dev-r4023-3/javac-shaded-9-dev-r4023-3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/errorprone/javac-shaded/9-dev-r4023-3/javac-shaded-9-dev-r4023-3-sources.jar"
+                ],
+                "sha256": "cf0fde1aad77ac6e0e2d36a9f9179193ae1707088ba00ffa91fcfb5269304a6a"
             },
             {
                 "coord": "com.google.googlejavaformat:google-java-format:1.5",
@@ -351,6 +668,35 @@
                 "sha256": "aa19ad7850fb85178aa22f2fddb163b84d6ce4d0035872f30d4408195ca1144e"
             },
             {
+                "coord": "com.google.googlejavaformat:google-java-format:jar:sources:1.5",
+                "file": "v1/https/jcenter.bintray.com/com/google/googlejavaformat/google-java-format/1.5/google-java-format-1.5-sources.jar",
+                "directDependencies": [
+                    "com.google.errorprone:javac-shaded:jar:sources:9-dev-r4023-3",
+                    "com.google.guava:guava:jar:sources:27.1-jre"
+                ],
+                "dependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "com.google.errorprone:javac-shaded:jar:sources:9-dev-r4023-3",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1",
+                    "com.google.guava:guava:jar:sources:27.1-jre"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/googlejavaformat/google-java-format/1.5/google-java-format-1.5-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/googlejavaformat/google-java-format/1.5/google-java-format-1.5-sources.jar",
+                    "https://maven.google.com/com/google/googlejavaformat/google-java-format/1.5/google-java-format-1.5-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/googlejavaformat/google-java-format/1.5/google-java-format-1.5-sources.jar"
+                ],
+                "sha256": "c204b15b3834128d335f17213f7e621ddb2cc5bfff5b8dd035cd1f2affb7fa8f"
+            },
+            {
                 "coord": "com.google.guava:failureaccess:1.0.1",
                 "file": "v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
                 "directDependencies": [],
@@ -378,6 +724,35 @@
                     "https://repo1.maven.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
                 ],
                 "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+            },
+            {
+                "coord": "com.google.guava:failureaccess:jar:sources:1.0.1",
+                "file": "v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                    "https://maven.google.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar"
+                ],
+                "sha256": "092346eebbb1657b51aa7485a246bf602bb464cc0b0e2e1c7e7201fadce1e98f"
+            },
+            {
+                "coord": "com.google.guava:failureaccess:jar:sources:1.0.1",
+                "file": "v1/https/jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                    "https://maven.google.com/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar"
+                ],
+                "sha256": "092346eebbb1657b51aa7485a246bf602bb464cc0b0e2e1c7e7201fadce1e98f"
             },
             {
                 "coord": "com.google.guava:guava:27.1-jre",
@@ -409,6 +784,35 @@
                 "sha256": "4a5aa70cc968a4d137e599ad37553e5cfeed2265e8c193476d7119036c536fe7"
             },
             {
+                "coord": "com.google.guava:guava:jar:sources:27.1-jre",
+                "file": "v1/https/jcenter.bintray.com/com/google/guava/guava/27.1-jre/guava-27.1-jre-sources.jar",
+                "directDependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1"
+                ],
+                "dependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                    "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                    "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                    "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
+                    "com.google.guava:failureaccess:jar:sources:1.0.1"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/guava/guava/27.1-jre/guava-27.1-jre-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/guava/guava/27.1-jre/guava-27.1-jre-sources.jar",
+                    "https://maven.google.com/com/google/guava/guava/27.1-jre/guava-27.1-jre-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/guava/guava/27.1-jre/guava-27.1-jre-sources.jar"
+                ],
+                "sha256": "9de05c573971cedfcd53fb85fc7a58a5f453053026a9bf18594cffc79a1d6874"
+            },
+            {
                 "coord": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
                 "file": "v1/https/jcenter.bintray.com/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
                 "directDependencies": [],
@@ -422,6 +826,12 @@
                 "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
             },
             {
+                "coord": "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
+                "file": null,
+                "directDependencies": [],
+                "dependencies": []
+            },
+            {
                 "coord": "com.google.j2objc:j2objc-annotations:1.1",
                 "file": "v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar",
                 "directDependencies": [],
@@ -433,6 +843,19 @@
                     "https://repo1.maven.org/maven2/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar"
                 ],
                 "sha256": "2994a7eb78f2710bd3d3bfb639b2c94e219cedac0d4d084d516e78c16dddecf6"
+            },
+            {
+                "coord": "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
+                "file": "v1/https/jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar",
+                    "https://maven.google.com/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar"
+                ],
+                "sha256": "2cd9022a77151d0b574887635cdfcdf3b78155b602abc89d7f8e62aba55cfb4f"
             },
             {
                 "coord": "com.squareup:javapoet:1.11.1",
@@ -451,6 +874,22 @@
                 "sha256": "9cbf2107be499ec6e95afd36b58e3ca122a24166cdd375732e51267d64058e90"
             },
             {
+                "coord": "com.squareup:javapoet:jar:sources:1.11.1",
+                "file": "v1/https/jcenter.bintray.com/com/squareup/javapoet/1.11.1/javapoet-1.11.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/squareup/javapoet/1.11.1/javapoet-1.11.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/squareup/javapoet/1.11.1/javapoet-1.11.1-sources.jar",
+                    "https://maven.google.com/com/squareup/javapoet/1.11.1/javapoet-1.11.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/squareup/javapoet/1.11.1/javapoet-1.11.1-sources.jar"
+                ],
+                "sha256": "63d3187d924582b1afe9eb171e725d27a7e15603513890de0f8804a7fc07e9ac"
+            },
+            {
                 "coord": "javax.annotation:jsr250-api:1.0",
                 "file": "v1/https/jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar",
                 "directDependencies": [],
@@ -467,6 +906,22 @@
                 "sha256": "a1a922d0d9b6d183ed3800dfac01d1e1eb159f0e8c6f94736931c1def54a941f"
             },
             {
+                "coord": "javax.annotation:jsr250-api:jar:sources:1.0",
+                "file": "v1/https/jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0-sources.jar",
+                    "https://maven.google.com/javax/annotation/jsr250-api/1.0/jsr250-api-1.0-sources.jar",
+                    "https://repo1.maven.org/maven2/javax/annotation/jsr250-api/1.0/jsr250-api-1.0-sources.jar"
+                ],
+                "sha256": "025c47d76c60199381be07012a0c5f9e74661aac5bd67f5aec847741c5b7f838"
+            },
+            {
                 "coord": "javax.inject:javax.inject:1",
                 "file": "v1/https/jcenter.bintray.com/javax/inject/javax.inject/1/javax.inject-1.jar",
                 "directDependencies": [],
@@ -478,6 +933,19 @@
                     "https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1.jar"
                 ],
                 "sha256": "91c77044a50c481636c32d916fd89c9118a72195390452c81065080f957de7ff"
+            },
+            {
+                "coord": "javax.inject:javax.inject:jar:sources:1",
+                "file": "v1/https/jcenter.bintray.com/javax/inject/javax.inject/1/javax.inject-1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/javax/inject/javax.inject/1/javax.inject-1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/javax/inject/javax.inject/1/javax.inject-1-sources.jar",
+                    "https://maven.google.com/javax/inject/javax.inject/1/javax.inject-1-sources.jar",
+                    "https://repo1.maven.org/maven2/javax/inject/javax.inject/1/javax.inject-1-sources.jar"
+                ],
+                "sha256": "c4b87ee2911c139c3daf498a781967f1eb2e75bc1a8529a2e7b328a15d0e433e"
             },
             {
                 "coord": "junit:junit:4.12",
@@ -497,6 +965,23 @@
                 "sha256": "59721f0805e223d84b90677887d9ff567dc534d7c502ca903c0c2b17f05c116a"
             },
             {
+                "coord": "junit:junit:jar:sources:4.12",
+                "file": "v1/https/jcenter.bintray.com/junit/junit/4.12/junit-4.12-sources.jar",
+                "directDependencies": [
+                    "org.hamcrest:hamcrest-core:jar:sources:1.3"
+                ],
+                "dependencies": [
+                    "org.hamcrest:hamcrest-core:jar:sources:1.3"
+                ],
+                "url": "https://jcenter.bintray.com/junit/junit/4.12/junit-4.12-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/junit/junit/4.12/junit-4.12-sources.jar",
+                    "https://maven.google.com/junit/junit/4.12/junit-4.12-sources.jar",
+                    "https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12-sources.jar"
+                ],
+                "sha256": "9f43fea92033ad82bcad2ae44cec5c82abc9d6ee4b095cab921d11ead98bf2ff"
+            },
+            {
                 "coord": "net.bytebuddy:byte-buddy-agent:1.9.10",
                 "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10.jar",
                 "directDependencies": [],
@@ -510,6 +995,19 @@
                 "sha256": "8ed739d29132103250d307d2e8e3c95f07588ef0543ab11d2881d00768a5e182"
             },
             {
+                "coord": "net.bytebuddy:byte-buddy-agent:jar:sources:1.9.10",
+                "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10-sources.jar",
+                    "https://maven.google.com/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10-sources.jar",
+                    "https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10-sources.jar"
+                ],
+                "sha256": "d506d0a0894fa0b9bf1dca8d55f11d71f1b07138503f7b747640f7087380b8ec"
+            },
+            {
                 "coord": "net.bytebuddy:byte-buddy:1.9.10",
                 "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10.jar",
                 "directDependencies": [],
@@ -521,6 +1019,19 @@
                     "https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10.jar"
                 ],
                 "sha256": "2936debc4d7b6c534848d361412e2d0f8bd06f7f27a6f4e728a20e97648d2bf3"
+            },
+            {
+                "coord": "net.bytebuddy:byte-buddy:jar:sources:1.9.10",
+                "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10-sources.jar",
+                    "https://maven.google.com/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10-sources.jar",
+                    "https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10-sources.jar"
+                ],
+                "sha256": "e41b3be190770b9ca88a88f4853b205ba0999a0a3d82014678ed06fbf66287b1"
             },
             {
                 "coord": "net.ltgt.gradle.incap:incap:0.2",
@@ -539,6 +1050,22 @@
                 "sha256": "b625b9806b0f1e4bc7a2e3457119488de3cd57ea20feedd513db070a573a4ffd"
             },
             {
+                "coord": "net.ltgt.gradle.incap:incap:jar:sources:0.2",
+                "file": "v1/https/jcenter.bintray.com/net/ltgt/gradle/incap/incap/0.2/incap-0.2-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/net/ltgt/gradle/incap/incap/0.2/incap-0.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/net/ltgt/gradle/incap/incap/0.2/incap-0.2-sources.jar",
+                    "https://maven.google.com/net/ltgt/gradle/incap/incap/0.2/incap-0.2-sources.jar",
+                    "https://repo1.maven.org/maven2/net/ltgt/gradle/incap/incap/0.2/incap-0.2-sources.jar"
+                ],
+                "sha256": "15c3cd213a214c94ef7ed262e00ab10c75d1680b0b9203b47801e7068de1cf5c"
+            },
+            {
                 "coord": "org.assertj:assertj-core:3.11.1",
                 "file": "v1/https/jcenter.bintray.com/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1.jar",
                 "directDependencies": [],
@@ -550,6 +1077,19 @@
                     "https://repo1.maven.org/maven2/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1.jar"
                 ],
                 "sha256": "2ee2bd3e81fc818d423d442b658f28acf938d9078d6ba016a64b362fdd7779e8"
+            },
+            {
+                "coord": "org.assertj:assertj-core:jar:sources:3.11.1",
+                "file": "v1/https/jcenter.bintray.com/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1-sources.jar",
+                    "https://maven.google.com/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1-sources.jar",
+                    "https://repo1.maven.org/maven2/org/assertj/assertj-core/3.11.1/assertj-core-3.11.1-sources.jar"
+                ],
+                "sha256": "a9e9c9ad5c8971a634d6681402174602888b09af3c1dd05bf41f3cc7441d2ae9"
             },
             {
                 "coord": "org.checkerframework:checker-compat-qual:2.5.3",
@@ -568,6 +1108,22 @@
                 "sha256": "d76b9afea61c7c082908023f0cbc1427fab9abd2df915c8b8a3e7a509bccbc6d"
             },
             {
+                "coord": "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
+                "file": "v1/https/jcenter.bintray.com/org/checkerframework/checker-compat-qual/2.5.3/checker-compat-qual-2.5.3-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/org/checkerframework/checker-compat-qual/2.5.3/checker-compat-qual-2.5.3-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/checkerframework/checker-compat-qual/2.5.3/checker-compat-qual-2.5.3-sources.jar",
+                    "https://maven.google.com/org/checkerframework/checker-compat-qual/2.5.3/checker-compat-qual-2.5.3-sources.jar",
+                    "https://repo1.maven.org/maven2/org/checkerframework/checker-compat-qual/2.5.3/checker-compat-qual-2.5.3-sources.jar"
+                ],
+                "sha256": "68011773fd60cfc7772508134086787210ba2a1443e3f9c3f5d4233a226c3346"
+            },
+            {
                 "coord": "org.checkerframework:checker-qual:2.5.2",
                 "file": "v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2.jar",
                 "directDependencies": [],
@@ -579,6 +1135,19 @@
                     "https://repo1.maven.org/maven2/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2.jar"
                 ],
                 "sha256": "64b02691c8b9d4e7700f8ee2e742dce7ea2c6e81e662b7522c9ee3bf568c040a"
+            },
+            {
+                "coord": "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                "file": "v1/https/jcenter.bintray.com/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2-sources.jar",
+                    "https://maven.google.com/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2-sources.jar",
+                    "https://repo1.maven.org/maven2/org/checkerframework/checker-qual/2.5.2/checker-qual-2.5.2-sources.jar"
+                ],
+                "sha256": "821c5c63a6f156a3bb498c5bbb613580d9d8f4134131a5627d330fc4018669d2"
             },
             {
                 "coord": "org.codehaus.mojo:animal-sniffer-annotations:1.17",
@@ -594,6 +1163,19 @@
                 "sha256": "92654f493ecfec52082e76354f0ebf87648dc3d5cec2e3c3cdb947c016747a53"
             },
             {
+                "coord": "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
+                "file": "v1/https/jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar",
+                    "https://maven.google.com/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar",
+                    "https://repo1.maven.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17-sources.jar"
+                ],
+                "sha256": "2571474a676f775a8cdd15fb9b1da20c4c121ed7f42a5d93fca0e7b6e2015b40"
+            },
+            {
                 "coord": "org.hamcrest:hamcrest-core:1.3",
                 "file": "v1/https/jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar",
                 "directDependencies": [],
@@ -605,6 +1187,19 @@
                     "https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"
                 ],
                 "sha256": "66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9"
+            },
+            {
+                "coord": "org.hamcrest:hamcrest-core:jar:sources:1.3",
+                "file": "v1/https/jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar",
+                    "https://maven.google.com/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar",
+                    "https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"
+                ],
+                "sha256": "e223d2d8fbafd66057a8848cc94222d63c3cedd652cc48eddc0ab5c39c0f84df"
             },
             {
                 "coord": "org.jetbrains.kotlin:kotlin-reflect:1.3.50",
@@ -623,6 +1218,22 @@
                 "sha256": "64583199ea5a54aefd1bd1595288925f784226ee562d1dd279011c6075b3d7a4"
             },
             {
+                "coord": "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50",
+                "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar",
+                    "https://maven.google.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar",
+                    "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar"
+                ],
+                "sha256": "e5ae9da6f2012d565aa452c896934d57af8dfa9d16c7eb24ceca661ede29fd8d"
+            },
+            {
                 "coord": "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0",
                 "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0.jar",
                 "directDependencies": [],
@@ -637,6 +1248,22 @@
                     "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0.jar"
                 ],
                 "sha256": "9753bb39efef35957c5c15df9a3cb769aabf2cdfa74b47afcb7760e5146be3b5"
+            },
+            {
+                "coord": "org.jetbrains.kotlinx:kotlinx-metadata-jvm:jar:sources:0.1.0",
+                "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0-sources.jar",
+                    "https://maven.google.com/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0-sources.jar",
+                    "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-metadata-jvm/0.1.0/kotlinx-metadata-jvm-0.1.0-sources.jar"
+                ],
+                "sha256": "a2cdb2a6a90a199addb8f312e3d5ab12b4626573f22b076176cc1d09999d6e78"
             },
             {
                 "coord": "org.mockito:mockito-core:2.28.2",
@@ -660,6 +1287,27 @@
                 "sha256": "b0af36fed3a6c2147c0cd9028a1d814fd4f4e8196c539f2befddb61ca6ec9e27"
             },
             {
+                "coord": "org.mockito:mockito-core:jar:sources:2.28.2",
+                "file": "v1/https/jcenter.bintray.com/org/mockito/mockito-core/2.28.2/mockito-core-2.28.2-sources.jar",
+                "directDependencies": [
+                    "net.bytebuddy:byte-buddy:jar:sources:1.9.10",
+                    "net.bytebuddy:byte-buddy-agent:jar:sources:1.9.10",
+                    "org.objenesis:objenesis:jar:sources:2.6"
+                ],
+                "dependencies": [
+                    "org.objenesis:objenesis:jar:sources:2.6",
+                    "net.bytebuddy:byte-buddy-agent:jar:sources:1.9.10",
+                    "net.bytebuddy:byte-buddy:jar:sources:1.9.10"
+                ],
+                "url": "https://jcenter.bintray.com/org/mockito/mockito-core/2.28.2/mockito-core-2.28.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/mockito/mockito-core/2.28.2/mockito-core-2.28.2-sources.jar",
+                    "https://maven.google.com/org/mockito/mockito-core/2.28.2/mockito-core-2.28.2-sources.jar",
+                    "https://repo1.maven.org/maven2/org/mockito/mockito-core/2.28.2/mockito-core-2.28.2-sources.jar"
+                ],
+                "sha256": "0c788f71b809c0c7b89fa77267c77abb0097190094da17ba7954fbf434770076"
+            },
+            {
                 "coord": "org.objenesis:objenesis:2.6",
                 "file": "v1/https/jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6.jar",
                 "directDependencies": [],
@@ -671,6 +1319,19 @@
                     "https://repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6.jar"
                 ],
                 "sha256": "5e168368fbc250af3c79aa5fef0c3467a2d64e5a7bd74005f25d8399aeb0708d"
+            },
+            {
+                "coord": "org.objenesis:objenesis:jar:sources:2.6",
+                "file": "v1/https/jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
+                    "https://maven.google.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
+                    "https://repo1.maven.org/maven2/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar"
+                ],
+                "sha256": "52d9f4dba531677fc074eff00ea07f22a1d42e5a97cc9e8571c4cd3d459b6be0"
             },
             {
                 "coord": "org.xmlunit:xmlunit-assertj:2.6.2",
@@ -692,6 +1353,25 @@
                 "sha256": "6a1e51e1437c610a630b503871fa7f544ad1c32ed9be922c11d45928469e506a"
             },
             {
+                "coord": "org.xmlunit:xmlunit-assertj:jar:sources:2.6.2",
+                "file": "v1/https/jcenter.bintray.com/org/xmlunit/xmlunit-assertj/2.6.2/xmlunit-assertj-2.6.2-sources.jar",
+                "directDependencies": [
+                    "org.assertj:assertj-core:jar:sources:3.11.1",
+                    "org.xmlunit:xmlunit-core:jar:sources:2.6.2"
+                ],
+                "dependencies": [
+                    "org.assertj:assertj-core:jar:sources:3.11.1",
+                    "org.xmlunit:xmlunit-core:jar:sources:2.6.2"
+                ],
+                "url": "https://jcenter.bintray.com/org/xmlunit/xmlunit-assertj/2.6.2/xmlunit-assertj-2.6.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/xmlunit/xmlunit-assertj/2.6.2/xmlunit-assertj-2.6.2-sources.jar",
+                    "https://maven.google.com/org/xmlunit/xmlunit-assertj/2.6.2/xmlunit-assertj-2.6.2-sources.jar",
+                    "https://repo1.maven.org/maven2/org/xmlunit/xmlunit-assertj/2.6.2/xmlunit-assertj-2.6.2-sources.jar"
+                ],
+                "sha256": "68d111f906a4d28bc801c29f29966f3be15770ea2b5b47d2c85342b22e8d91b4"
+            },
+            {
                 "coord": "org.xmlunit:xmlunit-core:2.6.2",
                 "file": "v1/https/jcenter.bintray.com/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2.jar",
                 "directDependencies": [],
@@ -705,6 +1385,19 @@
                 "sha256": "4f0e407dc9eb19582d74b9bcbeeef5117ccae42ebc4dd589db2da506a7c2e17d"
             },
             {
+                "coord": "org.xmlunit:xmlunit-core:jar:sources:2.6.2",
+                "file": "v1/https/jcenter.bintray.com/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2-sources.jar",
+                    "https://maven.google.com/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2-sources.jar",
+                    "https://repo1.maven.org/maven2/org/xmlunit/xmlunit-core/2.6.2/xmlunit-core-2.6.2-sources.jar"
+                ],
+                "sha256": "aa9008244874df399418ceade6b45677bf8c19d022cda75ba3e61bd0abf457e8"
+            },
+            {
                 "coord": "org.yaml:snakeyaml:1.24",
                 "file": "v1/https/jcenter.bintray.com/org/yaml/snakeyaml/1.24/snakeyaml-1.24.jar",
                 "directDependencies": [],
@@ -716,9 +1409,22 @@
                     "https://repo1.maven.org/maven2/org/yaml/snakeyaml/1.24/snakeyaml-1.24.jar"
                 ],
                 "sha256": "d3f7f09989d5b0ce5c4791818ef937ee7663f1e359c2ef2d312f938aad0763da"
+            },
+            {
+                "coord": "org.yaml:snakeyaml:jar:sources:1.24",
+                "file": "v1/https/jcenter.bintray.com/org/yaml/snakeyaml/1.24/snakeyaml-1.24-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/yaml/snakeyaml/1.24/snakeyaml-1.24-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/yaml/snakeyaml/1.24/snakeyaml-1.24-sources.jar",
+                    "https://maven.google.com/org/yaml/snakeyaml/1.24/snakeyaml-1.24-sources.jar",
+                    "https://repo1.maven.org/maven2/org/yaml/snakeyaml/1.24/snakeyaml-1.24-sources.jar"
+                ],
+                "sha256": "2ca4a62e017fb92f4ddd57692a71dfe2be23a2482bf0bd8b6821a08506fe04fe"
             }
         ],
         "version": "0.1.0",
-        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 1398870293
+        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": -175336751
     }
 }
