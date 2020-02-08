@@ -9,6 +9,8 @@ data class MavenSettings(
     val importing: MavenImportingSettings? = null,
 
     @JsonProperty("Maven home directory")
-    // This could be a VirtualFile
-    val mavenHomeDirectory: File? = null
+    val mavenHomeDirectory: File? = null,
+
+    @JsonProperty("Thread count")
+    val threadCount: String? = null
 )

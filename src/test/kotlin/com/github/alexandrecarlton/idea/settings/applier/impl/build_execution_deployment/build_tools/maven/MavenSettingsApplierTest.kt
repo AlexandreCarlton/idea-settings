@@ -37,4 +37,10 @@ class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(MavenSettings(importing = MavenImportingSettings()))
         verify(mavenImportingSettingsApplier).apply(MavenImportingSettings())
     }
+
+    @Test
+    fun threadCountApplied() {
+        settingsApplier.apply(MavenSettings(threadCount = "1C"))
+        assertThat(mavenGeneralSettings.threads).isEqualTo("1C")
+    }
 }
