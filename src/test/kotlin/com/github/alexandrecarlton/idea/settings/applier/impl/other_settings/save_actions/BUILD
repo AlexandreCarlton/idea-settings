@@ -10,6 +10,7 @@ kt_jvm_test(
     srcs = ["SaveActionsSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.save_actions.SaveActionsSettingsApplierTest",
     runtime_deps = [
+        "save_actions_test_runtime_deps",
         "@idea-IC//:test_runtime_deps",
     ],
     deps = [
@@ -21,4 +22,9 @@ kt_jvm_test(
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
     ],
+)
+
+java_import(
+    name = "save_actions_test_runtime_deps",
+    jars = ["@Save-Actions//jar:file"],
 )
