@@ -12,6 +12,7 @@ enum class Plugin constructor(val id: String, val pluginName: String) {
     JAVA("com.intellij.java", "Java"),
     JAVASCRIPT_AND_TYPESCRIPT("JavaScript", "JavaScript and TypeScript"),
     MAVEN("org.jetbrains.idea.maven", "Maven"),
+    SAVE_ACTIONS("com.dubreuia", "Save Actions"),
     SHELL_SCRIPT("com.jetbrains.sh", "Shell Script"),
     SPRING_BOOT("com.intellij.spring.boot", "Spring Boot")
 }

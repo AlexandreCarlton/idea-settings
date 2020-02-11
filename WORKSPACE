@@ -1,6 +1,7 @@
 workspace(name = "idea_settings")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
+load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
 IDEA_VERSION = "2019.3.1"
@@ -54,6 +55,13 @@ http_archive(
     sha256 = "1622761d25d318a8281732f0a16e805b44157161c6ffb3e88e6c3f79d9ca97fa",
     strip_prefix = "CheckStyle-IDEA",
     url = "https://plugins.jetbrains.com/files/1065/54249/checkstyle-idea-5.24.2.zip",
+)
+
+java_import_external(
+    name = "Save-Actions",
+    jar_sha256 = "443cf9973ff0ac9e4d517632360f581cbe55d4d906f729ff2b81d69d966d8e25",
+    jar_urls = ["https://github.com/dubreuia/intellij-plugin-save-actions/releases/download/v2.0.0/intellij-plugin-save-actions-2.0.0.jar"],
+    neverlink = True,
 )
 
 http_archive(
@@ -177,13 +185,13 @@ maven_install(
             exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
         ),
     ],
+    fetch_sources = True,
     maven_install_json = "//:maven_install.json",
     repositories = [
         "https://jcenter.bintray.com/",
         "https://maven.google.com",
         "https://repo1.maven.org/maven2",
     ],
-    fetch_sources = True,
 )
 
 load("@maven//:defs.bzl", "pinned_maven_install")

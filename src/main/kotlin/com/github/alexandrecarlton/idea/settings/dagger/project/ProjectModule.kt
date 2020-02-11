@@ -1,5 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dagger.project
 
+import com.dubreuia.model.StorageFactory
 import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.dagger.inspections.InspectionsSubcomponent
 import com.github.alexandrecarlton.idea.settings.dagger.module.ModuleSubcomponent
@@ -141,6 +142,9 @@ object ProjectModule {
 
     @Provides
     internal fun provideRunConfigurationBeforeRunProvider(project: Project) = RunConfigurationBeforeRunProvider(project)
+
+    @Provides
+    internal fun provideSaveActionsStorage(project: Project) = StorageFactory.DEFAULT.getStorage(project)
 
     @Provides
     internal fun provideSqlDialectMappings(project: Project) = SqlDialectMappings.getInstance(project)

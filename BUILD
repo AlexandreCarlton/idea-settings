@@ -20,11 +20,10 @@ intellij_plugin_library(
 
 pkg_tar(
     name = "plugins",
-    srcs = [
-        ":idea-settings",
-    ],
+    srcs = [":idea-settings"],
     files = {
         "@CheckStyle-IDEA//:lib/checkstyle-idea.jar": "CheckStyle-IDEA/lib/checkstyle-idea.jar",
+        "@Save-Actions//jar:file": "save-actions.jar",
         "@WebStorm//:plugins/fileWatcher/lib/fileWatcher.jar": "fileWatcher/lib/fileWatcher.jar",
         "@WebStorm//:plugins/fileWatcher/lib/resources_en.jar": "fileWatcher/lib/resources_en.jar",
     },
@@ -98,6 +97,7 @@ test_suite(
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript/code_quality_tools/eslint",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/sql_dialects",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/checkstyle",
+        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/other_settings/save_actions",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/project_settings/project",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/tools/file_watchers",
     ],

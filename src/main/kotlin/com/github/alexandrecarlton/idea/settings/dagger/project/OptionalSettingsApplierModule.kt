@@ -23,6 +23,7 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.javascript.JavascriptSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.sql_dialects.SqlDialectsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.checkstyle.CheckstyleSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.other_settings.save_actions.SaveActionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.tools.file_watchers.FileWatcherSettingsApplier
 import com.github.alexandrecarlton.idea.settings.dagger.common.Plugin
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.JavaInspectionsSettings
@@ -126,6 +127,10 @@ object OptionalSettingsApplierModule {
     @Provides
     internal fun provideRemoteSettingsApplier(remoteSettingsApplier: Lazy<RemoteSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, remoteSettingsApplier)
+
+    @Provides
+    internal fun provideSaveActionsSettingsApplier(saveActionsSettingsApplier: Lazy<SaveActionsSettingsApplier>) =
+        provideIfLoaded(Plugin.SAVE_ACTIONS, saveActionsSettingsApplier)
 
     @Provides
     internal fun provideShellScriptConfigurationSettings(shellScriptConfigurationSettingsApplier: Lazy<ShellScriptConfigurationSettingsApplier>) =

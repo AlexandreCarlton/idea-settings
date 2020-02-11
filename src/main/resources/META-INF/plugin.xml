@@ -7,6 +7,7 @@
   <depends optional="true" config-file="">CheckStyle-IDEA</depends>
   <depends optional="true" config-file="">Docker</depends>
   <depends optional="true" config-file="">JavaScript</depends>
+  <depends optional="true" config-file="">com.dubreuia</depends>
   <depends optional="true" config-file="">com.intellij.database</depends>
   <depends optional="true" config-file="">com.intellij.java</depends>
   <depends optional="true" config-file="">com.intellij.plugins.watcher</depends>
