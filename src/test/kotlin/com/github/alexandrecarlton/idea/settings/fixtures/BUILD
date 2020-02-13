@@ -6,12 +6,11 @@ kt_jvm_library(
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
     deps = [
+        "@idea-IC//:lib/idea",
+        "@idea-IC//:lib/platform-api",
         "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
-        "@maven//:org_mockito_mockito_core",
         "@maven//:org_xmlunit_xmlunit_assertj",
-        "@idea-IC//:lib/idea",
-        "@idea-IC//:lib/platform-api",
     ],
 )

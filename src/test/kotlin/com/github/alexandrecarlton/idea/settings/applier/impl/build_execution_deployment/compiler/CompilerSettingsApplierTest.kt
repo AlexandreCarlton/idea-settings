@@ -7,18 +7,17 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.intellij.compiler.CompilerConfiguration
 import com.intellij.compiler.CompilerConfigurationImpl
 import com.intellij.compiler.CompilerWorkspaceConfiguration
+import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
 
 class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<CompilerSettings>
     private lateinit var compilerConfiguration: CompilerConfiguration
     private lateinit var compilerWorkspaceConfiguration: CompilerWorkspaceConfiguration
-    @Mock
-    private lateinit var nullableNotNullConfigurationSettingsApplier: SettingsApplier<NullableNotNullConfigurationSettings>
+    private val nullableNotNullConfigurationSettingsApplier = mockk<SettingsApplier<NullableNotNullConfigurationSettings>>(relaxUnitFun = true)
 
     @Before
     public override fun setUp() {

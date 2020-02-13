@@ -8,21 +8,19 @@ import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings
 import com.intellij.externalDependencies.DependencyOnPlugin
 import com.intellij.externalDependencies.ExternalDependenciesManager
+import io.mockk.mockk
+import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.Mockito.verify
 
 class BuildExecutionDeploymentSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<BuildExecutionDeploymentSettings>
     private lateinit var externalDependenciesManager: ExternalDependenciesManager
-    @Mock
-    private lateinit var buildToolsSettingsApplier: SettingsApplier<BuildToolsSettings>
-    @Mock
-    private lateinit var compilerSettingsApplier: SettingsApplier<CompilerSettings>
+    private val buildToolsSettingsApplier = mockk<SettingsApplier<BuildToolsSettings>>(relaxUnitFun = true)
+    private val compilerSettingsApplier = mockk<SettingsApplier<CompilerSettings>>(relaxUnitFun = true)
 
     @Before
     public override fun setUp() {
@@ -55,7 +53,9 @@ class BuildExecutionDeploymentSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(BuildExecutionDeploymentSettings(
             compiler = CompilerSettings(),
             buildTools = BuildToolsSettings()))
-        verify(buildToolsSettingsApplier).apply(BuildToolsSettings())
-        verify(compilerSettingsApplier).apply(CompilerSettings())
+        verify {
+            buildToolsSettingsApplier.apply(any())
+            compilerSettingsApplier.apply(any())
+        }
     }
 }

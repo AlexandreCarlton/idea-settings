@@ -17,8 +17,9 @@ kt_jvm_test(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/languages_frameworks/javascript",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript",
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
+        "@maven//:io_mockk_mockk",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
-        "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
     ],
 )

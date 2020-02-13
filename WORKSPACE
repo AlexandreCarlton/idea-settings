@@ -1,6 +1,6 @@
 workspace(name = "idea_settings")
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_jar")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
@@ -21,10 +21,10 @@ http_archive(
     url = "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaIC/{0}/ideaIC-{0}.zip".format(IDEA_VERSION),
 )
 
-http_jar(
+java_import_external(
     name = "idea-IC-sources",
-    sha256 = IDEA_IC_SOURCES_SHA256,
-    url = "https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaIC/{0}/ideaIC-{0}-sources.jar".format(IDEA_VERSION),
+    jar_sha256 = IDEA_IC_SOURCES_SHA256,
+    jar_urls = ["https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/ideaIC/{0}/ideaIC-{0}-sources.jar".format(IDEA_VERSION)],
 )
 
 http_archive(
@@ -165,8 +165,8 @@ maven_install(
         "com.google.guava:guava:27.0.1-jre",
         "javax.inject:javax.inject:1",
         "junit:junit:4.12",
+        "io.mockk:mockk:1.9",
         "org.assertj:assertj-core:3.11.1",
-        "org.mockito:mockito-core:2.28.2",
         "org.xmlunit:xmlunit-assertj:2.6.2",
         maven.artifact(
             group = "com.fasterxml.jackson.module",

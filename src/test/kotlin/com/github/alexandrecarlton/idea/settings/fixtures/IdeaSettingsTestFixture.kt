@@ -7,7 +7,6 @@ import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.mockito.junit.MockitoJUnit
 import java.nio.file.Paths
 
 /**
@@ -15,9 +14,6 @@ import java.nio.file.Paths
  */
 @RunWith(JUnit4::class)
 open class IdeaSettingsTestFixture : BasePlatformTestCase() {
-
-    @get:Rule
-    val mockitoRule = MockitoJUnit.rule()
 
     @get:Rule
     val temporaryFolder = TemporaryFolder(Paths.get("/tmp").toFile())

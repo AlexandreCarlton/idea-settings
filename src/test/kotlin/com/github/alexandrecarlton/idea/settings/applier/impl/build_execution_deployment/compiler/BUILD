@@ -20,6 +20,7 @@ kt_jvm_test(
         "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@idea-IC//:plugins/java/lib/java-api",
         "@idea-IC//:plugins/java/lib/java-impl",
+        "@maven//:io_mockk_mockk",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
     ],
