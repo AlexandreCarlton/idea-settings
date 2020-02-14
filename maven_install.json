@@ -894,6 +894,10 @@
                 "file": "v1/https/jcenter.bintray.com/io/mockk/mockk-agent-api/1.9/mockk-agent-api-1.9.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-agent-api/1.9/mockk-agent-api-1.9.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-agent-api/1.9/mockk-agent-api-1.9.jar",
@@ -907,6 +911,10 @@
                 "file": "v1/https/jcenter.bintray.com/io/mockk/mockk-agent-api/1.9/mockk-agent-api-1.9-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-agent-api/1.9/mockk-agent-api-1.9-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-agent-api/1.9/mockk-agent-api-1.9-sources.jar",
@@ -924,6 +932,10 @@
                 "dependencies": [
                     "io.mockk:mockk-agent-api:1.9"
                 ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-agent-common/1.9/mockk-agent-common-1.9.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-agent-common/1.9/mockk-agent-common-1.9.jar",
@@ -940,6 +952,10 @@
                 ],
                 "dependencies": [
                     "io.mockk:mockk-agent-api:jar:sources:1.9"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-agent-common/1.9/mockk-agent-common-1.9-sources.jar",
                 "mirror_urls": [
@@ -966,6 +982,10 @@
                     "net.bytebuddy:byte-buddy-agent:1.9.3",
                     "io.mockk:mockk-agent-api:1.9"
                 ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-agent-jvm/1.9/mockk-agent-jvm-1.9.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-agent-jvm/1.9/mockk-agent-jvm-1.9.jar",
@@ -991,6 +1011,10 @@
                     "net.bytebuddy:byte-buddy-agent:jar:sources:1.9.3",
                     "org.objenesis:objenesis:jar:sources:2.6"
                 ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-agent-jvm/1.9/mockk-agent-jvm-1.9-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-agent-jvm/1.9/mockk-agent-jvm-1.9-sources.jar",
@@ -1007,6 +1031,10 @@
                 ],
                 "dependencies": [
                     "io.mockk:mockk-dsl:1.9"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-common/1.9/mockk-common-1.9.jar",
                 "mirror_urls": [
@@ -1025,6 +1053,10 @@
                 "dependencies": [
                     "io.mockk:mockk-dsl:jar:sources:1.9"
                 ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-common/1.9/mockk-common-1.9-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-common/1.9/mockk-common-1.9-sources.jar",
@@ -1037,15 +1069,14 @@
                 "coord": "io.mockk:mockk-dsl-jvm:1.9",
                 "file": "v1/https/jcenter.bintray.com/io/mockk/mockk-dsl-jvm/1.9/mockk-dsl-jvm-1.9.jar",
                 "directDependencies": [
-                    "io.mockk:mockk-dsl:1.9",
-                    "org.jetbrains.kotlin:kotlin-reflect:1.3.50"
+                    "io.mockk:mockk-dsl:1.9"
                 ],
                 "dependencies": [
-                    "org.jetbrains.kotlin:kotlin-stdlib:1.3.50",
-                    "io.mockk:mockk-dsl:1.9",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50",
-                    "org.jetbrains.kotlin:kotlin-reflect:1.3.50",
-                    "org.jetbrains:annotations:13.0"
+                    "io.mockk:mockk-dsl:1.9"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-dsl-jvm/1.9/mockk-dsl-jvm-1.9.jar",
                 "mirror_urls": [
@@ -1059,15 +1090,14 @@
                 "coord": "io.mockk:mockk-dsl-jvm:jar:sources:1.9",
                 "file": "v1/https/jcenter.bintray.com/io/mockk/mockk-dsl-jvm/1.9/mockk-dsl-jvm-1.9-sources.jar",
                 "directDependencies": [
-                    "io.mockk:mockk-dsl:jar:sources:1.9",
-                    "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50"
+                    "io.mockk:mockk-dsl:jar:sources:1.9"
                 ],
                 "dependencies": [
-                    "org.jetbrains:annotations:jar:sources:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:jar:sources:1.3.50",
-                    "io.mockk:mockk-dsl:jar:sources:1.9",
-                    "org.jetbrains.kotlin:kotlin-stdlib:jar:sources:1.3.50",
-                    "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50"
+                    "io.mockk:mockk-dsl:jar:sources:1.9"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-dsl-jvm/1.9/mockk-dsl-jvm-1.9-sources.jar",
                 "mirror_urls": [
@@ -1082,6 +1112,10 @@
                 "file": "v1/https/jcenter.bintray.com/io/mockk/mockk-dsl/1.9/mockk-dsl-1.9.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-dsl/1.9/mockk-dsl-1.9.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-dsl/1.9/mockk-dsl-1.9.jar",
@@ -1095,6 +1129,10 @@
                 "file": "v1/https/jcenter.bintray.com/io/mockk/mockk-dsl/1.9/mockk-dsl-1.9-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk-dsl/1.9/mockk-dsl-1.9-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/io/mockk/mockk-dsl/1.9/mockk-dsl-1.9-sources.jar",
@@ -1109,23 +1147,22 @@
                 "directDependencies": [
                     "io.mockk:mockk-agent-jvm:1.9",
                     "io.mockk:mockk-common:1.9",
-                    "io.mockk:mockk-dsl-jvm:1.9",
-                    "org.jetbrains.kotlin:kotlin-reflect:1.3.50"
+                    "io.mockk:mockk-dsl-jvm:1.9"
                 ],
                 "dependencies": [
-                    "org.jetbrains.kotlin:kotlin-stdlib:1.3.50",
                     "io.mockk:mockk-dsl:1.9",
                     "net.bytebuddy:byte-buddy:1.9.3",
                     "org.objenesis:objenesis:2.6",
                     "io.mockk:mockk-agent-jvm:1.9",
                     "io.mockk:mockk-common:1.9",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50",
                     "io.mockk:mockk-agent-common:1.9",
                     "net.bytebuddy:byte-buddy-agent:1.9.3",
-                    "org.jetbrains.kotlin:kotlin-reflect:1.3.50",
                     "io.mockk:mockk-agent-api:1.9",
-                    "org.jetbrains:annotations:13.0",
                     "io.mockk:mockk-dsl-jvm:1.9"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk/1.9/mockk-1.9.jar",
                 "mirror_urls": [
@@ -1141,23 +1178,22 @@
                 "directDependencies": [
                     "io.mockk:mockk-agent-jvm:jar:sources:1.9",
                     "io.mockk:mockk-common:jar:sources:1.9",
-                    "io.mockk:mockk-dsl-jvm:jar:sources:1.9",
-                    "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50"
+                    "io.mockk:mockk-dsl-jvm:jar:sources:1.9"
                 ],
                 "dependencies": [
                     "io.mockk:mockk-agent-jvm:jar:sources:1.9",
-                    "org.jetbrains:annotations:jar:sources:13.0",
                     "io.mockk:mockk-agent-common:jar:sources:1.9",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:jar:sources:1.3.50",
                     "io.mockk:mockk-dsl-jvm:jar:sources:1.9",
                     "net.bytebuddy:byte-buddy:jar:sources:1.9.3",
                     "io.mockk:mockk-common:jar:sources:1.9",
                     "io.mockk:mockk-agent-api:jar:sources:1.9",
                     "net.bytebuddy:byte-buddy-agent:jar:sources:1.9.3",
                     "io.mockk:mockk-dsl:jar:sources:1.9",
-                    "org.jetbrains.kotlin:kotlin-stdlib:jar:sources:1.3.50",
-                    "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50",
                     "org.objenesis:objenesis:jar:sources:2.6"
+                ],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/io/mockk/mockk/1.9/mockk-1.9-sources.jar",
                 "mirror_urls": [
@@ -1264,6 +1300,10 @@
                 "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3.jar",
@@ -1277,6 +1317,10 @@
                 "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/net/bytebuddy/byte-buddy-agent/1.9.3/byte-buddy-agent-1.9.3-sources.jar",
@@ -1290,6 +1334,10 @@
                 "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3.jar",
@@ -1303,6 +1351,10 @@
                 "file": "v1/https/jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/net/bytebuddy/byte-buddy/1.9.3/byte-buddy-1.9.3-sources.jar",
@@ -1482,13 +1534,10 @@
             {
                 "coord": "org.jetbrains.kotlin:kotlin-reflect:1.3.50",
                 "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50.jar",
-                "directDependencies": [
-                    "org.jetbrains.kotlin:kotlin-stdlib:1.3.50"
-                ],
-                "dependencies": [
-                    "org.jetbrains:annotations:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib:1.3.50",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50"
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50.jar",
                 "mirror_urls": [
@@ -1501,13 +1550,10 @@
             {
                 "coord": "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50",
                 "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar",
-                "directDependencies": [
-                    "org.jetbrains.kotlin:kotlin-stdlib:jar:sources:1.3.50"
-                ],
-                "dependencies": [
-                    "org.jetbrains.kotlin:kotlin-stdlib:jar:sources:1.3.50",
-                    "org.jetbrains:annotations:jar:sources:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:jar:sources:1.3.50"
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
                 "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar",
                 "mirror_urls": [
@@ -1516,70 +1562,6 @@
                     "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/1.3.50/kotlin-reflect-1.3.50-sources.jar"
                 ],
                 "sha256": "e5ae9da6f2012d565aa452c896934d57af8dfa9d16c7eb24ceca661ede29fd8d"
-            },
-            {
-                "coord": "org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50",
-                "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar",
-                "directDependencies": [],
-                "dependencies": [],
-                "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar",
-                "mirror_urls": [
-                    "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar",
-                    "https://maven.google.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar",
-                    "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar"
-                ],
-                "sha256": "8ce678e88e4ba018b66dacecf952471e4d7dfee156a8a819760a5a5ff29d323c"
-            },
-            {
-                "coord": "org.jetbrains.kotlin:kotlin-stdlib-common:jar:sources:1.3.50",
-                "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar",
-                "directDependencies": [],
-                "dependencies": [],
-                "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar",
-                "mirror_urls": [
-                    "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar",
-                    "https://maven.google.com/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar",
-                    "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar"
-                ],
-                "sha256": "34199658f3ab0b1f50f858e2636371271fa4d783833e6e1b5a0ea3f6d7d3655b"
-            },
-            {
-                "coord": "org.jetbrains.kotlin:kotlin-stdlib:1.3.50",
-                "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar",
-                "directDependencies": [
-                    "org.jetbrains:annotations:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50"
-                ],
-                "dependencies": [
-                    "org.jetbrains:annotations:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50"
-                ],
-                "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar",
-                "mirror_urls": [
-                    "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar",
-                    "https://maven.google.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar",
-                    "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar"
-                ],
-                "sha256": "e6f05746ee0366d0b52825a090fac474dcf44082c9083bbb205bd16976488d6c"
-            },
-            {
-                "coord": "org.jetbrains.kotlin:kotlin-stdlib:jar:sources:1.3.50",
-                "file": "v1/https/jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50-sources.jar",
-                "directDependencies": [
-                    "org.jetbrains:annotations:jar:sources:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:jar:sources:1.3.50"
-                ],
-                "dependencies": [
-                    "org.jetbrains:annotations:jar:sources:13.0",
-                    "org.jetbrains.kotlin:kotlin-stdlib-common:jar:sources:1.3.50"
-                ],
-                "url": "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50-sources.jar",
-                "mirror_urls": [
-                    "https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50-sources.jar",
-                    "https://maven.google.com/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50-sources.jar",
-                    "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50-sources.jar"
-                ],
-                "sha256": "8452552d2012686eb20466804c8b54c38673040527756f10d2d13e1db8d17380"
             },
             {
                 "coord": "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0",
@@ -1614,36 +1596,14 @@
                 "sha256": "a2cdb2a6a90a199addb8f312e3d5ab12b4626573f22b076176cc1d09999d6e78"
             },
             {
-                "coord": "org.jetbrains:annotations:13.0",
-                "file": "v1/https/jcenter.bintray.com/org/jetbrains/annotations/13.0/annotations-13.0.jar",
-                "directDependencies": [],
-                "dependencies": [],
-                "url": "https://jcenter.bintray.com/org/jetbrains/annotations/13.0/annotations-13.0.jar",
-                "mirror_urls": [
-                    "https://jcenter.bintray.com/org/jetbrains/annotations/13.0/annotations-13.0.jar",
-                    "https://maven.google.com/org/jetbrains/annotations/13.0/annotations-13.0.jar",
-                    "https://repo1.maven.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.jar"
-                ],
-                "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
-            },
-            {
-                "coord": "org.jetbrains:annotations:jar:sources:13.0",
-                "file": "v1/https/jcenter.bintray.com/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar",
-                "directDependencies": [],
-                "dependencies": [],
-                "url": "https://jcenter.bintray.com/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar",
-                "mirror_urls": [
-                    "https://jcenter.bintray.com/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar",
-                    "https://maven.google.com/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar",
-                    "https://repo1.maven.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar"
-                ],
-                "sha256": "42a5e144b8e81d50d6913d1007b695e62e614705268d8cf9f13dbdc478c2c68e"
-            },
-            {
                 "coord": "org.objenesis:objenesis:2.6",
                 "file": "v1/https/jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6.jar",
@@ -1657,6 +1617,10 @@
                 "file": "v1/https/jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-reflect",
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
                 "url": "https://jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
                 "mirror_urls": [
                     "https://jcenter.bintray.com/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar",
@@ -1757,6 +1721,6 @@
             }
         ],
         "version": "0.1.0",
-        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": -1705964327
+        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": -2073794329
     }
 }

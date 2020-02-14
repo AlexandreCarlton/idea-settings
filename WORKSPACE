@@ -165,7 +165,6 @@ maven_install(
         "com.google.guava:guava:27.0.1-jre",
         "javax.inject:javax.inject:1",
         "junit:junit:4.12",
-        "io.mockk:mockk:1.9",
         "org.assertj:assertj-core:3.11.1",
         "org.xmlunit:xmlunit-assertj:2.6.2",
         maven.artifact(
@@ -183,6 +182,15 @@ maven_install(
             artifact = "dagger-compiler",
             version = "2.25.2",
             exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
+        ),
+        maven.artifact(
+            group = "io.mockk",
+            artifact = "mockk",
+            version = "1.9",
+            exclusions = [
+                "org.jetbrains.kotlin:kotlin-reflect",
+                "org.jetbrains.kotlin:kotlin-stdlib",
+            ],
         ),
     ],
     fetch_sources = True,
