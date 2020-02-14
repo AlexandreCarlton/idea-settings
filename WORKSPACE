@@ -52,9 +52,9 @@ http_archive(
 http_archive(
     name = "CheckStyle-IDEA",
     build_file = "CheckStyle-IDEA.BUILD",
-    sha256 = "1622761d25d318a8281732f0a16e805b44157161c6ffb3e88e6c3f79d9ca97fa",
+    sha256 = "22cede3626ed2e8af3c8c19c9aa45aa8eb601330b2e38291c0890c881546726f",
     strip_prefix = "CheckStyle-IDEA",
-    url = "https://plugins.jetbrains.com/files/1065/54249/checkstyle-idea-5.24.2.zip",
+    url = "https://github.com/jshiell/checkstyle-idea/releases/download/5.35.5/CheckStyle-IDEA-5.35.5.zip",
 )
 
 java_import_external(
