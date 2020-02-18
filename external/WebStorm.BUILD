@@ -19,7 +19,6 @@ java_import(
     jars = [
         "@local_jdk//:lib/tools.jar",
     ] + glob([
-        "lib/*.jar",
         "plugins/fileWatcher/**/*.jar",
     ]),
 )
