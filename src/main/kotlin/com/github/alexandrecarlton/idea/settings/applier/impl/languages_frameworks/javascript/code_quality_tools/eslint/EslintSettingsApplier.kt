@@ -19,7 +19,7 @@ constructor(
 ) : SettingsApplier<EslintSettings> {
     override fun apply(settings: EslintSettings) {
         when(settings) {
-            EslintSettingsDisableEslint -> eslintConfiguration.isEnabled = true
+            EslintSettingsDisableEslint -> eslintConfiguration.isEnabled = false
             EslintSettingsAutomaticEslintConfiguration -> eslintConfiguration.isEnabled = true
             is ManualEslintConfigurationSettings -> apply(settings)
         }
