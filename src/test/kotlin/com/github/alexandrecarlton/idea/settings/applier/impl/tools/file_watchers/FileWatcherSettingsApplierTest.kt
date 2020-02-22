@@ -80,6 +80,6 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
                 .first
         assertThat(taskOptions.isImmediateSync).isTrue()
         assertThat(taskOptions.isRunOnExternalChanges).isFalse()
-        assertThat(taskOptions.isCheckSyntaxErrors).isTrue()
+        assertThat(taskOptions.isCheckSyntaxErrors).isFalse()
     }
 }
