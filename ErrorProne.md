@@ -6,7 +6,7 @@ Given that it increases compile times (especially so on bigger projects), it is
 generally not enabled locally (only in CI).
 To avoid waiting until this is flagged after a developer has pushed their
 changes, this document lists the (roughly) equivalent [IntelliJ inspections](https://www.jetbrains.com/help/idea/code-inspection.html)
-for each [Error Prone bug pattern](http://errorprone.info/bugpatterns)
+for each [Error Prone bug pattern](http://errorprone.info/bugpatterns).
 
 ## On by default (ERROR)
 
