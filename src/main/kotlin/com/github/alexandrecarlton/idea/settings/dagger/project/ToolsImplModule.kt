@@ -14,9 +14,19 @@ import javax.inject.Named
 object ToolsImplModule {
 
     @Provides
+    @Named("ArrayEquality")
+    internal fun provideArrayEquality(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
+        inspectionProfileImpl.getTools("ArrayEquality", project)
+
+    @Provides
     @Named("Eslint")
     internal fun provideEslint(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
         inspectionProfileImpl.getTools("Eslint", project)
+
+    @Provides
+    @Named("MissingDeprecatedAnnotation")
+    internal fun provideMissingDeprecatedAnnotation(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
+        inspectionProfileImpl.getTools("MissingDeprecatedAnnotation", project)
 
     @Provides
     @Named("UnnecessarySuperConstructor")

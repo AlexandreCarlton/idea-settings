@@ -16,6 +16,8 @@ import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.Gen
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.general.auto_import.AutoImportSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.InspectionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.java.code_style_issues.JavaCodeStyleIssuesInspectionsSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.java.javadoc.JavadocInspectionsSettingsApplier
+import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.java.probable_bugs.JavaProbableBugsInspectionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.javascript.code_quality_tools.JavascriptCodeQualityToolsInspectionsSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.editor.spelling.SpellingSettingsApplier
 import com.github.alexandrecarlton.idea.settings.applier.impl.languages_frameworks.LanguagesFrameworksSettingsApplier
@@ -40,6 +42,8 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSe
 import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.AutoImportSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.InspectionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.JavaCodeStyleIssuesInspectionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.javadoc.JavadocInspectionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.JavaProbableBugsInspectionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.code_quality_tools.JavascriptCodeQualityToolsInspectionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
 import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.LanguagesFrameworksSettings
@@ -90,6 +94,12 @@ interface SettingsApplierModule {
 
     @Binds
     fun bindJavaCodeStyleIssuesInspectionsSettingsApplier(applier: JavaCodeStyleIssuesInspectionsSettingsApplier): SettingsApplier<JavaCodeStyleIssuesInspectionsSettings>
+
+    @Binds
+    fun bindJavadocInspectionsSettingsApplier(applier: JavadocInspectionsSettingsApplier): SettingsApplier<JavadocInspectionsSettings>
+
+    @Binds
+    fun bindJavaProbableBugsInspectionsSettingsApplier(applier: JavaProbableBugsInspectionsSettingsApplier): SettingsApplier<JavaProbableBugsInspectionsSettings>
 
     @Binds
     fun bindJavaCodeStyleSettingsApplier(applier: JavaCodeStyleSettingsApplier): SettingsApplier<JavaCodeStyleSettings>

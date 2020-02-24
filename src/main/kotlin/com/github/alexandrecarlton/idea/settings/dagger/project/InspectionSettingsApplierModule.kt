@@ -8,6 +8,10 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.javadoc.MissingDeprecatedAnnotationInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.javadoc.MissingDeprecatedAnnotationInspectionSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.code_quality_tools.EslintInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.code_quality_tools.EslintInspectionSettings
 import com.intellij.codeInspection.ex.ToolsImpl
@@ -18,7 +22,9 @@ import javax.inject.Named
 
 
 // Should be able to generate these.
+class ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier @Inject constructor(@Named("ArrayEquality") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings>(toolsImpl)
 class EslintInspectionSettingsApplier @Inject constructor(@Named("Eslint") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<EslintInspectionOptionsSettings>(toolsImpl)
+class MissingDeprecatedAnnotationInspectionSettingsApplier @Inject constructor(@Named("MissingDeprecatedAnnotation") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<MissingDeprecatedAnnotationInspectionOptionsSettings>(toolsImpl)
 class UnnecessaryCallToSuperInspectionSettingsApplier @Inject constructor(@Named("UnnecessarySuperConstructor") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<UnnecessaryCallToSuperInspectionOptionsSettings>(toolsImpl)
 class UnnecessaryParenthesesInspectionSettingsApplier @Inject constructor(@Named("UnnecessaryParentheses") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<UnnecessaryParenthesesInspectionOptionsSettings>(toolsImpl)
 class UnnecessaryQualifierForThisOrSuperInspectionSettingsApplier @Inject constructor(@Named("UnnecessaryQualifierForThis") toolsImpl: ToolsImpl) : BaseInspectionSettingsApplier<UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings>(toolsImpl)
@@ -31,7 +37,13 @@ class UnnecessaryQualifierForThisOrSuperInspectionSettingsApplier @Inject constr
 interface InspectionSettingsApplierModule {
 
     @Binds
+    fun provideArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier(applier: ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier): SettingsApplier<ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettings>
+
+    @Binds
     fun provideEslintInspectionSettingsApplier(applier: EslintInspectionSettingsApplier): SettingsApplier<EslintInspectionSettings>
+
+    @Binds
+    fun provideMissingDeprecatedAnnotationInspectionOptionsSettings(applier: MissingDeprecatedAnnotationInspectionSettingsApplier): SettingsApplier<MissingDeprecatedAnnotationInspectionSettings>
 
     @Binds
     fun provideUnnecessaryCallToSuperInspectionSettingsApplier(applier: UnnecessaryCallToSuperInspectionSettingsApplier): SettingsApplier<UnnecessaryCallToSuperInspectionSettings>

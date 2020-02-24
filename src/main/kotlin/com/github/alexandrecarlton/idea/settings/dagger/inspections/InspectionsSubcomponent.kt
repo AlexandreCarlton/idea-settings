@@ -7,7 +7,8 @@ import dagger.Subcomponent
 
 /**
  * Unfortunately dagger does not support using generics on subcomponents; so we can't automatically pull in our wanted
- * Options Settings Applier in [BaseInspectionSettingsApplier] via something like:
+ * Options Settings Applier in [com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.base.BaseInspectionSettingsApplier]
+ * via something like:
  *
  * ```
  * interface InspectionsSubcomponent<Options> {
@@ -16,7 +17,7 @@ import dagger.Subcomponent
  * }
  * ```
  *
- * To circumvent this, we manuallymanually declare each options applier in [InspectionsSubcomponent],
+ * To circumvent this, we manually declare each options applier in [InspectionsSubcomponent],
  *
  * Injecting them into a [Map] using multibindings did not take; see https://github.com/google/dagger/issues/1478.
  * @see InspectionOptionsSettingsApplierModule
