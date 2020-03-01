@@ -8,7 +8,6 @@ import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.javadoc.MissingDeprecatedAnnotationInspectionOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.code_quality_tools.EslintInspectionOptionsSettings
 import dagger.Binds
 import dagger.Module
@@ -20,22 +19,13 @@ interface InspectionOptionsSettingsApplierModule {
     fun provideInspectionOptionsSettingsApplier(applier: InspectionOptionsSettingsApplier): SettingsApplier<Any>
 
     @Binds
-    fun provideArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings(applier: NoOpInspectionOptionsSettingsApplier<ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings>): SettingsApplier<ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings>
-
-    @Binds
     fun provideEslintInspectionOptionsSettingsApplier(applier: EslintInspectionOptionsSettingsApplier): SettingsApplier<EslintInspectionOptionsSettings>
 
     @Binds
     fun provideMissingDeprecatedAnnotationInspectionOptionsSettingsApplier(applier: MissingDeprecatedAnnotationInspectionOptionsSettingsApplier): SettingsApplier<MissingDeprecatedAnnotationInspectionOptionsSettings>
 
     @Binds
-    fun provideUnnecessaryCallToSuperInspectionOptionsSettingsApplier(applier: NoOpInspectionOptionsSettingsApplier<UnnecessaryCallToSuperInspectionOptionsSettings>): SettingsApplier<UnnecessaryCallToSuperInspectionOptionsSettings>
-
-    @Binds
     fun provideUnnecessaryParenthesesInspectionOptionsSettingsApplier(applier: UnnecessaryParenthesesInspectionOptionsSettingsApplier): SettingsApplier<UnnecessaryParenthesesInspectionOptionsSettings>
-
-    @Binds
-    fun provideUnnecessaryQualifierForThisOrSuperInspectionOptionsSettingsApplier(applier: NoOpInspectionOptionsSettingsApplier<UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings>): SettingsApplier<UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings>
 
 }
 

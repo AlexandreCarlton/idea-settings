@@ -24,7 +24,9 @@ import dagger.Subcomponent
  */
 @Subcomponent(modules = [
     InspectionsModule::class,
-    InspectionOptionsSettingsApplierModule::class])
+    InspectionOptionsSettingsApplierModule::class,
+    NoOpInspectionOptionsSettingsApplierModule::class
+])
 interface InspectionsSubcomponent {
 
     fun settingsApplier(): SettingsApplier<Any>
