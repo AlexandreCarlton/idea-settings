@@ -99,16 +99,18 @@ tail -f /tmp/*/log/idea.log
 Occasionally a compile error will reveal itself of the above form - add the
 following library to ensure it continues compiling:
 
-| Class | Dependency |
-| ----- | ---------- |
-| `AreaInstance` | `@idea-IC//:lib/extensions` |
-| `CommonProgramRunConfigurationParameters` | `@idea-IC//:lib/platform-impl` |
-| `ConfigurationWithAlternativeJre` | `@idea-IC//:plugins/java/lib/java-api` |
-| `ConfigurationWithCommandLineShortener` | `@idea-IC//:lib/platform-impl` |
-| `InputRedirectAware` | `@idea-IC//:lib/platform-impl` |
-| `PersistentStateComponent` | `@idea-IC//:lib/platform-api` |
-| `UserDataHolder` | `@idea-IC//:lib/util` |
-| `UserDataHolderBase` | `@idea-IC//:lib/util` |
+| Class                                     | Dependency                             |
+| -----                                     | ----------                             |
+| `AbstractBaseJavaLocalInspection`         | `@idea-IC//:plugins/java/lib/java-api` |
+| `AreaInstance`                            | `@idea-IC//:lib/extensions`            |
+| `CommonProgramRunConfigurationParameters` | `@idea-IC//:lib/platform-impl`         |
+| `ConfigurationWithAlternativeJre`         | `@idea-IC//:plugins/java/lib/java-api` |
+| `ConfigurationWithCommandLineShortener`   | `@idea-IC//:lib/platform-impl`         |
+| `InputRedirectAware`                      | `@idea-IC//:lib/platform-impl`         |
+| `LocalInspectionTool`                     | `@idea-IC//:lib/platform-api`          |
+| `PersistentStateComponent`                | `@idea-IC//:lib/platform-api`          |
+| `UserDataHolder`                          | `@idea-IC//:lib/util`                  |
+| `UserDataHolderBase`                      | `@idea-IC//:lib/util`                  |
 
 ### Updating dependencies
 

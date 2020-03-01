@@ -37,8 +37,8 @@ for each [Error Prone bug pattern](http://errorprone.info/bugpatterns).
 | MissingSuperCall                   | Method does not call super method                                                                                            |
 | MustBeClosedChecker                | AutoCloseable used without 'try-with-resources'                                                                              |
 | MoreThanOneInjectableConstructor   | Multiple @Inject constructors for class                                                                                      |
-| PreconditiosnCheckNotNull          | Objects.Null-check method is called with obviously non-null argument                                                         |
-| PreconditiosnCheckNotNullPrimitive | Objects.Null-check method is called with obviously non-null argument                                                         |
+| PreconditionsCheckNotNull          | Null-check method is called with obviously non-null argument                                                                 |
+| PreconditionsCheckNotNullPrimitive | Null-check method is called with obviously non-null argument                                                                 |
 | RandomCast                         | 'Math.random()' cast to 'int'                                                                                                |
 | RemoveUnusedImports                | Unused import                                                                                                                |
 | SelfAssignment                     | Variable is assigned to itself                                                                                               |
