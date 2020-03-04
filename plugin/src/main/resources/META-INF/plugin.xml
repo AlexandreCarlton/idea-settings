@@ -16,6 +16,6 @@
   <depends optional="true" config-file="">org.jetbrains.idea.maven</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <appStarter implementation="com.github.alexandrecarlton.idea.settings.starter.IdeaSettingsApplicationStarter"/>
+    <appStarter implementation="com.github.alexandrecarlton.idea.settings.plugin.IdeaSettingsApplicationStarter"/>
   </extensions>
 </idea-plugin>

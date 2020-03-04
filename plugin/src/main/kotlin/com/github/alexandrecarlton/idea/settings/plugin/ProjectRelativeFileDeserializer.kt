@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.starter
+package com.github.alexandrecarlton.idea.settings.plugin
 
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.databind.DeserializationContext

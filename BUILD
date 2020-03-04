@@ -9,13 +9,13 @@ load("@rules_pkg//:pkg.bzl", "pkg_tar")
 
 intellij_plugin(
     name = "idea-settings",
-    plugin_xml = "src/main/resources/META-INF/plugin.xml",
+    plugin_xml = "plugin/src/main/resources/META-INF/plugin.xml",
     deps = [":plugin_library"],
 )
 
 intellij_plugin_library(
     name = "plugin_library",
-    deps = ["//src/main/kotlin/com/github/alexandrecarlton/idea/settings/starter"],
+    deps = ["//plugin/src/main/kotlin/com/github/alexandrecarlton/idea/settings/plugin"],
 )
 
 pkg_tar(

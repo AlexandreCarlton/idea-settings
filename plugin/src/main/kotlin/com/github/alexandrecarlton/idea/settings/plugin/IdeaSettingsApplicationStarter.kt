@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.starter
+package com.github.alexandrecarlton.idea.settings.plugin
 
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
