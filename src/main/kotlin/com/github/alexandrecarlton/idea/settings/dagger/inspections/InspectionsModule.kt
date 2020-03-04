@@ -9,6 +9,9 @@ import com.siyeh.ig.style.UnnecessaryParenthesesInspection
 import dagger.Module
 import dagger.Provides
 
+/**
+ * Provides [InspectionProfileEntry] cast as configurable inspections from a bound [ScopeToolState].
+ */
 @Module
 class InspectionsModule {
 
