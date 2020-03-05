@@ -6,7 +6,7 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/dagger/inspections",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/inspections",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",

@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.configurations
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.dagger.configuration.ConfigurationSubcomponent
+import com.github.alexandrecarlton.idea.settings.configuration.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ApplicationConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings

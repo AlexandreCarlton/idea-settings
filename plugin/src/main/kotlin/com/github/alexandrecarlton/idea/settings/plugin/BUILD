@@ -5,8 +5,8 @@ kt_jvm_library(
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/dagger/module",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/dagger/project",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/module",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/project",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",

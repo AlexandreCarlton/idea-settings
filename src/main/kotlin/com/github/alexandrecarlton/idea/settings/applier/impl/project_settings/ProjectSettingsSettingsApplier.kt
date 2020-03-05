@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.project_settings
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.dagger.module.ModuleSubcomponent.Builder
+import com.github.alexandrecarlton.idea.settings.module.ModuleSubcomponent.Builder
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings
 import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings
 import com.intellij.openapi.module.ModuleManager

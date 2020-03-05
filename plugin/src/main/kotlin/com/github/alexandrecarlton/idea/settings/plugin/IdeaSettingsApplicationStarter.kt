@@ -3,8 +3,8 @@ package com.github.alexandrecarlton.idea.settings.plugin
 import com.fasterxml.jackson.databind.module.SimpleModule
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.github.alexandrecarlton.idea.settings.dagger.project.DaggerIdeaSettingsComponent
-import com.github.alexandrecarlton.idea.settings.dagger.project.IdeaSettingsComponent
+import com.github.alexandrecarlton.idea.settings.project.DaggerIdeaSettingsComponent
+import com.github.alexandrecarlton.idea.settings.project.IdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings
 import com.intellij.openapi.application.ApplicationStarter
 import com.intellij.openapi.application.WriteAction

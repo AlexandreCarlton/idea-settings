@@ -6,7 +6,7 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/dagger/configuration",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/configuration",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
         "@maven//:javax_inject_javax_inject",

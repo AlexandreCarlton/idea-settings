@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.base
 
 import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.dagger.inspections.InspectionsSubcomponent
+import com.github.alexandrecarlton.idea.settings.inspections.InspectionsSubcomponent
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.BaseInspectionSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.Scope.EVERYWHERE_ELSE
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.base.Scope.IN_ALL_SCOPES
