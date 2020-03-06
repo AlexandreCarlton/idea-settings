@@ -30,7 +30,8 @@ object FileTypeModule {
         if (PluginManager.isPluginInstalled(PluginId.findId(plugin.id))) {
             Supplier { fileTypeSupplier.get() }
         } else {
-            LOG.warn("Unable to use file type as '" + plugin.pluginName + "' is not installed, using 'Unknown' instead.")
+            LOG.warn("Unable to use file type as '${plugin.pluginName}' is not installed, using 'Unknown' instead.")
+
             Supplier { UnknownFileType.INSTANCE }
         }
 }
