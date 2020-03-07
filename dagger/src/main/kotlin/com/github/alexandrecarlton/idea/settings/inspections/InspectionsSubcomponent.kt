@@ -1,13 +1,13 @@
 package com.github.alexandrecarlton.idea.settings.inspections
 
-import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.intellij.codeInspection.ex.ScopeToolState
 import dagger.BindsInstance
 import dagger.Subcomponent
 
 /**
  * Unfortunately dagger does not support using generics on subcomponents; so we can't automatically pull in our wanted
- * Options Settings Applier in [com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.base.BaseInspectionSettingsApplier]
+ * Options Settings Applier in [com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.BaseInspectionSettingsApplier]
  * via something like:
  *
  * ```

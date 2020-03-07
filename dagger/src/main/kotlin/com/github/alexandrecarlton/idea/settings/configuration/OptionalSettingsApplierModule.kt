@@ -1,9 +1,9 @@
 package com.github.alexandrecarlton.idea.settings.configuration
 
-import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.common.before_launch.BuildConfigurationSettingsApplier
-import com.github.alexandrecarlton.idea.settings.applier.impl.configurations.common.before_launch.RunMavenGoalSettingsApplier
 import com.github.alexandrecarlton.idea.settings.common.Plugin
+import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.BuildConfigurationSettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunMavenGoalSettingsApplier
 import com.intellij.ide.plugins.PluginManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId

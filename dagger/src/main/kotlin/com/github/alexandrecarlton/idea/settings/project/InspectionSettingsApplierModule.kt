@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.project
 
-import com.github.alexandrecarlton.idea.settings.applier.api.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.applier.impl.editor.inspections.base.BaseInspectionSettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.BaseInspectionSettingsApplier
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryCallToSuperInspectionOptionsSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryCallToSuperInspectionSettings
 import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionOptionsSettings

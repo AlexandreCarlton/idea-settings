@@ -5,8 +5,8 @@ kt_jvm_library(
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/api",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/applier/impl/configurations/common/before_launch",
+        "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
+        "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/common/before_launch",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/common",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations/common/before_launch",
         "//:dagger_with_compiler",
