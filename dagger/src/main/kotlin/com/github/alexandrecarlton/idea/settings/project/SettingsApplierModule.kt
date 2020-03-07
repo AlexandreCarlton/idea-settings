@@ -1,7 +1,5 @@
 package com.github.alexandrecarlton.idea.settings.project
 
-import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
-import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.InspectionsSettings
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.InspectionsSettingsApplier
@@ -18,9 +16,6 @@ import dagger.Module
 
 @Module
 interface SettingsApplierModule {
-
-    @Binds
-    fun bindIdeaSettingsApplier(applier: IdeaSettingsApplier): SettingsApplier<IdeaSettings>
 
     @Binds
     fun bindInspectionsSettingsApplier(applier: InspectionsSettingsApplier): SettingsApplier<InspectionsSettings>

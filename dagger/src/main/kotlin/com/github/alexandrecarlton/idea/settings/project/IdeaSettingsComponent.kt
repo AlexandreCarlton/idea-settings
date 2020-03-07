@@ -1,5 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.project
 
+import com.github.alexandrecarlton.idea.settings.dialog.IdeaModule
 import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.BuildExecutionDeploymentModule
@@ -56,6 +57,7 @@ import javax.inject.Named
     EslintModule::class,
     FileWatchersModule::class,
     GeneralModule::class,
+    IdeaModule::class,
     JavaArrangementModule::class,
     JavaBlankLinesModule::class,
     JavaCodeStyleModule::class,
@@ -80,7 +82,7 @@ import javax.inject.Named
     ToolsModule::class,
     SettingsApplierModule::class,
     ConfigurationTypeModule::class,
-    IdeaModule::class,
+    IdeaSingletonModule::class,
     InspectionSettingsApplierModule::class,
     FileTypeModule::class,
     OptionalSettingsApplierModule::class,

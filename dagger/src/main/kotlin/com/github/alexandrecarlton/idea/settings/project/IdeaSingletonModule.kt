@@ -8,7 +8,7 @@ import dagger.Provides
  * Provides components that are global singletons.
  */
 @Module
-object IdeaModule {
+object IdeaSingletonModule {
 
     @Provides
     internal fun provideLocalFileSystem() = LocalFileSystem.getInstance();

@@ -53,6 +53,7 @@ kt_jvm_library(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/common",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/configuration",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/build_execution_deployment",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/build_execution_deployment/build_tools",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/build_execution_deployment/build_tools/maven",
