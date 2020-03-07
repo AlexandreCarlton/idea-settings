@@ -47,100 +47,12 @@ object OptionalSettingsApplierModule {
     private val LOG = Logger.getInstance(OptionalSettingsApplierModule::class.java)
 
     @Provides
-    internal fun provideApplicationConfigurationSettingsApplier(applicationConfigurationSettingsApplier: Lazy<ApplicationConfigurationSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, applicationConfigurationSettingsApplier)
-
-    @Provides
-    internal fun provideCheckstyleSettingsApplier(checkstyleSettingsApplier: Lazy<CheckstyleSettingsApplier>) =
-        provideIfLoaded(Plugin.CHECKSTYLE_IDEA, checkstyleSettingsApplier)
-
-    @Provides
-    internal fun provideCompilerSettingsApplier(compilerSettingsApplier: Lazy<CompilerSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, compilerSettingsApplier)
-
-    @Provides
-    internal fun provideDockerComposeConfigurationSettingsApplier(dockerComposeConfigurationSettingsApplier: Lazy<DockerComposeConfigurationSettingsApplier>) =
-        provideIfLoaded(Plugin.DOCKER, dockerComposeConfigurationSettingsApplier)
-
-    @Provides
-    internal fun provideDockerImageConfigurationSettingsApplier(dockerImageConfigurationSettingsApplier: Lazy<DockerImageConfigurationSettingsApplier>) =
-        provideIfLoaded(Plugin.DOCKER, dockerImageConfigurationSettingsApplier)
-
-    @Provides
-    internal fun provideFileWatcherSettingsApplier(fileWatcherSettingsApplier: Lazy<FileWatcherSettingsApplier>) =
-        provideIfLoaded(Plugin.FILE_WATCHERS, fileWatcherSettingsApplier)
-
-    @Provides
-    internal fun provideJavaArrangementSettingsApplier(javaArrangementSettingsApplier: Lazy<JavaArrangementSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javaArrangementSettingsApplier)
-
-    @Provides
-    internal fun provideJavaAutoImportSettingsApplier(javaAutoImportSettingsApplier: Lazy<JavaAutoImportSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javaAutoImportSettingsApplier)
-
-    @Provides
-    internal fun provideJavadocSettingsApplier(javadocSettingsApplier: Lazy<JavadocSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javadocSettingsApplier)
-
-    @Provides
-    internal fun provideJavaImportsSettingsApplier(javaImportsSettingsApplier: Lazy<JavaImportsSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javaImportsSettingsApplier)
-
-    @Provides
     internal fun bindJavaInspectionsSettingsApplier(javaInspectionSettingsApplier: Lazy<JavaInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, javaInspectionSettingsApplier)
 
     @Provides
-    internal fun provideJavaKeepMaximumBlankLinesSettings(javaKeepMaximumBlankLinesSettingsApplier: Lazy<JavaKeepMaximumBlankLinesSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javaKeepMaximumBlankLinesSettingsApplier)
-
-    @Provides
-    internal fun provideJavaMinimumBlankLinesSettingsApplier(javaMinimumBlankLinesSettingsApplier: Lazy<JavaMinimumBlankLinesSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javaMinimumBlankLinesSettingsApplier)
-
-    @Provides
-    internal fun provideJavaWrappingAndBracesSettingsApplier(javaWrappingAndBracesSettingsApplier: Lazy<JavaWrappingAndBracesSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, javaWrappingAndBracesSettingsApplier)
-
-    @Provides
-    internal fun provideJavascriptImportsSettingsApplier(javascriptImportsSettingsApplier: Lazy<JavascriptImportsSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptImportsSettingsApplier)
-
-    @Provides
     internal fun provideJavascriptInspectionsSettingsApplier(javascriptInspectionsSettingsApplier: Lazy<JavascriptInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptInspectionsSettingsApplier)
-
-    @Provides
-    internal fun provideJavascriptSettingsApplier(javascriptSettingsApplier: Lazy<JavascriptSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javascriptSettingsApplier)
-
-    @Provides
-    internal fun provideMavenImportingSettingsApplier(mavenImportingSettingsApplier: Lazy<MavenImportingSettingsApplier>) =
-        provideIfLoaded(Plugin.MAVEN, mavenImportingSettingsApplier)
-
-    @Provides
-    internal fun provideMavenSettingsApplier(mavenSettingsApplier: Lazy<MavenSettingsApplier>) =
-        provideIfLoaded(Plugin.MAVEN, mavenSettingsApplier)
-
-    @Provides
-    internal fun provideRemoteSettingsApplier(remoteSettingsApplier: Lazy<RemoteSettingsApplier>) =
-        provideIfLoaded(Plugin.JAVA, remoteSettingsApplier)
-
-    @Provides
-    internal fun provideSaveActionsSettingsApplier(saveActionsSettingsApplier: Lazy<SaveActionsSettingsApplier>) =
-        provideIfLoaded(Plugin.SAVE_ACTIONS, saveActionsSettingsApplier)
-
-    @Provides
-    internal fun provideShellScriptConfigurationSettings(shellScriptConfigurationSettingsApplier: Lazy<ShellScriptConfigurationSettingsApplier>) =
-        provideIfLoaded(Plugin.SHELL_SCRIPT, shellScriptConfigurationSettingsApplier)
-
-    @Provides
-    internal fun provideSpringBootSettingsApplier(springBootSettingsApplier: Lazy<SpringBootSettingsApplier>) =
-        provideIfLoaded(Plugin.SPRING_BOOT, springBootSettingsApplier)
-
-    @Provides
-    internal fun provideSqlDialectsSettingsApplier(sqlDialectsSettingsApplier: Lazy<SqlDialectsSettingsApplier>) =
-        provideIfLoaded(Plugin.DATABASE_TOOLS_AND_SQL, sqlDialectsSettingsApplier)
 
     private fun <T> provideIfLoaded(plugin: Plugin, settingsApplier: Lazy<out SettingsApplier<T>>): SettingsApplier<T> =
         if (PluginManager.isPluginInstalled(PluginId.findId(plugin.id)))
