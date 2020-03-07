@@ -1,8 +1,6 @@
-package com.github.alexandrecarlton.idea.settings.module
+package com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules.ModuleSettings
-import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules.ProjectSettingsModulesModule
 import com.intellij.openapi.module.Module
 
 import dagger.BindsInstance

@@ -9,5 +9,6 @@ kt_jvm_library(
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/modules",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/modules",
+        "@idea-IC//:lib/platform-api",
     ],
 )

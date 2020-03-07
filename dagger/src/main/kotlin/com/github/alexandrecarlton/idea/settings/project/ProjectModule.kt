@@ -3,7 +3,7 @@ package com.github.alexandrecarlton.idea.settings.project
 import com.dubreuia.model.StorageFactory
 import com.github.alexandrecarlton.idea.settings.configuration.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.inspections.InspectionsSubcomponent
-import com.github.alexandrecarlton.idea.settings.module.ModuleSubcomponent
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules.ModuleSubcomponent
 import com.intellij.application.options.CodeStyle
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings

@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.module
+package com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules
 
 import com.intellij.openapi.module.Module
 import com.intellij.openapi.roots.ModuleRootManager
