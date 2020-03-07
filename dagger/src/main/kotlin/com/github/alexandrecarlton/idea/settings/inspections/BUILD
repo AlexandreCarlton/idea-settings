@@ -11,10 +11,10 @@ kt_jvm_library(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/javadoc",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/probable_bugs",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript/code_quality_tools",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections/java/code_style_issues",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections/java/javadoc",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections/java/probable_bugs",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections/javascript/code_quality_tools",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/code_style_issues",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/javadoc",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/probable_bugs",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript/code_quality_tools",
         # Without the annotations library, we get warnings like:
         # warning: unknown enum constant Nls$Capitalization.Sentence
         "@idea-IC//:lib/annotations",

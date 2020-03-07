@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.configuration
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BeforeLaunchConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.BeforeLaunchConfigurationSettings
 import dagger.BindsInstance
 import dagger.Subcomponent
 

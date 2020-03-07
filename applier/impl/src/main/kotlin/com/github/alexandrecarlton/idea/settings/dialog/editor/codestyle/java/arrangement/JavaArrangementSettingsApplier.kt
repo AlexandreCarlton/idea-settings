@@ -1,11 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.arrangement
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.JavaArrangementSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRule
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleModifier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleOrder
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.MatchingRuleType
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.codeStyle.arrangement.match.ArrangementMatchRule
 import com.intellij.psi.codeStyle.arrangement.match.StdArrangementEntryMatcher

@@ -1,11 +1,10 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch
 
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunConfigurationType
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunConfigurationType.APPLICATION
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunConfigurationType.DOCKER
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunConfigurationType.REMOTE
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunConfigurationType.SHELL_SCRIPT
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunConfigurationType.SPRING_BOOT
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.APPLICATION
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.DOCKER
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.REMOTE
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.SHELL_SCRIPT
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.SPRING_BOOT
 import com.intellij.execution.configurations.ConfigurationType
 import java.util.function.Supplier
 import javax.inject.Inject

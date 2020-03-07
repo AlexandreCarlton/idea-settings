@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.remote
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.RemoteSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.RemoteSettings
 import com.intellij.execution.RunManager
 import com.intellij.execution.remote.RemoteConfiguration
 import com.intellij.execution.remote.RemoteConfigurationType

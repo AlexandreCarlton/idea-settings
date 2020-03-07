@@ -1,9 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.tools
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.tools.ToolsSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings
-
+import com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.FileWatcherSettings
 import javax.inject.Inject
 
 class ToolsSettingsApplier @Inject

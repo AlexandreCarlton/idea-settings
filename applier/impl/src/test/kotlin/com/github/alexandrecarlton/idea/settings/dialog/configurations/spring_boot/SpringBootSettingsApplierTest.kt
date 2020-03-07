@@ -1,12 +1,8 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.SpringBootSettings
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.SpringBootSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.OverrideParameter
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationEnvironmentSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.spring_boot.SpringBootConfigurationSpringBootSettings
 import com.intellij.execution.RunManager
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter
 import com.intellij.spring.boot.run.SpringBootApplicationRunConfiguration

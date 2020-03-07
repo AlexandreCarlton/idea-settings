@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.shell_script
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ShellScriptConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.ShellScriptConfigurationSettings
 import com.intellij.execution.RunManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project

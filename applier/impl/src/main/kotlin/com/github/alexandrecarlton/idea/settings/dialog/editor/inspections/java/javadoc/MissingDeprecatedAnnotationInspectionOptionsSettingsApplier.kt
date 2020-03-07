@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.javadoc
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.javadoc.MissingDeprecatedAnnotationInspectionOptionsSettings
 import com.siyeh.ig.javadoc.MissingDeprecatedAnnotationInspection
 import javax.inject.Inject
 

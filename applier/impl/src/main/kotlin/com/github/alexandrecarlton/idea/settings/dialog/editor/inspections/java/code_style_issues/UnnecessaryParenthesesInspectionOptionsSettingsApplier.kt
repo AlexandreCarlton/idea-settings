@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryParenthesesInspectionOptionsSettings
 import com.siyeh.ig.style.UnnecessaryParenthesesInspection
 import javax.inject.Inject
 

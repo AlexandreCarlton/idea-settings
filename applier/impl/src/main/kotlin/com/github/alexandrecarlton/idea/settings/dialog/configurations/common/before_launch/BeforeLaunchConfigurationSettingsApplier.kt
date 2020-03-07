@@ -1,10 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BeforeLaunchConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.BuildConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunAnotherConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.common.before_launch.RunMavenGoalSettings
 import javax.inject.Inject
 
 class BeforeLaunchConfigurationSettingsApplier @Inject

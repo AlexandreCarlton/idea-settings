@@ -2,13 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations
 
 import com.github.alexandrecarlton.idea.settings.configuration.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ApplicationConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerComposeConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerImageConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.RemoteSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ShellScriptConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.SpringBootSettings
 import com.intellij.execution.RunManager
 import java.util.ArrayList
 import javax.inject.Inject

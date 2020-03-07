@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.compiler
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.NullableNotNullConfigurationSettings
 import com.intellij.codeInsight.NullableNotNullManager
 import javax.inject.Inject
 

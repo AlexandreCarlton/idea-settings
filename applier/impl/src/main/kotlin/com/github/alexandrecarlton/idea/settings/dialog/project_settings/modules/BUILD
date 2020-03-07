@@ -6,7 +6,7 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/project_settings/modules",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/modules",
         "@maven//:com_fasterxml_jackson_core_jackson_databind",
         "@maven//:com_google_dagger_dagger",
         "@maven//:javax_inject_javax_inject",

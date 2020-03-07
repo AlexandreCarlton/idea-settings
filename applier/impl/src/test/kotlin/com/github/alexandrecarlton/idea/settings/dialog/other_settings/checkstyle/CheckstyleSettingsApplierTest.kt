@@ -2,9 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.other_settings.checksty
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleConfigurationFile
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings
 import org.assertj.core.api.Assertions.assertThat
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager
 import org.infernus.idea.checkstyle.model.ConfigurationType

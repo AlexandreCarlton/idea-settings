@@ -1,13 +1,8 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.docker
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.DockerImageConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.DockerImageConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerEnvironmentVariable
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerExecutableSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerPortBinding
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerPortBindingProtocol
-import com.github.alexandrecarlton.idea.settings.layout.configurations.docker.DockerPublishToHostInterface
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
 import com.intellij.docker.agent.settings.DockerEnvVarImpl

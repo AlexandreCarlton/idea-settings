@@ -1,9 +1,9 @@
 package com.github.alexandrecarlton.idea.settings.inspections
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryCallToSuperInspectionOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.UnnecessaryCallToSuperInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.probable_bugs.ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings
 import dagger.Binds
 import dagger.Module
 

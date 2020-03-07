@@ -2,10 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.build_execution_deploym
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.InstrumentedAnnotation
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.NotnullAnnotationsSettings
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.NullableAnnotationsSettings
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.NullableNotNullConfigurationSettings
 import com.intellij.codeInsight.NullableNotNullManager
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before

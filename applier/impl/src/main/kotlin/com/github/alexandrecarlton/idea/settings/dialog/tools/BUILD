@@ -6,8 +6,8 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/tools",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/tools/file_watchers",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
         "@maven//:javax_inject_javax_inject",
     ],
 )

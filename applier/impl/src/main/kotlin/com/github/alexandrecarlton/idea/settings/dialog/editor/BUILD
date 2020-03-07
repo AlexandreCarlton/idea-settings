@@ -6,11 +6,11 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/codestyle",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/general",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/inspections",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/general",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/spelling",
         "@maven//:javax_inject_javax_inject",
     ],
 )

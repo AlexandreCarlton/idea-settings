@@ -1,9 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.general
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.general.auto_import.AutoImportSettings
-
+import com.github.alexandrecarlton.idea.settings.dialog.editor.general.auto_import.AutoImportSettings
 import javax.inject.Inject
 
 class GeneralSettingsApplier @Inject

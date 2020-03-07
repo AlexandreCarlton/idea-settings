@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.spelling
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
 import com.intellij.spellchecker.SpellCheckerManager
 import com.intellij.spellchecker.settings.SpellCheckerSettings
 import javax.inject.Inject

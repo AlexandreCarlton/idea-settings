@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.modules.ModuleSettings
 import com.intellij.openapi.roots.ModifiableRootModel
 import com.intellij.openapi.vfs.LocalFileSystem
 import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes

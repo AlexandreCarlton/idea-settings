@@ -3,10 +3,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.other_settings.save_act
 import com.dubreuia.model.Action
 import com.dubreuia.model.Storage
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.FormattingActionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.GeneralSaveActionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.JavaInspectionAndQuickFixSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.SaveActionsSettings
 import javax.inject.Inject
 
 class SaveActionsSettingsApplier @Inject constructor(private val storage: Storage)

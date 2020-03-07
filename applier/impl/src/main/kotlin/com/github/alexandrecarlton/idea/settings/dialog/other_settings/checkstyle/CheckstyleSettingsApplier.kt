@@ -1,14 +1,11 @@
 package com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleConfigurationFile
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope.ALL_FILES_IN_PROJECT
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope.ALL_SOURCES_BUT_NOT_TESTS
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope.ALL_SOURCES_INCLUDING_TESTS
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope.ONLY_JAVA_SOURCES_BUT_NOT_TESTS
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleScanScope.ONLY_JAVA_SOURCES_INCLUDING_TESTS
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleScanScope.ALL_FILES_IN_PROJECT
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleScanScope.ALL_SOURCES_BUT_NOT_TESTS
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleScanScope.ALL_SOURCES_INCLUDING_TESTS
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleScanScope.ONLY_JAVA_SOURCES_BUT_NOT_TESTS
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleScanScope.ONLY_JAVA_SOURCES_INCLUDING_TESTS
 import com.intellij.openapi.project.Project
 import org.infernus.idea.checkstyle.config.PluginConfigurationBuilder
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager

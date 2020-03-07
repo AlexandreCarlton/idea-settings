@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.application
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ApplicationConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.ApplicationConfigurationSettings
 import com.intellij.execution.RunManager
 import com.intellij.execution.application.ApplicationConfiguration
 import com.intellij.execution.application.ApplicationConfigurationType

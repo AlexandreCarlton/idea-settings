@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.imports
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings
 import javax.inject.Inject
 

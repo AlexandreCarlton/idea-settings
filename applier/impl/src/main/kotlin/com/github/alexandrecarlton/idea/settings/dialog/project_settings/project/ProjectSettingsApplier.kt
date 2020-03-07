@@ -1,24 +1,21 @@
 package com.github.alexandrecarlton.idea.settings.dialog.project_settings.project
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_10
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_11
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_12
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_1_3
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_1_4
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_5
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_6
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_7
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_8
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_9
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel.JAVA_X
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_10
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_11
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_12
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_1_3
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_1_4
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_5
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_6
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_7
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_8
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_9
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_X
 import com.intellij.openapi.project.ex.ProjectEx
 import com.intellij.openapi.roots.LanguageLevelProjectExtension
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.pom.java.LanguageLevel
-
 import javax.inject.Inject
 
 class ProjectSettingsApplier @Inject

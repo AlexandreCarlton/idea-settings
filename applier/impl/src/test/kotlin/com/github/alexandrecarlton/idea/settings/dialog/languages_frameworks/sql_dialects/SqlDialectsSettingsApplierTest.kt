@@ -2,8 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.sq
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialect
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.sql_dialects.SqlDialectsSettings
 import com.intellij.sql.dialects.SqlDialectMappings
 import com.intellij.sql.dialects.postgres.PgDialect
 import org.assertj.core.api.Assertions.assertThat

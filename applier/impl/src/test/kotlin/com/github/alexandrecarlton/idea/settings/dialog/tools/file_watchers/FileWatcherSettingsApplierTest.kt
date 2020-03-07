@@ -1,13 +1,9 @@
 package com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.common.FileType
 import com.github.alexandrecarlton.idea.settings.dialog.common.FileTypeMapper
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.common.FileType
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherAdvancedOptionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherFilesToWatchSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherSettings
-import com.github.alexandrecarlton.idea.settings.layout.tools.file_watchers.FileWatcherToolToRunOnChangesSettings
 import com.intellij.lang.javascript.JavaScriptFileType
 import com.intellij.plugins.watcher.model.ProjectTasksOptions
 import org.assertj.core.api.Assertions.assertThat

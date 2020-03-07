@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.blank_lines
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaKeepMaximumBlankLinesSettings
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import javax.inject.Inject
 import javax.inject.Named

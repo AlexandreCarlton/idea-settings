@@ -1,8 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.project_settings
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.ProjectSettingsSettings
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectSettings
 import com.github.alexandrecarlton.idea.settings.module.ModuleSubcomponent.Builder
 import com.intellij.openapi.module.ModuleManager
 import com.intellij.openapi.module.ModuleTypeId

@@ -2,12 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.ja
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.eslint.EslintConfigurationFileSettingsAutomaticSearch
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.eslint.EslintConfigurationFileSettingsConfigurationFile
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.eslint.EslintSettings
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.eslint.EslintSettingsAutomaticEslintConfiguration
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.eslint.EslintSettingsDisableEslint
-import com.github.alexandrecarlton.idea.settings.layout.languages_frameworks.javascript.code_quality_tools.eslint.ManualEslintConfigurationSettings
 import com.intellij.lang.javascript.linter.eslint.EslintConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before

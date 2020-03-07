@@ -7,7 +7,7 @@ kt_jvm_library(
     deps = [
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/module",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/project",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
         "@maven//:com_fasterxml_jackson_core_jackson_core",

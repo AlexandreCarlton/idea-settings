@@ -1,6 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.common
 
-import com.github.alexandrecarlton.idea.settings.layout.common.FileType.JAVASCRIPT
+import com.github.alexandrecarlton.idea.settings.dialog.common.FileType.JAVASCRIPT
 import com.intellij.openapi.fileTypes.FileType
 import java.util.function.Supplier
 import javax.inject.Inject
@@ -13,7 +13,7 @@ import javax.inject.Named
 class FileTypeMapper @Inject
 constructor(@param:Named("JavaScript") private val javascriptFileTypeSupplier: Supplier<FileType>) {
 
-    fun mapFileType(fileType: com.github.alexandrecarlton.idea.settings.layout.common.FileType) =
+    fun mapFileType(fileType: com.github.alexandrecarlton.idea.settings.dialog.common.FileType) =
         when (fileType) {
             JAVASCRIPT -> javascriptFileTypeSupplier.get()
         }

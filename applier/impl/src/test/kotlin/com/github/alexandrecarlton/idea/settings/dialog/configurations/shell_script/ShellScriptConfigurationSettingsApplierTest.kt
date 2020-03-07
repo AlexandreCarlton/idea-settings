@@ -1,9 +1,8 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations.shell_script
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.ShellScriptConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.configurations.ShellScriptConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.layout.configurations.shell_script.InterpreterConfigurationSettings
 import com.intellij.execution.RunManager
 import com.intellij.sh.run.ShRunConfiguration
 import org.assertj.core.api.Assertions.assertThat

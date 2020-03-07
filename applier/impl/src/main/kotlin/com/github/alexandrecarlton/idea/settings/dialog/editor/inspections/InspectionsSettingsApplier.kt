@@ -1,9 +1,8 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.InspectionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.JavaInspectionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.javascript.JavascriptInspectionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.JavaInspectionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.JavascriptInspectionsSettings
 import javax.inject.Inject
 
 class InspectionsSettingsApplier @Inject

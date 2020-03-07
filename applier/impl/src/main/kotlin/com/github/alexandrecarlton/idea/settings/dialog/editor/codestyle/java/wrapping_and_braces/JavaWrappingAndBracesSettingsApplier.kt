@@ -1,9 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.wrapping_and_braces
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.Force
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.Wrapping
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings.WrapOnTyping
 import com.intellij.psi.codeStyle.JavaCodeStyleSettings

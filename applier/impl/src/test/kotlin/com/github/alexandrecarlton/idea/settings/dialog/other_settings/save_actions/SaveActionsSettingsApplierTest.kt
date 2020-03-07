@@ -5,10 +5,6 @@ import com.dubreuia.model.Storage
 import com.dubreuia.model.StorageFactory
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.FormattingActionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.GeneralSaveActionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.JavaInspectionAndQuickFixSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.SaveActionsSettings
 import org.assertj.core.api.AbstractAssert
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before

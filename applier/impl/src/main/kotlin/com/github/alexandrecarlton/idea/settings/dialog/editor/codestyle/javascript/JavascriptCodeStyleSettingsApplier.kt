@@ -1,8 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.javascript
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptCodeStyleSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.javascript.JavascriptImportsSettings
 import javax.inject.Inject
 
 class JavascriptCodeStyleSettingsApplier @Inject

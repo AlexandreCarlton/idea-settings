@@ -5,7 +5,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.github.alexandrecarlton.idea.settings.project.DaggerIdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.project.IdeaSettingsComponent
-import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings
+import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
 import com.intellij.openapi.application.ApplicationStarter
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.application.ex.ApplicationManagerEx

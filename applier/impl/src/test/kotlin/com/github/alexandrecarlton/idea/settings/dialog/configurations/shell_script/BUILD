@@ -15,8 +15,8 @@ kt_jvm_test(
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/shell_script",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations/shell_script",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/shell_script",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",

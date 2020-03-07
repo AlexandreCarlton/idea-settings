@@ -1,10 +1,8 @@
 package com.github.alexandrecarlton.idea.settings.dialog.other_settings
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.OtherSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.checkstyle.CheckstyleSettings
-import com.github.alexandrecarlton.idea.settings.layout.other_settings.save_actions.SaveActionsSettings
-
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleSettings
+import com.github.alexandrecarlton.idea.settings.dialog.other_settings.save_actions.SaveActionsSettings
 import javax.inject.Inject
 
 class OtherSettingsApplier @Inject

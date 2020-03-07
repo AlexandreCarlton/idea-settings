@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.project
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.IdeaSettings
+import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
 import com.intellij.openapi.project.Project
 import dagger.BindsInstance
 import dagger.Component

@@ -2,8 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.project_settings.projec
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectLanguageLevel
-import com.github.alexandrecarlton.idea.settings.layout.project_settings.project.ProjectSettings
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.project.ex.ProjectEx
 import com.intellij.openapi.roots.LanguageLevelProjectExtension

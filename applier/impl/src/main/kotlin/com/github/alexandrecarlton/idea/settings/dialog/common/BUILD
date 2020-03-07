@@ -5,7 +5,7 @@ kt_jvm_library(
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/common",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common",
         "@maven//:javax_inject_javax_inject",
         "@idea-IC//:lib/platform-api",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/javascript-openapi",

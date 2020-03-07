@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.build_tools.maven
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.maven.MavenImportingSettings
 import javax.inject.Inject
 
 class MavenImportingSettingsApplier @Inject

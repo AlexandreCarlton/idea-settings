@@ -1,12 +1,11 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.JavaCodeStyleSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.arrangement.JavaArrangementSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.blank_lines.JavaBlankLinesSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.imports.JavaImportsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.arrangement.JavaArrangementSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.blank_lines.JavaBlankLinesSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.imports.JavaImportsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.javadoc.JavadocSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesSettings
 import javax.inject.Inject
 
 class JavaCodeStyleSettingsApplier @Inject

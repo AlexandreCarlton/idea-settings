@@ -1,11 +1,9 @@
 package com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.build_tools.BuildToolsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.compiler.CompilerSettings
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.BuildExecutionDeploymentSettings
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.RequiredPlugin
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.build_tools.BuildToolsSettings
-import com.github.alexandrecarlton.idea.settings.layout.build_execution_deployment.compiler.CompilerSettings
 import com.intellij.externalDependencies.DependencyOnPlugin
 import com.intellij.externalDependencies.ExternalDependenciesManager
 import io.mockk.mockk

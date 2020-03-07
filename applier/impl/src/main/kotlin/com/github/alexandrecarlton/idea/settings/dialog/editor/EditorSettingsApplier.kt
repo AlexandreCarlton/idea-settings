@@ -1,12 +1,10 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.EditorSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.CodeStyleSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.general.GeneralSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.InspectionsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.spelling.SpellingSettings
-
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.CodeStyleSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.general.GeneralSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.InspectionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.spelling.SpellingSettings
 import javax.inject.Inject
 
 class EditorSettingsApplier @Inject

@@ -2,11 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.j
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocAlignmentSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocBlankLinesSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocInvalidTagsSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocOtherSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.codestyle.java.javadoc.JavadocSettings
 import com.intellij.application.options.CodeStyle
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.psi.codeStyle.CommonCodeStyleSettings

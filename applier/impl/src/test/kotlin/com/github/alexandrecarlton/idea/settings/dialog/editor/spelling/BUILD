@@ -15,7 +15,7 @@ kt_jvm_test(
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/spelling",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/editor/spelling",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/spelling",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@maven//:com_google_guava_guava",
         "@maven//:junit_junit",

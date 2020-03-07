@@ -6,7 +6,7 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
-        "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/javascript/code_quality_tools/eslint",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/javascript/code_quality_tools/eslint",
         "@idea-IC//:lib/platform-api",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
         "@maven//:javax_inject_javax_inject",

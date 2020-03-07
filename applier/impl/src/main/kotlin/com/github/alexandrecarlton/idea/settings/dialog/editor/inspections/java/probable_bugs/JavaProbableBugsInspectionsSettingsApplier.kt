@@ -1,8 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.probable_bugs
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettings
-import com.github.alexandrecarlton.idea.settings.layout.editor.inspections.java.probable_bugs.JavaProbableBugsInspectionsSettings
 import javax.inject.Inject
 
 class JavaProbableBugsInspectionsSettingsApplier @Inject
