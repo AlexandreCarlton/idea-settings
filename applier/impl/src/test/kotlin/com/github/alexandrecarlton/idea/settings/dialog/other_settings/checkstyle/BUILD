@@ -17,7 +17,7 @@ kt_jvm_test(
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/checkstyle",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/other_settings/checkstyle",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
         "@CheckStyle-IDEA//:lib/checkstyle-idea",

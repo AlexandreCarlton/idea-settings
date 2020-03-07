@@ -17,7 +17,7 @@ kt_jvm_test(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/application",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations/application",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",

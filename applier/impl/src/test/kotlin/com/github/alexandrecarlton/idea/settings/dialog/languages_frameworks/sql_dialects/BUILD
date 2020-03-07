@@ -16,7 +16,7 @@ kt_jvm_test(
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/sql_dialects",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/languages_frameworks/sql_dialects",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
         "@idea-IC//:lib/idea",

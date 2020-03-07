@@ -17,7 +17,7 @@ kt_jvm_test(
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/save_actions",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/other_settings/save_actions",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@Save-Actions//jar",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",

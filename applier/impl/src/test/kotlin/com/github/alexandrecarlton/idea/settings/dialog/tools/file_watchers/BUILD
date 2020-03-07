@@ -21,7 +21,7 @@ kt_jvm_test(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/common",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/tools/file_watchers",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/util",

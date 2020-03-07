@@ -17,7 +17,7 @@ kt_jvm_test(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/spring_boot",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/configurations/spring_boot",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",

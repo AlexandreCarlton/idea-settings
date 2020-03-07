@@ -18,7 +18,7 @@ kt_jvm_test(
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/build_tools",
         "//src/main/kotlin/com/github/alexandrecarlton/idea/settings/layout/build_execution_deployment/compiler",
-        "//src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "@idea-IC//:lib/platform-impl",
         "@maven//:com_google_guava_guava",
         "@maven//:io_mockk_mockk",
