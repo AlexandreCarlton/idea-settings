@@ -2,6 +2,7 @@ package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.BaseInspectionSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.code_quality_tools.options.EslintInspectionOptionsSettings
 
 typealias EslintInspectionSettings = BaseInspectionSettings<EslintInspectionOptionsSettings>
 

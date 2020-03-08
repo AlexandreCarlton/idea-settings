@@ -15,7 +15,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Severity.TYPO
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Severity.WARNING
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Severity.WEAK_WARNING
-import com.github.alexandrecarlton.idea.settings.inspections.InspectionsSubcomponent
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.subcomponent.InspectionsSubcomponent
 import com.intellij.codeHighlighting.HighlightDisplayLevel
 import com.intellij.codeInspection.ex.ToolsImpl
 import com.intellij.ide.scratch.ScratchesNamedScope

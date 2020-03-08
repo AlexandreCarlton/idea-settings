@@ -6,6 +6,8 @@ import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
 import dagger.Lazy
 
+// TODO: Take in the plugin as a private val; it is very rare to have multiple plugins needed in the one module,
+// and it is easy to split them into two modules.
 abstract class AbstractPluginModule {
 
     private val LOG = Logger.getInstance(AbstractPluginModule::class.java)

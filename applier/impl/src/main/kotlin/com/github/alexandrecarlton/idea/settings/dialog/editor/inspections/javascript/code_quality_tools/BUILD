@@ -6,10 +6,10 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
+        "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/base",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript/code_quality_tools",
-        "@idea-IC//:lib/platform-api",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript/code_quality_tools/options",
         "@idea-IC//:lib/platform-impl",
-        "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
         "@maven//:javax_inject_javax_inject",
     ],
 )

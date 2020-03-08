@@ -2,6 +2,9 @@ package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.BaseInspectionSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.options.UnnecessaryCallToSuperInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.options.UnnecessaryParenthesesInspectionOptionsSettings
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.options.UnnecessaryQualifierForThisOrSuperInspectionOptionsSettings
 
 typealias UnnecessaryCallToSuperInspectionSettings = BaseInspectionSettings<UnnecessaryCallToSuperInspectionOptionsSettings>
 typealias UnnecessaryParenthesesInspectionSettings = BaseInspectionSettings<UnnecessaryParenthesesInspectionOptionsSettings>

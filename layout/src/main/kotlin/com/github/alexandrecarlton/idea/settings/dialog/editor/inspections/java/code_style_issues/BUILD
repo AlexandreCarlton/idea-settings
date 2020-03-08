@@ -6,6 +6,7 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/base",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/code_style_issues/options",
         "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],
 )

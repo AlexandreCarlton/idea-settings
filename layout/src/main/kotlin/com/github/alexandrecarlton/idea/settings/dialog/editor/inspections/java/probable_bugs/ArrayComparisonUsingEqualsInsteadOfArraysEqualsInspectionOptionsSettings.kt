@@ -1,3 +1,0 @@
-package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.probable_bugs
-
-object ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionOptionsSettings

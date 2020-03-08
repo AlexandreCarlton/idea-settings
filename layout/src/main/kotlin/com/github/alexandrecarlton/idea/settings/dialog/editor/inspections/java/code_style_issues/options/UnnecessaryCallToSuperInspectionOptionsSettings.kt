@@ -1,0 +1,3 @@
+package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.options
+
+object UnnecessaryCallToSuperInspectionOptionsSettings

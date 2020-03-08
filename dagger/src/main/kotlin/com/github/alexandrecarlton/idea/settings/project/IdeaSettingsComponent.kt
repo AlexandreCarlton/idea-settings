@@ -24,6 +24,13 @@ import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.wr
 import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.javascript.JavascriptCodeStyleModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.general.GeneralModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.general.auto_import.AutoImportModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.InspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.JavaInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.code_style_issues.JavaCodeStyleIssuesInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.javadoc.JavadocInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.probable_bugs.JavaProbableBugsInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.JavascriptInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.code_quality_tools.JavascriptCodeQualityToolsInspectionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.spelling.SpellingModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.LanguagesFrameworksModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguagesFrameworksModule
@@ -80,12 +87,16 @@ import javax.inject.Named
     SpringBootModule::class,
     SqlDialectsModule::class,
     ToolsModule::class,
-    SettingsApplierModule::class,
+    InspectionsModule::class,
     ConfigurationTypeModule::class,
     IdeaSingletonModule::class,
-    InspectionSettingsApplierModule::class,
+    JavaCodeStyleIssuesInspectionsModule::class,
+    JavadocInspectionsModule::class,
+    JavaInspectionsModule::class,
+    JavaProbableBugsInspectionsModule::class,
+    JavascriptCodeQualityToolsInspectionsModule::class,
+    JavascriptInspectionsModule::class,
     FileTypeModule::class,
-    OptionalSettingsApplierModule::class,
     ProjectModule::class,
     ToolsImplModule::class])
 interface IdeaSettingsComponent {
