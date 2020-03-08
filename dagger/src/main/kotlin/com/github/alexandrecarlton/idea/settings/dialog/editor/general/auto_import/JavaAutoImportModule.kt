@@ -10,6 +10,6 @@ import dagger.Provides
 object JavaAutoImportModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideJavaAutoImportSettingsApplier(applier: Lazy<JavaAutoImportSettingsApplier>) =
+    fun provideJavaAutoImportSettingsApplier(applier: Lazy<JavaAutoImportSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

@@ -9,6 +9,6 @@ import dagger.Provides
 @Module
 object JavaImportsModule : AbstractPluginModule() {
     @Provides
-    internal fun provideJavaImportsSettingsApplier(applier: Lazy<JavaImportsSettingsApplier>) =
+    fun provideJavaImportsSettingsApplier(applier: Lazy<JavaImportsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

@@ -9,6 +9,6 @@ import dagger.Lazy
 @Module
 class ApplicationModule : AbstractPluginModule() {
     @Provides
-    internal fun provideApplicationConfigurationSettingsApplier(applier: Lazy<ApplicationConfigurationSettingsApplier>) =
+    fun provideApplicationConfigurationSettingsApplier(applier: Lazy<ApplicationConfigurationSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

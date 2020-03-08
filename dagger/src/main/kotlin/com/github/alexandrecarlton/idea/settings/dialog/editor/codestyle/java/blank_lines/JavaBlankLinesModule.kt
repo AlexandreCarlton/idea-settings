@@ -9,14 +9,14 @@ import dagger.Provides
 @Module
 object JavaBlankLinesModule : AbstractPluginModule() {
     @Provides
-    internal fun provideJavaBlankLinesSettingsApplier(applier: Lazy<JavaBlankLinesSettingsApplier>) =
+    fun provideJavaBlankLinesSettingsApplier(applier: Lazy<JavaBlankLinesSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 
     @Provides
-    internal fun provideJavaKeepMaximumBlankLinesSettingsApplier(applier: Lazy<JavaKeepMaximumBlankLinesSettingsApplier>) =
+    fun provideJavaKeepMaximumBlankLinesSettingsApplier(applier: Lazy<JavaKeepMaximumBlankLinesSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 
     @Provides
-    internal fun provideJavaMinimumBlankLinesSettingsApplier(applier: Lazy<JavaMinimumBlankLinesSettingsApplier>) =
+    fun provideJavaMinimumBlankLinesSettingsApplier(applier: Lazy<JavaMinimumBlankLinesSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

@@ -10,10 +10,10 @@ import dagger.Provides
 object JavaProbableBugsInspectionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideJavaProbableBugsInspectionsSettingsApplier(applier: Lazy<JavaProbableBugsInspectionsSettingsApplier>) =
+    fun provideJavaProbableBugsInspectionsSettingsApplier(applier: Lazy<JavaProbableBugsInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 
     @Provides
-    internal fun provideArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier(applier: Lazy<ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier>) =
+    fun provideArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier(applier: Lazy<ArrayComparisonUsingEqualsInsteadOfArraysEqualsInspectionSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

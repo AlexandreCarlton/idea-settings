@@ -10,6 +10,6 @@ import dagger.Provides
 object JavascriptCodeQualityToolsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideJavascriptCodeQualityToolsSettingsApplier(applier: Lazy<JavascriptCodeQualityToolsSettingsApplier>) =
+    fun provideJavascriptCodeQualityToolsSettingsApplier(applier: Lazy<JavascriptCodeQualityToolsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 }

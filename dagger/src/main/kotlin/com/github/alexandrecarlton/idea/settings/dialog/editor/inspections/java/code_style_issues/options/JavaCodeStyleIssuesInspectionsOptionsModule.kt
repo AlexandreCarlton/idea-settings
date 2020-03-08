@@ -10,6 +10,6 @@ import dagger.Provides
 object JavaCodeStyleIssuesInspectionsOptionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideUnnecessaryParenthesesInspectionOptionsSettingsApplier(applier: Lazy<UnnecessaryParenthesesInspectionOptionsSettingsApplier>) =
+    fun provideUnnecessaryParenthesesInspectionOptionsSettingsApplier(applier: Lazy<UnnecessaryParenthesesInspectionOptionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

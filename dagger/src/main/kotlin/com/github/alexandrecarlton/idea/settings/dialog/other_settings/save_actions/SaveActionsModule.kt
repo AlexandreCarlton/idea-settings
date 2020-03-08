@@ -10,6 +10,6 @@ import dagger.Provides
 object SaveActionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideSaveActionsSettingsApplier(applier: Lazy<SaveActionsSettingsApplier>) =
+    fun provideSaveActionsSettingsApplier(applier: Lazy<SaveActionsSettingsApplier>) =
         provideIfLoaded(Plugin.SAVE_ACTIONS, applier)
 }

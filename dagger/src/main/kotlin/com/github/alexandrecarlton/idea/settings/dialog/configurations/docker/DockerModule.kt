@@ -9,10 +9,10 @@ import dagger.Lazy
 @Module
 object DockerModule : AbstractPluginModule() {
     @Provides
-    internal fun provideDockerComposeConfigurationSettingsApplier(applier: Lazy<DockerComposeConfigurationSettingsApplier>) =
+    fun provideDockerComposeConfigurationSettingsApplier(applier: Lazy<DockerComposeConfigurationSettingsApplier>) =
         provideIfLoaded(Plugin.DOCKER, applier)
 
     @Provides
-    internal fun provideDockerImageConfigurationSettingsApplier(applier: Lazy<DockerImageConfigurationSettingsApplier>) =
+    fun provideDockerImageConfigurationSettingsApplier(applier: Lazy<DockerImageConfigurationSettingsApplier>) =
         provideIfLoaded(Plugin.DOCKER, applier)
 }

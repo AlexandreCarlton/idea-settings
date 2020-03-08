@@ -10,6 +10,6 @@ import dagger.Provides
 object JavascriptCodeQualityToolsInspectionsOptionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideEslintInspectionOptionsSettingsApplier(applier: Lazy<EslintInspectionOptionsSettingsApplier>) =
+    fun provideEslintInspectionOptionsSettingsApplier(applier: Lazy<EslintInspectionOptionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 }

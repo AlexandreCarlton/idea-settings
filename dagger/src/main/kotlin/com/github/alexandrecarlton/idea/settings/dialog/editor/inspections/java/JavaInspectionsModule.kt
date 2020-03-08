@@ -10,6 +10,6 @@ import dagger.Provides
 object JavaInspectionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideJavaInspectionsSettingsApplier(applier: Lazy<JavaInspectionsSettingsApplier>) =
+    fun provideJavaInspectionsSettingsApplier(applier: Lazy<JavaInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

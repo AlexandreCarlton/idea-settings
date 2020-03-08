@@ -12,16 +12,16 @@ import javax.inject.Named
 object ConfigurationModule {
 
     @Provides
-    internal fun provideRunnerAndConfigurationSettings(@Named("configuration") name: String, runManager: RunManager) =
+    fun provideRunnerAndConfigurationSettings(@Named("configuration") name: String, runManager: RunManager) =
         runManager.findConfigurationByName(name)!!
 
     // #getBeforeRunTasks returns the underlying list, not just a copy.
     // If Jetbrains makes the method more robust, we can bind an empty ArrayList<BeforeRunTask<?>>() instead.
     @Provides
-    internal fun provideBeforeRunTasks(runConfiguration: RunConfiguration): List<BeforeRunTask<*>> =
+    fun provideBeforeRunTasks(runConfiguration: RunConfiguration): List<BeforeRunTask<*>> =
         runConfiguration.beforeRunTasks
 
     @Provides
-    internal fun provideRunConfiguration(runnerAndConfigurationSettings: RunnerAndConfigurationSettings) =
+    fun provideRunConfiguration(runnerAndConfigurationSettings: RunnerAndConfigurationSettings) =
         runnerAndConfigurationSettings.configuration
 }

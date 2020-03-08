@@ -10,10 +10,10 @@ import dagger.Provides
 object JavadocInspectionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideJavadocInspectionsSettingsApplier(applier: Lazy<JavadocInspectionsSettingsApplier>) =
+    fun provideJavadocInspectionsSettingsApplier(applier: Lazy<JavadocInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 
     @Provides
-    internal fun provideMissingDeprecatedAnnotationInspectionSettingsApplier(applier: Lazy<MissingDeprecatedAnnotationInspectionSettingsApplier>) =
+    fun provideMissingDeprecatedAnnotationInspectionSettingsApplier(applier: Lazy<MissingDeprecatedAnnotationInspectionSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

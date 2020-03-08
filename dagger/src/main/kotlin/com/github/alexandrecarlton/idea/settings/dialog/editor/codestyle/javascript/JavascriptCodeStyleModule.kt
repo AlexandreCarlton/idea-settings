@@ -10,10 +10,10 @@ import dagger.Provides
 object JavascriptCodeStyleModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideJavascriptCodeStyleSettingsApplier(applier: Lazy<JavascriptCodeStyleSettingsApplier>) =
+    fun provideJavascriptCodeStyleSettingsApplier(applier: Lazy<JavascriptCodeStyleSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 
     @Provides
-    internal fun provideJavascriptImportsSettingsApplier(applier: Lazy<JavascriptImportsSettingsApplier>) =
+    fun provideJavascriptImportsSettingsApplier(applier: Lazy<JavascriptImportsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 }

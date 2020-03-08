@@ -9,12 +9,11 @@ import dagger.Provides
 @Module
 object JavascriptCodeQualityToolsInspectionsModule : AbstractPluginModule() {
 
-    // Use a shorter name as we get "File name too long" errors.
     @Provides
-    internal fun provideJavascript(applier: Lazy<JavascriptCodeQualityToolsInspectionsSettingsApplier>) =
+    fun provideJavascriptCodeQualityToolsInspectionsSettingsApplier(applier: Lazy<JavascriptCodeQualityToolsInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 
     @Provides
-    internal fun provideEslint(applier: Lazy<EslintInspectionSettingsApplier>) =
+    fun provideEslintInspectionSettingsApplier(applier: Lazy<EslintInspectionSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 }

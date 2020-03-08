@@ -10,6 +10,6 @@ import dagger.Provides
 object FileWatchersModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideFileWatcherSettingsApplier(applier: Lazy<FileWatcherSettingsApplier>) =
+    fun provideFileWatcherSettingsApplier(applier: Lazy<FileWatcherSettingsApplier>) =
         provideIfLoaded(Plugin.FILE_WATCHERS, applier)
 }

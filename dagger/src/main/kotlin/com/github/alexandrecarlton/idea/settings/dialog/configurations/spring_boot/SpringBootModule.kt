@@ -9,6 +9,6 @@ import dagger.Provides
 @Module
 object SpringBootModule : AbstractPluginModule() {
     @Provides
-    internal fun provideSpringBootSettingsApplier(applier: Lazy<SpringBootSettingsApplier>) =
+    fun provideSpringBootSettingsApplier(applier: Lazy<SpringBootSettingsApplier>) =
         provideIfLoaded(Plugin.SPRING_BOOT, applier)
 }

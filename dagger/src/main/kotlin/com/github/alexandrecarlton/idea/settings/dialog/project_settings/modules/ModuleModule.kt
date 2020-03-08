@@ -11,8 +11,8 @@ import dagger.Provides
 object ModuleModule {
 
     @Provides
-    internal fun provideModuleRootManager(module: Module) = ModuleRootManager.getInstance(module)
+    fun provideModuleRootManager(module: Module) = ModuleRootManager.getInstance(module)
 
     @Provides
-    internal fun provideModifiableRootModel(moduleRootManager: ModuleRootManager) = moduleRootManager.modifiableModel
+    fun provideModifiableRootModel(moduleRootManager: ModuleRootManager) = moduleRootManager.modifiableModel
 }

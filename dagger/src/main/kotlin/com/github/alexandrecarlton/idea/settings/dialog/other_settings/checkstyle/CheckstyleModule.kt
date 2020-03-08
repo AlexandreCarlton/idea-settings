@@ -10,6 +10,6 @@ import dagger.Provides
 object CheckstyleModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideCheckstyleSettingsApplier(applier: Lazy<CheckstyleSettingsApplier>) =
+    fun provideCheckstyleSettingsApplier(applier: Lazy<CheckstyleSettingsApplier>) =
         provideIfLoaded(Plugin.CHECKSTYLE_IDEA, applier)
 }

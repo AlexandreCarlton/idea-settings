@@ -10,6 +10,6 @@ import dagger.Provides
 object JavaBeforeLaunchModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideBuildConfigurationSettings(buildConfigurationSettingsApplier: Lazy<BuildConfigurationSettingsApplier>) =
+    fun provideBuildConfigurationSettings(buildConfigurationSettingsApplier: Lazy<BuildConfigurationSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, buildConfigurationSettingsApplier)
 }

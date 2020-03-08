@@ -51,17 +51,17 @@ import javax.inject.Named
 object ProjectModule {
 
     @Provides
-    internal fun provideProject(@Named("project") path: String): Project =
+    fun provideProject(@Named("project") path: String): Project =
         ProjectUtil.openOrImport(path, null, false)!!
 
     @Provides
-    internal fun provideProjectEx(project: Project): ProjectEx = project as ProjectEx
+    fun provideProjectEx(project: Project): ProjectEx = project as ProjectEx
 
     @Provides
-    internal fun provideCodeInsightWorkspaceSettings(project: Project) = CodeInsightWorkspaceSettings.getInstance(project)
+    fun provideCodeInsightWorkspaceSettings(project: Project) = CodeInsightWorkspaceSettings.getInstance(project)
 
     @Provides
-    internal fun provideCodeStyleSettings(codeStyleSettingsManager: CodeStyleSettingsManager, project: Project): CodeStyleSettings {
+    fun provideCodeStyleSettings(codeStyleSettingsManager: CodeStyleSettingsManager, project: Project): CodeStyleSettings {
         // Ensure we only distribute one codeStyleSettings that is mutated in our appliers.
         codeStyleSettingsManager.USE_PER_PROJECT_SETTINGS = true
         codeStyleSettingsManager.mainProjectCodeStyle = CodeStyle.getDefaultSettings()
@@ -69,94 +69,94 @@ object ProjectModule {
     }
 
     @Provides
-    internal fun provideCodeStyleSettingsManager(project: Project) = CodeStyleSettingsManager.getInstance(project)
+    fun provideCodeStyleSettingsManager(project: Project) = CodeStyleSettingsManager.getInstance(project)
 
     @Provides
     @Named("java")
-    internal fun provideCommonCodeStyleSettings(codeStyleSettings: CodeStyleSettings) =
+    fun provideCommonCodeStyleSettings(codeStyleSettings: CodeStyleSettings) =
         codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE)
 
     @Provides
-    internal fun provideCompilerConfiguration(project: Project) = CompilerConfiguration.getInstance(project)
+    fun provideCompilerConfiguration(project: Project) = CompilerConfiguration.getInstance(project)
 
     @Provides
-    internal fun provideCompilerWorkspaceConfiguration(project: Project) = CompilerWorkspaceConfiguration.getInstance(project)
+    fun provideCompilerWorkspaceConfiguration(project: Project) = CompilerWorkspaceConfiguration.getInstance(project)
 
     @Provides
-    internal fun provideDockerRunConfigurationCreator(project: Project) = DockerRunConfigurationCreator(project)
+    fun provideDockerRunConfigurationCreator(project: Project) = DockerRunConfigurationCreator(project)
 
     @Provides
-    internal fun provideEslintConfiguration(project: Project) = EslintConfiguration.getInstance(project)
+    fun provideEslintConfiguration(project: Project) = EslintConfiguration.getInstance(project)
 
     @Provides
-    internal fun provideExternalDependenciesManager(project: Project) = ExternalDependenciesManager.getInstance(project)
+    fun provideExternalDependenciesManager(project: Project) = ExternalDependenciesManager.getInstance(project)
 
     @Provides
-    internal fun provideInspectionProfileImpl(projectInspectionProfileManager: ProjectInspectionProfileManager): InspectionProfileImpl {
+    fun provideInspectionProfileImpl(projectInspectionProfileManager: ProjectInspectionProfileManager): InspectionProfileImpl {
         val profile = projectInspectionProfileManager.getProfile("Project Default")
         profile.isProjectLevel = true
         return profile
     }
 
     @Provides
-    internal fun provideJavaCodeStyleSettings(codeStyleSettings: CodeStyleSettings): JavaCodeStyleSettings =
+    fun provideJavaCodeStyleSettings(codeStyleSettings: CodeStyleSettings): JavaCodeStyleSettings =
         codeStyleSettings.getCustomSettings(JavaCodeStyleSettings::class.java)
 
     @Provides
-    internal fun provideJavaProjectCodeInsightSettings(project: Project) = JavaProjectCodeInsightSettings.getSettings(project)
+    fun provideJavaProjectCodeInsightSettings(project: Project) = JavaProjectCodeInsightSettings.getSettings(project)
 
     @Provides
-    internal fun provideJSRootConfiguration(project: Project) = JSRootConfiguration.getInstance(project)
+    fun provideJSRootConfiguration(project: Project) = JSRootConfiguration.getInstance(project)
 
     @Provides
-    internal fun provideJSCodeStyleSettings(codeStyleSettings: CodeStyleSettings): JSCodeStyleSettings =
+    fun provideJSCodeStyleSettings(codeStyleSettings: CodeStyleSettings): JSCodeStyleSettings =
         codeStyleSettings.getCustomSettings(JSCodeStyleSettings::class.java)
 
     @Provides
-    internal fun provideLanguageLevelProjectExtension(project: Project) = LanguageLevelProjectExtension.getInstance(project)
+    fun provideLanguageLevelProjectExtension(project: Project) = LanguageLevelProjectExtension.getInstance(project)
 
     @Provides
-    internal fun provideMavenGeneralSettings(mavenProjectsManager: MavenProjectsManager) = mavenProjectsManager.generalSettings
+    fun provideMavenGeneralSettings(mavenProjectsManager: MavenProjectsManager) = mavenProjectsManager.generalSettings
 
     @Provides
-    internal fun provideMavenImportingSettings(mavenProjectsManager: MavenProjectsManager) = mavenProjectsManager.importingSettings
+    fun provideMavenImportingSettings(mavenProjectsManager: MavenProjectsManager) = mavenProjectsManager.importingSettings
 
     @Provides
-    internal fun provideMavenProjectsManager(project: Project) = MavenProjectsManager.getInstance(project)
+    fun provideMavenProjectsManager(project: Project) = MavenProjectsManager.getInstance(project)
 
     @Provides
-    internal fun provideModuleManager(project: Project) = ModuleManager.getInstance(project)
+    fun provideModuleManager(project: Project) = ModuleManager.getInstance(project)
 
     @Provides
-    internal fun provideNullableNotNullManager(project: Project) = NullableNotNullManager.getInstance(project)
+    fun provideNullableNotNullManager(project: Project) = NullableNotNullManager.getInstance(project)
 
     @Provides
-    internal fun providePluginConfigurationManager(project: Project) = PluginConfigurationManager.getInstance(project)
+    fun providePluginConfigurationManager(project: Project) = PluginConfigurationManager.getInstance(project)
 
     @Provides
-    internal fun provideProjectInspectionProfileManager(project: Project) = ProjectInspectionProfileManager.getInstance(project)
+    fun provideProjectInspectionProfileManager(project: Project) = ProjectInspectionProfileManager.getInstance(project)
 
     @Provides
-    internal fun provideProjectRootManager(project: Project) = ProjectRootManager.getInstance(project)
+    fun provideProjectRootManager(project: Project) = ProjectRootManager.getInstance(project)
 
     @Provides
-    internal fun provideProjectTasksOptions(project: Project) = ProjectTasksOptions.getInstance(project)
+    fun provideProjectTasksOptions(project: Project) = ProjectTasksOptions.getInstance(project)
 
     @Provides
-    internal fun provideRunConfigurationBeforeRunProvider(project: Project) = RunConfigurationBeforeRunProvider(project)
+    fun provideRunConfigurationBeforeRunProvider(project: Project) = RunConfigurationBeforeRunProvider(project)
 
     @Provides
-    internal fun provideSaveActionsStorage(project: Project) = StorageFactory.DEFAULT.getStorage(project)
+    fun provideSaveActionsStorage(project: Project) = StorageFactory.DEFAULT.getStorage(project)
 
     @Provides
-    internal fun provideSqlDialectMappings(project: Project) = SqlDialectMappings.getInstance(project)
+    fun provideSqlDialectMappings(project: Project) = SqlDialectMappings.getInstance(project)
 
     @Provides
-    internal fun provideRunManager(project: Project) = RunManager.getInstance(project)
+    fun provideRunManager(project: Project) = RunManager.getInstance(project)
 
     @Provides
-    internal fun provideSpellCheckerManager(project: Project) = SpellCheckerManager.getInstance(project)
+    fun provideSpellCheckerManager(project: Project) = SpellCheckerManager.getInstance(project)
 
     @Provides
-    internal fun provideSpellCheckerSettings(project: Project) = SpellCheckerSettings.getInstance(project)
+    fun provideSpellCheckerSettings(project: Project) = SpellCheckerSettings.getInstance(project)
 }

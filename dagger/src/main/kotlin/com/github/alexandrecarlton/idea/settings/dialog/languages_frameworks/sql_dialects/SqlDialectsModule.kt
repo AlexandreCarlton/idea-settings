@@ -10,6 +10,6 @@ import dagger.Provides
 object SqlDialectsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideSqlDialectsSettingsApplier(applier: Lazy<SqlDialectsSettingsApplier>) =
+    fun provideSqlDialectsSettingsApplier(applier: Lazy<SqlDialectsSettingsApplier>) =
         provideIfLoaded(Plugin.DATABASE_TOOLS_AND_SQL, applier)
 }

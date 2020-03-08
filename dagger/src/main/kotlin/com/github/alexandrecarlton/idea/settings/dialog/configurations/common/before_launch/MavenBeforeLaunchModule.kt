@@ -10,6 +10,6 @@ import dagger.Provides
 object MavenBeforeLaunchModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideRunMavenGoalSettingsApplier(runMavenGoalSettingsApplier: Lazy<RunMavenGoalSettingsApplier>) =
+    fun provideRunMavenGoalSettingsApplier(runMavenGoalSettingsApplier: Lazy<RunMavenGoalSettingsApplier>) =
         provideIfLoaded(Plugin.MAVEN, runMavenGoalSettingsApplier)
 }

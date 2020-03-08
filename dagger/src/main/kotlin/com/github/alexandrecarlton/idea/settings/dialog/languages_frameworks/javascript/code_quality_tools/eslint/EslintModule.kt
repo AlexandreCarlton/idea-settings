@@ -10,6 +10,6 @@ import dagger.Provides
 object EslintModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provideEslintSettingsApplier(applier: Lazy<EslintSettingsApplier>) =
+    fun provideEslintSettingsApplier(applier: Lazy<EslintSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 }

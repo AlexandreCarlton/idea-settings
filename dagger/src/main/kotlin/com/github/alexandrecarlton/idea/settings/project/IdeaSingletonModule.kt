@@ -11,5 +11,5 @@ import dagger.Provides
 object IdeaSingletonModule {
 
     @Provides
-    internal fun provideLocalFileSystem() = LocalFileSystem.getInstance();
+    fun provideLocalFileSystem() = LocalFileSystem.getInstance();
 }

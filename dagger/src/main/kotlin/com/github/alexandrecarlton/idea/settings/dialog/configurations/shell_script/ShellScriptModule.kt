@@ -9,6 +9,6 @@ import dagger.Provides
 @Module
 object ShellScriptModule : AbstractPluginModule() {
     @Provides
-    internal fun provideShellScriptConfigurationSettingsApplier(applier: Lazy<ShellScriptConfigurationSettingsApplier>) =
+    fun provideShellScriptConfigurationSettingsApplier(applier: Lazy<ShellScriptConfigurationSettingsApplier>) =
         provideIfLoaded(Plugin.SHELL_SCRIPT, applier)
 }

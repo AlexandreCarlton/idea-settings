@@ -24,45 +24,45 @@ object ConfigurationTypeModule {
     private val LOG = Logger.getInstance(ConfigurationTypeModule::class.java)
 
     @Provides
-    internal fun provideApplicationConfigurationType() = ApplicationConfigurationType.getInstance()
+    fun provideApplicationConfigurationType() = ApplicationConfigurationType.getInstance()
 
     @Provides
     @Named("Application")
-    internal fun provideApplicationConfigurationTypeSupplier(configurationType: Lazy<ApplicationConfigurationType>) =
+    fun provideApplicationConfigurationTypeSupplier(configurationType: Lazy<ApplicationConfigurationType>) =
         provideIfLoaded(Plugin.JAVA, configurationType)
 
     @Provides
     @Named("Docker")
-    internal fun provideDockerConfigurationType(): DeployToServerConfigurationType =
+    fun provideDockerConfigurationType(): DeployToServerConfigurationType =
         DockerCloudType.getRunConfigurationType()
 
     @Provides
     @Named("Docker")
-    internal fun provideDockerConfigurationTypeSupplier(@Named("Docker") configurationType: Lazy<DeployToServerConfigurationType>) =
+    fun provideDockerConfigurationTypeSupplier(@Named("Docker") configurationType: Lazy<DeployToServerConfigurationType>) =
         provideIfLoaded(Plugin.DOCKER, configurationType)
 
     @Provides
-    internal fun provideRemoteConfigurationType() = RemoteConfigurationType.getInstance()
+    fun provideRemoteConfigurationType() = RemoteConfigurationType.getInstance()
 
     @Provides
     @Named("Remote")
-    internal fun provideRemoteConfigurationTypeSupplier(configurationType: Lazy<RemoteConfigurationType>) =
+    fun provideRemoteConfigurationTypeSupplier(configurationType: Lazy<RemoteConfigurationType>) =
         provideIfLoaded(Plugin.JAVA, configurationType)
 
     @Provides
-    internal fun provideShellScriptConfigurationType() = ShConfigurationType()
+    fun provideShellScriptConfigurationType() = ShConfigurationType()
 
     @Provides
     @Named("Shell Script")
-    internal fun provideShellScriptConfigurationTypeSupplier(configurationType: Lazy<ShConfigurationType>) =
+    fun provideShellScriptConfigurationTypeSupplier(configurationType: Lazy<ShConfigurationType>) =
         provideIfLoaded(Plugin.SHELL_SCRIPT, configurationType)
 
     @Provides
-    internal fun provideSpringBootConfigurationType() = SpringBootApplicationConfigurationType()
+    fun provideSpringBootConfigurationType() = SpringBootApplicationConfigurationType()
 
     @Provides
     @Named("Spring Boot")
-    internal fun provideSpringBootConfigurationTypeSupplier(configurationType: Lazy<SpringBootApplicationConfigurationType>) =
+    fun provideSpringBootConfigurationTypeSupplier(configurationType: Lazy<SpringBootApplicationConfigurationType>) =
         provideIfLoaded(Plugin.SPRING_BOOT, configurationType)
 
     private fun provideIfLoaded(plugin: Plugin, configurationTypeSupplier: Lazy<out ConfigurationType>): Supplier<ConfigurationType> =

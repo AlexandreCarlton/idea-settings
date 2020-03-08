@@ -19,11 +19,11 @@ object FileTypeModule {
     private val LOG = Logger.getInstance(FileTypeModule::class.java)
 
     @Provides
-    internal fun provideJavaScriptFileType() = JavaScriptFileType.INSTANCE
+    fun provideJavaScriptFileType() = JavaScriptFileType.INSTANCE
 
     @Provides
     @Named("JavaScript")
-    internal fun provideJavaScriptFileTypeSupplier(javaScriptFileType: Lazy<JavaScriptFileType>): Supplier<FileType> =
+    fun provideJavaScriptFileTypeSupplier(javaScriptFileType: Lazy<JavaScriptFileType>): Supplier<FileType> =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, javaScriptFileType)
 
     private fun provideIfLoaded(plugin: Plugin, fileTypeSupplier: Lazy<out FileType>): Supplier<FileType> =

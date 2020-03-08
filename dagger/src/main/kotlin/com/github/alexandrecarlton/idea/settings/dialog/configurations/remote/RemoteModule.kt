@@ -9,6 +9,6 @@ import dagger.Provides
 @Module
 object RemoteModule : AbstractPluginModule() {
     @Provides
-    internal fun provideRemoteSettingsApplier(applier: Lazy<RemoteSettingsApplier>) =
+    fun provideRemoteSettingsApplier(applier: Lazy<RemoteSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

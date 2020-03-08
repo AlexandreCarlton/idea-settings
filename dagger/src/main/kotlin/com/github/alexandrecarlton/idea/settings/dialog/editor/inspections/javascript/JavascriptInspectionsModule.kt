@@ -10,6 +10,6 @@ import dagger.Provides
 object JavascriptInspectionsModule : AbstractPluginModule() {
 
     @Provides
-    internal fun provide(applier: Lazy<JavascriptInspectionsSettingsApplier>) =
+    fun provideSettingsApplier(applier: Lazy<JavascriptInspectionsSettingsApplier>) =
         provideIfLoaded(Plugin.JAVASCRIPT_AND_TYPESCRIPT, applier)
 }

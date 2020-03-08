@@ -9,6 +9,6 @@ import dagger.Provides
 @Module
 object JavadocModule : AbstractPluginModule() {
     @Provides
-    internal fun provideJavadocSettingsApplier(applier: Lazy<JavadocSettingsApplier>) =
+    fun provideJavadocSettingsApplier(applier: Lazy<JavadocSettingsApplier>) =
         provideIfLoaded(Plugin.JAVA, applier)
 }

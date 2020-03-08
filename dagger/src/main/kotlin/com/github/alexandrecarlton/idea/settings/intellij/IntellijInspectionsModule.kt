@@ -17,21 +17,21 @@ import dagger.Provides
 class IntellijInspectionsModule {
 
     @Provides
-    internal fun provideInspectionToolWrapper(scopeToolState: ScopeToolState) = scopeToolState.tool
+    fun provideInspectionToolWrapper(scopeToolState: ScopeToolState) = scopeToolState.tool
 
     @Provides
-    internal fun provideInspection(inspectionToolWrapper: InspectionToolWrapper<*, *>) = inspectionToolWrapper.tool
+    fun provideInspection(inspectionToolWrapper: InspectionToolWrapper<*, *>) = inspectionToolWrapper.tool
 
     // TODO: may want to generate this.
     @Provides
-    internal fun provideEslintInspection(inspection: InspectionProfileEntry): EslintInspection =
+    fun provideEslintInspection(inspection: InspectionProfileEntry): EslintInspection =
         inspection as EslintInspection
 
     @Provides
-    internal fun provideMissingDeprecatedAnnotationInspection(inspection: InspectionProfileEntry): MissingDeprecatedAnnotationInspection =
+    fun provideMissingDeprecatedAnnotationInspection(inspection: InspectionProfileEntry): MissingDeprecatedAnnotationInspection =
         inspection as MissingDeprecatedAnnotationInspection
 
     @Provides
-    internal fun provideUnnecessaryParenthesesInspection(inspection: InspectionProfileEntry): UnnecessaryParenthesesInspection =
+    fun provideUnnecessaryParenthesesInspection(inspection: InspectionProfileEntry): UnnecessaryParenthesesInspection =
         inspection as UnnecessaryParenthesesInspection
 }
