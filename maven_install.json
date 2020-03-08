@@ -312,7 +312,7 @@
                 "directDependencies": [
                     "net.ltgt.gradle.incap:incap:0.2",
                     "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0",
-                    "com.google.dagger:dagger:2.25.4",
+                    "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "org.checkerframework:checker-compat-qual:2.5.3",
                     "com.squareup:javapoet:1.11.1",
@@ -328,7 +328,7 @@
                     "net.ltgt.gradle.incap:incap:0.2",
                     "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0",
                     "com.google.code.findbugs:jsr305:3.0.2",
-                    "com.google.dagger:dagger:2.25.4",
+                    "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "com.google.errorprone:javac-shaded:9-dev-r4023-3",
                     "org.checkerframework:checker-compat-qual:2.5.3",
@@ -364,12 +364,12 @@
                     "com.google.googlejavaformat:google-java-format:jar:sources:1.5",
                     "javax.inject:javax.inject:jar:sources:1",
                     "com.squareup:javapoet:jar:sources:1.11.1",
-                    "com.google.dagger:dagger:jar:sources:2.25.4",
                     "net.ltgt.gradle.incap:incap:jar:sources:0.2",
                     "com.google.dagger:dagger-spi:jar:sources:2.25.2",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
                     "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                    "com.google.dagger:dagger:jar:sources:2.26",
                     "javax.annotation:jsr250-api:jar:sources:1.0"
                 ],
                 "dependencies": [
@@ -383,7 +383,6 @@
                     "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
                     "org.checkerframework:checker-qual:jar:sources:2.5.2",
                     "com.squareup:javapoet:jar:sources:1.11.1",
-                    "com.google.dagger:dagger:jar:sources:2.25.4",
                     "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
                     "net.ltgt.gradle.incap:incap:jar:sources:0.2",
                     "com.google.dagger:dagger-spi:jar:sources:2.25.2",
@@ -391,6 +390,7 @@
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
                     "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                    "com.google.dagger:dagger:jar:sources:2.26",
                     "javax.annotation:jsr250-api:jar:sources:1.0"
                 ],
                 "exclusions": [
@@ -408,7 +408,7 @@
                 "coord": "com.google.dagger:dagger-producers:2.25.2",
                 "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar",
                 "directDependencies": [
-                    "com.google.dagger:dagger:2.25.4",
+                    "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "org.checkerframework:checker-compat-qual:2.5.3",
                     "com.google.guava:failureaccess:1.0.1",
@@ -417,7 +417,7 @@
                 "dependencies": [
                     "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.code.findbugs:jsr305:3.0.2",
-                    "com.google.dagger:dagger:2.25.4",
+                    "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "org.checkerframework:checker-compat-qual:2.5.3",
                     "org.codehaus.mojo:animal-sniffer-annotations:1.17",
@@ -444,9 +444,9 @@
                 "directDependencies": [
                     "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
                     "javax.inject:javax.inject:jar:sources:1",
-                    "com.google.dagger:dagger:jar:sources:2.25.4",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
-                    "com.google.guava:guava:jar:sources:27.1-jre"
+                    "com.google.guava:guava:jar:sources:27.1-jre",
+                    "com.google.dagger:dagger:jar:sources:2.26"
                 ],
                 "dependencies": [
                     "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
@@ -455,11 +455,11 @@
                     "javax.inject:javax.inject:jar:sources:1",
                     "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
                     "org.checkerframework:checker-qual:jar:sources:2.5.2",
-                    "com.google.dagger:dagger:jar:sources:2.25.4",
                     "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
-                    "com.google.guava:guava:jar:sources:27.1-jre"
+                    "com.google.guava:guava:jar:sources:27.1-jre",
+                    "com.google.dagger:dagger:jar:sources:2.26"
                 ],
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
@@ -476,7 +476,7 @@
                 "coord": "com.google.dagger:dagger-spi:2.25.2",
                 "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2.jar",
                 "directDependencies": [
-                    "com.google.dagger:dagger:2.25.4",
+                    "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "com.squareup:javapoet:1.11.1",
                     "com.google.dagger:dagger-producers:2.25.2",
@@ -486,7 +486,7 @@
                 "dependencies": [
                     "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.code.findbugs:jsr305:3.0.2",
-                    "com.google.dagger:dagger:2.25.4",
+                    "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "org.checkerframework:checker-compat-qual:2.5.3",
                     "com.squareup:javapoet:1.11.1",
@@ -515,10 +515,10 @@
                 "directDependencies": [
                     "javax.inject:javax.inject:jar:sources:1",
                     "com.squareup:javapoet:jar:sources:1.11.1",
-                    "com.google.dagger:dagger:jar:sources:2.25.4",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
-                    "com.google.dagger:dagger-producers:jar:sources:2.25.2"
+                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                    "com.google.dagger:dagger:jar:sources:2.26"
                 ],
                 "dependencies": [
                     "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
@@ -528,12 +528,12 @@
                     "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
                     "org.checkerframework:checker-qual:jar:sources:2.5.2",
                     "com.squareup:javapoet:jar:sources:1.11.1",
-                    "com.google.dagger:dagger:jar:sources:2.25.4",
                     "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
-                    "com.google.dagger:dagger-producers:jar:sources:2.25.2"
+                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
+                    "com.google.dagger:dagger:jar:sources:2.26"
                 ],
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
@@ -547,36 +547,36 @@
                 "sha256": "7e0dd51de99b0bb6eb154811f03919e593a842ddbaa45b389a059f5d572b51dd"
             },
             {
-                "coord": "com.google.dagger:dagger:2.25.4",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4.jar",
+                "coord": "com.google.dagger:dagger:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger/2.26/dagger-2.26.jar",
                 "directDependencies": [
                     "javax.inject:javax.inject:1"
                 ],
                 "dependencies": [
                     "javax.inject:javax.inject:1"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger/2.26/dagger-2.26.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4.jar",
-                    "https://maven.google.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger/2.25.4/dagger-2.25.4.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger/2.26/dagger-2.26.jar",
+                    "https://maven.google.com/com/google/dagger/dagger/2.26/dagger-2.26.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger/2.26/dagger-2.26.jar"
                 ],
-                "sha256": "bfd19924d051d279ec34bba1d2e2c0df5e3aa7a1684e92df3fcdd27657a533f9"
+                "sha256": "f7553a84ce19751c645bd61a29360c15ec82540d706e5fca4e427f0907eec7e6"
             },
             {
-                "coord": "com.google.dagger:dagger:jar:sources:2.25.4",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
+                "coord": "com.google.dagger:dagger:jar:sources:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger/2.26/dagger-2.26-sources.jar",
                 "directDependencies": [
                     "javax.inject:javax.inject:jar:sources:1"
                 ],
                 "dependencies": [
                     "javax.inject:javax.inject:jar:sources:1"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger/2.26/dagger-2.26-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
-                    "https://maven.google.com/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger/2.25.4/dagger-2.25.4-sources.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger/2.26/dagger-2.26-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger/2.26/dagger-2.26-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger/2.26/dagger-2.26-sources.jar"
                 ],
                 "sha256": "05539e2fef2e6b5961dd438b0968e0550b1d69309e9a7f12ff995a51004e4f3c"
             },
@@ -1721,6 +1721,6 @@
             }
         ],
         "version": "0.1.0",
-        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": -2073794329
+        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 171963529
     }
 }
