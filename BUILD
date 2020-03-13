@@ -95,6 +95,7 @@ test_suite(
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/spelling",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/javascript",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/javascript/code_quality_tools/eslint",
+        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/nodejs_and_npm",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/sql_dialects",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/checkstyle",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/save_actions",

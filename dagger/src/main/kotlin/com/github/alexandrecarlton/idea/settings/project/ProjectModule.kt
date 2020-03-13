@@ -16,6 +16,8 @@ import com.intellij.execution.RunManager
 import com.intellij.execution.impl.RunConfigurationBeforeRunProvider
 import com.intellij.externalDependencies.ExternalDependenciesManager
 import com.intellij.ide.impl.ProjectUtil
+import com.intellij.javascript.nodejs.interpreter.NodeJsInterpreterManager
+import com.intellij.javascript.nodejs.npm.NpmManager
 import com.intellij.lang.java.JavaLanguage
 import com.intellij.lang.javascript.formatter.JSCodeStyleSettings
 import com.intellij.lang.javascript.linter.eslint.EslintConfiguration
@@ -126,6 +128,12 @@ object ProjectModule {
 
     @Provides
     fun provideModuleManager(project: Project) = ModuleManager.getInstance(project)
+
+    @Provides
+    fun provideNpmManager(project: Project) = NpmManager.getInstance(project)
+
+    @Provides
+    fun provideNodeJsInterpreterManager(project: Project) = NodeJsInterpreterManager.getInstance(project)
 
     @Provides
     fun provideNullableNotNullManager(project: Project) = NullableNotNullManager.getInstance(project)

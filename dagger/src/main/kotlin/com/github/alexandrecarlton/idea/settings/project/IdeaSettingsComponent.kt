@@ -36,6 +36,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.Lan
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguagesFrameworksModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.code_quality_tools.JavascriptCodeQualityToolsModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.code_quality_tools.eslint.EslintModule
+import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.nodejs_and_npm.NodejsAndNpmModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.sql_dialects.SqlDialectsModule
 import com.github.alexandrecarlton.idea.settings.dialog.other_settings.OtherSettingsModule
 import com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleModule
@@ -77,6 +78,7 @@ import javax.inject.Named
     LanguagesFrameworksModule::class,
     MavenModule::class,
     OtherSettingsModule::class,
+    NodejsAndNpmModule::class,
     ProjectSettingsModule::class,
     ProjectSettingsModulesModule::class,
     ProjectSettingsProjectModule::class,
