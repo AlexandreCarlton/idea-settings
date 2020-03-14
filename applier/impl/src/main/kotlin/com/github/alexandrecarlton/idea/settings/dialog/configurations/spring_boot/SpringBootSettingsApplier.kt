@@ -22,6 +22,10 @@ constructor(private val project: Project, private val runManager: RunManager) : 
         settings.configuration.environment?.useClasspathOfModule?.let { configuration.setModuleName(it) }
         settings.configuration.environment?.vmOptions?.let { configuration.vmParameters = it }
 
+        settings.configuration.springBoot?.enableDebugOutput?.let { configuration.isDebugMode = it }
+        settings.configuration.springBoot?.hideBanner?.let { configuration.isHideBanner = it }
+        settings.configuration.springBoot?.enableLaunchOptimization?.let { configuration.isEnableLaunchOptimization = it }
+        settings.configuration.springBoot?.enableJmxAgent?.let { configuration.isEnableJmxAgent = it }
         settings.configuration.springBoot?.overrideParameters
             ?.map { SpringBootAdditionalParameter(true, it.name, it.value) }
             ?.let { configuration.additionalParameters = it }

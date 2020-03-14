@@ -280,7 +280,7 @@ Run/Debug Configurations:
       Share through VCS: true
       Configuration:
         Main class: com.Application
-        Use class path of module: app
+        Use classpath of module: app
         VM options: -Xmx1g
         Program arguments: arg1 arg2
         Working directory: .
@@ -323,8 +323,12 @@ Run/Debug Configurations:
         Environment:
           VM options: -Xmx123m
           Include dependencies with provided scope: false
-          Use class path of module: my-module
+          Use classpath of module: my-module
         Spring Boot:
+          Enable debug output: false
+          Hide banner: false
+          Enable launch optimization: true
+          Enable JMX agent: true
           Override parameters:
             - Name: system.property
               Value: value

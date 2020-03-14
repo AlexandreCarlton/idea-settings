@@ -68,6 +68,58 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
     }
 
     @Test
+    fun enableDebugOutputApplied() {
+        settingsApplier.apply(SpringBootSettings(
+            name = "Spring Boot With Debug Output Enabled",
+            configuration = SpringBootConfigurationSettings(
+                mainClass = "com.Application",
+                springBoot = SpringBootConfigurationSpringBootSettings(
+                    enableDebugOutput = true))))
+
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With Debug Output Enabled")
+        assertThat(configuration.isDebugMode).isTrue()
+    }
+
+    @Test
+    fun hideBannerApplied() {
+        settingsApplier.apply(SpringBootSettings(
+            name = "Spring Boot With Hidden Banner",
+            configuration = SpringBootConfigurationSettings(
+                mainClass = "com.Application",
+                springBoot = SpringBootConfigurationSpringBootSettings(
+                    hideBanner = true))))
+
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With Hidden Banner")
+        assertThat(configuration.isHideBanner).isTrue()
+    }
+
+    @Test
+    fun enableLaunchOptimizationApplied() {
+        settingsApplier.apply(SpringBootSettings(
+            name = "Spring Boot With Launch Optimization Disabled",
+            configuration = SpringBootConfigurationSettings(
+                mainClass = "com.Application",
+                springBoot = SpringBootConfigurationSpringBootSettings(
+                    enableLaunchOptimization = false))))
+
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With Launch Optimization Disabled")
+        assertThat(configuration.isEnableLaunchOptimization).isFalse()
+    }
+
+    @Test
+    fun enableJmxAgentApplied() {
+        settingsApplier.apply(SpringBootSettings(
+            name = "Spring Boot With JMX Agent Disabled",
+            configuration = SpringBootConfigurationSettings(
+                mainClass = "com.Application",
+                springBoot = SpringBootConfigurationSpringBootSettings(
+                    enableJmxAgent = false))))
+
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With JMX Agent Disabled")
+        assertThat(configuration.isEnableJmxAgent).isFalse()
+    }
+
+    @Test
     fun overrideParametersApplied() {
         settingsApplier.apply(SpringBootSettings(
                 name = "Spring Boot With Override",
@@ -80,5 +132,12 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
         val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration
         assertThat(configuration).isNotNull()
         assertThat(configuration.additionalParameters).containsExactly(SpringBootAdditionalParameter(true, "Key", "Value"))
+    }
+
+    private fun getSpringBootApplicationRunConfiguration(name: String): SpringBootApplicationRunConfiguration {
+        val runnerAndConfigurationSettings = runManager.findConfigurationByName(name)!!
+        val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration
+        assertThat(configuration).isNotNull()
+        return configuration
     }
 }
