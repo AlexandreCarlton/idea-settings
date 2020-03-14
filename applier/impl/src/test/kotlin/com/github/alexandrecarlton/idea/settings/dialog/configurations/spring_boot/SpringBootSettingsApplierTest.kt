@@ -28,10 +28,7 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
                 configuration = SpringBootConfigurationSettings(
                     mainClass = "com.Application")))
 
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot Basic")
-        assertThat(runnerAndConfigurationSettings).isNotNull()
-
-        val configuration = runnerAndConfigurationSettings!!.configuration as SpringBootApplicationRunConfiguration
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot Basic")
         assertThat(configuration.springBootMainClass).isEqualTo("com.Application")
     }
 
@@ -44,9 +41,7 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
                     environment = SpringBootConfigurationEnvironmentSettings(
                         includeDependenciesWithProvidedScope = false))))
 
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With Provided")!!
-        val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration
-        assertThat(configuration).isNotNull()
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With Provided")
         assertThat(configuration.isIncludeProvidedScope).isFalse()
     }
 
@@ -61,9 +56,7 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
                     environment = SpringBootConfigurationEnvironmentSettings(
                         vmOptions = "-Xmx123m"))))
 
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName("Spring Boot With VM Options")!!
-        val configuration = runnerAndConfigurationSettings.configuration as SpringBootApplicationRunConfiguration
-        assertThat(configuration).isNotNull()
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With VM Options")
         assertThat(configuration.vmParameters).isEqualTo("-Xmx123m")
     }
 
