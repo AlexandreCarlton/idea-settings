@@ -1,6 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.component
 
-import com.github.alexandrecarlton.idea.settings.configuration.ConfigurationSubcomponent
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.subcomponent.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.subcomponent.InspectionsSubcomponent
 import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules.ModuleSubcomponent
 import dagger.Module

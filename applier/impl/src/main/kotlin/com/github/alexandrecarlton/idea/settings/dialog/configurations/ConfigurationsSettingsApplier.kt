@@ -1,7 +1,7 @@
 package com.github.alexandrecarlton.idea.settings.dialog.configurations
 
-import com.github.alexandrecarlton.idea.settings.configuration.ConfigurationSubcomponent
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.subcomponent.ConfigurationSubcomponent
 import com.intellij.execution.RunManager
 import java.util.ArrayList
 import javax.inject.Inject

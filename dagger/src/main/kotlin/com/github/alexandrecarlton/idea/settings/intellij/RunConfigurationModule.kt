@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.configuration
+package com.github.alexandrecarlton.idea.settings.intellij
 
 import com.intellij.execution.BeforeRunTask
 import com.intellij.execution.RunManager
@@ -9,7 +9,7 @@ import dagger.Provides
 import javax.inject.Named
 
 @Module
-object ConfigurationModule {
+object RunConfigurationModule {
 
     @Provides
     fun provideRunnerAndConfigurationSettings(@Named("configuration") name: String, runManager: RunManager) =
