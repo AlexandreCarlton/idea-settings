@@ -2,6 +2,7 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations.docker
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.DockerImageConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.environment.EnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
@@ -90,7 +91,7 @@ class DockerImageConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
     fun environmentVariablesApplied() {
         settingsApplier.apply(DockerImageConfigurationSettings(
                 name = "Environment Variables",
-                environmentVariables = listOf(DockerEnvironmentVariable(
+                environmentVariables = listOf(EnvironmentVariable(
                     name = "name", value = "value"))))
         assertThat(getDockerDeploymentConfiguration("Environment Variables").envVars)
                 .containsExactly(DockerEnvVarImpl("name", "value"))

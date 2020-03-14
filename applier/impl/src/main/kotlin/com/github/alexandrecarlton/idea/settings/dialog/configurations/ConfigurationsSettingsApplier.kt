@@ -7,13 +7,12 @@ import java.util.ArrayList
 import javax.inject.Inject
 
 class ConfigurationsSettingsApplier @Inject
-// TODO: Could we maybe inject the appliers into a map, from class -> applier?
-// We lose the 'when' compiler failure though :/
 constructor(private val runManager: RunManager,
             private val configurationSubcomponentBuilder: ConfigurationSubcomponent.Builder,
             private val applicationConfigurationSettingsApplier: SettingsApplier<ApplicationConfigurationSettings>,
             private val dockerComposeConfigurationSettingsApplier: SettingsApplier<DockerComposeConfigurationSettings>,
             private val dockerImageConfigurationSettingsApplier: SettingsApplier<DockerImageConfigurationSettings>,
+            private val npmConfigurationSettingsApplier: SettingsApplier<NpmConfigurationSettings>,
             private val remoteConfigurationApplier: SettingsApplier<RemoteSettings>,
             private val shellScriptConfigurationSettingsApplier: SettingsApplier<ShellScriptConfigurationSettings>,
             private val springBootConfigurationApplier: SettingsApplier<SpringBootSettings>
@@ -25,6 +24,7 @@ constructor(private val runManager: RunManager,
             is DockerComposeConfigurationSettings -> dockerComposeConfigurationSettingsApplier.apply(settings)
             is DockerImageConfigurationSettings -> dockerImageConfigurationSettingsApplier.apply(settings)
             is RemoteSettings -> remoteConfigurationApplier.apply(settings)
+            is NpmConfigurationSettings -> npmConfigurationSettingsApplier.apply(settings)
             is ShellScriptConfigurationSettings -> shellScriptConfigurationSettingsApplier.apply(settings)
             is SpringBootSettings -> springBootConfigurationApplier.apply(settings)
         }

@@ -7,7 +7,9 @@ kt_jvm_library(
     deps = [
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/application",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/common/before_launch",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/common/environment",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/npm",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/remote",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/shell_script",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/spring_boot",

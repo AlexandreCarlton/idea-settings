@@ -2,6 +2,7 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations.docker
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.DockerComposeConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.environment.EnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.docker.DockerDeploymentConfiguration
 import com.intellij.docker.DockerRunConfigurationCreator
@@ -65,7 +66,7 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
     fun environmentVariablesApplied() {
         settingsApplier.apply(DockerComposeConfigurationSettings(
             name = "Docker Compose Environment Variables",
-            environmentVariables = listOf(DockerEnvironmentVariable(name = "name", value = "value"))))
+            environmentVariables = listOf(EnvironmentVariable(name = "name", value = "value"))))
         assertThat(getDockerDeploymentConfiguration("Docker Compose Environment Variables").envVars)
                 .containsExactly(DockerEnvVarImpl("name", "value"))
     }

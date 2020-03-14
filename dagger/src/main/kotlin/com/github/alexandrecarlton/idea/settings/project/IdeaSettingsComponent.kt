@@ -10,6 +10,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.ConfigurationsModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.application.ApplicationModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerModule
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.npm.NpmConfigurationModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.remote.RemoteModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.shell_script.ShellScriptModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot.SpringBootModule
@@ -78,10 +79,11 @@ import javax.inject.Named
     LanguagesFrameworksModule::class,
     MavenModule::class,
     OtherSettingsModule::class,
-    NodejsAndNpmModule::class,
     ProjectSettingsModule::class,
     ProjectSettingsModulesModule::class,
     ProjectSettingsProjectModule::class,
+    NodejsAndNpmModule::class,
+    NpmConfigurationModule::class,
     RemoteModule::class,
     SaveActionsModule::class,
     ShellScriptModule::class,

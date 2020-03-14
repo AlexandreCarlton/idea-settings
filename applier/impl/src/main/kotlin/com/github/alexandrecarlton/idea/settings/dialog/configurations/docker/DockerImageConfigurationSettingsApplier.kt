@@ -2,6 +2,7 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations.docker
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.DockerImageConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.environment.EnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerPublishToHostInterface.ALL
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerPublishToHostInterface.SPECIFY
 import com.intellij.docker.DockerDeploymentConfiguration
@@ -58,12 +59,11 @@ constructor(
         return dockerPortBindingImpl
     }
 
-    private fun toDockerEnvVarImpl(dockerEnvironmentVariable: DockerEnvironmentVariable): DockerEnvVarImpl {
-        val dockerEnvVarImpl = DockerEnvVarImpl()
-        dockerEnvironmentVariable.name.let { dockerEnvVarImpl.name = it }
-        dockerEnvironmentVariable.value?.let { dockerEnvVarImpl.value = it }
-        return dockerEnvVarImpl
-    }
+    private fun toDockerEnvVarImpl(environmentVariable: EnvironmentVariable): DockerEnvVarImpl =
+        DockerEnvVarImpl().apply {
+            name = environmentVariable.name
+            value = environmentVariable.value
+        }
 
     private fun toProtocolString(protocol: DockerPortBindingProtocol) =
         when (protocol) {

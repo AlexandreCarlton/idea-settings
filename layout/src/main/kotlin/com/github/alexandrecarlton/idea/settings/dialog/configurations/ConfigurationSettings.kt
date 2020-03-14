@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.annotation.JsonTypeName
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.application.ApplicationConfigurationConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.BeforeLaunchConfigurationSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.environment.EnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerComposeConfigurationOptionsSettings
-import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerEnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerExecutableSettings
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerPortBinding
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerPublishToHostInterface
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.npm.NpmConfigurationCommand
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.remote.RemoteConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.shell_script.InterpreterConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot.SpringBootConfigurationSettings
@@ -61,7 +62,7 @@ data class DockerComposeConfigurationSettings(
     val services: List<String>? = null,
 
     @JsonProperty("Environment variables")
-    val environmentVariables: List<DockerEnvironmentVariable>? = null,
+    val environmentVariables: List<EnvironmentVariable>? = null,
 
     @JsonProperty("Options")
     val options: DockerComposeConfigurationOptionsSettings? = null
@@ -97,10 +98,48 @@ data class DockerImageConfigurationSettings(
     // TODO: bindMounts
 
     @JsonProperty("Environment variables")
-    val environmentVariables: List<DockerEnvironmentVariable>? = null,
+    val environmentVariables: List<EnvironmentVariable>? = null,
 
     @JsonProperty("Run options")
     val runOptions: String? = null
+
+) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+
+@JsonTypeName("npm")
+data class NpmConfigurationSettings (
+
+    override val name: String,
+
+    override val shareThroughVcs: Boolean? = null,
+
+    override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
+
+    @JsonProperty("package.json")
+    val packageJson: File? = null,
+
+    @JsonProperty("Command")
+    val command: NpmConfigurationCommand? = null,
+
+    /**
+     * Should only be used if the command is 'run'.
+     */
+    @JsonProperty("Scripts")
+    val scripts: String? = null,
+
+    @JsonProperty("Arguments")
+    val arguments: String? = null,
+
+    @JsonProperty("Node interpreter")
+    val nodeInterpreter: File? = null,
+
+    @JsonProperty("Node options")
+    val nodeOptions: String? = null,
+
+    @JsonProperty("Package manager")
+    val packageManager: File? = null,
+
+    @JsonProperty("")
+    val environment: List<EnvironmentVariable>? = null
 
 ) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
 
