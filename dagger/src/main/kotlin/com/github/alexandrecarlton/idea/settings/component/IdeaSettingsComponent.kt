@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.project
+package com.github.alexandrecarlton.idea.settings.component
 
 import com.github.alexandrecarlton.idea.settings.dialog.IdeaModule
 import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
@@ -47,6 +47,11 @@ import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules
 import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectSettingsProjectModule
 import com.github.alexandrecarlton.idea.settings.dialog.tools.ToolsModule
 import com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.FileWatchersModule
+import com.github.alexandrecarlton.idea.settings.intellij.ConfigurationTypeModule
+import com.github.alexandrecarlton.idea.settings.intellij.FileTypeModule
+import com.github.alexandrecarlton.idea.settings.intellij.IntellijSingletonModule
+import com.github.alexandrecarlton.idea.settings.intellij.ProjectModule
+import com.github.alexandrecarlton.idea.settings.intellij.ToolsImplModule
 import com.intellij.openapi.project.Project
 import dagger.BindsInstance
 import dagger.Component
@@ -90,10 +95,11 @@ import javax.inject.Named
     SpellingModule::class,
     SpringBootModule::class,
     SqlDialectsModule::class,
+    SubcomponentModule::class,
     ToolsModule::class,
     InspectionsModule::class,
     ConfigurationTypeModule::class,
-    IdeaSingletonModule::class,
+    IntellijSingletonModule::class,
     JavaCodeStyleIssuesInspectionsModule::class,
     JavadocInspectionsModule::class,
     JavaInspectionsModule::class,

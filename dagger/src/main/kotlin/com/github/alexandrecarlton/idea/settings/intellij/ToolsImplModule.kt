@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.project
+package com.github.alexandrecarlton.idea.settings.intellij
 
 import com.intellij.codeInspection.ex.InspectionProfileImpl
 import com.intellij.openapi.project.Project

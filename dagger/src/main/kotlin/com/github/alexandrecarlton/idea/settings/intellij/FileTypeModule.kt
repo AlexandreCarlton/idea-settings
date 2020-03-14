@@ -1,4 +1,4 @@
-package com.github.alexandrecarlton.idea.settings.project
+package com.github.alexandrecarlton.idea.settings.intellij
 
 import com.github.alexandrecarlton.idea.settings.common.Plugin
 import com.intellij.ide.plugins.PluginManager

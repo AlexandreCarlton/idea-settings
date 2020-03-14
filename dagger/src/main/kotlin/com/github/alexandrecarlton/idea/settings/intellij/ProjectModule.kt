@@ -1,9 +1,6 @@
-package com.github.alexandrecarlton.idea.settings.project
+package com.github.alexandrecarlton.idea.settings.intellij
 
 import com.dubreuia.model.StorageFactory
-import com.github.alexandrecarlton.idea.settings.configuration.ConfigurationSubcomponent
-import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.subcomponent.InspectionsSubcomponent
-import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules.ModuleSubcomponent
 import com.intellij.application.options.CodeStyle
 import com.intellij.codeInsight.CodeInsightWorkspaceSettings
 import com.intellij.codeInsight.JavaProjectCodeInsightSettings
@@ -44,12 +41,7 @@ import javax.inject.Named
 /**
  * Provides components that depend on the imported [Project].
  */
-@Module(subcomponents = [
-    ModuleSubcomponent::class,
-    ConfigurationSubcomponent::class,
-    // This should be attached to the Module that provides the class that uses this subcomponent.
-    // This is the BaseInspectionSettingsApplier, so just chuck this on InspectionsModule.
-    InspectionsSubcomponent::class])
+@Module
 object ProjectModule {
 
     @Provides
