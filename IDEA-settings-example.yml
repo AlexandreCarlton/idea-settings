@@ -329,6 +329,9 @@ Run/Debug Configurations:
           Hide banner: false
           Enable launch optimization: true
           Enable JMX agent: true
+          Running Application Update Policies:
+            On 'Update' action: Hot swap classes and update trigger file if failed
+            On frame deactivation: Update classes and resources
           Override parameters:
             - Name: system.property
               Value: value

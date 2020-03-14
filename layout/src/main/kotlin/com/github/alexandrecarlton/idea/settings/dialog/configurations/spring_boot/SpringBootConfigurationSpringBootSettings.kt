@@ -16,6 +16,9 @@ data class SpringBootConfigurationSpringBootSettings(
     @JsonProperty("Enable JMX agent")
     val enableJmxAgent: Boolean? = null,
 
+    @JsonProperty("Running Application Update Policies")
+    val runningApplicationUpdatePolicies: SpringBootConfigurationRunningApplicationUpdatePoliciesSettings? = null,
+
     @JsonProperty("Override parameters")
     val overrideParameters: List<OverrideParameter>? = null
 )

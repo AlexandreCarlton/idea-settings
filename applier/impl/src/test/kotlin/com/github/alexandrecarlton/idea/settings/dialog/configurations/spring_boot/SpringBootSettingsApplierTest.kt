@@ -2,10 +2,14 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_b
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.SpringBootSettings
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot.SpringBootConfigurationFrameDeactivationPolicy.UPDATE_CLASSES_AND_RESOURCES
+import com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot.SpringBootConfigurationUpdateActionPolicy.HOT_SWAP_CLASSES_AND_UPDATE_TRIGGER_FILE_IF_FAILED
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.execution.RunManager
 import com.intellij.spring.boot.run.SpringBootAdditionalParameter
 import com.intellij.spring.boot.run.SpringBootApplicationRunConfiguration
+import com.intellij.spring.boot.run.update.UpdateClassesAndResourcesPolicy
+import com.intellij.spring.boot.run.update.UpdateClassesAndTriggerFilePolicy
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
@@ -110,6 +114,34 @@ class SpringBootSettingsApplierTest : IdeaSettingsTestFixture() {
 
         val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With JMX Agent Disabled")
         assertThat(configuration.isEnableJmxAgent).isFalse()
+    }
+
+    @Test
+    fun onUpdateActionApplied() {
+        settingsApplier.apply(SpringBootSettings(
+            name = "Spring Boot With Update Action",
+            configuration = SpringBootConfigurationSettings(
+                mainClass = "com.Application",
+                springBoot = SpringBootConfigurationSpringBootSettings(
+                    runningApplicationUpdatePolicies = SpringBootConfigurationRunningApplicationUpdatePoliciesSettings(
+                        onUpdateAction = HOT_SWAP_CLASSES_AND_UPDATE_TRIGGER_FILE_IF_FAILED)))))
+
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With Update Action")
+        assertThat(configuration.updateActionUpdatePolicy).isInstanceOf(UpdateClassesAndTriggerFilePolicy::class.java)
+    }
+
+    @Test
+    fun onFrameDeactivationApplied() {
+        settingsApplier.apply(SpringBootSettings(
+            name = "Spring Boot With Frame Deactivation",
+            configuration = SpringBootConfigurationSettings(
+                mainClass = "com.Application",
+                springBoot = SpringBootConfigurationSpringBootSettings(
+                    runningApplicationUpdatePolicies = SpringBootConfigurationRunningApplicationUpdatePoliciesSettings(
+                        onFrameDeactivation = UPDATE_CLASSES_AND_RESOURCES)))))
+
+        val configuration = getSpringBootApplicationRunConfiguration("Spring Boot With Frame Deactivation")
+        assertThat(configuration.frameDeactivationUpdatePolicy).isInstanceOf(UpdateClassesAndResourcesPolicy::class.java)
     }
 
     @Test
