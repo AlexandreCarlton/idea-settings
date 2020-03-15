@@ -1,29 +1,29 @@
 package com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.dialog.common.FileType
-import com.github.alexandrecarlton.idea.settings.dialog.common.FileTypeMapper
+import com.github.alexandrecarlton.idea.settings.dialog.common.filetype.IdeaFileType
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.lang.javascript.JavaScriptFileType
+import com.intellij.openapi.fileTypes.FileType
 import com.intellij.plugins.watcher.model.ProjectTasksOptions
 import io.mockk.every
 import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import java.util.function.Supplier
+import java.util.function.Function
 
 class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<FileWatcherSettings>
     private lateinit var projectTasksOptions: ProjectTasksOptions
-    private val fileTypeMapper = mockk<FileTypeMapper>()
+    private val fileTypeMapper = mockk<Function<IdeaFileType, FileType>>()
 
     @Before
     public override fun setUp() {
         projectTasksOptions = ProjectTasksOptions.getInstance(project)
         settingsApplier = FileWatcherSettingsApplier(projectTasksOptions, fileTypeMapper)
-        every { fileTypeMapper.mapFileType(FileType.JAVASCRIPT) } returns JavaScriptFileType.INSTANCE
+        every { fileTypeMapper.apply(IdeaFileType.JAVASCRIPT) } returns JavaScriptFileType.INSTANCE
     }
 
     @Test
@@ -31,7 +31,7 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(FileWatcherSettings(
             name = "Basic File Watcher",
             filesToWatch = FileWatcherFilesToWatchSettings(
-                fileType = FileType.JAVASCRIPT,
+                fileType = IdeaFileType.JAVASCRIPT,
                 scope = "Module 'foo'"),
             toolToRunOnChanges = FileWatcherToolToRunOnChangesSettings(
                 program = "/usr/bin/foo",
@@ -60,7 +60,7 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(FileWatcherSettings(
             name = "Advanced Watcher Settings",
             filesToWatch = FileWatcherFilesToWatchSettings(
-                fileType = FileType.JAVASCRIPT,
+                fileType = IdeaFileType.JAVASCRIPT,
                 scope = "Module 'foo'"),
             toolToRunOnChanges = FileWatcherToolToRunOnChangesSettings(
                 program = "/usr/bin/foo",

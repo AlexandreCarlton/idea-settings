@@ -16,9 +16,9 @@ import org.jetbrains.plugins.less.LESSFileType
 import javax.inject.Named
 
 @Module
-object FileTypeModule {
+object IntellijFileTypeModule {
 
-    private val LOG = Logger.getInstance(FileTypeModule::class.java)
+    private val LOG = Logger.getInstance(IntellijFileTypeModule::class.java)
 
     @Provides
     @Named("JavaScript")

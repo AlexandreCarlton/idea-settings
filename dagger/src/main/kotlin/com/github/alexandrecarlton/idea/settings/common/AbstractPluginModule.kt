@@ -12,6 +12,7 @@ abstract class AbstractPluginModule {
 
     private val LOG = Logger.getInstance(AbstractPluginModule::class.java)
 
+    // TODO: See if you can make this more general; see FileTypeModule
     protected fun <T> provideIfLoaded(plugin: Plugin, settingsApplier: Lazy<out SettingsApplier<T>>): SettingsApplier<T> =
         if (PluginManager.isPluginInstalled(PluginId.findId(plugin.id)))
             settingsApplier.get()

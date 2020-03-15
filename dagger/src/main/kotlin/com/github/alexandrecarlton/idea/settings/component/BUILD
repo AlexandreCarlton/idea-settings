@@ -13,6 +13,7 @@ kt_jvm_library(
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/build_execution_deployment/build_tools",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/build_execution_deployment/build_tools/maven",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/build_execution_deployment/compiler",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common/filetype",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/application",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/common/before_launch",

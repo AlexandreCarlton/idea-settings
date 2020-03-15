@@ -1,20 +1,23 @@
 package com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.github.alexandrecarlton.idea.settings.dialog.common.FileTypeMapper
+import com.github.alexandrecarlton.idea.settings.dialog.common.filetype.IdeaFileType
+import com.intellij.openapi.fileTypes.FileType
 import com.intellij.plugins.watcher.model.ProjectTasksOptions
 import com.intellij.plugins.watcher.model.TaskOptions
 import javax.inject.Inject
 
-class FileWatcherSettingsApplier @Inject
-constructor(private val projectTasksOptions: ProjectTasksOptions, private val fileTypeMapper: FileTypeMapper) : SettingsApplier<FileWatcherSettings> {
+class FileWatcherSettingsApplier @Inject constructor(
+    private val projectTasksOptions: ProjectTasksOptions,
+    private val fileTypeMapper: java.util.function.Function<IdeaFileType, FileType>
+) : SettingsApplier<FileWatcherSettings> {
 
     override fun apply(settings: FileWatcherSettings) {
         val taskOptions = TaskOptions()
         taskOptions.name = settings.name
         settings.filesToWatch
             .fileType
-            ?.let { fileTypeMapper.mapFileType(it) }
+            ?.let { fileTypeMapper.apply(it) }
             ?.defaultExtension
             ?.let { taskOptions.fileExtension = it }
         settings.filesToWatch.scope?.let { taskOptions.scopeName = it }

@@ -17,10 +17,10 @@ kt_jvm_test(
     ],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
-        "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common",
+        "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common/filetype",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
-        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common/filetype",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
         "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
         "@idea-IC//:lib/extensions",

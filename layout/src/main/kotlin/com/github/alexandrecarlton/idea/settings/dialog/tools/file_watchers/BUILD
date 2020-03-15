@@ -5,7 +5,7 @@ kt_jvm_library(
     srcs = glob(["*.kt"]),
     visibility = ["//visibility:public"],
     deps = [
-        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common/filetype",
         "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],
 )

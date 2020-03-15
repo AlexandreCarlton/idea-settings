@@ -6,10 +6,9 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
-        "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
-        "@maven//:javax_inject_javax_inject",
         "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
         "@idea-IC//:lib/platform-api",
+        "@maven//:javax_inject_javax_inject",
     ],
 )

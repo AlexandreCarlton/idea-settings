@@ -7,6 +7,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployme
 import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.build_tools.BuildToolsModule
 import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.build_tools.maven.MavenModule
 import com.github.alexandrecarlton.idea.settings.dialog.build_execution_deployment.compiler.CompilerModule
+import com.github.alexandrecarlton.idea.settings.dialog.common.filetype.FileTypeModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.ConfigurationsModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.application.ApplicationModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerModule
@@ -48,7 +49,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project
 import com.github.alexandrecarlton.idea.settings.dialog.tools.ToolsModule
 import com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.FileWatchersModule
 import com.github.alexandrecarlton.idea.settings.intellij.ConfigurationTypeModule
-import com.github.alexandrecarlton.idea.settings.intellij.FileTypeModule
+import com.github.alexandrecarlton.idea.settings.intellij.IntellijFileTypeModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijSingletonModule
 import com.github.alexandrecarlton.idea.settings.intellij.ProjectModule
 import com.github.alexandrecarlton.idea.settings.intellij.ToolsImplModule
@@ -69,6 +70,7 @@ import javax.inject.Named
     DockerModule::class,
     EditorModule::class,
     EslintModule::class,
+    FileTypeModule::class,
     FileWatchersModule::class,
     GeneralModule::class,
     IdeaModule::class,
@@ -106,7 +108,7 @@ import javax.inject.Named
     JavaProbableBugsInspectionsModule::class,
     JavascriptCodeQualityToolsInspectionsModule::class,
     JavascriptInspectionsModule::class,
-    FileTypeModule::class,
+    IntellijFileTypeModule::class,
     ProjectModule::class,
     ToolsImplModule::class])
 interface IdeaSettingsComponent {
