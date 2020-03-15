@@ -8,11 +8,20 @@ import com.fasterxml.jackson.annotation.JsonProperty
  */
 enum class IdeaFileType {
 
+    @JsonProperty("Cascading Style Sheet")
+    CASCADING_STYLE_SHEET,
+
     @JsonProperty("JavaScript")
     JAVASCRIPT,
 
+    @JsonProperty("JSON")
+    JSON,
+
     @JsonProperty("Less Style Sheet")
     LESS_STYLE_SHEET,
+
+    @JsonProperty("Markdown")
+    MARKDOWN,
 
     @JsonProperty("React JSX")
     REACT_JSX,

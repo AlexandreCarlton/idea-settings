@@ -43,6 +43,13 @@ java_import(
 )
 
 java_import(
+    name = "lib/json",
+    jars = ["lib/json.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
     name = "lib/jna",
     jars = ["lib/jna.jar"],
     neverlink = True,
@@ -143,6 +150,13 @@ java_import(
 java_import(
     name = "plugins/java/lib/java-impl",
     jars = ["plugins/java/lib/java-impl.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
+    name = "plugins/markdown/lib/markdown",
+    jars = ["plugins/markdown/lib/markdown.jar"],
     neverlink = True,
     srcjar = "@idea-IC-sources//jar",
 )

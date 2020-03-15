@@ -7,6 +7,18 @@ exports_files([
 ])
 
 java_import(
+    name = "plugins/CSS/lib/css",
+    jars = ["plugins/CSS/lib/css.jar"],
+    neverlink = True,
+)
+
+java_import(
+    name = "plugins/CSS/lib/css-openapi",
+    jars = ["plugins/CSS/lib/css-openapi.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "plugins/DatabaseTools/lib/database-dialects",
     jars = ["plugins/DatabaseTools/lib/database-dialects.jar"],
     neverlink = True,
