@@ -11,6 +11,7 @@ import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.application.ex.ApplicationManagerEx
 import java.io.File
 import java.io.IOException
+import kotlin.system.exitProcess
 
 class IdeaSettingsApplicationStarter : ApplicationStarter {
 
@@ -64,8 +65,8 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         return try {
             ideaSettingsReader.readValue(configFile.inputStream())
         } catch (e: IOException) {
-            println(e.message)
-            null
+            System.err.println(e.message)
+            exitProcess(1)
         }
     }
 }
