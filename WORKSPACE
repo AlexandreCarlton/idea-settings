@@ -155,12 +155,12 @@ load("@rules_jvm_external//:specs.bzl", "maven")
 
 maven_install(
     artifacts = [
-        "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
-        "com.fasterxml.jackson.core:jackson-core:2.10.1",
-        "com.fasterxml.jackson.core:jackson-databind:2.10.1",
-        "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1",
-        "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.1",
-        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1",
+        "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+        "com.fasterxml.jackson.core:jackson-core:2.10.3",
+        "com.fasterxml.jackson.core:jackson-databind:2.10.3",
+        "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.3",
+        "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.3",
+        "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3",
         "com.google.dagger:dagger:2.26",
         "com.google.guava:guava:27.0.1-jre",
         "javax.inject:javax.inject:1",
@@ -180,7 +180,7 @@ maven_install(
         maven.artifact(
             group = "com.google.dagger",
             artifact = "dagger-compiler",
-            version = "2.25.2",
+            version = "2.26",
             exclusions = ["org.jetbrains.kotlin:kotlin-stdlib"],
         ),
         maven.artifact(

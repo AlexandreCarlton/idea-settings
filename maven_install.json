@@ -5,244 +5,244 @@
         },
         "dependencies": [
             {
-                "coord": "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar",
+                "coord": "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar"
                 ],
-                "sha256": "673f8ae16becea4fa937404b3a851417faf42df3bbc592028bbe2bfe0cc9d8cb"
+                "sha256": "49dfdc4cfa46d165ecfed630ba164b6641d59d5fe1aa698a19c13f966d3f13cf"
             },
             {
-                "coord": "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
+                "coord": "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3-sources.jar"
                 ],
-                "sha256": "51edbe61480b811fc9ceaa158e233b88a193b58b69a4c9cfe7c8b2ef50f98b5d"
+                "sha256": "6310be2ded72eed441291587ed4513c93566b5057b67d05d04cb6d1db4c726b2"
             },
             {
-                "coord": "com.fasterxml.jackson.core:jackson-core:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar",
+                "coord": "com.fasterxml.jackson.core:jackson-core:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3.jar"
                 ],
-                "sha256": "79bffbdcd349f69a5ac252e2b4096131704386af4fa14d95395ea9a0e423cf33"
+                "sha256": "fb185f7e6ecba1e2b4803788d278faa023312ca6d3109b2fa146d9e0435a9494"
             },
             {
-                "coord": "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
+                "coord": "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3-sources.jar",
                 "directDependencies": [],
                 "dependencies": [],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.10.3/jackson-core-2.10.3-sources.jar"
                 ],
-                "sha256": "001eeeb4ae3241e0e880ab2f9b867c33d560c73b34a5d69d9b216b8b04cfb9bd"
+                "sha256": "29f4dab81d3b5b40402db70c8ca04f7e4b3cf311affe09c226ff50d545980d4a"
             },
             {
-                "coord": "com.fasterxml.jackson.core:jackson-databind:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar",
+                "coord": "com.fasterxml.jackson.core:jackson-databind:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3"
                 ],
                 "dependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3.jar"
                 ],
-                "sha256": "2d23f47001492233565adf5a34f225f2ae89564cee08024873ec36b7842ede46"
+                "sha256": "50eec40443f387be50a409186165298aaadbb6c4d4826d319720e245714600d2"
             },
             {
-                "coord": "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
+                "coord": "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3-sources.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3"
                 ],
                 "dependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.10.3/jackson-databind-2.10.3-sources.jar"
                 ],
-                "sha256": "43fb05e9652c4aef1e272b330649037e92d32b96af005a49e4b801a7f1585e15"
+                "sha256": "dee8d8418a8d09e3eaf810a8ec59da78a18d0f8a71f887d4991fb3f2e68594b4"
             },
             {
-                "coord": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar",
+                "coord": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3",
                     "org.yaml:snakeyaml:1.24"
                 ],
                 "dependencies": [
                     "org.yaml:snakeyaml:1.24",
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3.jar"
                 ],
-                "sha256": "d1f0a32e15894aa3639cf31680b813f5fbb39650618a145cb2631e65ad1cd9c2"
+                "sha256": "4fe13e568b897ef8ccac70b5e033903ef2f28e90c01b005d6031f7cc36c2709e"
             },
             {
-                "coord": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:sources:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
+                "coord": "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:sources:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3-sources.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
                     "org.yaml:snakeyaml:jar:sources:1.24"
                 ],
                 "dependencies": [
                     "org.yaml:snakeyaml:jar:sources:1.24",
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.1/jackson-dataformat-yaml-2.10.1-sources.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.10.3/jackson-dataformat-yaml-2.10.3-sources.jar"
                 ],
-                "sha256": "9cdeb072fed1ab8a00ee1385af42719f565cd9040ad1512cdbd86fdf07da2237"
+                "sha256": "a87f1596b22eacdc1f0c74a470e81c9bde08de707e33aa62b79c5ef2bdec65dd"
             },
             {
-                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1.jar",
+                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
                     "com.google.guava:guava:27.1-jre"
                 ],
                 "dependencies": [
                     "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
                     "com.google.code.findbugs:jsr305:3.0.2",
                     "com.google.guava:guava:27.1-jre",
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
                     "org.codehaus.mojo:animal-sniffer-annotations:1.17",
                     "com.google.j2objc:j2objc-annotations:1.1",
                     "com.google.guava:failureaccess:1.0.1",
                     "com.google.errorprone:error_prone_annotations:2.2.0",
-                    "com.fasterxml.jackson.core:jackson-databind:2.10.1",
                     "org.checkerframework:checker-qual:2.5.2"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3.jar"
                 ],
-                "sha256": "5a83d183bbc39d5376b8151de35caa3d9e1aaa500ada5354965fffe5a2941237"
+                "sha256": "49b76a72f426e71b1b73324d261f87b493bba08b8c968bb893a01e42df7d9296"
             },
             {
-                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:sources:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
+                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-guava:jar:sources:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3-sources.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3",
                     "com.google.guava:guava:jar:sources:27.1-jre"
                 ],
                 "dependencies": [
                     "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
-                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
                     "org.codehaus.mojo:animal-sniffer-annotations:jar:sources:1.17",
                     "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
                     "org.checkerframework:checker-qual:jar:sources:2.5.2",
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3",
                     "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.1/jackson-datatype-guava-2.10.1-sources.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.10.3/jackson-datatype-guava-2.10.3-sources.jar"
                 ],
-                "sha256": "1dccbbcd969d8d75dc13d6e57d56c88153e239b48232af68f717657c57adcd5d"
+                "sha256": "f4bd092ba73cb116fe55fec0343fc7f9c74892caa76c7625c5e41e7626efc2cc"
             },
             {
-                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar",
+                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3"
                 ],
                 "dependencies": [
-                    "com.fasterxml.jackson.core:jackson-databind:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3.jar"
                 ],
-                "sha256": "05c45b1441e74ea5e4b0c7a20823d2c7cfded946108902b5691a129e78f60515"
+                "sha256": "43d0a5e65dfab384ed13c2c7cfa72262dc234d4df13d803a94a12da886e81c6c"
             },
             {
-                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:sources:2.10.1",
-                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
+                "coord": "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:sources:2.10.3",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3-sources.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3"
                 ],
                 "dependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3"
                 ],
-                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
+                "url": "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
-                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar",
-                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.1/jackson-datatype-jdk8-2.10.1-sources.jar"
+                    "https://jcenter.bintray.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3-sources.jar",
+                    "https://maven.google.com/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.3/jackson-datatype-jdk8-2.10.3-sources.jar"
                 ],
-                "sha256": "308dfb0d8cc24f29bab64cf689deace73c1b9df05ef7c456b0981c0da863e46a"
+                "sha256": "f09a080c00779ac8e13f645b4d85e6b7633be6c388e2c599026096bb9b0baed8"
             },
             {
                 "coord": "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1",
                 "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
                     "org.jetbrains.kotlin:kotlin-reflect:1.3.50"
                 ],
                 "dependencies": [
-                    "com.fasterxml.jackson.core:jackson-databind:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-annotations:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
                     "org.jetbrains.kotlin:kotlin-reflect:1.3.50",
-                    "com.fasterxml.jackson.core:jackson-core:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3"
                 ],
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
@@ -259,15 +259,15 @@
                 "coord": "com.fasterxml.jackson.module:jackson-module-kotlin:jar:sources:2.10.1",
                 "file": "v1/https/jcenter.bintray.com/com/fasterxml/jackson/module/jackson-module-kotlin/2.10.1/jackson-module-kotlin-2.10.1-sources.jar",
                 "directDependencies": [
-                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1",
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3",
                     "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50"
                 ],
                 "dependencies": [
                     "org.jetbrains.kotlin:kotlin-reflect:jar:sources:1.3.50",
-                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.1",
-                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.1"
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3"
                 ],
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
@@ -294,6 +294,22 @@
                 "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
             },
             {
+                "coord": "com.google.code.findbugs:jsr305:3.0.2",
+                "file": "v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+                    "https://maven.google.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+                    "https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+                ],
+                "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+            },
+            {
                 "coord": "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
                 "file": "v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
                 "directDependencies": [],
@@ -307,19 +323,36 @@
                 "sha256": "1c9e85e272d0708c6a591dc74828c71603053b48cc75ae83cce56912a2aa063b"
             },
             {
-                "coord": "com.google.dagger:dagger-compiler:2.25.2",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2.jar",
+                "coord": "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
+                "file": "v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "exclusions": [
+                    "org.jetbrains.kotlin:kotlin-stdlib"
+                ],
+                "url": "https://jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                    "https://maven.google.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar"
+                ],
+                "sha256": "1c9e85e272d0708c6a591dc74828c71603053b48cc75ae83cce56912a2aa063b"
+            },
+            {
+                "coord": "com.google.dagger:dagger-compiler:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26.jar",
                 "directDependencies": [
                     "net.ltgt.gradle.incap:incap:0.2",
                     "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0",
+                    "com.google.code.findbugs:jsr305:3.0.2",
                     "com.google.dagger:dagger:2.26",
+                    "com.google.dagger:dagger-producers:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "org.checkerframework:checker-compat-qual:2.5.3",
+                    "com.google.dagger:dagger-spi:2.26",
                     "com.squareup:javapoet:1.11.1",
-                    "com.google.dagger:dagger-producers:2.25.2",
                     "com.google.guava:failureaccess:1.0.1",
                     "javax.inject:javax.inject:1",
-                    "com.google.dagger:dagger-spi:2.25.2",
                     "javax.annotation:jsr250-api:1.0",
                     "com.google.googlejavaformat:google-java-format:1.5"
                 ],
@@ -329,17 +362,17 @@
                     "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0",
                     "com.google.code.findbugs:jsr305:3.0.2",
                     "com.google.dagger:dagger:2.26",
+                    "com.google.dagger:dagger-producers:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "com.google.errorprone:javac-shaded:9-dev-r4023-3",
                     "org.checkerframework:checker-compat-qual:2.5.3",
+                    "com.google.dagger:dagger-spi:2.26",
                     "com.squareup:javapoet:1.11.1",
-                    "com.google.dagger:dagger-producers:2.25.2",
                     "org.codehaus.mojo:animal-sniffer-annotations:1.17",
                     "com.google.j2objc:j2objc-annotations:1.1",
                     "com.google.guava:failureaccess:1.0.1",
                     "com.google.errorprone:error_prone_annotations:2.2.0",
                     "javax.inject:javax.inject:1",
-                    "com.google.dagger:dagger-spi:2.25.2",
                     "javax.annotation:jsr250-api:1.0",
                     "com.google.googlejavaformat:google-java-format:1.5",
                     "org.checkerframework:checker-qual:2.5.2"
@@ -347,28 +380,29 @@
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2.jar",
-                    "https://maven.google.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26.jar"
                 ],
-                "sha256": "1cf2d7f8512d4017546b6993e356baf43e486d659b954ca23a01d669fdceac85"
+                "sha256": "b6c47d7854b02608de0855a8316589b9dffe7a67968cbccacfe68a4482771043"
             },
             {
-                "coord": "com.google.dagger:dagger-compiler:jar:sources:2.25.2",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
+                "coord": "com.google.dagger:dagger-compiler:jar:sources:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26-sources.jar",
                 "directDependencies": [
                     "org.jetbrains.kotlinx:kotlinx-metadata-jvm:jar:sources:0.1.0",
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
                     "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
                     "com.google.googlejavaformat:google-java-format:jar:sources:1.5",
                     "javax.inject:javax.inject:jar:sources:1",
+                    "com.google.dagger:dagger-spi:jar:sources:2.26",
                     "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger-producers:jar:sources:2.26",
                     "net.ltgt.gradle.incap:incap:jar:sources:0.2",
-                    "com.google.dagger:dagger-spi:jar:sources:2.25.2",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
-                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
                     "com.google.dagger:dagger:jar:sources:2.26",
                     "javax.annotation:jsr250-api:jar:sources:1.0"
                 ],
@@ -382,31 +416,31 @@
                     "javax.inject:javax.inject:jar:sources:1",
                     "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
                     "org.checkerframework:checker-qual:jar:sources:2.5.2",
+                    "com.google.dagger:dagger-spi:jar:sources:2.26",
                     "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger-producers:jar:sources:2.26",
                     "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
                     "net.ltgt.gradle.incap:incap:jar:sources:0.2",
-                    "com.google.dagger:dagger-spi:jar:sources:2.25.2",
                     "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
-                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
                     "com.google.dagger:dagger:jar:sources:2.26",
                     "javax.annotation:jsr250-api:jar:sources:1.0"
                 ],
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
-                    "https://maven.google.com/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-compiler/2.25.2/dagger-compiler-2.25.2-sources.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-compiler/2.26/dagger-compiler-2.26-sources.jar"
                 ],
-                "sha256": "fda54fbeb260709c97b8a264e35863c01b586b6ea08acc9643003fd7abccdefb"
+                "sha256": "0c2ee8af2b0ae70f6105286b5506f1061d734c6a35361841a116fdc4744c3774"
             },
             {
-                "coord": "com.google.dagger:dagger-producers:2.25.2",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar",
+                "coord": "com.google.dagger:dagger-producers:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26.jar",
                 "directDependencies": [
                     "com.google.dagger:dagger:2.26",
                     "com.google.guava:guava:27.1-jre",
@@ -430,17 +464,17 @@
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar",
-                    "https://maven.google.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26.jar"
                 ],
-                "sha256": "3aa473ad3a7faa86b2291a704dc44b3139dc9071f5807e9463f541ded3eb9ee3"
+                "sha256": "55b516b552ff359a7d6f29cac899a8d0542f15b92e639ee770f574f85df8d80a"
             },
             {
-                "coord": "com.google.dagger:dagger-producers:jar:sources:2.25.2",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
+                "coord": "com.google.dagger:dagger-producers:jar:sources:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26-sources.jar",
                 "directDependencies": [
                     "org.checkerframework:checker-compat-qual:jar:sources:2.5.3",
                     "javax.inject:javax.inject:jar:sources:1",
@@ -464,22 +498,23 @@
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
-                    "https://maven.google.com/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.25.2/dagger-producers-2.25.2-sources.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-producers/2.26/dagger-producers-2.26-sources.jar"
                 ],
-                "sha256": "147598f6a430234f4f7ae8c3ecae0b84c5bc7407373d8aad2ef9556251e25d88"
+                "sha256": "068a467c70ce474c442a44c86fe5e7ff86de3467180a634193321bd34c69e30c"
             },
             {
-                "coord": "com.google.dagger:dagger-spi:2.25.2",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2.jar",
+                "coord": "com.google.dagger:dagger-spi:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26.jar",
                 "directDependencies": [
+                    "com.google.code.findbugs:jsr305:3.0.2",
                     "com.google.dagger:dagger:2.26",
+                    "com.google.dagger:dagger-producers:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "com.squareup:javapoet:1.11.1",
-                    "com.google.dagger:dagger-producers:2.25.2",
                     "com.google.guava:failureaccess:1.0.1",
                     "javax.inject:javax.inject:1"
                 ],
@@ -487,10 +522,10 @@
                     "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.code.findbugs:jsr305:3.0.2",
                     "com.google.dagger:dagger:2.26",
+                    "com.google.dagger:dagger-producers:2.26",
                     "com.google.guava:guava:27.1-jre",
                     "org.checkerframework:checker-compat-qual:2.5.3",
                     "com.squareup:javapoet:1.11.1",
-                    "com.google.dagger:dagger-producers:2.25.2",
                     "org.codehaus.mojo:animal-sniffer-annotations:1.17",
                     "com.google.j2objc:j2objc-annotations:1.1",
                     "com.google.guava:failureaccess:1.0.1",
@@ -501,23 +536,24 @@
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2.jar",
-                    "https://maven.google.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26.jar"
                 ],
-                "sha256": "d70c13eb0e86c1491edcdc15ed2da5e564fd4b1b9f8a224e5adc5a04b539ee86"
+                "sha256": "8adc750191bf065a852983fc15b5751e7734e4b693b4bffddcba63bc5d371911"
             },
             {
-                "coord": "com.google.dagger:dagger-spi:jar:sources:2.25.2",
-                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
+                "coord": "com.google.dagger:dagger-spi:jar:sources:2.26",
+                "file": "v1/https/jcenter.bintray.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26-sources.jar",
                 "directDependencies": [
+                    "com.google.code.findbugs:jsr305:jar:sources:3.0.2",
                     "javax.inject:javax.inject:jar:sources:1",
                     "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger-producers:jar:sources:2.26",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
-                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
                     "com.google.dagger:dagger:jar:sources:2.26"
                 ],
                 "dependencies": [
@@ -528,23 +564,23 @@
                     "com.google.j2objc:j2objc-annotations:jar:sources:1.1",
                     "org.checkerframework:checker-qual:jar:sources:2.5.2",
                     "com.squareup:javapoet:jar:sources:1.11.1",
+                    "com.google.dagger:dagger-producers:jar:sources:2.26",
                     "com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava",
                     "com.google.errorprone:error_prone_annotations:jar:sources:2.2.0",
                     "com.google.guava:failureaccess:jar:sources:1.0.1",
                     "com.google.guava:guava:jar:sources:27.1-jre",
-                    "com.google.dagger:dagger-producers:jar:sources:2.25.2",
                     "com.google.dagger:dagger:jar:sources:2.26"
                 ],
                 "exclusions": [
                     "org.jetbrains.kotlin:kotlin-stdlib"
                 ],
-                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
+                "url": "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26-sources.jar",
                 "mirror_urls": [
-                    "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
-                    "https://maven.google.com/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar",
-                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-spi/2.25.2/dagger-spi-2.25.2-sources.jar"
+                    "https://jcenter.bintray.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26-sources.jar",
+                    "https://maven.google.com/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26-sources.jar",
+                    "https://repo1.maven.org/maven2/com/google/dagger/dagger-spi/2.26/dagger-spi-2.26-sources.jar"
                 ],
-                "sha256": "7e0dd51de99b0bb6eb154811f03919e593a842ddbaa45b389a059f5d572b51dd"
+                "sha256": "a93fcb842b92f23c87455cf51a7e0732cf9de053561c572e486017d55f8ca572"
             },
             {
                 "coord": "com.google.dagger:dagger:2.26",
@@ -1721,6 +1757,6 @@
             }
         ],
         "version": "0.1.0",
-        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 171963529
+        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 2017588397
     }
 }
