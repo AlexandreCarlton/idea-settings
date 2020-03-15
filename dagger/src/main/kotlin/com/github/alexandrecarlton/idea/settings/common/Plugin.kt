@@ -11,6 +11,7 @@ enum class Plugin constructor(val id: String, val pluginName: String) {
     FILE_WATCHERS("com.intellij.plugins.watcher", "File Watchers"),
     JAVA("com.intellij.java", "Java"),
     JAVASCRIPT_AND_TYPESCRIPT("JavaScript", "JavaScript and TypeScript"),
+    LESS("org.jetbrains.plugins.less", "Less"),
     MAVEN("org.jetbrains.idea.maven", "Maven"),
     SAVE_ACTIONS("com.dubreuia", "Save Actions"),
     SHELL_SCRIPT("com.jetbrains.sh", "Shell Script"),

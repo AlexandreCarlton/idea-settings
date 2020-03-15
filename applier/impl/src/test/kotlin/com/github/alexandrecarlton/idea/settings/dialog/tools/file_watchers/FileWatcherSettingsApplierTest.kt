@@ -6,6 +6,8 @@ import com.github.alexandrecarlton.idea.settings.dialog.common.FileTypeMapper
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.lang.javascript.JavaScriptFileType
 import com.intellij.plugins.watcher.model.ProjectTasksOptions
+import io.mockk.every
+import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
@@ -15,12 +17,13 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<FileWatcherSettings>
     private lateinit var projectTasksOptions: ProjectTasksOptions
-    private val fileTypeMapper = FileTypeMapper(Supplier { JavaScriptFileType.INSTANCE })
+    private val fileTypeMapper = mockk<FileTypeMapper>()
 
     @Before
     public override fun setUp() {
         projectTasksOptions = ProjectTasksOptions.getInstance(project)
         settingsApplier = FileWatcherSettingsApplier(projectTasksOptions, fileTypeMapper)
+        every { fileTypeMapper.mapFileType(FileType.JAVASCRIPT) } returns JavaScriptFileType.INSTANCE
     }
 
     @Test

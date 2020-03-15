@@ -14,6 +14,7 @@
   <depends optional="true" config-file="">com.jetbrains.sh</depends>
   <depends optional="true" config-file="">com.intellij.spring.boot</depends>
   <depends optional="true" config-file="">org.jetbrains.idea.maven</depends>
+  <depends optional="true" config-file="">org.jetbrains.plugins.less</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <appStarter implementation="com.github.alexandrecarlton.idea.settings.plugin.IdeaSettingsApplicationStarter"/>

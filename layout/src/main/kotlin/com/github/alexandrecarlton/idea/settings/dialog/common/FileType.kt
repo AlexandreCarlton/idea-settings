@@ -9,5 +9,17 @@ import com.fasterxml.jackson.annotation.JsonProperty
 enum class FileType {
 
     @JsonProperty("JavaScript")
-    JAVASCRIPT
+    JAVASCRIPT,
+
+    @JsonProperty("Less Style Sheet")
+    LESS_STYLE_SHEET,
+
+    @JsonProperty("React JSX")
+    REACT_JSX,
+
+    @JsonProperty("TypeScript")
+    TYPESCRIPT,
+
+    @JsonProperty("TypeScript JSX")
+    TYPESCRIPT_JSX,
 }

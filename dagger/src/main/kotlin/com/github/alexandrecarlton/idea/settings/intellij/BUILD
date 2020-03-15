@@ -26,6 +26,7 @@ kt_jvm_library(
         "@idea-IU//:plugins/Docker/lib/Docker-core",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/javascript-openapi",
+        "@idea-IU//:plugins/less/lib/less",
         "@idea-IU//:plugins/SpringBoot/lib/spring-boot",
         "@idea-IU//:plugins/SpringBoot/lib/spring-boot-run",
     ],

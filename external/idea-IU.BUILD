@@ -55,6 +55,12 @@ java_import(
 )
 
 java_import(
+    name = "plugins/less/lib/less",
+    jars = ["plugins/less/lib/less.jar"],
+    neverlink = True,
+)
+
+java_import(
     name = "plugins/SpringBoot/lib/spring-boot-run",
     jars = ["plugins/SpringBoot/lib/spring-boot-run.jar"],
     neverlink = True,
