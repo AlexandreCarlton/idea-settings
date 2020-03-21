@@ -17,5 +17,6 @@ enum class Plugin constructor(val id: String, val pluginName: String) {
     MAVEN("org.jetbrains.idea.maven", "Maven"),
     SAVE_ACTIONS("com.dubreuia", "Save Actions"),
     SHELL_SCRIPT("com.jetbrains.sh", "Shell Script"),
+    SONARLINT("org.sonarlint.idea", "SonarLint"),
     SPRING_BOOT("com.intellij.spring.boot", "Spring Boot")
 }

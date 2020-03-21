@@ -17,6 +17,7 @@
   <depends optional="true" config-file="">org.intellij.plugins.markdown</depends>
   <depends optional="true" config-file="">org.jetbrains.idea.maven</depends>
   <depends optional="true" config-file="">org.jetbrains.plugins.less</depends>
+  <depends optional="true" config-file="">org.sonarlint.idea</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <appStarter implementation="com.github.alexandrecarlton.idea.settings.plugin.IdeaSettingsApplicationStarter"/>

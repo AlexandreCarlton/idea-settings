@@ -9,6 +9,7 @@ kt_jvm_library(
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/common",
         "@CheckStyle-IDEA//:lib/checkstyle-idea",
         "@Save-Actions//jar",
+        "@SonarLint//:lib/sonarlint-intellij",
         "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
         # Without the annotations library, we get warnings like:
         # warning: unknown enum constant Nls$Capitalization.Sentence

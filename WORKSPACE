@@ -65,6 +65,14 @@ java_import_external(
 )
 
 http_archive(
+    name = "SonarLint",
+    build_file = "SonarLint.BUILD",
+    sha256 = "d4ba7c71d3cf5f13083e0e41ff099a241d4f8aa4b8b52e24b641c4596dc94d22",
+    strip_prefix = "sonarlint-intellij",
+    url = "https://plugins.jetbrains.com/files/7973/79856/sonarlint-intellij-4.5.1.15617.zip",
+)
+
+http_archive(
     name = "intellij_with_bazel",
     sha256 = "bc3187cc94852f2d846cc427b9c1c420aa3f8726886dfe223f98872a0f490e9b",
     strip_prefix = "intellij-485a11132a7fd1b563357fa4263dd6ca3e3dd275",

@@ -36,6 +36,7 @@ import dagger.Module
 import dagger.Provides
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager
 import org.jetbrains.idea.maven.project.MavenProjectsManager
+import org.sonarlint.intellij.config.project.SonarLintProjectSettings
 import javax.inject.Named
 
 /**
@@ -147,6 +148,9 @@ object ProjectModule {
 
     @Provides
     fun provideSaveActionsStorage(project: Project) = StorageFactory.DEFAULT.getStorage(project)
+
+    @Provides
+    fun provideSonarLintProjectSettings(project: Project) = project.getComponent(SonarLintProjectSettings::class.java)
 
     @Provides
     fun provideSqlDialectMappings(project: Project) = SqlDialectMappings.getInstance(project)

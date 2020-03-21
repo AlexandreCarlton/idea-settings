@@ -57,6 +57,8 @@ kt_jvm_library(
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/project",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/sonarlint",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/sonarlint/project_settings",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/intellij",
     ],
 )

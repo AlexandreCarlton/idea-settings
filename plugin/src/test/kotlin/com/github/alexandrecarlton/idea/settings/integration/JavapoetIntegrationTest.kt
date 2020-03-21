@@ -143,6 +143,14 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                     Accepted Words:
                       - abcd
                       - efgh
+                Tools:
+                  SonarLint:
+                    Project Settings:
+                      Bind to SonarQube / SonarCloud:
+                        Bind project to SonarQube / SonarCloud: true
+                        Project binding:
+                          Connection: My Sonar Instance
+                          Project: my_project
                 Other Settings:
                   Checkstyle:
                     Checkstyle version: '8.16'
@@ -614,6 +622,15 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         for (word in listOf("abcd", "efgh")) {
             assertThatXml(".idea/dictionaries/${System.getProperty("user.name")}.xml")
                 .hasXPath("//component[@name='ProjectDictionaryState']/dictionary/words/w[text()='$word']")
+        }
+    }
+
+    @Test
+    fun SonarLint() {
+        assertThatXml(".idea/sonarlint.xml").apply {
+            valueByXPath("//option[@name='bindingEnabled']/@value").asBoolean().isTrue()
+            valueByXPath("//option[@name='projectKey']/@value").isEqualTo("my_project")
+            valueByXPath("//option[@name='serverId']/@value").isEqualTo("My Sonar Instance")
         }
     }
 

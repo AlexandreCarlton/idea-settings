@@ -253,6 +253,13 @@ Tools:
         Auto-save edited files to trigger the watcher: false
         Trigger the watcher on external changes: true
         Trigger the watcher regardless of syntax errors: true
+  SonarLint:
+    Project Settings:
+      Bind to SonarQube / SonarCloud:
+        Bind project to SonarQube / SonarCloud: true
+        Project binding:
+          Connection: My Sonar Instance
+          Project: my_project
 
 Other Settings:
   Checkstyle:

@@ -48,6 +48,8 @@ import com.github.alexandrecarlton.idea.settings.dialog.project_settings.modules
 import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectSettingsProjectModule
 import com.github.alexandrecarlton.idea.settings.dialog.tools.ToolsModule
 import com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.FileWatchersModule
+import com.github.alexandrecarlton.idea.settings.dialog.tools.sonarlint.SonarlintModule
+import com.github.alexandrecarlton.idea.settings.dialog.tools.sonarlint.project_settings.SonarlintProjectSettingsModule
 import com.github.alexandrecarlton.idea.settings.intellij.ConfigurationTypeModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijFileTypeModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijSingletonModule
@@ -97,6 +99,8 @@ import javax.inject.Named
     SpellingModule::class,
     SpringBootModule::class,
     SqlDialectsModule::class,
+    SonarlintModule::class,
+    SonarlintProjectSettingsModule::class,
     SubcomponentModule::class,
     ToolsModule::class,
     InspectionsModule::class,
