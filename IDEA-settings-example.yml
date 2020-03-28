@@ -260,6 +260,13 @@ Tools:
         Project binding:
           Connection: My Sonar Instance
           Project: my_project
+      File Exclusions:
+        - Exclude file: LICENSE.txt
+        - Exclude directory: node_modules
+        - Exclude using GLOB pattern: '**/*.txt'
+      Analysis Properties:
+        - Property Name: name
+          Value: value
 
 Other Settings:
   Checkstyle:

@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.sonarlint.intellij.config.project.SonarLintProjectSettings
+import java.io.File
 
 class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
 
@@ -15,7 +16,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
     @Before
     public override fun setUp() {
         sonarLintProjectSettings = project.getComponent(SonarLintProjectSettings::class.java)
-        settingsApplier = SonarlintProjectSettingsSettingsApplier(sonarLintProjectSettings)
+        settingsApplier = SonarlintProjectSettingsSettingsApplier(project, sonarLintProjectSettings)
     }
 
     @Test
@@ -42,5 +43,40 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
                 projectBinding = ProjectBindingSettings(
                     project = "my_project"))))
         assertThat(sonarLintProjectSettings.projectKey).isEqualTo("my_project")
+    }
+
+    @Test
+    fun fileExclusionApplied() {
+        settingsApplier.apply(SonarlintProjectSettingsSettings(
+            fileExclusions = listOf(
+                ExcludeFile(File("${project.basePath}/excluded.txt")))))
+        assertThat(sonarLintProjectSettings.fileExclusions).containsExactly("FILE:excluded.txt")
+    }
+
+    @Test
+    fun directoryExclusionApplied() {
+        settingsApplier.apply(SonarlintProjectSettingsSettings(
+            fileExclusions = listOf(
+                ExcludeDirectory(File("${project.basePath}/excluded")))))
+        assertThat(sonarLintProjectSettings.fileExclusions).containsExactly("DIRECTORY:excluded")
+    }
+
+    @Test
+    fun globExclusionApplied() {
+        settingsApplier.apply(SonarlintProjectSettingsSettings(
+            fileExclusions = listOf(
+                ExcludeUsingGlobPattern("**/*.txt"))))
+        assertThat(sonarLintProjectSettings.fileExclusions).containsExactly("GLOB:**/*.txt")
+    }
+
+    @Test
+    fun analysisPropertiesApplied() {
+        settingsApplier.apply(SonarlintProjectSettingsSettings(
+            analysisProperties = listOf(
+                SonarlintAnalysisProperty(
+                    propertyName = "Foo",
+                    value = "Bar"))))
+        assertThat(sonarLintProjectSettings.additionalProperties).containsAllEntriesOf(mapOf(
+            "Foo" to "Bar"))
     }
 }

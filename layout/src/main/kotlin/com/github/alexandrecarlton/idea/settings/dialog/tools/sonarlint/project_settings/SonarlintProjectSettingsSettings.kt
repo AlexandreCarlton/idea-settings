@@ -5,10 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class SonarlintProjectSettingsSettings(
 
     @JsonProperty("Bind to SonarQube / SonarCloud")
-    val bindToToSonarQubeSonarCloud: BindToSonarQubeSonarCloudSettings? = null
+    val bindToToSonarQubeSonarCloud: BindToSonarQubeSonarCloudSettings? = null,
 
-    // File Exclusions
+    @JsonProperty("File Exclusions")
+    val fileExclusions: List<SonarlintFileExclusion>? = null,
 
-    // Analysis properties
+    @JsonProperty("Analysis properties")
+    val analysisProperties: List<SonarlintAnalysisProperty>? = null
 
 )

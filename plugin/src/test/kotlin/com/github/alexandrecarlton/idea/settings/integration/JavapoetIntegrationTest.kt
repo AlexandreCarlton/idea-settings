@@ -151,6 +151,13 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                         Project binding:
                           Connection: My Sonar Instance
                           Project: my_project
+                      File Exclusions:
+                        - Exclude file: LICENSE.txt
+                        - Exclude directory: node_modules
+                        - Exclude using GLOB pattern: '**/*.txt'
+                      Analysis properties:
+                        - Property Name: My Property
+                          Value: My Value
                 Other Settings:
                   Checkstyle:
                     Checkstyle version: '8.16'
@@ -631,6 +638,12 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
             valueByXPath("//option[@name='bindingEnabled']/@value").asBoolean().isTrue()
             valueByXPath("//option[@name='projectKey']/@value").isEqualTo("my_project")
             valueByXPath("//option[@name='serverId']/@value").isEqualTo("My Sonar Instance")
+
+            hasXPath("//option[@name='fileExclusions']/list/option[@value='FILE:LICENSE.txt']")
+            hasXPath("//option[@name='fileExclusions']/list/option[@value='DIRECTORY:node_modules']")
+            hasXPath("//option[@name='fileExclusions']/list/option[@value='GLOB:**/*.txt']")
+
+            valueByXPath("//option[@name='additionalProperties']/map/entry[@key='My Property']/@value").isEqualTo("My Value")
         }
     }
 
