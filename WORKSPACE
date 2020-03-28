@@ -169,6 +169,8 @@ maven_install(
         "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.10.3",
         "com.fasterxml.jackson.datatype:jackson-datatype-guava:2.10.3",
         "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.3",
+        "com.github.victools:jsonschema-generator:4.7.0",
+        "com.github.victools:jsonschema-module-jackson:4.7.0",
         "com.google.dagger:dagger:2.26",
         "com.google.guava:guava:27.0.1-jre",
         "javax.inject:javax.inject:1",

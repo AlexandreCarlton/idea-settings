@@ -281,6 +281,106 @@
                 "sha256": "fa50a68b8bd28f29c5cc992818eb9dd9d70960933f0e2e01a9a009cb86da79d2"
             },
             {
+                "coord": "com.fasterxml:classmate:1.5.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar",
+                    "https://maven.google.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar"
+                ],
+                "sha256": "aab4de3006808c09d25dd4ff4a3611cfb63c95463cfd99e73d2e1680d229a33b"
+            },
+            {
+                "coord": "com.fasterxml:classmate:jar:sources:1.5.1",
+                "file": "v1/https/jcenter.bintray.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar",
+                    "https://maven.google.com/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar",
+                    "https://repo1.maven.org/maven2/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar"
+                ],
+                "sha256": "6466bab50813b0ce8e908378e53e8e351d647d79308b667cc1bb23a1b7e01093"
+            },
+            {
+                "coord": "com.github.victools:jsonschema-generator:4.7.0",
+                "file": "v1/https/jcenter.bintray.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0.jar",
+                "directDependencies": [
+                    "com.fasterxml:classmate:1.5.1",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
+                    "org.slf4j:slf4j-api:1.7.30"
+                ],
+                "dependencies": [
+                    "com.fasterxml.jackson.core:jackson-annotations:2.10.3",
+                    "org.slf4j:slf4j-api:1.7.30",
+                    "com.fasterxml.jackson.core:jackson-core:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:2.10.3",
+                    "com.fasterxml:classmate:1.5.1"
+                ],
+                "url": "https://jcenter.bintray.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0.jar",
+                    "https://maven.google.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0.jar",
+                    "https://repo1.maven.org/maven2/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0.jar"
+                ],
+                "sha256": "17917be42ee04c5dd5c16dbef5756de6ba67ad2259e8e9eca3b4207504f8124e"
+            },
+            {
+                "coord": "com.github.victools:jsonschema-generator:jar:sources:4.7.0",
+                "file": "v1/https/jcenter.bintray.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0-sources.jar",
+                "directDependencies": [
+                    "com.fasterxml:classmate:jar:sources:1.5.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3",
+                    "org.slf4j:slf4j-api:jar:sources:1.7.30"
+                ],
+                "dependencies": [
+                    "com.fasterxml:classmate:jar:sources:1.5.1",
+                    "com.fasterxml.jackson.core:jackson-core:jar:sources:2.10.3",
+                    "com.fasterxml.jackson.core:jackson-annotations:jar:sources:2.10.3",
+                    "org.slf4j:slf4j-api:jar:sources:1.7.30",
+                    "com.fasterxml.jackson.core:jackson-databind:jar:sources:2.10.3"
+                ],
+                "url": "https://jcenter.bintray.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0-sources.jar",
+                    "https://maven.google.com/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0-sources.jar",
+                    "https://repo1.maven.org/maven2/com/github/victools/jsonschema-generator/4.7.0/jsonschema-generator-4.7.0-sources.jar"
+                ],
+                "sha256": "45e4ca472f72b0f0953d0ac6f0e0cf4223bf5af7f42834efad299c17619a0208"
+            },
+            {
+                "coord": "com.github.victools:jsonschema-module-jackson:4.7.0",
+                "file": "v1/https/jcenter.bintray.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0.jar",
+                    "https://maven.google.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0.jar",
+                    "https://repo1.maven.org/maven2/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0.jar"
+                ],
+                "sha256": "7c520a7ec2897888353d1d2f1bac0a6d05df016d6d5af97ee3ced65179171648"
+            },
+            {
+                "coord": "com.github.victools:jsonschema-module-jackson:jar:sources:4.7.0",
+                "file": "v1/https/jcenter.bintray.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0-sources.jar",
+                    "https://maven.google.com/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0-sources.jar",
+                    "https://repo1.maven.org/maven2/com/github/victools/jsonschema-module-jackson/4.7.0/jsonschema-module-jackson-4.7.0-sources.jar"
+                ],
+                "sha256": "af3e7ee306710d169e164d60b2f823fd12a1bee6f9c9d9f74f87761e5a182c42"
+            },
+            {
                 "coord": "com.google.code.findbugs:jsr305:3.0.2",
                 "file": "v1/https/jcenter.bintray.com/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
                 "directDependencies": [],
@@ -1666,6 +1766,32 @@
                 "sha256": "52d9f4dba531677fc074eff00ea07f22a1d42e5a97cc9e8571c4cd3d459b6be0"
             },
             {
+                "coord": "org.slf4j:slf4j-api:1.7.30",
+                "file": "v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                    "https://maven.google.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar",
+                    "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar"
+                ],
+                "sha256": "cdba07964d1bb40a0761485c6b1e8c2f8fd9eb1d19c53928ac0d7f9510105c57"
+            },
+            {
+                "coord": "org.slf4j:slf4j-api:jar:sources:1.7.30",
+                "file": "v1/https/jcenter.bintray.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar",
+                "directDependencies": [],
+                "dependencies": [],
+                "url": "https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar",
+                "mirror_urls": [
+                    "https://jcenter.bintray.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar",
+                    "https://maven.google.com/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar",
+                    "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar"
+                ],
+                "sha256": "9ee459644577590fed7ea94afae781fa3cc9311d4553faee8a3219ffbd7cc386"
+            },
+            {
                 "coord": "org.xmlunit:xmlunit-assertj:2.6.2",
                 "file": "v1/https/jcenter.bintray.com/org/xmlunit/xmlunit-assertj/2.6.2/xmlunit-assertj-2.6.2.jar",
                 "directDependencies": [
@@ -1757,6 +1883,6 @@
             }
         ],
         "version": "0.1.0",
-        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 2017588397
+        "__AUTOGENERATED_FILE_DO_NOT_MODIFY_THIS_FILE_MANUALLY": 164947331
     }
 }
