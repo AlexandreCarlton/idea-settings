@@ -1,7 +1,7 @@
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kt_jvm_test")
 
 test_suite(
-    name = "tabs_and_indents",
+    name = "wrapping_and_braces",
     tests = [
         ":kotlin_wrapping_and_braces_settings_applier_test",
     ],
