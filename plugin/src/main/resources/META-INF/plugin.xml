@@ -16,6 +16,7 @@
   <depends optional="true" config-file="">com.jetbrains.sh</depends>
   <depends optional="true" config-file="">org.intellij.plugins.markdown</depends>
   <depends optional="true" config-file="">org.jetbrains.idea.maven</depends>
+  <depends optional="true" config-file="">org.jetbrains.kotlin</depends>
   <depends optional="true" config-file="">org.jetbrains.plugins.less</depends>
   <depends optional="true" config-file="">org.sonarlint.idea</depends>
 

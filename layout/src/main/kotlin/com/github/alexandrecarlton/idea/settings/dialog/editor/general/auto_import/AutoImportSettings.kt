@@ -5,5 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class AutoImportSettings(
 
     @JsonProperty("Java")
-    val java: JavaAutoImportSettings? = null
+    val java: JavaAutoImportSettings? = null,
+
+    @JsonProperty("Kotlin")
+    val kotlin: KotlinAutoImportSettings? = null
 )

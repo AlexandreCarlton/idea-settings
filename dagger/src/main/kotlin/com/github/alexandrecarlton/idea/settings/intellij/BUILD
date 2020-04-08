@@ -22,6 +22,7 @@ kt_jvm_library(
         "@idea-IC//:lib/util",
         "@idea-IC//:plugins/java/lib/java-api",
         "@idea-IC//:plugins/java/lib/java-impl",
+        "@idea-IC//:plugins/Kotlin/lib/kotlin-plugin",
         "@idea-IC//:plugins/markdown/lib/markdown",
         "@idea-IC//:plugins/maven/lib/maven",
         "@idea-IC//:plugins/sh/lib/sh",

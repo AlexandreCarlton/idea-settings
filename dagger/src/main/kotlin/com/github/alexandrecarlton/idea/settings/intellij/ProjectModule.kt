@@ -36,6 +36,9 @@ import dagger.Module
 import dagger.Provides
 import org.infernus.idea.checkstyle.config.PluginConfigurationManager
 import org.jetbrains.idea.maven.project.MavenProjectsManager
+import org.jetbrains.kotlin.idea.KotlinLanguage
+import org.jetbrains.kotlin.idea.codeInsight.KotlinCodeInsightWorkspaceSettings
+import org.jetbrains.kotlin.idea.core.formatter.KotlinCodeStyleSettings
 import org.sonarlint.intellij.config.project.SonarLintProjectSettings
 import javax.inject.Named
 
@@ -67,11 +70,6 @@ object ProjectModule {
     fun provideCodeStyleSettingsManager(project: Project) = CodeStyleSettingsManager.getInstance(project)
 
     @Provides
-    @Named("java")
-    fun provideCommonCodeStyleSettings(codeStyleSettings: CodeStyleSettings) =
-        codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE)
-
-    @Provides
     fun provideCompilerConfiguration(project: Project) = CompilerConfiguration.getInstance(project)
 
     @Provides
@@ -98,6 +96,11 @@ object ProjectModule {
         codeStyleSettings.getCustomSettings(JavaCodeStyleSettings::class.java)
 
     @Provides
+    @Named("java")
+    fun provideJavaCommonCodeStyleSettings(codeStyleSettings: CodeStyleSettings) =
+        codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE)
+
+    @Provides
     fun provideJavaProjectCodeInsightSettings(project: Project) = JavaProjectCodeInsightSettings.getSettings(project)
 
     @Provides
@@ -106,6 +109,17 @@ object ProjectModule {
     @Provides
     fun provideJSCodeStyleSettings(codeStyleSettings: CodeStyleSettings): JSCodeStyleSettings =
         codeStyleSettings.getCustomSettings(JSCodeStyleSettings::class.java)
+
+    @Provides
+    fun provideKotlinCodeInsightWorkspaceSettings(project: Project) = KotlinCodeInsightWorkspaceSettings.getInstance(project)
+
+    @Provides
+    fun provideKotlinCodeStyleSettings(project: Project) = KotlinCodeStyleSettings.getInstance(project)
+
+    @Provides
+    @Named("Kotlin")
+    fun provideKotlinCommonCodeStyleSettings(codeStyleSettings: CodeStyleSettings) =
+        codeStyleSettings.getCommonSettings(KotlinLanguage.INSTANCE)
 
     @Provides
     fun provideLanguageLevelProjectExtension(project: Project) = LanguageLevelProjectExtension.getInstance(project)

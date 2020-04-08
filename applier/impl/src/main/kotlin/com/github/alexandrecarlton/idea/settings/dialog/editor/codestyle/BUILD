@@ -9,6 +9,7 @@ kt_jvm_library(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/java",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/javascript",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/kotlin",
         "@maven//:javax_inject_javax_inject",
     ],
 )

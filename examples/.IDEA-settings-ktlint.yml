@@ -1,0 +1,29 @@
+
+Editor:
+  General:
+    Auto Import:
+      Kotlin:
+        Optimize imports on the fly (for current project): true
+  Code Style:
+    Kotlin:
+      Set from: Kotlin style guide
+      Code Generation:
+        Line comment at first column: false
+        Add a space at comment start: true
+      Imports:
+        Top-level Symbols:
+          Use single name import: {}
+        Java Statics and Enum Members:
+          Use single name import: {}
+        Packages to Use Import with '*': []
+      Blank Lines:
+        Keep Maximum Blank Lines:
+          In declarations: 1
+          In code: 1
+          Before '}': 0
+      Wrapping and Braces:
+        Function declaration parameters:
+          Align when multiline: false
+      Tabs and Indents:
+        Continuation Indent: 4
+

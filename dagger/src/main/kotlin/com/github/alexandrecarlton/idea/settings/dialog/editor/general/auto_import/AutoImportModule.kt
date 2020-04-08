@@ -4,7 +4,9 @@ import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import dagger.Binds
 import dagger.Module
 
-@Module(includes = [JavaAutoImportModule::class])
+@Module(includes = [
+    JavaAutoImportModule::class,
+    KotlinAutoImportModule::class])
 interface AutoImportModule {
 
     @Binds

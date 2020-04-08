@@ -155,6 +155,13 @@ java_import(
 )
 
 java_import(
+    name = "plugins/Kotlin/lib/kotlin-plugin",
+    jars = ["plugins/Kotlin/lib/kotlin-plugin.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
     name = "plugins/markdown/lib/markdown",
     jars = ["plugins/markdown/lib/markdown.jar"],
     neverlink = True,
@@ -182,6 +189,7 @@ java_import(
     ] + glob([
         "lib/*.jar",
         "plugins/java/**/*.jar",
+        "plugins/Kotlin/lib/**/*.jar",
         "plugins/maven/**/*.jar",
         "plugins/properties/**/*.jar",
         "plugins/sh/**/*.jar",

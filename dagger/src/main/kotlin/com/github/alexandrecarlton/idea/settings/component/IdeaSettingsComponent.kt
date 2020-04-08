@@ -24,6 +24,12 @@ import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.im
 import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.javadoc.JavadocModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.wrapping_and_braces.JavaWrappingAndBracesModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.javascript.JavascriptCodeStyleModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.KotlinCodeStyleModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.blank_lines.KotlinBlankLinesModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.code_generation.KotlinCodeGenerationModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.imports.KotlinImportsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.tabs_and_indents.KotlinTabsAndIndentsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.wrapping_and_braces.KotlinWrappingAndBracesModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.general.GeneralModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.general.auto_import.AutoImportModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.InspectionsModule
@@ -85,6 +91,12 @@ import javax.inject.Named
     JavascriptCodeStyleModule::class,
     JavascriptLanguagesFrameworksModule::class,
     JavaWrappingAndBracesModule::class,
+    KotlinBlankLinesModule::class,
+    KotlinCodeGenerationModule::class,
+    KotlinCodeStyleModule::class,
+    KotlinImportsModule::class,
+    KotlinTabsAndIndentsModule::class,
+    KotlinWrappingAndBracesModule::class,
     LanguagesFrameworksModule::class,
     MavenModule::class,
     OtherSettingsModule::class,
