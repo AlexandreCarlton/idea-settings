@@ -24,9 +24,19 @@ object ToolsImplModule {
         inspectionProfileImpl.getTools("Eslint", project)
 
     @Provides
+    @Named("KotlinUnusedImport")
+    fun provideKotlinUnusedImportDirective(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
+        inspectionProfileImpl.getTools("KotlinUnusedImport", project)
+
+    @Provides
     @Named("MissingDeprecatedAnnotation")
     fun provideMissingDeprecatedAnnotation(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
         inspectionProfileImpl.getTools("MissingDeprecatedAnnotation", project)
+
+    @Provides
+    @Named("RedundantSemicolon")
+    fun provideRedundantSemicolon(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
+        inspectionProfileImpl.getTools("RedundantSemicolon", project)
 
     @Provides
     @Named("UnnecessarySuperConstructor")
@@ -42,5 +52,4 @@ object ToolsImplModule {
     @Named("UnnecessaryQualifierForThis")
     fun provideUnnecessaryQualifierForThis(inspectionProfileImpl: InspectionProfileImpl, project: Project) =
         inspectionProfileImpl.getTools("UnnecessaryQualifierForThis", project)
-
 }

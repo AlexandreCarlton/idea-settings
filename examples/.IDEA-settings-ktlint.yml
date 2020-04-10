@@ -8,8 +8,9 @@ Editor:
     Kotlin:
       Set from: Kotlin style guide
       Code Generation:
-        Line comment at first column: false
-        Add a space at comment start: true
+        Comment Code:
+          Line comment at first column: false
+          Add a space at comment start: true
       Imports:
         Top-level Symbols:
           Use single name import: {}
@@ -25,5 +26,17 @@ Editor:
         Function declaration parameters:
           Align when multiline: false
       Tabs and Indents:
-        Continuation Indent: 4
-
+        Continuation indent: 4
+  Inspections:
+    Kotlin:
+      Redundant constructs:
+        Redundant semicolon:
+          Enabled: true
+          Severity by Scope:
+            - Scope: In All Scopes
+              Severity: Error
+        Unused import directive:
+          Enabled: true
+          Severity by Scope:
+            - Scope: In All Scopes
+              Severity: Error

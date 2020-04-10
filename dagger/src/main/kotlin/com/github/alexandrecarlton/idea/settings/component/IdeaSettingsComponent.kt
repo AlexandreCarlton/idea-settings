@@ -39,6 +39,8 @@ import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.probable_bugs.JavaProbableBugsInspectionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.JavascriptInspectionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.code_quality_tools.JavascriptCodeQualityToolsInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.kotlin.KotlinInspectionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.kotlin.redundant_constructs.KotlinRedundantConstructsInspectionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.spelling.SpellingModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.LanguagesFrameworksModule
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguagesFrameworksModule
@@ -124,6 +126,8 @@ import javax.inject.Named
     JavaProbableBugsInspectionsModule::class,
     JavascriptCodeQualityToolsInspectionsModule::class,
     JavascriptInspectionsModule::class,
+    KotlinRedundantConstructsInspectionsModule::class,
+    KotlinInspectionsModule::class,
     IntellijFileTypeModule::class,
     ProjectModule::class,
     ToolsImplModule::class])

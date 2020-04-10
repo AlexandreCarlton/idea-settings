@@ -5,6 +5,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.javadoc.options.JavadocInspectionsOptionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.probable_bugs.options.JavaProbableBugsInspectionsOptionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.javascript.code_quality_tools.options.JavascriptCodeQualityToolsInspectionsOptionsModule
+import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.kotlin.redundant_constructs.options.KotlinRedundantConstructsInspectionsOptionsModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.options.InspectionOptionsModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijInspectionsModule
 import com.intellij.codeInspection.ex.ScopeToolState
@@ -34,9 +35,9 @@ import dagger.Subcomponent
     JavaCodeStyleIssuesInspectionsOptionsModule::class,
     JavadocInspectionsOptionsModule::class,
     JavaProbableBugsInspectionsOptionsModule::class,
-    JavascriptCodeQualityToolsInspectionsOptionsModule::class
+    JavascriptCodeQualityToolsInspectionsOptionsModule::class,
+    KotlinRedundantConstructsInspectionsOptionsModule::class
 ])
-// Should this be in a subcomponent package? Try to stick it in the parent package.
 interface InspectionsSubcomponent {
 
     fun settingsApplier(): SettingsApplier<Any>

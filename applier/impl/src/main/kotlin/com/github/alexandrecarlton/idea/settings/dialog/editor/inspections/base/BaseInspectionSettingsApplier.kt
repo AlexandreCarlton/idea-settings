@@ -56,6 +56,8 @@ abstract class BaseInspectionSettingsApplier<Options>(private val toolsImpl: Too
                 PROBLEMS -> toolsImpl.addTool(ProblemsScope.INSTANCE, inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
                 OPEN_FILES -> toolsImpl.addTool(OpenFilesScope.INSTANCE, inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
             }
+            // In the all scopes / everywhere else case, we must manually set the level.
+            scopeToolState.level = highlightDisplayLevel
 
             scopedSeverity.options?.let { options ->
                 inspectionsSubcomponentBuilder

@@ -10,6 +10,7 @@ kt_jvm_library(
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/javadoc/options",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/probable_bugs/options",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript/code_quality_tools/options",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/kotlin/redundant_constructs/options",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/options",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/intellij",
         # Without the annotations library, we get warnings like:

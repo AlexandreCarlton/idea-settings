@@ -7,6 +7,7 @@ kt_jvm_library(
     deps = [
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/kotlin",
         "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],
 )

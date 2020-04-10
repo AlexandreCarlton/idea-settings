@@ -47,6 +47,8 @@ kt_jvm_library(
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/java/probable_bugs",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/javascript/code_quality_tools",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/kotlin",
+        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/kotlin/redundant_constructs",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/inspections/subcomponent",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/spelling",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks",
