@@ -19,6 +19,17 @@ jobs:
             curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64
             chmod +x /usr/local/bin/bazel
 
+      - run:
+          name: Make bazel use low-memory settings
+          command: |
+            {
+              build --jobs=1
+              build --discard_analysis_cache
+              build --notrack_incremental_state
+              build --nokeep_state_after_build
+              startup --host_jvm_args=-Xmx256m
+            } >> .bazelrc
+
       - restore_cache:
           key: circle-ci-idea-settings
 
