@@ -11,7 +11,7 @@ kt_jvm_test(
     name = "kotlin_wrapping_and_braces_settings_applier_test",
     srcs = ["KotlinWrappingAndBracesSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.wrapping_and_braces.KotlinWrappingAndBracesSettingsApplierTest",
-    runtime_deps = ["@idea-IC//:test_runtime_deps"],
+    runtime_deps = ["@idea-IC//:Kotlin_runtime"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/kotlin/wrapping_and_braces",

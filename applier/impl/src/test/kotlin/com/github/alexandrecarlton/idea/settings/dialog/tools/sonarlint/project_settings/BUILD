@@ -12,8 +12,8 @@ kt_jvm_test(
     srcs = ["SonarlintProjectSettingsSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.tools.sonarlint.project_settings.SonarlintProjectSettingsSettingsApplierTest",
     runtime_deps = [
-        "@SonarLint//:test_runtime_deps",
-        "@idea-IC//:test_runtime_deps",
+        "@SonarLint//:runtime",
+        "@idea-IC//:runtime",
     ],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",

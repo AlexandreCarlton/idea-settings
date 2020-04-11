@@ -11,7 +11,7 @@ kt_jvm_test(
     name = "kotlin_code_generation_settings_applier_test",
     srcs = ["KotlinCodeGenerationSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.code_generation.KotlinCodeGenerationSettingsApplierTest",
-    runtime_deps = ["@idea-IC//:test_runtime_deps"],
+    runtime_deps = ["@idea-IC//:Kotlin_runtime"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/kotlin/code_generation",

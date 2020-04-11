@@ -189,18 +189,65 @@ java_import(
     srcjar = "@idea-IC-sources//jar",
 )
 
+# We export dependencies if they appear in the main plugin's plugin.xml file as <dependency> elements.
+
 java_import(
-    name = "test_runtime_deps",
-    jars = [
-        "@local_jdk//:lib/tools.jar",
-    ] + glob([
-        "lib/*.jar",
-        "plugins/java/**/*.jar",
-        "plugins/Kotlin/lib/**/*.jar",
-        "plugins/maven/**/*.jar",
-        "plugins/properties/**/*.jar",
-        "plugins/repository-search/**/*.jar",
-        "plugins/sh/**/*.jar",
-    ]),
+    name = "runtime",
+    jars = ["@local_jdk//:lib/tools.jar"] + glob(["lib/*.jar"]),
     srcjar = "@idea-IC-sources//jar",
+    testonly = True,
+)
+
+java_import(
+    name = "java_runtime",
+    jars = glob(["plugins/java/**/*.jar"]),
+    srcjar = "@idea-IC-sources//jar",
+    exports = [":runtime"],
+    testonly = True,
+)
+
+java_import(
+    name = "Kotlin_runtime",
+    jars = glob(["plugins/Kotlin/lib/**/*.jar"]),
+    srcjar = "@idea-IC-sources//jar",
+    exports = [
+	":runtime",
+        ":java_runtime",
+    ],
+    testonly = True,
+)
+
+java_import(
+    name = "properties_runtime",
+    jars = glob(["plugins/properties/**/*.jar"]),
+    srcjar = "@idea-IC-sources//jar",
+    testonly = True,
+)
+
+java_import(
+    name = "repository-search_runtime",
+    jars = glob(["plugins/repository-search/**/*.jar"]),
+    srcjar = "@idea-IC-sources//jar",
+    testonly = True,
+)
+
+java_import(
+    name = "maven_runtime",
+    jars = glob(["plugins/maven/**/*.jar"]),
+    exports = [
+        ":runtime",
+        ":java_runtime",
+        ":properties_runtime",
+        ":repository-search_runtime",
+    ],
+    srcjar = "@idea-IC-sources//jar",
+    testonly = True,
+)
+
+java_import(
+    name = "sh_runtime",
+    jars = glob(["plugins/sh/**/*.jar"]),
+    srcjar = "@idea-IC-sources//jar",
+    exports = [":runtime"],
+    testonly = True,
 )

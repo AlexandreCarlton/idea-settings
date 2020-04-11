@@ -10,16 +10,16 @@ kt_jvm_test(
     srcs = ["CheckstyleSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.other_settings.checkstyle.CheckstyleSettingsApplierTest",
     runtime_deps = [
-        "@CheckStyle-IDEA//:test_runtime_deps",
-        "@idea-IC//:test_runtime_deps",
+        "@CheckStyle-IDEA//:runtime",
+        "@idea-IC//:java_runtime",
     ],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/checkstyle",
-        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/checkstyle",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/checkstyle",
+        "@CheckStyle-IDEA//:lib/checkstyle-idea",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
-        "@CheckStyle-IDEA//:lib/checkstyle-idea",
     ],
 )

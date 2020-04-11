@@ -8,7 +8,8 @@ java_import(
 )
 
 java_import(
-    name = "test_runtime_deps",
+    name = "runtime",
+    testonly = True,
     jars = glob(["lib/*.jar"]),
 )
 

@@ -10,14 +10,14 @@ kt_jvm_test(
     srcs = ["SaveActionsSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.other_settings.save_actions.SaveActionsSettingsApplierTest",
     runtime_deps = [
-        "save_actions_test_runtime_deps",
-        "@idea-IC//:test_runtime_deps",
+        "save_actions_runtime",
+        "@idea-IC//:runtime",
     ],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/save_actions",
-        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/save_actions",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
+        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/save_actions",
         "@Save-Actions//jar",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",
@@ -25,6 +25,7 @@ kt_jvm_test(
 )
 
 java_import(
-    name = "save_actions_test_runtime_deps",
+    name = "save_actions_runtime",
+    testonly = True,
     jars = ["@Save-Actions//jar:file"],
 )

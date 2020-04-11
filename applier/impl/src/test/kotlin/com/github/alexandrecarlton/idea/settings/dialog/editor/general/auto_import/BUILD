@@ -12,7 +12,7 @@ kt_jvm_test(
     name = "java_auto_import_settings_applier_test",
     srcs = ["JavaAutoImportSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.editor.general.auto_import.JavaAutoImportSettingsApplierTest",
-    runtime_deps = ["@idea-IC//:test_runtime_deps"],
+    runtime_deps = ["@idea-IC//:java_runtime"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/general/auto_import",
@@ -29,7 +29,7 @@ kt_jvm_test(
     name = "kotlin_auto_import_settings_applier_test",
     srcs = ["KotlinAutoImportSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.editor.general.auto_import.KotlinAutoImportSettingsApplierTest",
-    runtime_deps = ["@idea-IC//:test_runtime_deps"],
+    runtime_deps = ["@idea-IC//:Kotlin_runtime"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/general/auto_import",
