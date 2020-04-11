@@ -181,7 +181,9 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                     Third-Party Checks:
                       - lib/checkstyle-custom-1.jar
                       - lib/checkstyle-custom-2.jar
-
+                  Save Actions:
+                    Formatting Actions:
+                      Optimize imports: true
                 Run/Debug Configurations:
                   - Application:
                       Name: Application Configuration
@@ -700,6 +702,13 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         assertThatXml(".idea/checkstyle-idea.xml")
             .valueByXPath("//entry[@key='thirdparty-classpath']/@value")
             .isEqualTo("\$PROJECT_DIR\$/lib/checkstyle-custom-1.jar;\$PROJECT_DIR\$/lib/checkstyle-custom-2.jar")
+    }
+
+    @Test
+    fun `Other Settings | Save Actions`() {
+        assertThatXml(".idea/saveactions_settings.xml").apply {
+            hasXPath("//option[@name='actions']/set/option[@value='organizeImports']")
+        }
     }
 
     @Test
