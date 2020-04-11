@@ -84,27 +84,115 @@ java_import(
     neverlink = True,
 )
 
-# TODO: Separate these into targets like "JavaScriptLanguage_runtime" and "SpringBoot_runtime"
-# This way, we have a lower chance of having weird classpath collisions in our unit tests.
 java_import(
-    name = "test_runtime_deps",
-    jars = [
-        "@local_jdk//:lib/tools.jar",
-    ] + glob([
-        "lib/*.jar",
-        "plugins/java/**/*.jar",
-        "plugins/java-i18n/**/*.jar",
-        "plugins/maven/**/*.jar",
-        "plugins/properties/**/*.jar",
-        "plugins/repository-search/**/*.jar",
-        "plugins/JavaScriptLanguage/**/*.jar",
-        "plugins/CSS/**/*.jar",
-        "plugins/DatabaseTools/**/*.jar",
-        "plugins/Docker/**/*.jar",
-        "plugins/platform-images/**/*.jar",
-        "plugins/frameworks-starters/**/*.jar",
-        "plugins/microservices-config/**/*.jar",
-        "plugins/SpringBoot/**/*.jar",
-        "plugins/Spring/**/*.jar",
-    ]),
+    name = "runtime",
+    testonly = True,
+    jars = ["@local_jdk//:lib/tools.jar"] + glob(["lib/*.jar"]),
+)
+
+java_import(
+    name = "CSS_runtime",
+    testonly = True,
+    jars = glob(["plugins/CSS/**/*.jar"]),
+    exports = [
+        ":platform-images_runtime",
+    ],
+)
+
+java_import(
+    name = "DatabaseTools_runtime",
+    testonly = True,
+    jars = glob(["plugins/DatabaseTools/**/*.jar"]),
+    exports = [":runtime"],
+)
+
+java_import(
+    name = "Docker_runtime",
+    testonly = True,
+    jars = glob(["plugins/Docker/**/*.jar"]),
+    exports = [":runtime"],
+)
+
+java_import(
+    name = "java_runtime",
+    testonly = True,
+    jars = glob(["plugins/java/**/*.jar"]),
+    exports = [
+        ":runtime",
+    ],
+)
+
+java_import(
+    name = "java-i18n_runtime",
+    testonly = True,
+    jars = glob(["plugins/java-i18n/**/*.jar"]),
+    exports = [
+        ":java_runtime",
+        ":runtime",
+    ],
+)
+
+# Probably gonna need to fill out this one, here.
+java_import(
+    name = "JavaScriptLanguage_runtime",
+    testonly = True,
+    jars = glob(["plugins/JavaScriptLanguage/**/*.jar"]),
+    exports = [
+        ":CSS_runtime",
+        ":runtime",
+    ],
+)
+
+java_import(
+    name = "frameworks-starters_runtime",
+    testonly = True,
+    jars = glob(["plugins/frameworks-starters/**/*.jar"]),
+    exports = [
+        ":java_runtime",
+    ],
+)
+
+java_import(
+    name = "microservices-config_runtime",
+    testonly = True,
+    jars = glob(["plugins/microservices-config/**/*.jar"]),
+    exports = [
+        ":java_runtime",
+        ":properties_runtime",
+    ],
+)
+
+java_import(
+    name = "platform-images_runtime",
+    testonly = True,
+    jars = glob(["plugins/platform-images/**/*.jar"]),
+)
+
+java_import(
+    name = "properties_runtime",
+    testonly = True,
+    jars = glob(["plugins/properties/**/*.jar"]),
+)
+
+java_import(
+    name = "Spring_runtime",
+    testonly = True,
+    jars = glob(["plugins/Spring/**/*.jar"]),
+    exports = [
+        ":java-i18n_runtime",
+        ":properties_runtime",
+        ":runtime",
+    ],
+)
+
+java_import(
+    name = "SpringBoot_runtime",
+    testonly = True,
+    jars = glob(["plugins/SpringBoot/**/*.jar"]),
+    exports = [
+        ":Spring_runtime",
+        ":frameworks-starters_runtime",
+        ":microservices-config_runtime",
+        ":runtime",
+    ],
 )

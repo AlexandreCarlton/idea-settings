@@ -10,7 +10,7 @@ kt_jvm_test(
     srcs = ["NodejsAndNpmSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.nodejs_and_npm.NodejsAndNpmSettingsApplierTest",
     runtime_deps = [
-        "@idea-IU//:test_runtime_deps",
+        "@idea-IU//:JavaScriptLanguage_runtime",
     ],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",

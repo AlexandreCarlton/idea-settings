@@ -12,8 +12,8 @@ kt_jvm_test(
     srcs = ["FileWatcherSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.FileWatcherSettingsApplierTest",
     runtime_deps = [
-        "@WebStorm//:test_runtime_deps",
-        "@idea-IU//:test_runtime_deps",
+        "@WebStorm//:fileWatcher_runtime",
+        "@idea-IU//:JavaScriptLanguage_runtime",
     ],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",

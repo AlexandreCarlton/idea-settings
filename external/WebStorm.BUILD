@@ -15,10 +15,8 @@ java_import(
 )
 
 java_import(
-    name = "test_runtime_deps",
-    jars = [
-        "@local_jdk//:lib/tools.jar",
-    ] + glob([
-        "plugins/fileWatcher/**/*.jar",
-    ]),
+    name = "fileWatcher_runtime",
+    testonly = True,
+    jars = glob(["plugins/fileWatcher/**/*.jar"]),
+    exports = ["@idea-IU//:runtime"],
 )

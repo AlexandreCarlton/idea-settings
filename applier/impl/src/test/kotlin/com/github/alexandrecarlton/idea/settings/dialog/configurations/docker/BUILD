@@ -12,7 +12,7 @@ kt_jvm_test(
     name = "docker_compose_configuration_settings_applier_test",
     srcs = ["DockerComposeConfigurationSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerComposeConfigurationSettingsApplierTest",
-    runtime_deps = ["@idea-IU//:test_runtime_deps"],
+    runtime_deps = ["@idea-IU//:Docker_runtime"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
@@ -36,7 +36,7 @@ kt_jvm_test(
     name = "docker_image_configuration_settings_applier_test",
     srcs = ["DockerImageConfigurationSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerImageConfigurationSettingsApplierTest",
-    runtime_deps = ["@idea-IU//:test_runtime_deps"],
+    runtime_deps = ["@idea-IU//:Docker_runtime"],
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
