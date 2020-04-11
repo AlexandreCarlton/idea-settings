@@ -2,9 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.java.a
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.application.options.CodeStyle
-import com.intellij.lang.java.JavaLanguage
-import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import com.intellij.psi.codeStyle.arrangement.model.ArrangementAtomMatchCondition
 import com.intellij.psi.codeStyle.arrangement.model.ArrangementCompositeMatchCondition
 import com.intellij.psi.codeStyle.arrangement.model.ArrangementMatchConditionVisitor
@@ -16,13 +13,10 @@ import org.junit.Test
 class JavaArrangementSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<JavaArrangementSettings>
-    private lateinit var commonCodeStyleSettings: CommonCodeStyleSettings
 
     @Before
     public override fun setUp() {
-        val codeStyleSettings = CodeStyle.getSettings(project)
-        commonCodeStyleSettings = codeStyleSettings.getCommonSettings(JavaLanguage.INSTANCE)
-        settingsApplier = JavaArrangementSettingsApplier(commonCodeStyleSettings)
+        settingsApplier = JavaArrangementSettingsApplier(platform.javaCommonCodeStyleSettings)
     }
 
     @Test
@@ -38,7 +32,7 @@ class JavaArrangementSettingsApplierTest : IdeaSettingsTestFixture() {
                     order = MatchingRuleOrder.ORDER_BY_NAME))))
 
         val collector = AtomMatchConditionCollector()
-        val matchRules = commonCodeStyleSettings.arrangementSettings!!
+        val matchRules = platform.javaCommonCodeStyleSettings.arrangementSettings!!
             .sections[0]
             .matchRules
         val matchRule = matchRules[0]

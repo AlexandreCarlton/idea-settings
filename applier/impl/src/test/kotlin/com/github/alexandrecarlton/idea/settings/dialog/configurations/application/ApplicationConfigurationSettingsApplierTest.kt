@@ -3,7 +3,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations.applicat
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.ApplicationConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.execution.RunManager
 import com.intellij.execution.application.ApplicationConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
@@ -13,12 +12,10 @@ import java.io.File
 class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<ApplicationConfigurationSettings>
-    private lateinit var runManager: RunManager
 
     @Before
     public override fun setUp() {
-        runManager = RunManager.getInstance(project)
-        settingsApplier = ApplicationConfigurationSettingsApplier(project, runManager)
+        settingsApplier = ApplicationConfigurationSettingsApplier(project, platform.runManager)
     }
 
     @Test
@@ -29,7 +26,7 @@ class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
                 mainClass = "com.Application",
                 useClassPathOfModule = "app")))
 
-        val configuration = runManager.findConfigurationByName("Basic Application")!!.configuration as ApplicationConfiguration
+        val configuration = platform.runManager.findConfigurationByName("Basic Application")!!.configuration as ApplicationConfiguration
         assertThat(configuration.mainClassName).isEqualTo("com.Application")
         assertThat(configuration.configurationModule.moduleName).isEqualTo("app")
     }
@@ -43,7 +40,7 @@ class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
                 useClassPathOfModule = "app",
                 vmOptions = "-Xmx3g")))
 
-        val configuration = runManager.findConfigurationByName("Application with VM Options")!!.configuration as ApplicationConfiguration
+        val configuration = platform.runManager.findConfigurationByName("Application with VM Options")!!.configuration as ApplicationConfiguration
         assertThat(configuration.vmParameters).isEqualTo("-Xmx3g")
     }
 
@@ -56,7 +53,7 @@ class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
                 useClassPathOfModule = "app",
                 programArguments = "foo bar")))
 
-        val configuration = runManager.findConfigurationByName("Application with Program Arguments")!!.configuration as ApplicationConfiguration
+        val configuration = platform.runManager.findConfigurationByName("Application with Program Arguments")!!.configuration as ApplicationConfiguration
         assertThat(configuration.programParameters).isEqualTo("foo bar")
     }
 
@@ -69,7 +66,7 @@ class ApplicationConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
                 useClassPathOfModule = "app",
                 workingDirectory = File("/root"))))
 
-        val configuration = runManager.findConfigurationByName("Application with Working Directory")!!.configuration as ApplicationConfiguration
+        val configuration = platform.runManager.findConfigurationByName("Application with Working Directory")!!.configuration as ApplicationConfiguration
         assertThat(configuration.workingDirectory).isEqualTo("/root")
     }
 }

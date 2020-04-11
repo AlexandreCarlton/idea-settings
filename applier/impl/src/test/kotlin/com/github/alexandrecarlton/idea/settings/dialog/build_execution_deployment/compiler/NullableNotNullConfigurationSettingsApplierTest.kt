@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.build_execution_deploym
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.codeInsight.NullableNotNullManager
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
@@ -10,12 +9,10 @@ import org.junit.Test
 class NullableNotNullConfigurationSettingsApplierTest: IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<NullableNotNullConfigurationSettings>
-    private lateinit var nullableNotNullManager: NullableNotNullManager
 
     @Before
     public override fun setUp() {
-        nullableNotNullManager = NullableNotNullManager.getInstance(project)
-        settingsApplier = NullableNotNullConfigurationSettingsApplier(nullableNotNullManager)
+        settingsApplier = NullableNotNullConfigurationSettingsApplier(platform.nullableNotNullManager)
     }
 
     @Test
@@ -23,7 +20,7 @@ class NullableNotNullConfigurationSettingsApplierTest: IdeaSettingsTestFixture()
         settingsApplier.apply(NullableNotNullConfigurationSettings(
             nullableAnnotations = NullableAnnotationsSettings(
                 annotationUsedForCodeGeneration = "javax.annotation.Nullable")))
-        assertThat(nullableNotNullManager.defaultNullable).isEqualTo("javax.annotation.Nullable")
+        assertThat(platform.nullableNotNullManager.defaultNullable).isEqualTo("javax.annotation.Nullable")
     }
 
     @Test
@@ -32,7 +29,7 @@ class NullableNotNullConfigurationSettingsApplierTest: IdeaSettingsTestFixture()
         settingsApplier.apply(NullableNotNullConfigurationSettings(
             nullableAnnotations = NullableAnnotationsSettings(
                 annotations = nullableAnnotations)))
-        assertThat(nullableNotNullManager.nullables).containsAll(nullableAnnotations)
+        assertThat(platform.nullableNotNullManager.nullables).containsAll(nullableAnnotations)
     }
 
     @Test
@@ -40,7 +37,7 @@ class NullableNotNullConfigurationSettingsApplierTest: IdeaSettingsTestFixture()
         settingsApplier.apply(NullableNotNullConfigurationSettings(
             notnullAnnotations = NotnullAnnotationsSettings(
                 annotationUsedForCodeGeneration = "javax.annotation.Nonnull")))
-        assertThat(nullableNotNullManager.defaultNotNull).isEqualTo("javax.annotation.Nonnull")
+        assertThat(platform.nullableNotNullManager.defaultNotNull).isEqualTo("javax.annotation.Nonnull")
     }
 
     @Test
@@ -49,8 +46,8 @@ class NullableNotNullConfigurationSettingsApplierTest: IdeaSettingsTestFixture()
         settingsApplier.apply(NullableNotNullConfigurationSettings(
             notnullAnnotations = NotnullAnnotationsSettings(
                 annotations = nonnullAnnotations.map { InstrumentedAnnotation(annotation = it, instrumented = false) })))
-        assertThat(nullableNotNullManager.notNulls).containsAll(nonnullAnnotations)
-        assertThat(nullableNotNullManager.instrumentedNotNulls).isEmpty()
+        assertThat(platform.nullableNotNullManager.notNulls).containsAll(nonnullAnnotations)
+        assertThat(platform.nullableNotNullManager.instrumentedNotNulls).isEmpty()
     }
 
     @Test
@@ -59,7 +56,7 @@ class NullableNotNullConfigurationSettingsApplierTest: IdeaSettingsTestFixture()
         settingsApplier.apply(NullableNotNullConfigurationSettings(
             notnullAnnotations = NotnullAnnotationsSettings(
                 annotations = instrumentedAnnotations.map { InstrumentedAnnotation(annotation = it, instrumented = true) })))
-        assertThat(nullableNotNullManager.instrumentedNotNulls).containsAll(instrumentedAnnotations)
+        assertThat(platform.nullableNotNullManager.instrumentedNotNulls).containsAll(instrumentedAnnotations)
     }
 
 }

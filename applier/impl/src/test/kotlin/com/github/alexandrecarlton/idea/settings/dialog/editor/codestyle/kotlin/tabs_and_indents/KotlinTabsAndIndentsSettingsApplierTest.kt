@@ -2,28 +2,23 @@ package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.application.options.CodeStyle
-import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import org.assertj.core.api.Assertions.assertThat
-import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.junit.Before
 import org.junit.Test
 
 class KotlinTabsAndIndentsSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<KotlinTabsAndIndentsSettings>
-    private lateinit var commonCodeStyleSettings: CommonCodeStyleSettings
 
     @Before
     public override fun setUp() {
-        commonCodeStyleSettings = CodeStyle.getSettings(project).getCommonSettings(KotlinLanguage.INSTANCE)
-        settingsApplier = KotlinTabsAndIndentsSettingsApplier(commonCodeStyleSettings)
+        settingsApplier = KotlinTabsAndIndentsSettingsApplier(platform.kotlinCommonCodeStyleSettings)
     }
 
     @Test
     fun continuationIndent() {
         settingsApplier.apply(KotlinTabsAndIndentsSettings(
             continuationIndent = 12))
-        assertThat(commonCodeStyleSettings.indentOptions?.CONTINUATION_INDENT_SIZE).isEqualTo(12)
+        assertThat(platform.kotlinCommonCodeStyleSettings.indentOptions?.CONTINUATION_INDENT_SIZE).isEqualTo(12)
     }
 }

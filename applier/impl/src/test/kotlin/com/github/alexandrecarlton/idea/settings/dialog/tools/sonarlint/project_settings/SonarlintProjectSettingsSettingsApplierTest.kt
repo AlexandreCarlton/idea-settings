@@ -5,18 +5,15 @@ import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixtur
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.sonarlint.intellij.config.project.SonarLintProjectSettings
 import java.io.File
 
 class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<SonarlintProjectSettingsSettings>
-    private lateinit var sonarLintProjectSettings: SonarLintProjectSettings
 
     @Before
     public override fun setUp() {
-        sonarLintProjectSettings = project.getComponent(SonarLintProjectSettings::class.java)
-        settingsApplier = SonarlintProjectSettingsSettingsApplier(project, sonarLintProjectSettings)
+        settingsApplier = SonarlintProjectSettingsSettingsApplier(project, platform.sonarLintProjectSettings)
     }
 
     @Test
@@ -24,7 +21,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SonarlintProjectSettingsSettings(
             bindToToSonarQubeSonarCloud = BindToSonarQubeSonarCloudSettings(
                 bindProjectToSonarqubeSonarCloud = true)))
-        assertThat(sonarLintProjectSettings.isBindingEnabled).isTrue()
+        assertThat(platform.sonarLintProjectSettings.isBindingEnabled).isTrue()
     }
 
     @Test
@@ -33,7 +30,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
             bindToToSonarQubeSonarCloud = BindToSonarQubeSonarCloudSettings(
                 projectBinding = ProjectBindingSettings(
                     connection = "My Sonar Instance"))))
-        assertThat(sonarLintProjectSettings.serverId).isEqualTo("My Sonar Instance")
+        assertThat(platform.sonarLintProjectSettings.serverId).isEqualTo("My Sonar Instance")
     }
 
     @Test
@@ -42,7 +39,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
             bindToToSonarQubeSonarCloud = BindToSonarQubeSonarCloudSettings(
                 projectBinding = ProjectBindingSettings(
                     project = "my_project"))))
-        assertThat(sonarLintProjectSettings.projectKey).isEqualTo("my_project")
+        assertThat(platform.sonarLintProjectSettings.projectKey).isEqualTo("my_project")
     }
 
     @Test
@@ -50,7 +47,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SonarlintProjectSettingsSettings(
             fileExclusions = listOf(
                 ExcludeFile(File("${project.basePath}/excluded.txt")))))
-        assertThat(sonarLintProjectSettings.fileExclusions).containsExactly("FILE:excluded.txt")
+        assertThat(platform.sonarLintProjectSettings.fileExclusions).containsExactly("FILE:excluded.txt")
     }
 
     @Test
@@ -58,7 +55,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SonarlintProjectSettingsSettings(
             fileExclusions = listOf(
                 ExcludeDirectory(File("${project.basePath}/excluded")))))
-        assertThat(sonarLintProjectSettings.fileExclusions).containsExactly("DIRECTORY:excluded")
+        assertThat(platform.sonarLintProjectSettings.fileExclusions).containsExactly("DIRECTORY:excluded")
     }
 
     @Test
@@ -66,7 +63,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SonarlintProjectSettingsSettings(
             fileExclusions = listOf(
                 ExcludeUsingGlobPattern("**/*.txt"))))
-        assertThat(sonarLintProjectSettings.fileExclusions).containsExactly("GLOB:**/*.txt")
+        assertThat(platform.sonarLintProjectSettings.fileExclusions).containsExactly("GLOB:**/*.txt")
     }
 
     @Test
@@ -76,7 +73,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
                 SonarlintAnalysisProperty(
                     propertyName = "Foo",
                     value = "Bar"))))
-        assertThat(sonarLintProjectSettings.additionalProperties).containsAllEntriesOf(mapOf(
+        assertThat(platform.sonarLintProjectSettings.additionalProperties).containsAllEntriesOf(mapOf(
             "Foo" to "Bar"))
     }
 }

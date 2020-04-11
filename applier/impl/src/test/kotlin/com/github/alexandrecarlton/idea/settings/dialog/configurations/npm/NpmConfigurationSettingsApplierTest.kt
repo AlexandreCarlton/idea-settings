@@ -4,7 +4,6 @@ import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.NpmConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.environment.EnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.execution.RunManager
 import com.intellij.lang.javascript.buildTools.npm.rc.NpmCommand
 import com.intellij.lang.javascript.buildTools.npm.rc.NpmRunConfiguration
 import com.intellij.lang.javascript.buildTools.npm.rc.NpmRunSettings
@@ -17,12 +16,10 @@ import java.util.AbstractMap.SimpleEntry
 class NpmConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var applier: SettingsApplier<NpmConfigurationSettings>
-    private lateinit var runManager: RunManager
 
     @Before
     public override fun setUp() {
-        runManager = RunManager.getInstance(project)
-        applier = NpmConfigurationSettingsApplier(project, runManager)
+        applier = NpmConfigurationSettingsApplier(project, platform.runManager)
     }
 
     @Test
@@ -98,7 +95,7 @@ class NpmConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
     }
 
     private fun getNpmRunSettings(name: String): NpmRunSettings {
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName(name)
+        val runnerAndConfigurationSettings = platform.runManager.findConfigurationByName(name)
         assertThat(runnerAndConfigurationSettings).isNotNull()
         val npmRunConfiguration = runnerAndConfigurationSettings!!.configuration as NpmRunConfiguration
         return npmRunConfiguration.runSettings

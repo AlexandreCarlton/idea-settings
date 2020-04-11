@@ -59,6 +59,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.File
 import com.github.alexandrecarlton.idea.settings.dialog.tools.sonarlint.SonarlintModule
 import com.github.alexandrecarlton.idea.settings.dialog.tools.sonarlint.project_settings.SonarlintProjectSettingsModule
 import com.github.alexandrecarlton.idea.settings.intellij.ConfigurationTypeModule
+import com.github.alexandrecarlton.idea.settings.intellij.IntelliJPlatformModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijFileTypeModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijSingletonModule
 import com.github.alexandrecarlton.idea.settings.intellij.ProjectModule
@@ -129,6 +130,7 @@ import javax.inject.Named
     KotlinRedundantConstructsInspectionsModule::class,
     KotlinInspectionsModule::class,
     IntellijFileTypeModule::class,
+    IntelliJPlatformModule::class,
     ProjectModule::class,
     ToolsImplModule::class])
 interface IdeaSettingsComponent {

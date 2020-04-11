@@ -5,8 +5,6 @@ import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixtur
 import io.mockk.mockk
 import io.mockk.verify
 import org.assertj.core.api.Assertions.assertThat
-import org.jetbrains.idea.maven.project.MavenGeneralSettings
-import org.jetbrains.idea.maven.project.MavenProjectsManager
 import org.junit.Before
 import org.junit.Test
 import java.io.File
@@ -14,19 +12,17 @@ import java.io.File
 class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<MavenSettings>
-    private lateinit var mavenGeneralSettings: MavenGeneralSettings
     private val mavenImportingSettingsApplier = mockk<SettingsApplier<MavenImportingSettings>>(relaxUnitFun = true)
 
     @Before
     public override fun setUp() {
-        mavenGeneralSettings = MavenProjectsManager.getInstance(project).generalSettings
-        settingsApplier = MavenSettingsApplier(mavenGeneralSettings, mavenImportingSettingsApplier)
+        settingsApplier = MavenSettingsApplier(platform.mavenGeneralSettings, mavenImportingSettingsApplier)
     }
 
     @Test
     fun vmOptionsForImporterApplied() {
         settingsApplier.apply(MavenSettings(mavenHomeDirectory = File("/usr")))
-        assertThat(mavenGeneralSettings.mavenHome).isEqualTo("/usr")
+        assertThat(platform.mavenGeneralSettings.mavenHome).isEqualTo("/usr")
     }
 
     @Test
@@ -38,6 +34,6 @@ class MavenSettingsApplierTest : IdeaSettingsTestFixture() {
     @Test
     fun threadCountApplied() {
         settingsApplier.apply(MavenSettings(threadCount = "1C"))
-        assertThat(mavenGeneralSettings.threads).isEqualTo("1C")
+        assertThat(platform.mavenGeneralSettings.threads).isEqualTo("1C")
     }
 }

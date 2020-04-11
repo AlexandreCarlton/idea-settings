@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.ja
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.lang.javascript.linter.eslint.EslintConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Ignore
@@ -13,67 +12,65 @@ import java.io.File
 @Ignore("Can't find tools for \"Eslint\" in the profile ...")
 class EslintSettingsApplierTest : IdeaSettingsTestFixture() {
 
-    private lateinit var eslintConfiguration: EslintConfiguration
     private lateinit var settingsApplier: SettingsApplier<EslintSettings>
 
     @Before
     public override fun setUp() {
-        eslintConfiguration = EslintConfiguration.getInstance(project)
-        settingsApplier = EslintSettingsApplier(eslintConfiguration)
+        settingsApplier = EslintSettingsApplier(platform.eslintConfiguration)
     }
 
     @Test
     fun disableEslintApplied() {
         settingsApplier.apply(EslintSettingsDisableEslint)
-        assertThat(eslintConfiguration.isEnabled).isFalse()
+        assertThat(platform.eslintConfiguration.isEnabled).isFalse()
     }
 
     @Test
     fun automaticEslintConfigurationApplied() {
         settingsApplier.apply(EslintSettingsAutomaticEslintConfiguration)
-        assertThat(eslintConfiguration.isEnabled).isTrue()
+        assertThat(platform.eslintConfiguration.isEnabled).isTrue()
     }
 
     @Test
     fun manualEslintConfigurationWithNodeInterpreterApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             nodeInterpreter = File("/usr/bin/node")))
-        assertThat(eslintConfiguration.extendedState.state.interpreterRef.referenceName).isEqualTo("/usr/bin/node")
+        assertThat(platform.eslintConfiguration.extendedState.state.interpreterRef.referenceName).isEqualTo("/usr/bin/node")
     }
 
     @Test
     fun manualEslintConfigurationWithEslintPackageApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             eslintPackage = File("/usr/lib/node_modules/eslint")))
-        assertThat(eslintConfiguration.extendedState.state.nodePackageRef.referenceName).isEqualTo("/usr/bin/node")
+        assertThat(platform.eslintConfiguration.extendedState.state.nodePackageRef.referenceName).isEqualTo("/usr/bin/node")
     }
 
     @Test
     fun manualEslintConfigurationWithAutomaticConfigurationFileApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             configurationFile = EslintConfigurationFileSettingsAutomaticSearch))
-        assertThat(eslintConfiguration.extendedState.state.isCustomConfigFileUsed).isFalse()
+        assertThat(platform.eslintConfiguration.extendedState.state.isCustomConfigFileUsed).isFalse()
     }
 
     @Test
     fun manualEslintConfigurationWithConfigurationFileApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             configurationFile = EslintConfigurationFileSettingsConfigurationFile(File(".eslint-foo.js"))))
-        assertThat(eslintConfiguration.extendedState.state.isCustomConfigFileUsed).isTrue()
-        assertThat(eslintConfiguration.extendedState.state.customConfigFilePath).isEqualTo(".eslint-foo.js")
+        assertThat(platform.eslintConfiguration.extendedState.state.isCustomConfigFileUsed).isTrue()
+        assertThat(platform.eslintConfiguration.extendedState.state.customConfigFilePath).isEqualTo(".eslint-foo.js")
     }
 
     @Test
     fun additionalRulesDirectoryApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             additionalRulesDirectory = File("rules")))
-        assertThat(eslintConfiguration.extendedState.state.additionalRulesDirPath).isEqualTo("rules")
+        assertThat(platform.eslintConfiguration.extendedState.state.additionalRulesDirPath).isEqualTo("rules")
     }
 
     @Test
     fun extraEslintOptionsApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             extraEslintOptions = "--extra-opts"))
-        assertThat(eslintConfiguration.extendedState.state.extraOptions).isEqualTo("--extra-opts")
+        assertThat(platform.eslintConfiguration.extendedState.state.extraOptions).isEqualTo("--extra-opts")
     }
 }

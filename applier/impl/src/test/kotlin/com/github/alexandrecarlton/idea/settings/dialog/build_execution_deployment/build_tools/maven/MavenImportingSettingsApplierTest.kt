@@ -9,17 +9,15 @@ import org.junit.Test
 class MavenImportingSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<MavenImportingSettings>
-    private lateinit var mavenImportingSettings: org.jetbrains.idea.maven.project.MavenImportingSettings
 
     @Before
     public override fun setUp() {
-        mavenImportingSettings = org.jetbrains.idea.maven.project.MavenProjectsManager.getInstance(project).importingSettings
-        settingsApplier = MavenImportingSettingsApplier(mavenImportingSettings)
+        settingsApplier = MavenImportingSettingsApplier(platform.mavenImportingSettings)
     }
 
     @Test
     fun vmOptionsForImporterApplied() {
         settingsApplier.apply(MavenImportingSettings(vmOptionsForImporter = "-Xmx3g"))
-        assertThat(mavenImportingSettings.vmOptionsForImporter).isEqualTo("-Xmx3g")
+        assertThat(platform.mavenImportingSettings.vmOptionsForImporter).isEqualTo("-Xmx3g")
     }
 }

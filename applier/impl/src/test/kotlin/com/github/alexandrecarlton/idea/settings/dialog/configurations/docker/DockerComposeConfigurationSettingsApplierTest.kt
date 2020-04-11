@@ -5,9 +5,7 @@ import com.github.alexandrecarlton.idea.settings.dialog.configurations.DockerCom
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.environment.EnvironmentVariable
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.docker.DockerDeploymentConfiguration
-import com.intellij.docker.DockerRunConfigurationCreator
 import com.intellij.docker.agent.settings.DockerEnvVarImpl
-import com.intellij.execution.RunManager
 import com.intellij.remoteServer.impl.configuration.deployment.DeployToServerRunConfiguration
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
@@ -17,15 +15,11 @@ import java.nio.file.Paths
 
 class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
 
-    private lateinit var dockerRunConfigurationCreator: DockerRunConfigurationCreator
     private lateinit var settingsApplier: SettingsApplier<DockerComposeConfigurationSettings>
-    private lateinit var runManager: RunManager
 
     @Before
     public override fun setUp() {
-        dockerRunConfigurationCreator = DockerRunConfigurationCreator(project)
-        runManager = RunManager.getInstance(project)
-        settingsApplier = DockerComposeConfigurationSettingsApplier(dockerRunConfigurationCreator, runManager)
+        settingsApplier = DockerComposeConfigurationSettingsApplier(platform.dockerRunConfigurationCreator, platform.runManager)
     }
 
     @Test
@@ -33,7 +27,7 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
         settingsApplier.apply(DockerComposeConfigurationSettings(
             name = "Docker Compose Server",
             server = "Docker"))
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName("Docker Compose Server")
+        val runnerAndConfigurationSettings = platform.runManager.findConfigurationByName("Docker Compose Server")
         val deployToServerRunConfiguration = runnerAndConfigurationSettings!!.configuration as DeployToServerRunConfiguration<*, *>
         assertThat(deployToServerRunConfiguration.serverName).isEqualTo("Docker")
     }
@@ -82,7 +76,7 @@ class DockerComposeConfigurationSettingsApplierTest : IdeaSettingsTestFixture() 
     }
 
     private fun getDockerDeploymentConfiguration(name: String): DockerDeploymentConfiguration {
-        val runnerAndConfigurationSettings = runManager.findConfigurationByName(name)
+        val runnerAndConfigurationSettings = platform.runManager.findConfigurationByName(name)
         assertThat(runnerAndConfigurationSettings).isNotNull()
         val deployToServerRunConfiguration = runnerAndConfigurationSettings!!.configuration as DeployToServerRunConfiguration<*, *>
         return deployToServerRunConfiguration.deploymentConfiguration as DockerDeploymentConfiguration

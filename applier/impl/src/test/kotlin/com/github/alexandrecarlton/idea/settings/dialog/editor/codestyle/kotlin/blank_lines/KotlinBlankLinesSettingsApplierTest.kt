@@ -2,25 +2,17 @@ package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
-import com.intellij.application.options.CodeStyle
-import com.intellij.psi.codeStyle.CommonCodeStyleSettings
 import org.assertj.core.api.Assertions.assertThat
-import org.jetbrains.kotlin.idea.KotlinLanguage
-import org.jetbrains.kotlin.idea.core.formatter.KotlinCodeStyleSettings
 import org.junit.Before
 import org.junit.Test
 
 class KotlinBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<KotlinBlankLinesSettings>
-    private lateinit var commonCodeStyleSettings: CommonCodeStyleSettings
-    private lateinit var kotlinCodeStyleSettings: KotlinCodeStyleSettings
 
     @Before
     public override fun setUp() {
-        commonCodeStyleSettings = CodeStyle.getSettings(project).getCommonSettings(KotlinLanguage.INSTANCE)
-        kotlinCodeStyleSettings = KotlinCodeStyleSettings.getInstance(project)
-        settingsApplier = KotlinBlankLinesSettingsApplier(commonCodeStyleSettings, kotlinCodeStyleSettings)
+        settingsApplier = KotlinBlankLinesSettingsApplier(platform.kotlinCommonCodeStyleSettings, platform.kotlinCodeStyleSettings)
     }
 
     @Test
@@ -28,7 +20,7 @@ class KotlinBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(KotlinBlankLinesSettings(
             keepMaximumBlankLines = KotlinKeepMaximumBlankLinesSettings(
                 beforeRightBrace = 5)))
-        assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_BEFORE_RBRACE).isEqualTo(5)
+        assertThat(platform.kotlinCommonCodeStyleSettings.KEEP_BLANK_LINES_BEFORE_RBRACE).isEqualTo(5)
     }
 
     @Test
@@ -36,7 +28,7 @@ class KotlinBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(KotlinBlankLinesSettings(
             keepMaximumBlankLines = KotlinKeepMaximumBlankLinesSettings(
                 inCode = 6)))
-        assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_IN_CODE).isEqualTo(6)
+        assertThat(platform.kotlinCommonCodeStyleSettings.KEEP_BLANK_LINES_IN_CODE).isEqualTo(6)
     }
 
     @Test
@@ -44,7 +36,7 @@ class KotlinBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(KotlinBlankLinesSettings(
             keepMaximumBlankLines = KotlinKeepMaximumBlankLinesSettings(
                 inDeclarations = 7)))
-        assertThat(commonCodeStyleSettings.KEEP_BLANK_LINES_IN_DECLARATIONS).isEqualTo(7)
+        assertThat(platform.kotlinCommonCodeStyleSettings.KEEP_BLANK_LINES_IN_DECLARATIONS).isEqualTo(7)
     }
 
     @Test
@@ -52,7 +44,7 @@ class KotlinBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(KotlinBlankLinesSettings(
             minimumBlankLines = KotlinMinimumBlankLinesSettings(
                 afterClassHeader = 8)))
-        assertThat(commonCodeStyleSettings.BLANK_LINES_AFTER_CLASS_HEADER).isEqualTo(8)
+        assertThat(platform.kotlinCommonCodeStyleSettings.BLANK_LINES_AFTER_CLASS_HEADER).isEqualTo(8)
     }
 
     @Test
@@ -60,6 +52,6 @@ class KotlinBlankLinesSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(KotlinBlankLinesSettings(
             minimumBlankLines = KotlinMinimumBlankLinesSettings(
                 aroundWhenBranchesWithBraces = 9)))
-        assertThat(kotlinCodeStyleSettings.BLANK_LINES_AROUND_BLOCK_WHEN_BRANCHES).isEqualTo(9)
+        assertThat(platform.kotlinCodeStyleSettings.BLANK_LINES_AROUND_BLOCK_WHEN_BRANCHES).isEqualTo(9)
     }
 }

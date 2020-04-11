@@ -5,7 +5,6 @@ import com.github.alexandrecarlton.idea.settings.dialog.common.filetype.IdeaFile
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import com.intellij.lang.javascript.JavaScriptFileType
 import com.intellij.openapi.fileTypes.FileType
-import com.intellij.plugins.watcher.model.ProjectTasksOptions
 import io.mockk.every
 import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
@@ -16,13 +15,11 @@ import java.util.function.Function
 class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<FileWatcherSettings>
-    private lateinit var projectTasksOptions: ProjectTasksOptions
     private val fileTypeMapper = mockk<Function<IdeaFileType, FileType>>()
 
     @Before
     public override fun setUp() {
-        projectTasksOptions = ProjectTasksOptions.getInstance(project)
-        settingsApplier = FileWatcherSettingsApplier(projectTasksOptions, fileTypeMapper)
+        settingsApplier = FileWatcherSettingsApplier(platform.projectTasksOptions, fileTypeMapper)
         every { fileTypeMapper.apply(IdeaFileType.JAVASCRIPT) } returns JavaScriptFileType.INSTANCE
     }
 
@@ -40,7 +37,7 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
                 workingDirectory = "\$ProjectFileDir$"
                 )))
 
-        val taskOptions = projectTasksOptions.tasks
+        val taskOptions = platform.projectTasksOptions.tasks
                 .stream()
                 .filter { pair -> "Basic File Watcher" == pair.first.name }
                 .findFirst()
@@ -71,7 +68,7 @@ class FileWatcherSettingsApplierTest : IdeaSettingsTestFixture() {
                 triggerTheWatcherOnExternalChanges = false,
                 triggerTheWatcherRegardlessOfSyntaxErrors = true)))
 
-        val taskOptions = projectTasksOptions.tasks
+        val taskOptions = platform.projectTasksOptions.tasks
                 .stream()
                 .filter { pair -> "Advanced Watcher Settings" == pair.first.name }
                 .findFirst()

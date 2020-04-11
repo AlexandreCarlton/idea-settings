@@ -1,8 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.other_settings.save_actions
 
 import com.dubreuia.model.Action
-import com.dubreuia.model.Storage
-import com.dubreuia.model.StorageFactory
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.fixtures.IdeaSettingsTestFixture
 import org.assertj.core.api.AbstractAssert
@@ -13,12 +11,10 @@ import org.junit.Test
 class SaveActionsSettingsApplierTest : IdeaSettingsTestFixture() {
 
     private lateinit var settingsApplier: SettingsApplier<SaveActionsSettings>
-    private lateinit var storage: Storage
 
     @Before
     public override fun setUp() {
-        storage = StorageFactory.DEFAULT.getStorage(project)
-        settingsApplier = SaveActionsSettingsApplier(storage)
+        settingsApplier = SaveActionsSettingsApplier(platform.saveActionsStorage)
     }
 
     @Test
@@ -26,7 +22,7 @@ class SaveActionsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SaveActionsSettings(
             general = GeneralSaveActionsSettings(
                 activateSaveActionsOnSave = true)))
-        assertThat(storage.actions).contains(Action.activate)
+        assertThat(platform.saveActionsStorage.actions).contains(Action.activate)
     }
 
     @Test
@@ -34,7 +30,7 @@ class SaveActionsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SaveActionsSettings(
             general = GeneralSaveActionsSettings(
                 activateSaveActionsOnShortcut = true)))
-        assertThat(storage.actions).contains(Action.activateOnShortcut)
+        assertThat(platform.saveActionsStorage.actions).contains(Action.activateOnShortcut)
     }
 
     @Test
@@ -42,7 +38,7 @@ class SaveActionsSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier.apply(SaveActionsSettings(
             general = GeneralSaveActionsSettings(
                 activateSaveActionsOnBatch = true)))
-        assertThat(storage.actions).contains(Action.activateOnBatch)
+        assertThat(platform.saveActionsStorage.actions).contains(Action.activateOnBatch)
     }
 
     @Test
@@ -234,7 +230,7 @@ class SaveActionsSettingsApplierTest : IdeaSettingsTestFixture() {
     private inner class ActionAssert(actual: Action): AbstractAssert<ActionAssert, Action>(actual, ActionAssert::class.java) {
 
         fun isEnabled(): ActionAssert {
-            if (!storage.isEnabled(actual)) {
+            if (!platform.saveActionsStorage.isEnabled(actual)) {
                 failWithMessage("Expected Action <%s> to be enabled, but was not enabled", actual.text)
             }
             return this
