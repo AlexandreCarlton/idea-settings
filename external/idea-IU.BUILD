@@ -84,6 +84,8 @@ java_import(
     neverlink = True,
 )
 
+# TODO: Separate these into targets like "JavaScriptLanguage_runtime" and "SpringBoot_runtime"
+# This way, we have a lower chance of having weird classpath collisions in our unit tests.
 java_import(
     name = "test_runtime_deps",
     jars = [
@@ -94,10 +96,14 @@ java_import(
         "plugins/java-i18n/**/*.jar",
         "plugins/maven/**/*.jar",
         "plugins/properties/**/*.jar",
+        "plugins/repository-search/**/*.jar",
         "plugins/JavaScriptLanguage/**/*.jar",
         "plugins/CSS/**/*.jar",
         "plugins/DatabaseTools/**/*.jar",
         "plugins/Docker/**/*.jar",
+        "plugins/platform-images/**/*.jar",
+        "plugins/frameworks-starters/**/*.jar",
+        "plugins/microservices-config/**/*.jar",
         "plugins/SpringBoot/**/*.jar",
         "plugins/Spring/**/*.jar",
     ]),

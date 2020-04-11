@@ -42,6 +42,7 @@ constructor(private val runManager: RunManager,
             .forEach { task -> task.setEnabled(true) }
 
         // To share through VCS we need to re-add the configuration.
+        // TODO: This is deprecated
         settings.shareThroughVcs?.let { runnerAndConfigurationSettings.isShared = it }
         runManager.addConfiguration(runnerAndConfigurationSettings)
     }

@@ -1,16 +1,24 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.java.javadoc.options
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.siyeh.ig.javadoc.MissingDeprecatedAnnotationInspection
+import com.intellij.codeInspection.InspectionProfileEntry
 import javax.inject.Inject
+import kotlin.reflect.KMutableProperty
+import kotlin.reflect.full.memberProperties
+import kotlin.reflect.jvm.isAccessible
 
 class MissingDeprecatedAnnotationInspectionOptionsSettingsApplier @Inject
 constructor(
-    private val missingDeprecatedAnnotationInspection: MissingDeprecatedAnnotationInspection
+    // MissingDeprecatedAnnotationInspection is not public, so we resort to reflection shenanigans.
+    private val inspectionProfileEntry: InspectionProfileEntry
 ) : SettingsApplier<MissingDeprecatedAnnotationInspectionOptionsSettings> {
     override fun apply(settings: MissingDeprecatedAnnotationInspectionOptionsSettings) {
         settings.warnOnMissingDeprecatedJavadocTagExplanation?.let {
-            missingDeprecatedAnnotationInspection.warnOnMissingJavadoc = it
+            val warnOnMissingJavadoc = inspectionProfileEntry::class.memberProperties.find { it.name == "warnOnMissingJavadoc" }
+            if (warnOnMissingJavadoc is KMutableProperty<*>) {
+                warnOnMissingJavadoc.isAccessible = true
+                warnOnMissingJavadoc.setter.call(inspectionProfileEntry, it)
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ class DockerImageConfigurationSettingsApplierTest : IdeaSettingsTestFixture() {
     @Test
     fun imageIdApplied() {
         settingsApplier.apply(DockerImageConfigurationSettings(name = "Image ID", imageId = "hello-world"))
-        assertThat(getDockerDeploymentConfiguration("Image ID").imageTag).isEqualTo("hello-world")
+        assertThat(getDockerDeploymentConfiguration("Image ID").allImageTagsJoined).isEqualTo("hello-world")
     }
 
     @Test

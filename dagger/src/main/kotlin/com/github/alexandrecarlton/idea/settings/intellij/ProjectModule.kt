@@ -63,6 +63,9 @@ object ProjectModule {
         // Ensure we only distribute one codeStyleSettings that is mutated in our appliers.
         codeStyleSettingsManager.USE_PER_PROJECT_SETTINGS = true
         codeStyleSettingsManager.mainProjectCodeStyle = CodeStyle.getDefaultSettings()
+        // Commit 7f9726f prevents the settings from being saved on frame deactivation,
+        // so we have to let IntelliJ know that we're modifying it.
+        codeStyleSettingsManager.notifyCodeStyleSettingsChanged()
         return CodeStyle.getSettings(project)
     }
 

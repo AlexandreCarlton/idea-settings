@@ -4,7 +4,6 @@ import com.intellij.codeInspection.InspectionProfileEntry
 import com.intellij.codeInspection.ex.InspectionToolWrapper
 import com.intellij.codeInspection.ex.ScopeToolState
 import com.intellij.lang.javascript.linter.eslint.EslintInspection
-import com.siyeh.ig.javadoc.MissingDeprecatedAnnotationInspection
 import com.siyeh.ig.style.UnnecessaryParenthesesInspection
 import dagger.Module
 import dagger.Provides
@@ -26,10 +25,6 @@ class IntellijInspectionsModule {
     @Provides
     fun provideEslintInspection(inspection: InspectionProfileEntry): EslintInspection =
         inspection as EslintInspection
-
-    @Provides
-    fun provideMissingDeprecatedAnnotationInspection(inspection: InspectionProfileEntry): MissingDeprecatedAnnotationInspection =
-        inspection as MissingDeprecatedAnnotationInspection
 
     @Provides
     fun provideUnnecessaryParenthesesInspection(inspection: InspectionProfileEntry): UnnecessaryParenthesesInspection =

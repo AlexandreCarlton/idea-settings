@@ -30,9 +30,9 @@ import com.intellij.openapi.project.Project
 import com.intellij.sql.dialects.SqlDialectMappings
 import com.intellij.sql.dialects.cassandra.CassDialect
 import com.intellij.sql.dialects.clickhouse.CHouseDialect
-import com.intellij.sql.dialects.db2.Db2ISDialect
 import com.intellij.sql.dialects.db2.Db2LUWDialect
-import com.intellij.sql.dialects.db2.Db2ZOSDialect
+import com.intellij.sql.dialects.db2.iseries.Db2ISDialect
+import com.intellij.sql.dialects.db2.zos.Db2ZOSDialect
 import com.intellij.sql.dialects.derby.DerbyDialect
 import com.intellij.sql.dialects.exasol.ExaDialect
 import com.intellij.sql.dialects.generic.GenericDialect

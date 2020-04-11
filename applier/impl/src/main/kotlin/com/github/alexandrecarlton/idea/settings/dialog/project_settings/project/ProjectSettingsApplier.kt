@@ -25,7 +25,8 @@ constructor(private val languageLevelProjectExtension: LanguageLevelProjectExten
 
     override fun apply(settings: ProjectSettings) {
         settings.projectName?.let(projectEx::setProjectName)
-        settings.projectSdk?.let { projectRootManager.projectSdkName = it }
+        // TODO: Use non-deprecated method.
+        settings.projectSdk?.let { projectRootManager.setProjectSdkName(it) }
         settings.projectLanguageLevel?.let { languageLevelProjectExtension.languageLevel = toLanguageLevel(it) }
     }
 

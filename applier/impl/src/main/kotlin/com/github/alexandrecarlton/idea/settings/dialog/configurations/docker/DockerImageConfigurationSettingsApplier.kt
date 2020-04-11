@@ -23,7 +23,7 @@ constructor(
     override fun apply(settings: DockerImageConfigurationSettings) {
 
         val dockerDeploymentConfiguration = DockerDeploymentConfiguration()
-        settings.imageId?.let { dockerDeploymentConfiguration.imageTag = it }
+        settings.imageId?.let { dockerDeploymentConfiguration.setTheOnlyImageTag(it) }
         settings.containerName?.let { dockerDeploymentConfiguration.containerName = it }
         settings.publishExposedPortsToTheHostInterfaces?.let { dockerDeploymentConfiguration.isPublishAllPorts = toPublishAllPorts(it) }
         settings.executable?.entrypoint?.let { dockerDeploymentConfiguration.entrypoint = it }

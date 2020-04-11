@@ -2,6 +2,7 @@ package com.github.alexandrecarlton.idea.settings.integration
 
 import org.assertj.core.api.Assertions
 import org.junit.BeforeClass
+import org.junit.Ignore
 import org.junit.Test
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -137,6 +138,16 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                         Exclude from import and completion:
                           - com.google.inject.Inject
                           - com.sun.istack.internal.Nullable
+                  Inspections:
+                    Java:
+                      Javadoc:
+                        Missing @Deprecated annotation:
+                          Enabled: true
+                          Severity by Scope:
+                            - Scope: In All Scopes
+                              Severity: Error
+                              Options:
+                                Warn on missing @deprecated Javadoc tag explanation: true
                   Spelling:
                     Dictionaries:
                       - dict.dic
@@ -601,6 +612,13 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
     }
 
     @Test
+    fun `Editor | Inspections`() {
+        assertThatXml(".idea/inspectionProfiles/Project_Default.xml").apply {
+            valueByXPath("//inspection_tool[@class='MissingDeprecatedAnnotation']/option[@name='warnOnMissingJavadoc']/@value").asBoolean().isTrue()
+        }
+    }
+
+    @Test
     fun optimizeImportsOnTheFly() {
         assertThatXml(".idea/workspace.xml")
             .valueByXPath("//component[@name='CodeInsightWorkspaceSettings']/option[@name='optimizeImportsOnTheFly']/@value")
@@ -633,6 +651,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
     }
 
     @Test
+    @Ignore("SonarLint 4.6.0 does not work with IntelliJ 2020.1")
     fun SonarLint() {
         assertThatXml(".idea/sonarlint.xml").apply {
             valueByXPath("//option[@name='bindingEnabled']/@value").asBoolean().isTrue()

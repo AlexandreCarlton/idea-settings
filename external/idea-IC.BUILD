@@ -134,6 +134,13 @@ java_import(
 )
 
 java_import(
+    name = "lib/testFramework",
+    jars = ["lib/testFramework.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
     name = "lib/util",
     jars = ["lib/util.jar"],
     neverlink = True,
@@ -192,6 +199,7 @@ java_import(
         "plugins/Kotlin/lib/**/*.jar",
         "plugins/maven/**/*.jar",
         "plugins/properties/**/*.jar",
+        "plugins/repository-search/**/*.jar",
         "plugins/sh/**/*.jar",
     ]),
     srcjar = "@idea-IC-sources//jar",

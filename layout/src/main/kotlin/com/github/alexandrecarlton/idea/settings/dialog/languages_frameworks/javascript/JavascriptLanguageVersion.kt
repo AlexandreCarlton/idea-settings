@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 enum class JavascriptLanguageVersion {
 
-    @JsonProperty("ECMAScript 3")
-    ECMASCRIPT_3,
-
     @JsonProperty("ECMAScript 5.1")
     ECMASCRIPT_5_1,
 

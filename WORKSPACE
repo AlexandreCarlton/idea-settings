@@ -4,15 +4,15 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_VERSION = "2019.3.3"
+IDEA_VERSION = "2020.1"
 
-IDEA_IC_SHA256 = "4a7b945a5355c3629bf063b89aefab107f06d94368df90a8d5f55cecc46be697"
+IDEA_IC_SHA256 = "929952261400305f1a7e95237fd3be54afd9baa263c1ef1b9d916fca24a07a04"
 
-IDEA_IU_SHA256 = "d0787fb1f1297cd4123e51dd71325ebb0ef4f33a7eb4a8e1863a9235de5bfae4"
+IDEA_IU_SHA256 = "76954666cc00ec5710419788db6573f2865e50328100f94a34fb4589b0194755"
 
-IDEA_IC_SOURCES_SHA256 = "0cf07d6c5e82920b12b4ebc6e59fe3ff2fc0c50badc7d1b696826236b29bbc9d"
+IDEA_IC_SOURCES_SHA256 = "c412fc377cb173d30fc3e8b80b19db8147c9dd28ce7e02b5b102ce806687f734"
 
-WEBSTORM_SHA256 = "0545013ec607f6c4d8dc73a335cb4cecfda8f16568f5950b8de499342fe6f0ac"
+WEBSTORM_SHA256 = "2e5ede47fdc532d7bec01bfd122d0c98734a09d06035a62aa055ea2e4ba4c8b0"
 
 http_archive(
     name = "idea-IC",
@@ -38,7 +38,7 @@ http_archive(
     name = "WebStorm",
     build_file = "WebStorm.BUILD",
     sha256 = WEBSTORM_SHA256,
-    strip_prefix = "WebStorm-193.6494.34",
+    strip_prefix = "WebStorm-201.6668.106",
     url = "https://download.jetbrains.com/webstorm/WebStorm-{0}.tar.gz".format(IDEA_VERSION),
 )
 
@@ -64,12 +64,13 @@ java_import_external(
     neverlink = True,
 )
 
+# TODO: Upgrade this when a new version comes out; this version is broken in 2020.1.
 http_archive(
     name = "SonarLint",
     build_file = "SonarLint.BUILD",
-    sha256 = "d4ba7c71d3cf5f13083e0e41ff099a241d4f8aa4b8b52e24b641c4596dc94d22",
+    sha256 = "96e7da828ad90b21e6d7c299ddc57fd424c60107be4f5b3b8b0acce403ac1869",
     strip_prefix = "sonarlint-intellij",
-    url = "https://plugins.jetbrains.com/files/7973/79856/sonarlint-intellij-4.5.1.15617.zip",
+    url = "https://plugins.jetbrains.com/files/7973/83141/sonarlint-intellij-4.6.0.16682.zip",
 )
 
 http_archive(
