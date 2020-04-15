@@ -6,7 +6,9 @@
 Project Settings:
   Project:
     Project name: project-name-in-intellij
-    Project SDK: ProjectSDK
+    Project SDK:
+      Name: ProjectSDK
+      Type: Java
     Project language level: '8'
   Modules:
     - Name: my-module

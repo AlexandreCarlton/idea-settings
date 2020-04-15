@@ -22,7 +22,9 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                 Project Settings:
                   Project:
                     Project name: my-project-name
-                    Project SDK: my-project-sdk
+                    Project SDK:
+                      Name: my-project-sdk
+                      Type: Java
                     Project language level: '6'
                   Modules:
                     - Name: javapoet
@@ -223,10 +225,11 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
     }
 
     @Test
-    fun projectSdk() {
-        assertThatXml(".idea/misc.xml")
-            .valueByXPath("//component[@name='ProjectRootManager']/@project-jdk-name")
-            .isEqualTo("my-project-sdk")
+    fun `Project Settings | Project | Project Structure`() {
+        assertThatXml(".idea/misc.xml").apply {
+            valueByXPath("//component[@name='ProjectRootManager']/@project-jdk-name").isEqualTo("my-project-sdk")
+            valueByXPath("//component[@name='ProjectRootManager']/@project-jdk-type").isEqualTo("JavaSDK")
+        }
     }
 
     @Test

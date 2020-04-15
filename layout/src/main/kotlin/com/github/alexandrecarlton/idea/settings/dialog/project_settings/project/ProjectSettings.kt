@@ -8,7 +8,7 @@ data class ProjectSettings(
     val projectName: String? = null,
 
     @JsonProperty("Project SDK")
-    val projectSdk: String? = null,
+    val projectSdk: ProjectSdkSettings? = null,
 
     @JsonProperty("Project language level")
     val projectLanguageLevel: ProjectLanguageLevel? = null

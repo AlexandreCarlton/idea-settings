@@ -7,12 +7,13 @@ kt_jvm_library(
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/project",
-        "@maven//:com_fasterxml_jackson_core_jackson_databind",
-        "@maven//:javax_inject_javax_inject",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",
+        "@idea-IC//:plugins/Kotlin/lib/kotlin-plugin",
         "@idea-IC//:plugins/java/lib/java-api",
+        "@maven//:com_fasterxml_jackson_core_jackson_databind",
+        "@maven//:javax_inject_javax_inject",
     ],
 )

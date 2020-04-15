@@ -12,10 +12,15 @@ import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project
 import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_8
 import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_9
 import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectLanguageLevel.JAVA_X
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectSdkType.JAVA
+import com.github.alexandrecarlton.idea.settings.dialog.project_settings.project.ProjectSdkType.KOTLIN
 import com.intellij.openapi.project.ex.ProjectEx
+import com.intellij.openapi.projectRoots.JavaSdk
+import com.intellij.openapi.projectRoots.impl.ProjectJdkImpl
 import com.intellij.openapi.roots.LanguageLevelProjectExtension
 import com.intellij.openapi.roots.ProjectRootManager
 import com.intellij.pom.java.LanguageLevel
+import org.jetbrains.kotlin.idea.framework.KotlinSdkType
 import javax.inject.Inject
 
 class ProjectSettingsApplier @Inject
@@ -25,8 +30,8 @@ constructor(private val languageLevelProjectExtension: LanguageLevelProjectExten
 
     override fun apply(settings: ProjectSettings) {
         settings.projectName?.let(projectEx::setProjectName)
-        // TODO: Use non-deprecated method.
-        settings.projectSdk?.let { projectRootManager.setProjectSdkName(it) }
+        settings.projectSdk?.let { projectRootManager.projectSdk = ProjectJdkImpl(it.name, toSdkType(it.type)) }
+
         settings.projectLanguageLevel?.let { languageLevelProjectExtension.languageLevel = toLanguageLevel(it) }
     }
 
@@ -43,5 +48,11 @@ constructor(private val languageLevelProjectExtension: LanguageLevelProjectExten
             JAVA_11 -> LanguageLevel.JDK_11
             JAVA_12 -> LanguageLevel.JDK_12
             JAVA_X -> LanguageLevel.JDK_X
+        }
+
+    private fun toSdkType(projectSdkType: ProjectSdkType) =
+        when (projectSdkType) {
+            JAVA -> JavaSdk.getInstance()
+            KOTLIN -> KotlinSdkType.INSTANCE
         }
 }
