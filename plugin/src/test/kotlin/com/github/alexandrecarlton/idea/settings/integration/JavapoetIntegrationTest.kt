@@ -189,7 +189,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                 Run/Debug Configurations:
                   - Application:
                       Name: Application Configuration
-                      Share through VCS: true
+                      Store as project file: true
                       Configuration:
                         Main class: com.Application
                         Use classpath of module: javapoet
@@ -198,7 +198,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                         Working directory: src
                   - Shell Script:
                       Name: Shell Script
-                      Share through VCS: true
+                      Store as project file: true
                       Script path: maven-bin/bin/mvn
                       Script options: --version
                       Interpreter:
@@ -206,7 +206,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                         Interpreter options: -e
                   - Remote:
                       Name: Remote Configuration
-                      Share through VCS: true
+                      Store as project file: true
                       Configuration:
                         Host: 8.8.8.8
                         Port: 5000

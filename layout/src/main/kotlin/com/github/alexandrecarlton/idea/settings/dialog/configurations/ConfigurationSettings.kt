@@ -22,8 +22,12 @@ sealed class ConfigurationSettings(
     @get:JsonProperty("Name")
     open val name: String,
 
-    @get:JsonProperty("Share through VCS")
-    open val shareThroughVcs: Boolean?,
+    @get:JsonProperty("Store as project file")
+    open val storeAsProjectFile: Boolean?,
+
+    // TODO: Currently unsupported
+    @get:JsonProperty("Store configuration file in - TODO")
+    open val storeConfigurationFileIn: File?,
 
     @get:JsonProperty("Before launch")
     open val beforeLaunch: List<BeforeLaunchConfigurationSettings>?
@@ -33,23 +37,21 @@ sealed class ConfigurationSettings(
 data class ApplicationConfigurationSettings(
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Configuration")
     val configuration: ApplicationConfigurationConfigurationSettings
 
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("Docker-compose")
 data class DockerComposeConfigurationSettings(
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Server")
@@ -66,15 +68,14 @@ data class DockerComposeConfigurationSettings(
 
     @JsonProperty("Options")
     val options: DockerComposeConfigurationOptionsSettings? = null
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("Docker Image")
 data class DockerImageConfigurationSettings(
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Server")
@@ -103,15 +104,14 @@ data class DockerImageConfigurationSettings(
     @JsonProperty("Run options")
     val runOptions: String? = null
 
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("npm")
 data class NpmConfigurationSettings (
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("package.json")
@@ -141,28 +141,26 @@ data class NpmConfigurationSettings (
     @JsonProperty("")
     val environment: List<EnvironmentVariable>? = null
 
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("Remote")
 data class RemoteSettings (
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Configuration")
     val configuration: RemoteConfigurationSettings? = null
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("Shell Script")
 data class ShellScriptConfigurationSettings(
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Script path")
@@ -173,17 +171,16 @@ data class ShellScriptConfigurationSettings(
 
     @JsonProperty("Interpreter")
     val interpreter: InterpreterConfigurationSettings? = null
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("Spring Boot")
 data class SpringBootSettings (
 
     override val name: String,
-
-    override val shareThroughVcs: Boolean? = null,
-
+    override val storeAsProjectFile: Boolean? = null,
+    override val storeConfigurationFileIn: File? = null,
     override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
 
     @JsonProperty("Configuration")
     val configuration: SpringBootConfigurationSettings
-) : ConfigurationSettings(name, shareThroughVcs, beforeLaunch)
+) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)

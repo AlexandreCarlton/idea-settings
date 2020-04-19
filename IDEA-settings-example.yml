@@ -293,7 +293,7 @@ Other Settings:
 Run/Debug Configurations:
   - Application:
       Name: My Application
-      Share through VCS: true
+      Store as project file: true
       Configuration:
         Main class: com.Application
         Use classpath of module: app
@@ -302,7 +302,7 @@ Run/Debug Configurations:
         Working directory: .
   - Docker Image:
       Name: Run Container
-      Share through VCS: true
+      Store as project file: true
       Server: Docker
       Image ID: hello-world
       Container name: my-hello-world-container
@@ -319,14 +319,14 @@ Run/Debug Configurations:
           Value: bar
       Run options: --tty -it
   - Remote:
-      name: Debug
-      Share through VCS: true
+      Name: Debug
+      Store as project file: true
       Configuration:
         Host: localhost
         Port: 5005
   - Shell Script:
       Name: Script
-      Share through VCS: true
+      Store as project file: true
       Script path: ./foo.sh
       Script options: arg1 arg2
       Interpreter:

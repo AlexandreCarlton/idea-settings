@@ -3,19 +3,23 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.subcomponent.ConfigurationSubcomponent
 import com.intellij.execution.RunManager
+import com.intellij.openapi.project.Project
 import java.util.ArrayList
 import javax.inject.Inject
 
 class ConfigurationsSettingsApplier @Inject
-constructor(private val runManager: RunManager,
-            private val configurationSubcomponentBuilder: ConfigurationSubcomponent.Builder,
-            private val applicationConfigurationSettingsApplier: SettingsApplier<ApplicationConfigurationSettings>,
-            private val dockerComposeConfigurationSettingsApplier: SettingsApplier<DockerComposeConfigurationSettings>,
-            private val dockerImageConfigurationSettingsApplier: SettingsApplier<DockerImageConfigurationSettings>,
-            private val npmConfigurationSettingsApplier: SettingsApplier<NpmConfigurationSettings>,
-            private val remoteConfigurationApplier: SettingsApplier<RemoteSettings>,
-            private val shellScriptConfigurationSettingsApplier: SettingsApplier<ShellScriptConfigurationSettings>,
-            private val springBootConfigurationApplier: SettingsApplier<SpringBootSettings>
+constructor(
+    private val project: Project,
+    private val runManager: RunManager,
+    private val configurationSubcomponentBuilder: ConfigurationSubcomponent.Builder,
+
+    private val applicationConfigurationSettingsApplier: SettingsApplier<ApplicationConfigurationSettings>,
+    private val dockerComposeConfigurationSettingsApplier: SettingsApplier<DockerComposeConfigurationSettings>,
+    private val dockerImageConfigurationSettingsApplier: SettingsApplier<DockerImageConfigurationSettings>,
+    private val npmConfigurationSettingsApplier: SettingsApplier<NpmConfigurationSettings>,
+    private val remoteConfigurationApplier: SettingsApplier<RemoteSettings>,
+    private val shellScriptConfigurationSettingsApplier: SettingsApplier<ShellScriptConfigurationSettings>,
+    private val springBootConfigurationApplier: SettingsApplier<SpringBootSettings>
 ) : SettingsApplier<ConfigurationSettings> {
 
     override fun apply(settings: ConfigurationSettings) {
@@ -42,8 +46,15 @@ constructor(private val runManager: RunManager,
             .forEach { task -> task.setEnabled(true) }
 
         // To share through VCS we need to re-add the configuration.
-        // TODO: This is deprecated
-        settings.shareThroughVcs?.let { runnerAndConfigurationSettings.isShared = it }
+        settings.storeAsProjectFile?.let {
+            if (it) {
+                // TODO: account for settings.storeConfigurationFileIn
+                // If we store as a project file, storing it in `.idea/runConfigurations` is the default option.
+                runnerAndConfigurationSettings.storeInDotIdeaFolder()
+            } else {
+                runnerAndConfigurationSettings.storeInLocalWorkspace()
+            }
+        }
         runManager.addConfiguration(runnerAndConfigurationSettings)
     }
 }
