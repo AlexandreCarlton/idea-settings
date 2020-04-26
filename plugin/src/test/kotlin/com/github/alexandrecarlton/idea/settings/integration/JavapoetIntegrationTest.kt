@@ -2,7 +2,6 @@ package com.github.alexandrecarlton.idea.settings.integration
 
 import org.assertj.core.api.Assertions
 import org.junit.BeforeClass
-import org.junit.Ignore
 import org.junit.Test
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -656,7 +655,6 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
     }
 
     @Test
-    @Ignore("SonarLint 4.6.0 does not work with IntelliJ 2020.1")
     fun SonarLint() {
         assertThatXml(".idea/sonarlint.xml").apply {
             valueByXPath("//option[@name='bindingEnabled']/@value").asBoolean().isTrue()
