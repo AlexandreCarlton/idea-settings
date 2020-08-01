@@ -51,7 +51,7 @@ constructor(
         if (location == BUNDLED_LOCATION || isURL(location) || Paths.get(location).isAbsolute) {
             location
         } else {
-            Paths.get(project.basePath).resolve(location).toAbsolutePath().toString()
+            File(project.basePath, location).toString()
         }
 
     private fun toScanScope(scanScope: CheckstyleScanScope) =
@@ -69,7 +69,7 @@ constructor(
         } else if (isURL(location)) {
             return ConfigurationType.HTTP_URL
         }
-        return if (Paths.get(location).isAbsolute)
+        return if (File(location).isAbsolute)
             ConfigurationType.LOCAL_FILE
         else
             ConfigurationType.PROJECT_RELATIVE

@@ -42,9 +42,9 @@ http_archive(
 http_archive(
     name = "CheckStyle-IDEA",
     build_file = "CheckStyle-IDEA.BUILD",
-    sha256 = "22cede3626ed2e8af3c8c19c9aa45aa8eb601330b2e38291c0890c881546726f",
+    sha256 = "4e7219478ff923736a824bee1e262b6090116ae20971d35dc0b1cd464090d293",
     strip_prefix = "CheckStyle-IDEA",
-    url = "https://github.com/jshiell/checkstyle-idea/releases/download/5.35.5/CheckStyle-IDEA-5.35.5.zip",
+    url = "https://github.com/jshiell/checkstyle-idea/releases/download/5.40.0/CheckStyle-IDEA-5.40.0.zip",
 )
 
 http_archive(
