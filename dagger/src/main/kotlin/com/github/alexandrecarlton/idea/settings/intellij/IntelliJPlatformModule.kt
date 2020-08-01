@@ -164,7 +164,7 @@ object IntelliJPlatformModule {
     fun provideSaveActionsStorage(project: Project) = StorageFactory.DEFAULT.getStorage(project)
 
     @Provides
-    fun provideSonarLintProjectSettings(project: Project) = project.getComponent(SonarLintProjectSettings::class.java)
+    fun provideSonarLintProjectSettings(project: Project) = project.getService(SonarLintProjectSettings::class.java)
 
     @Provides
     fun provideSqlDialectMappings(project: Project) = SqlDialectMappings.getInstance(project)
