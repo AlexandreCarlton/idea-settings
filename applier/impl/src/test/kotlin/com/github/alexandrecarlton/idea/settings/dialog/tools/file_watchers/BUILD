@@ -12,7 +12,7 @@ kt_jvm_test(
     srcs = ["FileWatcherSettingsApplierTest.kt"],
     test_class = "com.github.alexandrecarlton.idea.settings.dialog.tools.file_watchers.FileWatcherSettingsApplierTest",
     runtime_deps = [
-        "@WebStorm//:fileWatcher_runtime",
+        "@File-Watchers//:runtime",
         "@idea-IU//:JavaScriptLanguage_runtime",
     ],
     deps = [
@@ -22,7 +22,7 @@ kt_jvm_test(
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common/filetype",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
-        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
+        "@File-Watchers//:lib/fileWatcher",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/util",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/javascript-openapi",

@@ -211,7 +211,7 @@ java_import(
     jars = glob(["plugins/Kotlin/lib/**/*.jar"]),
     srcjar = "@idea-IC-sources//jar",
     exports = [
-	":runtime",
+        ":runtime",
         ":java_runtime",
     ],
     testonly = True,
@@ -237,9 +237,18 @@ java_import(
     exports = [
         ":runtime",
         ":java_runtime",
+        ":maven-model_runtime",
         ":properties_runtime",
         ":repository-search_runtime",
     ],
+    srcjar = "@idea-IC-sources//jar",
+    testonly = True,
+)
+
+java_import(
+    name = "maven-model_runtime",
+    jars = glob(["plugins/maven-model/**/*.jar"]),
+    exports = [":runtime"],
     srcjar = "@idea-IC-sources//jar",
     testonly = True,
 )

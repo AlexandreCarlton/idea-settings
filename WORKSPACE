@@ -4,15 +4,13 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_VERSION = "2020.1"
+IDEA_VERSION = "2020.2"
 
-IDEA_IC_SHA256 = "929952261400305f1a7e95237fd3be54afd9baa263c1ef1b9d916fca24a07a04"
+IDEA_IC_SHA256 = "19eed1ff0d6aa7f88ff9fd6da336d79938207f793a80810fb2ba205229ad1f4a"
 
-IDEA_IU_SHA256 = "76954666cc00ec5710419788db6573f2865e50328100f94a34fb4589b0194755"
+IDEA_IU_SHA256 = "451f05a42c2e27c79754a5e835c7a35217c301a24dfbeecc81ed2bfedaba9012"
 
-IDEA_IC_SOURCES_SHA256 = "c412fc377cb173d30fc3e8b80b19db8147c9dd28ce7e02b5b102ce806687f734"
-
-WEBSTORM_SHA256 = "2e5ede47fdc532d7bec01bfd122d0c98734a09d06035a62aa055ea2e4ba4c8b0"
+IDEA_IC_SOURCES_SHA256 = "da783514880c7e1bcc86bbaa6f6fa088e63772614d9f4dc03882b9f3d26fdd98"
 
 http_archive(
     name = "idea-IC",
@@ -35,14 +33,6 @@ http_archive(
 )
 
 http_archive(
-    name = "WebStorm",
-    build_file = "WebStorm.BUILD",
-    sha256 = WEBSTORM_SHA256,
-    strip_prefix = "WebStorm-201.6668.106",
-    url = "https://download.jetbrains.com/webstorm/WebStorm-{0}.tar.gz".format(IDEA_VERSION),
-)
-
-http_archive(
     name = "bazel-deps",
     sha256 = "5dac398f0dc57f76566642cf21f10960eed83f4bb56c5860170c0582f5581194",
     strip_prefix = "bazel-deps-e3f77e22d9f5b070915067a766607cfc96835c98",
@@ -55,6 +45,14 @@ http_archive(
     sha256 = "22cede3626ed2e8af3c8c19c9aa45aa8eb601330b2e38291c0890c881546726f",
     strip_prefix = "CheckStyle-IDEA",
     url = "https://github.com/jshiell/checkstyle-idea/releases/download/5.35.5/CheckStyle-IDEA-5.35.5.zip",
+)
+
+http_archive(
+    name = "File-Watchers",
+    build_file = "File-Watchers.BUILD",
+    sha256 = "c420c33f9118e4fbb8769b44c0c8133dfc931571ff9e344d7d94785807e3aeb9",
+    strip_prefix = "fileWatcher",
+    url = "https://plugins.jetbrains.com/files/7177/92064/fileWatcher-202.6397.21.zip",
 )
 
 java_import_external(
@@ -128,6 +126,19 @@ filegroup(
     sha256 = "c926daf62d24bb6ad6289e997d67dcacbb1054e6cc2d9ba4c406f509e7c20875",
     strip_prefix = "auto-auto-value-1.6.6",
     url = "https://github.com/google/auto/archive/auto-value-1.6.6.zip",
+)
+
+http_archive(
+    name = "maven-bin",
+    build_file_content = """
+package(default_visibility = ["//visibility:public"])
+filegroup(
+    name = "maven-bin",
+    srcs = glob(["**"]),
+)""",
+    sha256 = "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5",
+    strip_prefix = "apache-maven-3.6.3",
+    url = "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz",
 )
 
 http_archive(

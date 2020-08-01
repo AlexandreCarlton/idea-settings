@@ -27,8 +27,8 @@ pkg_tar(
         "@SonarLint//:lib/sonarlint-intellij.jar": "SonarLint/lib/sonarlint-intellij.jar",
         "@SonarLint//:lib/sonarlint-client-api.jar": "SonarLint/lib/sonarlint-client-api.jar",
         "@SonarLint//:lib/sonarlint-core.jar": "SonarLint/lib/sonarlint-core.jar",
-        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher.jar": "fileWatcher/lib/fileWatcher.jar",
-        "@WebStorm//:plugins/fileWatcher/lib/resources_en.jar": "fileWatcher/lib/resources_en.jar",
+        "@File-Watchers//:lib/fileWatcher.jar": "fileWatcher/lib/fileWatcher.jar",
+        "@File-Watchers//:lib/resources_en.jar": "fileWatcher/lib/resources_en.jar",
     },
 )
 

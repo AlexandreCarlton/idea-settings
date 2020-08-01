@@ -10,7 +10,7 @@ kt_jvm_library(
         "@CheckStyle-IDEA//:lib/checkstyle-idea",
         "@Save-Actions//jar",
         "@SonarLint//:lib/sonarlint-intellij",
-        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
+        "@File-Watchers//:lib/fileWatcher",
         # Without the annotations library, we get warnings like:
         # warning: unknown enum constant Nls$Capitalization.Sentence
         "@idea-IC//:lib/annotations",

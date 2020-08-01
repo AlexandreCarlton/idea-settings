@@ -7,8 +7,9 @@ kt_jvm_library(
     deps = [
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
-        "@WebStorm//:plugins/fileWatcher/lib/fileWatcher",
+        "@File-Watchers//:lib/fileWatcher",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:lib/util",
         "@maven//:javax_inject_javax_inject",
     ],
 )

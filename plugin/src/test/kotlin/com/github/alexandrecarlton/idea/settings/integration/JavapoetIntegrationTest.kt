@@ -3,6 +3,7 @@ package com.github.alexandrecarlton.idea.settings.integration
 import org.assertj.core.api.Assertions
 import org.junit.BeforeClass
 import org.junit.Test
+import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -212,6 +213,12 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                       Before launch:
                         - Run Another Configuration:
                             Name: Shell Script""".trimIndent())
+            driver.copyDirectoryFromRunfiles("maven-bin", "");
+
+            Files.move(
+                driver.currentWorkspace().resolve("maven-bin"),
+                driver.currentWorkspace().resolve("javapoet/maven-bin"));
+
             driver.scratchFile("javapoet/dict.dic")
             runIdeaSettings()
         }

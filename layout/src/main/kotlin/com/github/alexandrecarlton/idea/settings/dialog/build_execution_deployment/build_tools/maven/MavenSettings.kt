@@ -8,6 +8,9 @@ data class MavenSettings(
     @JsonProperty("Importing")
     val importing: MavenImportingSettings? = null,
 
+    /**
+     * To be properly set, this file must exist during generation.
+     */
     @JsonProperty("Maven home directory")
     val mavenHomeDirectory: File? = null,
 

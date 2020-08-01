@@ -10,6 +10,7 @@ kt_jvm_library(
         "@maven//:javax_inject_javax_inject",
         "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
+        "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",
         "@idea-IU//:plugins/DatabaseTools/lib/database-dialects",
         "@idea-IU//:plugins/DatabaseTools/lib/database-impl",
