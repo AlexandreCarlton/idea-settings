@@ -18,7 +18,7 @@ class JavaAutoImportSettingsApplierTest : IdeaSettingsTestFixture() {
     @Test
     fun optimizeImportsOnTheFlyApplied() {
         settingsApplier.apply(JavaAutoImportSettings(optimizeImportsOnTheFly = true))
-        assertThat(platform.codeInsightWorkspaceSettings.optimizeImportsOnTheFly).isTrue()
+        assertThat(platform.codeInsightWorkspaceSettings.isOptimizeImportsOnTheFly).isTrue()
     }
 
     @Test
