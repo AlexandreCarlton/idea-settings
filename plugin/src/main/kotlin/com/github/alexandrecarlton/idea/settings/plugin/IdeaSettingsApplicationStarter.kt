@@ -6,6 +6,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.github.alexandrecarlton.idea.settings.component.DaggerIdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.component.IdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
+import com.intellij.configurationStore.StoreUtil
 import com.intellij.openapi.application.ApplicationStarter
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.application.ex.ApplicationManagerEx
@@ -49,6 +50,7 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         WriteAction.runAndWait<RuntimeException> {
             settings?.let { component.applier().apply(it) }
             component.project().save()
+            StoreUtil.saveDocumentsAndProjectsAndApp(true)
         }
     }
 
