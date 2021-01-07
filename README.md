@@ -20,7 +20,7 @@ can use to generate their settings, ensuring a standardised environment.
 
 ## What can be configured?
 
-See the [example .IDEA-settings.yml](IDEA-settings-exampl.yml) which provides
+See the [example .IDEA-settings.yml](IDEA-settings-example.yml) which provides
 an example of all possible settings that can currently be configured.
 
 ## Generating IDEA files
