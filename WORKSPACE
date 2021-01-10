@@ -4,13 +4,13 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_VERSION = "2020.3"
+IDEA_VERSION = "2020.3.1"
 
-IDEA_IC_SHA256 = "c635173e55c105012fe83ecb776bae8a5e776021afffc5e916823d629651f8c8"
+IDEA_IC_SHA256 = "2c621e40a8a965c7ea5e1005652d1d1dd80b8fe4241be13ef3d4df2c0b2d72c5"
 
-IDEA_IU_SHA256 = "6828e286eb476f5fc98c670433d5cf3bcbc4507ae3134724e10a21eaaa24bacf"
+IDEA_IU_SHA256 = "ffd4e98b7a3e7cd40a66e518b01e1fb160fe03071aa6085a543decd7b825b4c3"
 
-IDEA_IC_SOURCES_SHA256 = "d19e8ca881ea80ee90447df69e632d7b16e405f8602ed6409d0a2ecd5bc992fd"
+IDEA_IC_SOURCES_SHA256 = "062147eb1641fabe5c10afe46a92bc18cae142d95b4190806fe1aad2890e5107"
 
 http_archive(
     name = "idea-IC",
