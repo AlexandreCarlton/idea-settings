@@ -6,5 +6,5 @@ import java.io.File
 data class MavenSettings(
 
     @JsonProperty("Importing")
-    val importing: MavenImportingSettings? = null,
+    val importing: MavenImportingSettings? = null
 )
