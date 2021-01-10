@@ -21,9 +21,6 @@ enum class Scope {
     @JsonProperty("Tests")
     TESTS,
 
-    @JsonProperty("Problems")
-    PROBLEMS,
-
     @JsonProperty("Open Files")
     OPEN_FILES,
 

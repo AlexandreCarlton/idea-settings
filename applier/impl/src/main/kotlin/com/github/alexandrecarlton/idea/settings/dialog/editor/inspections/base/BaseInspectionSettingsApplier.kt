@@ -4,7 +4,6 @@ import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.EVERYWHERE_ELSE
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.IN_ALL_SCOPES
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.OPEN_FILES
-import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.PROBLEMS
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.PRODUCTION
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.PROJECT_FILES
 import com.github.alexandrecarlton.idea.settings.dialog.editor.inspections.base.Scope.SCRATCHES_AND_CONSOLES
@@ -21,7 +20,6 @@ import com.intellij.codeInspection.ex.ToolsImpl
 import com.intellij.ide.scratch.ScratchesNamedScope
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.fileEditor.impl.OpenFilesScope
-import com.intellij.psi.search.scope.ProblemsScope
 import com.intellij.psi.search.scope.ProjectFilesScope
 import com.intellij.psi.search.scope.ProjectProductionScope
 import com.intellij.psi.search.scope.TestsScope
@@ -53,7 +51,6 @@ abstract class BaseInspectionSettingsApplier<Options>(private val toolsImpl: Too
                 SCRATCHES_AND_CONSOLES -> toolsImpl.addTool(ScratchesNamedScope(), inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
                 PRODUCTION -> toolsImpl.addTool(ProjectProductionScope.INSTANCE, inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
                 TESTS -> toolsImpl.addTool(TestsScope.INSTANCE, inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
-                PROBLEMS -> toolsImpl.addTool(ProblemsScope.INSTANCE, inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
                 OPEN_FILES -> toolsImpl.addTool(OpenFilesScope.INSTANCE, inspectionToolWrapper.createCopy(), toolsImpl.isEnabled, highlightDisplayLevel)
             }
             // In the all scopes / everywhere else case, we must manually set the level.
