@@ -13,6 +13,8 @@ jobs:
       - run:
           name: Download bazelisk
           command: |
+            export DEBIAN_FRONTEND=noninteractive
+            export DEBCONF_NONINTERACTIVE_SEEN=true
             apt update
             apt install --yes curl ca-cacert pkg-config zip g++ zlib1g-dev unzip python python3.8 openjdk-11-jdk
             ln -s /usr/bin/python3.7 /usr/local/bin/python
