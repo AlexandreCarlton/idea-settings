@@ -6,7 +6,6 @@ import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.jav
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguageVersion.FLOW
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguageVersion.JAVASCRIPT_1_8_5
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguageVersion.NASHORN_JS
-import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.JavascriptLanguageVersion.REACT_JSX
 import com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.code_quality_tools.JavascriptCodeQualityToolsSettings
 import com.intellij.lang.javascript.dialects.JSLanguageLevel
 import com.intellij.lang.javascript.settings.JSRootConfiguration
@@ -30,6 +29,5 @@ constructor(
             ECMASCRIPT_6 -> JSLanguageLevel.ES6
             JAVASCRIPT_1_8_5 -> JSLanguageLevel.JS_1_8_5
             NASHORN_JS -> JSLanguageLevel.NASHORN
-            REACT_JSX -> JSLanguageLevel.JSX
         }
 }

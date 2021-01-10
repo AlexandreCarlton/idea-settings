@@ -87,7 +87,7 @@ java_import(
 java_import(
     name = "runtime",
     testonly = True,
-    jars = ["@local_jdk//:lib/tools.jar"] + glob(["lib/*.jar"]),
+    jars = glob(["lib/*.jar"]),
 )
 
 java_import(

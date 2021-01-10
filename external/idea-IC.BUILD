@@ -162,6 +162,20 @@ java_import(
 )
 
 java_import(
+    name = "plugins/Kotlin/lib/kotlin-formatter",
+    jars = ["plugins/Kotlin/lib/kotlin-formatter.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
+    name = "plugins/Kotlin/lib/kotlin-idea",
+    jars = ["plugins/Kotlin/lib/kotlin-idea.jar"],
+    neverlink = True,
+    srcjar = "@idea-IC-sources//jar",
+)
+
+java_import(
     name = "plugins/Kotlin/lib/kotlin-plugin",
     jars = ["plugins/Kotlin/lib/kotlin-plugin.jar"],
     neverlink = True,
@@ -193,7 +207,7 @@ java_import(
 
 java_import(
     name = "runtime",
-    jars = ["@local_jdk//:lib/tools.jar"] + glob(["lib/*.jar"]),
+    jars = glob(["lib/*.jar"]),
     srcjar = "@idea-IC-sources//jar",
     testonly = True,
 )

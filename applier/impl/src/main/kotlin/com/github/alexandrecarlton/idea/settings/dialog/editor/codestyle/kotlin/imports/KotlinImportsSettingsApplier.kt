@@ -1,9 +1,9 @@
 package com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.kotlin.imports
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.intellij.psi.codeStyle.PackageEntry
-import com.intellij.psi.codeStyle.PackageEntryTable
 import org.jetbrains.kotlin.idea.core.formatter.KotlinCodeStyleSettings
+import org.jetbrains.kotlin.idea.core.formatter.KotlinPackageEntry
+import org.jetbrains.kotlin.idea.core.formatter.KotlinPackageEntryTable
 import javax.inject.Inject
 
 class KotlinImportsSettingsApplier @Inject
@@ -15,9 +15,9 @@ constructor(
         settings.javaStaticsAndEnumMembers?.let(::toImportCount)?.let { kotlinCodeStyleSettings.NAME_COUNT_TO_USE_STAR_IMPORT_FOR_MEMBERS = it }
 
         settings.packagesToUseImportWithWildcard
-            ?.map { PackageEntry(false, it.packageToImport ?: "", it.withSubpackages ?: true) }
+            ?.map { KotlinPackageEntry(it.packageToImport ?: "", it.withSubpackages ?: true) }
             ?.let {
-                kotlinCodeStyleSettings.PACKAGES_TO_USE_STAR_IMPORTS.copyFrom(PackageEntryTable().apply {
+                kotlinCodeStyleSettings.PACKAGES_TO_USE_STAR_IMPORTS.copyFrom(KotlinPackageEntryTable().apply {
                     it.forEach(::addEntry)
                 })
             }

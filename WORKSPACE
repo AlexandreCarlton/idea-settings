@@ -4,13 +4,13 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_VERSION = "2020.2.1"
+IDEA_VERSION = "2020.3"
 
-IDEA_IC_SHA256 = "a2777ea279b7bd725d167e94b28a488ea4dbd22a363255c82b9a1b1a208d4c3e"
+IDEA_IC_SHA256 = "c635173e55c105012fe83ecb776bae8a5e776021afffc5e916823d629651f8c8"
 
-IDEA_IU_SHA256 = "a5543b6e3fd702846a916621c039f7c808664d67080b8095c1fcc3a96571166a"
+IDEA_IU_SHA256 = "6828e286eb476f5fc98c670433d5cf3bcbc4507ae3134724e10a21eaaa24bacf"
 
-IDEA_IC_SOURCES_SHA256 = "c66da51909ed3e8e649f085bd7cfdf18f06e2d9b736db3e54ef730a31a7ab8a3"
+IDEA_IC_SOURCES_SHA256 = "d19e8ca881ea80ee90447df69e632d7b16e405f8602ed6409d0a2ecd5bc992fd"
 
 http_archive(
     name = "idea-IC",
@@ -50,9 +50,9 @@ http_archive(
 http_archive(
     name = "File-Watchers",
     build_file = "File-Watchers.BUILD",
-    sha256 = "c420c33f9118e4fbb8769b44c0c8133dfc931571ff9e344d7d94785807e3aeb9",
+    sha256 = "0eb53920deb881de5c8d19cc07648bf42a4b15e33ad118ad0c2e1fc6f6ee0f6f",
     strip_prefix = "fileWatcher",
-    url = "https://plugins.jetbrains.com/files/7177/92064/fileWatcher-202.6397.21.zip",
+    url = "https://plugins.jetbrains.com/files/7177/104144/fileWatcher-203.5981.152.zip",
 )
 
 java_import_external(
@@ -89,7 +89,10 @@ load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_reg
 
 kotlin_repositories()
 
-kt_register_toolchains()
+# The IntelliJ binaries are built against JDK11 so we must match this with a custom JDK11 toolchain
+# Consider replacing this with kt_register_toolchains when bumping kotlin rules - it may provide JDK11 as a default.
+#kt_register_toolchains() # Restore this to use the default toolchain
+register_toolchains("//:kotlin_toolchain")
 
 http_archive(
     name = "rules_pkg",

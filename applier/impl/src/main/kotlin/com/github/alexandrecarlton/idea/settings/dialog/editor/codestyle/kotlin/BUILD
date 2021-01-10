@@ -13,7 +13,7 @@ kt_jvm_library(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/kotlin/tabs_and_indents",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/kotlin/wrapping_and_braces",
         "@idea-IC//:lib/platform-api",
-        "@idea-IC//:plugins/Kotlin/lib/kotlin-plugin",
+        "@idea-IC//:plugins/Kotlin/lib/kotlin-formatter",
         "@maven//:javax_inject_javax_inject",
     ],
 )

@@ -18,6 +18,11 @@ Furthermore, taking the time to set up a project can be costly and error prone.
 Instead, we can store the configuration in a single file that all developers
 can use to generate their settings, ensuring a standardised environment.
 
+Finally, settings in this `.IDEA-settings.yml` are for those that are commonly
+stored in files that are cannot be feasibly be stored in version control; these
+include `.idea/compiler.xml` as it changes frequently, but not something like a
+`Run Configuration`.
+
 ## What can be configured?
 
 See the [example .IDEA-settings.yml](IDEA-settings-exampl.yml) which provides
@@ -43,6 +48,27 @@ To run the application with IDEA Ultimate:
 ```sh
 bazel run --define product=ultimate //:apply-idea-settings <project-directory>
 ```
+
+## Where should I store...
+
+As stated earlier, this plugin should be seen as something to "fill in" the
+remaining settings that the user wants to be persisted and shared with other
+contributors.
+It is **not** intended to encapsulate all IntelliJ configuration as it
+requires too much work to maintain; JetBrains (not unreasonably) makes too
+many breaking changes to its internal API to make this worthwhile.
+
+It is therefore recommended to store your settings in such a way that IDEA can
+easily recognise them without having to store `*.xml` files that cannot be
+versioned (for example, `.idea/workspace.xml` stores user-level config like
+breakpoints).
+
+| Setting | Recommended storage |
+| ------- | ------------------- |
+| Editor > Codestyle | [IntelliJ's EditorConfig plugin](https://www.jetbrains.com/help/idea/configuring-code-style.html#editorconfig) |
+| Maven home | [Use the maven
+wrapper](https://youtrack.jetbrains.com/issue/IDEA-146205) (official in Maven 3.7.0) |
+| Run Configurations | Store them in [.run](https://www.jetbrains.com/help/idea/run-debug-configuration.html#share-configurations) |
 
 ## Development
 

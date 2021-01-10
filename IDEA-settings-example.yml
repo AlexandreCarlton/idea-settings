@@ -187,8 +187,6 @@ Build, Execution, Deployment:
     Maven:
       Importing:
         VM options for importer: -Xmx1g
-      Thread count: 4
-      Maven home directory: /usr
   Compiler:
     Resource patterns:
       - '!?*.java'

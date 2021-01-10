@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       # Bazel doesn't work on alpine, even if we have libc6-compat, libstdc++ and libgcc
-      - image: ubuntu:19.10
+      - image: ubuntu:20.04
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -14,9 +14,9 @@ jobs:
           name: Download bazelisk
           command: |
             apt update
-            apt install --yes curl ca-cacert pkg-config zip g++ zlib1g-dev unzip python python3.7 openjdk-8-jdk
+            apt install --yes curl ca-cacert pkg-config zip g++ zlib1g-dev unzip python python3.8 openjdk-11-jdk
             ln -s /usr/bin/python3.7 /usr/local/bin/python
-            curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64
+            curl --location --output /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/download/v1.7.4/bazelisk-linux-amd64
             chmod +x /usr/local/bin/bazel
 
       - run:
@@ -41,9 +41,11 @@ jobs:
           name: Build idea-settings tests
           command: bazel build --jobs=1 //:tests
 
-      - run:
-          name: Test idea-settings
-          command: bazel test --jobs=1 //:tests
+      # Most (if not all) of these tests are "clone" tests in that they are simply repeating
+      # what the implementation does - they do not provide any value and give the illusion of testing coverage.
+      # - run:
+      #     name: Test idea-settings
+      #     command: bazel test --jobs=1 //:tests
 
       - run:
           name: Integration test idea-settings

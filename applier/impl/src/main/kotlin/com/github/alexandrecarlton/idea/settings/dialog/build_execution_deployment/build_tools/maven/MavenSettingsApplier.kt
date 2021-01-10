@@ -11,7 +11,8 @@ constructor(
 
     override fun apply(settings: MavenSettings) {
         settings.importing?.let(mavenImportingSettingsApplier::apply)
-        settings.mavenHomeDirectory?.let { mavenGeneralSettings.mavenHome = it.absolutePath }
-        settings.threadCount?.let { mavenGeneralSettings.threads = it }
+        // TODO: Remove - it's causing IDEA to block and maven wrapper will deprecate it.
+        // settings.mavenHomeDirectory?.let { mavenGeneralSettings.mavenHome = it.absolutePath }
+        // settings.threadCount?.let { mavenGeneralSettings.threads = it }
     }
 }

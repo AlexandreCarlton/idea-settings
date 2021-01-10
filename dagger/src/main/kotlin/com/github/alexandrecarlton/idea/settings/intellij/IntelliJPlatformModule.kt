@@ -114,7 +114,8 @@ object IntelliJPlatformModule {
     fun provideKotlinCodeInsightWorkspaceSettings(project: Project) = KotlinCodeInsightWorkspaceSettings.getInstance(project)
 
     @Provides
-    fun provideKotlinCodeStyleSettings(project: Project) = KotlinCodeStyleSettings.getInstance(project)
+    fun provideKotlinCodeStyleSettings(codeStyleSettings: CodeStyleSettings): KotlinCodeStyleSettings =
+        codeStyleSettings.getCustomSettings(KotlinCodeStyleSettings::class.java)
 
     @Provides
     @Named("Kotlin")

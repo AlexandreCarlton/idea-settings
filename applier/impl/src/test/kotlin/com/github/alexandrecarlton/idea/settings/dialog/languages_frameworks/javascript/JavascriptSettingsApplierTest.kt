@@ -19,9 +19,5 @@ class JavascriptSettingsApplierTest : IdeaSettingsTestFixture() {
         settingsApplier = JavascriptSettingsApplier(platform.jsRootConfiguration, javascriptCodeQualityToolsSettingsApplier)
     }
 
-    @Test
-    fun setLanguageToReact() {
-        settingsApplier.apply(JavascriptSettings(javascriptLanguageVersion = JavascriptLanguageVersion.REACT_JSX))
-        assertThat(platform.jsRootConfiguration.languageLevel).isEqualTo(JSLanguageLevel.JSX)
-    }
+    // TODO We had a test for React JSX but it was removed - we should add the remaining ones.
 }

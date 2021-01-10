@@ -13,9 +13,6 @@ enum class JavascriptLanguageVersion {
     @JsonProperty("ECMAScript 6")
     ECMASCRIPT_6,
 
-    @JsonProperty("React JSX")
-    REACT_JSX,
-
     @JsonProperty("Nashorn JS")
     NASHORN_JS,
 

@@ -41,8 +41,6 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                     Maven:
                       Importing:
                         VM options for importer: -Xmx1g
-                      Thread count: 1C
-                      Maven home directory: maven-bin
                   Compiler:
                     Resource patterns:
                       - '!?*.java'
@@ -296,20 +294,6 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         assertThatXml(".idea/workspace.xml")
             .valueByXPath("//MavenImportingSettings/option[@name='vmOptionsForImporter']/@value")
             .isEqualTo("-Xmx1g")
-    }
-
-    @Test
-    fun mavenThreadCount() {
-        assertThatXml(".idea/workspace.xml")
-            .valueByXPath("//MavenGeneralSettings/option[@name='threads']/@value")
-            .isEqualTo("1C")
-    }
-
-    @Test
-    fun mavenHome() {
-        assertThatXml(".idea/workspace.xml")
-            .valueByXPath("//MavenGeneralSettings/option[@name='mavenHome']/@value")
-            .isEqualTo("\$PROJECT_DIR$/maven-bin")
     }
 
     @Test
