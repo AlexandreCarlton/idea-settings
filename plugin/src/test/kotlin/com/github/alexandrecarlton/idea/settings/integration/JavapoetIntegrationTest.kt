@@ -41,6 +41,7 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                     Maven:
                       Importing:
                         VM options for importer: -Xmx1g
+                        JDK for importer: Use Project JDK
                   Compiler:
                     Resource patterns:
                       - '!?*.java'
@@ -294,6 +295,13 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         assertThatXml(".idea/workspace.xml")
             .valueByXPath("//MavenImportingSettings/option[@name='vmOptionsForImporter']/@value")
             .isEqualTo("-Xmx1g")
+    }
+
+    @Test
+    fun jdkForImporter() {
+        assertThatXml(".idea/workspace.xml")
+            .valueByXPath("//MavenImportingSettings/option[@name='jdkForImporter']/@value")
+            .isEqualTo("#USE_PROJECT_JDK")
     }
 
     @Test

@@ -5,5 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class MavenImportingSettings(
 
     @JsonProperty("VM options for importer")
-    val vmOptionsForImporter: String? = null
+    val vmOptionsForImporter: String? = null,
+
+    @JsonProperty("JDK for importer")
+    val jdkForImporter: String? = null
 )
