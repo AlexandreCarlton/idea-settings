@@ -5,17 +5,8 @@ load(
     "intellij_plugin",
     "intellij_plugin_library",
 )
-# TODO: Check if the default toolchain in an updated kotlin_rules can be used.
-load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "define_kt_toolchain")
+
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
-
-define_kt_toolchain(
-    name = "kotlin_toolchain",
-    api_version = "1.3",
-    jvm_target = "11",
-    language_version = "1.3",
-)
-
 
 intellij_plugin(
     name = "idea-settings",

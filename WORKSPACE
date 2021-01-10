@@ -80,19 +80,15 @@ http_archive(
 
 http_archive(
     name = "io_bazel_rules_kotlin",
-    sha256 = "4fd769fb0db5d3c6240df8a9500515775101964eebdf85a3f9f0511130885fde",
-    strip_prefix = "rules_kotlin-legacy-1.3.0",
-    url = "https://github.com/bazelbuild/rules_kotlin/archive/legacy-1.3.0.zip",
+    sha256 = "6194a864280e1989b6d8118a4aee03bb50edeeae4076e5bc30eef8a98dcd4f07",
+    url = "https://github.com/bazelbuild/rules_kotlin/releases/download/v1.5.0-alpha-2/rules_kotlin_release.tgz",
 )
 
 load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
 
 kotlin_repositories()
 
-# The IntelliJ binaries are built against JDK11 so we must match this with a custom JDK11 toolchain
-# Consider replacing this with kt_register_toolchains when bumping kotlin rules - it may provide JDK11 as a default.
-#kt_register_toolchains() # Restore this to use the default toolchain
-register_toolchains("//:kotlin_toolchain")
+kt_register_toolchains()
 
 http_archive(
     name = "rules_pkg",
