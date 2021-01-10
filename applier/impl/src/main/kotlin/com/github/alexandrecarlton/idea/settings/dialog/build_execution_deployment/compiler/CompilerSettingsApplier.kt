@@ -22,7 +22,7 @@ constructor(
         settings.addRuntimeAssertionsForNotnullAnnotatedMethodsAndParameters?.let { compilerConfiguration.isAddNotNullAssertions = it }
         settings.nullableNotNullConfiguration?.let(nullableNotNullConfigurationSettingsApplier::apply)
         settings.buildProcessHeapSizeMbytes?.let { compilerConfiguration.setBuildProcessHeapSize(it) }
-        settings.compileIndependentModulesInParallel?.let { compilerWorkspaceConfiguration.PARALLEL_COMPILATION = it }
+        settings.compileIndependentModulesInParallel?.let { compilerConfiguration.isParallelCompilationEnabled = it }
         settings.rebuildModuleOnDependencyChange?.let { compilerWorkspaceConfiguration.REBUILD_ON_DEPENDENCY_CHANGE = it }
         settings.sharedBuildProcessVmOptions?.let { compilerConfiguration.buildProcessVMOptions = it }
 

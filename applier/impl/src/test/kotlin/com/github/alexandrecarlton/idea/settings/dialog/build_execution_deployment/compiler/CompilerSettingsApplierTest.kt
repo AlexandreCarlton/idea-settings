@@ -33,7 +33,7 @@ class CompilerSettingsApplierTest : IdeaSettingsTestFixture() {
     @Test
     fun compileIndependentModulesInParallel() {
         settingsApplier.apply(CompilerSettings(compileIndependentModulesInParallel = true))
-        assertThat(platform.compilerWorkspaceConfiguration.PARALLEL_COMPILATION).isTrue()
+        assertThat(platform.compilerConfiguration.isParallelCompilationEnabled).isTrue()
     }
 
     @Test
