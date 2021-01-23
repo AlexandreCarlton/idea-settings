@@ -25,7 +25,7 @@ include `.idea/compiler.xml` as it changes frequently, but not something like a
 
 ## What can be configured?
 
-See the [example .IDEA-settings.yml](IDEA-settings-exampl.yml) which provides
+See the [example .IDEA-settings.yml](IDEA-settings-example.yml) which provides
 an example of all possible settings that can currently be configured.
 
 ## Generating IDEA files
