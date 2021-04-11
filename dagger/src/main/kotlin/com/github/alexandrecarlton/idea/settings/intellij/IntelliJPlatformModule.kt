@@ -39,6 +39,7 @@ import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.codeInsight.KotlinCodeInsightWorkspaceSettings
 import org.jetbrains.kotlin.idea.core.formatter.KotlinCodeStyleSettings
 import org.sonarlint.intellij.config.project.SonarLintProjectSettings
+import org.sonarlint.intellij.config.project.SonarLintProjectSettingsStore
 import javax.inject.Named
 
 /**
@@ -163,7 +164,10 @@ object IntelliJPlatformModule {
     fun provideSaveActionsStorage(project: Project) = StorageFactory.DEFAULT.getStorage(project)
 
     @Provides
-    fun provideSonarLintProjectSettings(project: Project) = project.getService(SonarLintProjectSettings::class.java)
+    fun provideSonarLintProjectSettings(store: SonarLintProjectSettingsStore): SonarLintProjectSettings = store.state!!
+
+    @Provides
+    fun provideSonarLintProjectSettingsStore(project: Project) = project.getService(SonarLintProjectSettingsStore::class.java)
 
     @Provides
     fun provideSqlDialectMappings(project: Project) = SqlDialectMappings.getInstance(project)

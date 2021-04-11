@@ -62,13 +62,12 @@ java_import_external(
     neverlink = True,
 )
 
-# TODO: Upgrade this when a new version comes out; this version is broken in 2020.1.
 http_archive(
     name = "SonarLint",
     build_file = "SonarLint.BUILD",
-    sha256 = "5950aa7563265678c4086d23f5c0efad73badb8ce574021f53199d5777b2d5be",
+    sha256 = "1d4da536f781be5718d93d291fd9f11939737fa93468fde3cb30d883184f5369",
     strip_prefix = "sonarlint-intellij",
-    url = "https://plugins.jetbrains.com/files/7973/91941/sonarlint-intellij-4.10.0.19739.zip",
+    url = "https://plugins.jetbrains.com/files/7973/112566/sonarlint-intellij-4.14.2.28348.zip",
 )
 
 http_archive(

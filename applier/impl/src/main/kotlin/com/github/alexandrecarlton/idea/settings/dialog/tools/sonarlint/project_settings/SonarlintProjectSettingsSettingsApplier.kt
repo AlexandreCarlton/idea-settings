@@ -13,7 +13,7 @@ class SonarlintProjectSettingsSettingsApplier @Inject constructor(
 ) : SettingsApplier<SonarlintProjectSettingsSettings> {
     override fun apply(settings: SonarlintProjectSettingsSettings) {
         settings.bindToToSonarQubeSonarCloud?.bindProjectToSonarqubeSonarCloud?.let { sonarLintProjectSettings.isBindingEnabled = it }
-        settings.bindToToSonarQubeSonarCloud?.projectBinding?.connection?.let { sonarLintProjectSettings.serverId = it }
+        settings.bindToToSonarQubeSonarCloud?.projectBinding?.connection?.let { sonarLintProjectSettings.connectionName = it }
         settings.bindToToSonarQubeSonarCloud?.projectBinding?.project?.let { sonarLintProjectSettings.projectKey = it }
 
         settings.fileExclusions

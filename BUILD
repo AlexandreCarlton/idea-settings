@@ -26,7 +26,6 @@ pkg_tar(
         "@CheckStyle-IDEA//:lib/checkstyle-idea.jar": "CheckStyle-IDEA/lib/checkstyle-idea.jar",
         "@Save-Actions//jar:file": "save-actions.jar",
         "@SonarLint//:lib/sonarlint-intellij.jar": "SonarLint/lib/sonarlint-intellij.jar",
-        "@SonarLint//:lib/sonarlint-client-api.jar": "SonarLint/lib/sonarlint-client-api.jar",
         "@SonarLint//:lib/sonarlint-core.jar": "SonarLint/lib/sonarlint-core.jar",
         "@File-Watchers//:lib/fileWatcher.jar": "fileWatcher/lib/fileWatcher.jar",
         "@File-Watchers//:lib/resources_en.jar": "fileWatcher/lib/resources_en.jar",

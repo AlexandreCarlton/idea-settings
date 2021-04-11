@@ -30,7 +30,7 @@ class SonarlintProjectSettingsSettingsApplierTest : IdeaSettingsTestFixture() {
             bindToToSonarQubeSonarCloud = BindToSonarQubeSonarCloudSettings(
                 projectBinding = ProjectBindingSettings(
                     connection = "My Sonar Instance"))))
-        assertThat(platform.sonarLintProjectSettings.serverId).isEqualTo("My Sonar Instance")
+        assertThat(platform.sonarLintProjectSettings.connection).isEqualTo("My Sonar Instance")
     }
 
     @Test

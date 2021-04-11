@@ -19,11 +19,6 @@ filegroup(
 )
 
 filegroup(
-    name = "lib/sonarlint-client-api.jar",
-    srcs = glob(["lib/sonarlint-client-api-*.jar"]),
-)
-
-filegroup(
     name = "lib/sonarlint-core.jar",
     srcs = glob(["lib/sonarlint-core-*.jar"]),
 )
