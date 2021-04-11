@@ -128,7 +128,6 @@ following library to ensure it continues compiling:
 | Class                                     | Dependency                             |
 | -----                                     | ----------                             |
 | `AbstractBaseJavaLocalInspection`         | `@idea-IC//:plugins/java/lib/java-api` |
-| `AreaInstance`                            | `@idea-IC//:lib/extensions`            |
 | `CommonProgramRunConfigurationParameters` | `@idea-IC//:lib/platform-impl`         |
 | `ConfigurationWithAlternativeJre`         | `@idea-IC//:plugins/java/lib/java-api` |
 | `ConfigurationWithCommandLineShortener`   | `@idea-IC//:lib/platform-impl`         |

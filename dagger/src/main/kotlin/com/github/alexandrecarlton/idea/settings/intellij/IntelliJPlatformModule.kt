@@ -43,8 +43,6 @@ import javax.inject.Named
 
 /**
  * Provides components that depend on a [Project].
- *
- * @see ProjectModule for a module that imports a project from a given path.
  */
 @Module
 object IntelliJPlatformModule {

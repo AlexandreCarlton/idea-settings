@@ -32,13 +32,6 @@ class EslintSettingsApplierTest : IdeaSettingsTestFixture() {
     }
 
     @Test
-    fun manualEslintConfigurationWithNodeInterpreterApplied() {
-        settingsApplier.apply(ManualEslintConfigurationSettings(
-            nodeInterpreter = File("/usr/bin/node")))
-        assertThat(platform.eslintConfiguration.extendedState.state.interpreterRef.referenceName).isEqualTo("/usr/bin/node")
-    }
-
-    @Test
     fun manualEslintConfigurationWithEslintPackageApplied() {
         settingsApplier.apply(ManualEslintConfigurationSettings(
             eslintPackage = File("/usr/lib/node_modules/eslint")))

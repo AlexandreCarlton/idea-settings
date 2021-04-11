@@ -20,9 +20,6 @@ object EslintSettingsAutomaticEslintConfiguration : EslintSettings()
 @JsonTypeName("Manual ESLint configuration")
 data class ManualEslintConfigurationSettings (
 
-    @JsonProperty("Node interpreter")
-    val nodeInterpreter: File? = null,
-
     @JsonProperty("ESLint package")
     val eslintPackage: File? = null,
 

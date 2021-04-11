@@ -1,7 +1,6 @@
 package com.github.alexandrecarlton.idea.settings.dialog.languages_frameworks.javascript.code_quality_tools.eslint
 
 import com.github.alexandrecarlton.idea.settings.dialog.SettingsApplier
-import com.intellij.javascript.nodejs.interpreter.NodeJsInterpreterRef
 import com.intellij.javascript.nodejs.util.NodePackageRef
 import com.intellij.lang.javascript.linter.eslint.EslintConfiguration
 import com.intellij.lang.javascript.linter.eslint.EslintState
@@ -22,7 +21,6 @@ constructor(
     private fun apply(settings: ManualEslintConfigurationSettings) {
         val eslintStateBuilder = EslintState.Builder(eslintConfiguration.extendedState.state)
 
-        settings.nodeInterpreter?.let { eslintStateBuilder.setInterpreterRef(NodeJsInterpreterRef.create(it.toString())) }
         settings.eslintPackage?.let { eslintStateBuilder.setEslintPackage(NodePackageRef.create(it.toString())) }
         settings.configurationFile?.let {
             when(it) {

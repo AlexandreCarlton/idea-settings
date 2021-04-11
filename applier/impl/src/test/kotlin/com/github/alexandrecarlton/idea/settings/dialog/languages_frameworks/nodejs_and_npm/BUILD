@@ -17,7 +17,6 @@ kt_jvm_test(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/nodejs_and_npm",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/languages_frameworks/nodejs_and_npm",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/util",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/JavaScriptLanguage",

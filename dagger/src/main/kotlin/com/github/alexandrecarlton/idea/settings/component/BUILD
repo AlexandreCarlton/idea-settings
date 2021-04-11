@@ -20,7 +20,6 @@ kt_jvm_library(
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/npm",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/remote",
-        "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/shell_script",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/spring_boot",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/subcomponent",
         "//dagger/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor",

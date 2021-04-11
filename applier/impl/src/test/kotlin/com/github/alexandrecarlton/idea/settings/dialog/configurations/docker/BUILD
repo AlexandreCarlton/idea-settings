@@ -20,7 +20,6 @@ kt_jvm_test(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/common/environment",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",

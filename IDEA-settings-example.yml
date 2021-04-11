@@ -226,7 +226,6 @@ Languages & Frameworks:
         # Disable ESLint: {}
         # Automatic ESLint configuration: {}
         Manual ESLint configuration:
-          Node interpreter: /usr/bin/node
           ESLint package: /usr/lib/node_modules/eslint
           Configuration file:
             # Instead of configuration file, we can also have:
@@ -322,14 +321,6 @@ Run/Debug Configurations:
       Configuration:
         Host: localhost
         Port: 5005
-  - Shell Script:
-      Name: Script
-      Store as project file: true
-      Script path: ./foo.sh
-      Script options: arg1 arg2
-      Interpreter:
-        Interpreter path: /bin/sh
-        Interpreter options: -e
   - Spring Boot:
       Name: Spring Boot Application
       Configuration:

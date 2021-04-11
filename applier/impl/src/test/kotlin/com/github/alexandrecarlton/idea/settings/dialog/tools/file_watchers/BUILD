@@ -23,7 +23,6 @@ kt_jvm_test(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/common/filetype",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/file_watchers",
         "@File-Watchers//:lib/fileWatcher",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/util",
         "@idea-IU//:plugins/JavaScriptLanguage/lib/javascript-openapi",
         "@maven//:io_mockk_mockk",

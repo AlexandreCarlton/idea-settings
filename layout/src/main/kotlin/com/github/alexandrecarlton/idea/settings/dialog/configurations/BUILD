@@ -11,7 +11,6 @@ kt_jvm_library(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/npm",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/remote",
-        "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/shell_script",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/spring_boot",
         "@maven//:com_fasterxml_jackson_core_jackson_annotations",
     ],

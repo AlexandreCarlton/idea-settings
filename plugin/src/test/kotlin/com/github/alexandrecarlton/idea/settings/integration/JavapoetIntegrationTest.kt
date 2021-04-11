@@ -195,23 +195,12 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
                         VM options: -Xmx1g
                         Program arguments: foo bar
                         Working directory: src
-                  - Shell Script:
-                      Name: Shell Script
-                      Store as project file: true
-                      Script path: maven-bin/bin/mvn
-                      Script options: --version
-                      Interpreter:
-                        Interpreter path: /bin/sh
-                        Interpreter options: -e
                   - Remote:
                       Name: Remote Configuration
                       Store as project file: true
                       Configuration:
                         Host: 8.8.8.8
-                        Port: 5000
-                      Before launch:
-                        - Run Another Configuration:
-                            Name: Shell Script""".trimIndent())
+                        Port: 5000""".trimIndent())
             driver.copyDirectoryFromRunfiles("maven-bin", "");
 
             Files.move(
@@ -747,35 +736,6 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
     }
 
     @Test
-    fun checkShellScriptPath() {
-        assertThatXml(".idea/runConfigurations/Shell_Script.xml")
-            .valueByXPath("//configuration[@name='Shell Script']/option[@name='SCRIPT_PATH']/@value")
-            .isEqualTo("\$PROJECT_DIR$/maven-bin/bin/mvn")
-    }
-
-    @Test
-    fun checkShellScriptOptions() {
-        assertThatXml(".idea/runConfigurations/Shell_Script.xml")
-            .valueByXPath("//configuration[@name='Shell Script']/option[@name='SCRIPT_OPTIONS']/@value")
-            .isEqualTo("--version")
-    }
-
-    @Test
-    fun checkShellScriptInterpreterPath() {
-        val shellPath: Path = Paths.get("/bin/sh")
-        assertThatXml(".idea/runConfigurations/Shell_Script.xml")
-            .valueByXPath("//configuration[@name='Shell Script']/option[@name='INTERPRETER_PATH']/@value")
-            .isEqualTo(shellPath.toString())
-    }
-
-    @Test
-    fun checkShellScriptInterpreterOptions() {
-        assertThatXml(".idea/runConfigurations/Shell_Script.xml")
-            .valueByXPath("//configuration[@name='Shell Script']/option[@name='INTERPRETER_OPTIONS']/@value")
-            .isEqualTo("-e")
-    }
-
-    @Test
     fun checkRemoteConfiguration() {
         assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
             .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='HOST']/@value")
@@ -783,20 +743,5 @@ class JavapoetIntegrationTest : AbstractIntegrationTest() {
         assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
             .valueByXPath("//configuration[@name='Remote Configuration']/option[@name='PORT']/@value")
             .isEqualTo("5000")
-    }
-
-    @Test
-    fun checkRemoteConfigurationShellScript() {
-        assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
-            .valueByXPath("//configuration[@name='Remote Configuration']/method[@v='2']/option[@name='RunConfigurationTask']/@run_configuration_name")
-            .isEqualTo("Shell Script")
-    }
-
-    @Test
-    fun checkRemoteConfigurationShellScriptEnabled() {
-        assertThatXml(".idea/runConfigurations/Remote_Configuration.xml")
-            .valueByXPath("//configuration[@name='Remote Configuration']/method[@v='2']/option[@name='RunConfigurationTask']/@enabled")
-            .asBoolean()
-            .isTrue()
     }
 }

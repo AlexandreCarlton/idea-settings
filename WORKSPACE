@@ -4,13 +4,13 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:java.bzl", "java_import_external")
 
 # To view newer releases: https://www.jetbrains.com/intellij-repository/releases/
-IDEA_VERSION = "2020.3.1"
+IDEA_VERSION = "2021.1"
 
-IDEA_IC_SHA256 = "2c621e40a8a965c7ea5e1005652d1d1dd80b8fe4241be13ef3d4df2c0b2d72c5"
+IDEA_IC_SHA256 = "e9351b924fe7da8645989063e52240e048c0baecf7abf6188a7e1f14e08c9d4e"
 
-IDEA_IU_SHA256 = "ffd4e98b7a3e7cd40a66e518b01e1fb160fe03071aa6085a543decd7b825b4c3"
+IDEA_IU_SHA256 = "099f3e974642441196a762e948da4e01d33f59526109f4be9f8e724d8b221598"
 
-IDEA_IC_SOURCES_SHA256 = "062147eb1641fabe5c10afe46a92bc18cae142d95b4190806fe1aad2890e5107"
+IDEA_IC_SOURCES_SHA256 = "f6b0202b8fbafb10d841614942f78fc5d15b0c118c764e3e0c2b67949df8c253"
 
 http_archive(
     name = "idea-IC",
@@ -50,9 +50,9 @@ http_archive(
 http_archive(
     name = "File-Watchers",
     build_file = "File-Watchers.BUILD",
-    sha256 = "0eb53920deb881de5c8d19cc07648bf42a4b15e33ad118ad0c2e1fc6f6ee0f6f",
+    sha256 = "9bd880531233a7f8ff33205e1d23236cc1d831fdcbf4271aba6f483f69778015",
     strip_prefix = "fileWatcher",
-    url = "https://plugins.jetbrains.com/files/7177/104144/fileWatcher-203.5981.152.zip",
+    url = "https://plugins.jetbrains.com/files/7177/115240/fileWatcher-211.6693.44.zip",
 )
 
 java_import_external(

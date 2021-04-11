@@ -10,7 +10,6 @@ kt_jvm_library(
         "@maven//:com_fasterxml_jackson_core_jackson_databind",
         "@maven//:com_google_dagger_dagger",
         "@maven//:javax_inject_javax_inject",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/platform-impl",
         "@idea-IC//:lib/util",

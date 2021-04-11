@@ -22,13 +22,6 @@ java_import(
 )
 
 java_import(
-    name = "lib/extensions",
-    jars = ["lib/extensions.jar"],
-    neverlink = True,
-    srcjar = "@idea-IC-sources//jar",
-)
-
-java_import(
     name = "lib/idea",
     jars = ["lib/idea.jar"],
     neverlink = True,
@@ -94,13 +87,6 @@ java_import(
 java_import(
     name = "lib/platform-ide-util-io",
     jars = ["lib/platform-ide-util-io.jar"],
-    neverlink = True,
-    srcjar = "@idea-IC-sources//jar",
-)
-
-java_import(
-    name = "lib/platform-serviceContainer",
-    jars = ["lib/platform-serviceContainer.jar"],
     neverlink = True,
     srcjar = "@idea-IC-sources//jar",
 )

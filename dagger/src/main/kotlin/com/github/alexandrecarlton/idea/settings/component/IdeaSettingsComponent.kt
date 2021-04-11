@@ -13,7 +13,6 @@ import com.github.alexandrecarlton.idea.settings.dialog.configurations.applicati
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.npm.NpmConfigurationModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.remote.RemoteModule
-import com.github.alexandrecarlton.idea.settings.dialog.configurations.shell_script.ShellScriptModule
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot.SpringBootModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.EditorModule
 import com.github.alexandrecarlton.idea.settings.dialog.editor.codestyle.CodeStyleModule
@@ -62,12 +61,10 @@ import com.github.alexandrecarlton.idea.settings.intellij.ConfigurationTypeModul
 import com.github.alexandrecarlton.idea.settings.intellij.IntelliJPlatformModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijFileTypeModule
 import com.github.alexandrecarlton.idea.settings.intellij.IntellijSingletonModule
-import com.github.alexandrecarlton.idea.settings.intellij.ProjectModule
 import com.github.alexandrecarlton.idea.settings.intellij.ToolsImplModule
 import com.intellij.openapi.project.Project
 import dagger.BindsInstance
 import dagger.Component
-import javax.inject.Named
 
 @Component(modules = [
     ApplicationModule::class,
@@ -110,7 +107,6 @@ import javax.inject.Named
     NpmConfigurationModule::class,
     RemoteModule::class,
     SaveActionsModule::class,
-    ShellScriptModule::class,
     SpellingModule::class,
     SpringBootModule::class,
     SqlDialectsModule::class,
@@ -131,7 +127,6 @@ import javax.inject.Named
     KotlinInspectionsModule::class,
     IntellijFileTypeModule::class,
     IntelliJPlatformModule::class,
-    ProjectModule::class,
     ToolsImplModule::class])
 interface IdeaSettingsComponent {
 
@@ -142,7 +137,7 @@ interface IdeaSettingsComponent {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun project(@Named("project") project: String): Builder
+        fun project(project: Project): Builder
 
         fun build(): IdeaSettingsComponent
     }

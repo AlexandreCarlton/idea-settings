@@ -21,7 +21,6 @@ kt_jvm_test(
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/sonarlint/project_settings",
         "@SonarLint//:lib/sonarlint-intellij",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/util",
         "@maven//:junit_junit",
         "@maven//:org_assertj_assertj_core",

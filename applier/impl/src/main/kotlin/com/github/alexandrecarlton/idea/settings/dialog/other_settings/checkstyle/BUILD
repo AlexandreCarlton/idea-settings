@@ -9,7 +9,6 @@ kt_jvm_library(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/other_settings/checkstyle",
         "@maven//:javax_inject_javax_inject",
         "@CheckStyle-IDEA//:lib/checkstyle-idea",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/util",
     ],

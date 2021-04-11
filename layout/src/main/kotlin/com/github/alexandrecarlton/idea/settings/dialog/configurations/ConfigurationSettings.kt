@@ -12,7 +12,6 @@ import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.Do
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.docker.DockerPublishToHostInterface
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.npm.NpmConfigurationCommand
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.remote.RemoteConfigurationSettings
-import com.github.alexandrecarlton.idea.settings.dialog.configurations.shell_script.InterpreterConfigurationSettings
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.spring_boot.SpringBootConfigurationSettings
 import java.io.File
 
@@ -153,24 +152,6 @@ data class RemoteSettings (
 
     @JsonProperty("Configuration")
     val configuration: RemoteConfigurationSettings? = null
-) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
-
-@JsonTypeName("Shell Script")
-data class ShellScriptConfigurationSettings(
-
-    override val name: String,
-    override val storeAsProjectFile: Boolean? = null,
-    override val storeConfigurationFileIn: File? = null,
-    override val beforeLaunch: List<BeforeLaunchConfigurationSettings>? = null,
-
-    @JsonProperty("Script path")
-    val scriptPath: File,
-
-    @JsonProperty("Script options")
-    val scriptOptions: String? = null,
-
-    @JsonProperty("Interpreter")
-    val interpreter: InterpreterConfigurationSettings? = null
 ) : ConfigurationSettings(name, storeAsProjectFile, storeConfigurationFileIn, beforeLaunch)
 
 @JsonTypeName("Spring Boot")

@@ -8,7 +8,6 @@ kt_jvm_library(
         "//applier/api/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/tools/sonarlint/project_settings",
         "@SonarLint//:lib/sonarlint-intellij",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/util",
         "@maven//:javax_inject_javax_inject",

@@ -18,7 +18,6 @@ constructor(
     private val dockerImageConfigurationSettingsApplier: SettingsApplier<DockerImageConfigurationSettings>,
     private val npmConfigurationSettingsApplier: SettingsApplier<NpmConfigurationSettings>,
     private val remoteConfigurationApplier: SettingsApplier<RemoteSettings>,
-    private val shellScriptConfigurationSettingsApplier: SettingsApplier<ShellScriptConfigurationSettings>,
     private val springBootConfigurationApplier: SettingsApplier<SpringBootSettings>
 ) : SettingsApplier<ConfigurationSettings> {
 
@@ -29,7 +28,6 @@ constructor(
             is DockerImageConfigurationSettings -> dockerImageConfigurationSettingsApplier.apply(settings)
             is RemoteSettings -> remoteConfigurationApplier.apply(settings)
             is NpmConfigurationSettings -> npmConfigurationSettingsApplier.apply(settings)
-            is ShellScriptConfigurationSettings -> shellScriptConfigurationSettingsApplier.apply(settings)
             is SpringBootSettings -> springBootConfigurationApplier.apply(settings)
         }
 

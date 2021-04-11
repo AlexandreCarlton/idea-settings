@@ -7,7 +7,6 @@ kt_jvm_library(
     visibility = ["//visibility:public"],
     deps = [
         "//dagger/src/test/kotlin/com/github/alexandrecarlton/idea/settings/intellij",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/idea",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/testFramework",

@@ -88,7 +88,6 @@ test_suite(
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/docker",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/npm",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/remote",
-        "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/shell_script",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/configurations/spring_boot",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/java/arrangement",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/java/blank_lines",

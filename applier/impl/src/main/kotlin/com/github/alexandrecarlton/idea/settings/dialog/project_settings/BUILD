@@ -10,7 +10,6 @@ kt_jvm_library(
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/modules",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/project_settings/project",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/util",
         "@maven//:javax_inject_javax_inject",

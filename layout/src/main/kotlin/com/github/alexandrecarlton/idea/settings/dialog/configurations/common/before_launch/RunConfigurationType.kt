@@ -16,9 +16,6 @@ enum class RunConfigurationType {
     @JsonProperty("Remote")
     REMOTE,
 
-    @JsonProperty("Shell Script")
-    SHELL_SCRIPT,
-
     @JsonProperty("Spring Boot")
     SPRING_BOOT
 }

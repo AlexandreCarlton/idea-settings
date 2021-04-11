@@ -7,6 +7,7 @@ import com.github.alexandrecarlton.idea.settings.component.DaggerIdeaSettingsCom
 import com.github.alexandrecarlton.idea.settings.component.IdeaSettingsComponent
 import com.github.alexandrecarlton.idea.settings.dialog.IdeaSettings
 import com.intellij.configurationStore.StoreUtil
+import com.intellij.ide.impl.ProjectUtil
 import com.intellij.openapi.application.ApplicationStarter
 import com.intellij.openapi.application.WriteAction
 import com.intellij.openapi.application.ex.ApplicationManagerEx
@@ -40,16 +41,17 @@ class IdeaSettingsApplicationStarter : ApplicationStarter {
         ApplicationManagerEx.getApplicationEx().exit(true, true)
     }
 
-    private fun applySettings(project: File) {
+    private fun applySettings(projectDirectory: File) {
+        val settings = loadSettings(projectDirectory)
+        val project = ProjectUtil.openOrImport(projectDirectory.absolutePath, null, false)!!
         val component: IdeaSettingsComponent = DaggerIdeaSettingsComponent
             .builder()
-            .project(project.absolutePath)
+            .project(project)
             .build()
-        val settings = loadSettings(project)
         ApplicationManagerEx.getApplicationEx().isSaveAllowed = true
         WriteAction.runAndWait<RuntimeException> {
             settings?.let { component.applier().apply(it) }
-            component.project().save()
+            project.save()
             StoreUtil.saveDocumentsAndProjectsAndApp(true)
         }
     }

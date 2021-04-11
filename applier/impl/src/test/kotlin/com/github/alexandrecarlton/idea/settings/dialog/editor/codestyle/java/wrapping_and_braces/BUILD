@@ -15,7 +15,6 @@ kt_jvm_test(
         "//applier/impl/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/java/wrapping_and_braces",
         "//applier/impl/src/test/kotlin/com/github/alexandrecarlton/idea/settings/fixtures",
         "//layout/src/main/kotlin/com/github/alexandrecarlton/idea/settings/dialog/editor/codestyle/java/wrapping_and_braces",
-        "@idea-IC//:lib/extensions",
         "@idea-IC//:lib/platform-api",
         "@idea-IC//:lib/util",
         "@idea-IC//:plugins/java/lib/java-api",

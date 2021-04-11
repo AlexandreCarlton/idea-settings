@@ -10,7 +10,6 @@ import com.intellij.ide.plugins.PluginManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.remoteServer.impl.configuration.deployment.DeployToServerConfigurationType
-import com.intellij.sh.run.ShConfigurationType
 import com.intellij.spring.boot.run.SpringBootApplicationConfigurationType
 import dagger.Lazy
 import dagger.Module
@@ -48,14 +47,6 @@ object ConfigurationTypeModule {
     @Named("Remote")
     fun provideRemoteConfigurationTypeSupplier(configurationType: Lazy<RemoteConfigurationType>) =
         provideIfLoaded(Plugin.JAVA, configurationType)
-
-    @Provides
-    fun provideShellScriptConfigurationType() = ShConfigurationType()
-
-    @Provides
-    @Named("Shell Script")
-    fun provideShellScriptConfigurationTypeSupplier(configurationType: Lazy<ShConfigurationType>) =
-        provideIfLoaded(Plugin.SHELL_SCRIPT, configurationType)
 
     @Provides
     fun provideSpringBootConfigurationType() = SpringBootApplicationConfigurationType()

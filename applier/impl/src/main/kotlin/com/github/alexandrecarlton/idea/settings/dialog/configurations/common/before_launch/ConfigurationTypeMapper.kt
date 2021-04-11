@@ -3,7 +3,6 @@ package com.github.alexandrecarlton.idea.settings.dialog.configurations.common.b
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.APPLICATION
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.DOCKER
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.REMOTE
-import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.SHELL_SCRIPT
 import com.github.alexandrecarlton.idea.settings.dialog.configurations.common.before_launch.RunConfigurationType.SPRING_BOOT
 import com.intellij.execution.configurations.ConfigurationType
 import java.util.function.Supplier
@@ -15,7 +14,6 @@ constructor(
     @param:Named("Application") private val applicationConfigurationTypeSupplier: Supplier<ConfigurationType>,
     @param:Named("Docker") private val dockerConfigurationTypeSupplier: Supplier<ConfigurationType>,
     @param:Named("Remote") private val remoteConfigurationTypeSupplier: Supplier<ConfigurationType>,
-    @param:Named("Shell Script") private val shellScriptConfigurationTypeSupplier: Supplier<ConfigurationType>,
     @param:Named("Spring Boot") private val springBootConfigurationTypeSupplier: Supplier<ConfigurationType>
 ) {
 
@@ -24,7 +22,6 @@ constructor(
             APPLICATION -> applicationConfigurationTypeSupplier.get()
             DOCKER -> dockerConfigurationTypeSupplier.get()
             REMOTE -> remoteConfigurationTypeSupplier.get()
-            SHELL_SCRIPT -> shellScriptConfigurationTypeSupplier.get()
             SPRING_BOOT -> springBootConfigurationTypeSupplier.get()
         }
 }
